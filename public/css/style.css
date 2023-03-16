@@ -1,0 +1,39 @@
+*{
+    font-family: 'Roboto';
+}
+
+.pre-carregamento{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00c2cb;
+    z-index: 11;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.efeito-carregamento
+{
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    animation: efeitos 2s infinite;
+}
+@keyframes efeitos{
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 50%;
+    }
+    100%{
+        opacity: 1000%;
+    }
+}
+#navbar img{
+    width: 50px;
+}
