@@ -12,25 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use App\Http\Controllers\ProductsController;
+Route::get('/', [ProductsController::class,'index']);
+Route::get('/produto/adicionar', [ProductsController::class,'create']);
 
-Route::get('/', function () {
-    $nome ="Mateus";
-    $idade = 29;
-    $arr=[1,2,'13',4,'fdsf'];
-    $nomes=['jorge','pedro','augusto'];
-    return view('welcome',
-     [
-        'nome'=>$nome,
-        'idade' => $idade,
-        'arr' => $arr,
-        'nomes'=>$nomes
-    
-    ]);
-});
-Route::get('/opa', function () {
-    $busca = request('search');
-    return view('opa',['busca'=>$busca]);
-});
-Route::get('/produtos/{id?}', function ($id =null) {
-    return view('product',['id' =>$id]);
-});
+

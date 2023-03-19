@@ -13,33 +13,38 @@
 
 </head>
 <body onload="preCarregamento();">
-    <div class="pre-carregamento">
-        <img src="/img/hg.png" alt="" class="efeito-carregamento">
-    </div>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="collapse navbar-collapse" id="navbar">
-                <a href="" class="navbar-brand">
-                    <img src="/img/hg.png" alt="">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Adicionar Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Entrar</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    @yield('content')
-    <footer>
-        <p>IPET DEVELOPMENT &copy; 2023</p>
-    </footer>
+    <main>
+
+    
+        <div class="pre-carregamento">
+            <img src="/img/logo.png" alt="" class="efeito-carregamento">
+        </div>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="" class="navbar-brand">
+                        <img src="/img/logo.png" alt="">
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/produto/adicionar" class="nav-link">Adicionar Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Entrar</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @yield('content')
+        <footer>
+            <p>IPET DEVELOPMENT &copy; 2023</p>
+        </footer>
+    </main>
     <script src="/js/app.js"></script>
 
 </body>
