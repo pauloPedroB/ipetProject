@@ -15,13 +15,13 @@
     <div id="cards-container" class="row">
         @foreach ($products as $product)
             <div class="card col-md-3">
-                <img src="/img/3469431.jpg" alt="{{$product->name}}">
+                <img src="/img/products/{{$product->image}}" alt="{{$product->name}}">
                 <div class="card-body">
                     <p class="card-date">19/03/2023</p>
                     <h5 class="card-title">{{$product->name}}</h5>
                     <h6 class="card-value">R$ {{$product->preco}}</h6>
                     <p class="card-distance">Há 200m de distância</p>
-                    <a href="" class="btn btn-primary">Localizar</a>
+                    <a href="" class="btn btn-primary">Saiba Mais...</a>
                 </div>
             </div>
         @endforeach
