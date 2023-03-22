@@ -21,6 +21,7 @@ class ProductsController extends Controller
         $product->name = $request->name;
         $product->descrition = $request->descrition;
         $product->preco = $request->preco;
+        
 
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
