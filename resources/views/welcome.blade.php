@@ -21,7 +21,7 @@
                     <h5 class="card-title">{{$product->name}}</h5>
                     <h6 class="card-value">R$ {{$product->preco}}</h6>
                     <p class="card-distance">Há 200m de distância</p>
-                    <a href="" class="btn btn-primary">Saiba Mais...</a>
+                    <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
                 </div>
             </div>
         @endforeach
