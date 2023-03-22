@@ -35,4 +35,8 @@ class ProductsController extends Controller
 
         return redirect('/')->with('msg','Produto adicionado com sucesso!');
     }
+    public function show($id){
+        $product = Product::findOrFail($id);
+        return view('products.show',['product'=> $product]);
+    }
 }
