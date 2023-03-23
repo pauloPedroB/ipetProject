@@ -11,15 +11,23 @@
             </div>
             <div class="form-group">
                 <label for="title">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nome do Produto" required>
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
             </div>
             <div class="form-group">
                 <label for="title">Descrição</label>
-                <textarea type="text" class="form-control" id="descrition" name="descrition" placeholder="Descrição do Produto" required></textarea>
+                <textarea type="text" class="form-control" id="Description" name="Description" placeholder="Descrição do Produto" required></textarea>
             </div>
             <div class="form-group">
                 <label for="title">Valor</label>
-                <input type="number" class="form-control" id="preco" name="preco" placeholder="R$..." required>
+                <input type="number" class="form-control" id="Value" name="Value" placeholder="R$..." required>
+            </div>
+            <div class="form-group">
+                <label for="Especificações">Especificações</label>
+                <textarea type="text" class="form-control" id="Specifications" name="Specifications" placeholder="Especificações do Produto" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title">Peso</label>
+                <input type="number" class="form-control" id="Weight" name="Weight" placeholder="R$..." required>
             </div>
             <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
         </form>

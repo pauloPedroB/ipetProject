@@ -18,9 +18,15 @@ class ProductsController extends Controller
 
         $product = new Product;
 
-        $product->name = $request->name;
-        $product->descrition = $request->descrition;
-        $product->preco = $request->preco;
+        $product->Name = $request->Name;
+        $product->Description = $request->Description;
+        $product->Value = $request->Value;
+        $product->Specifications = $request->Specifications;
+        $product->Category = $request->Specifications;
+        $product->Weight = $request->Weight;
+        
+
+        
         
 
         //image Upload
