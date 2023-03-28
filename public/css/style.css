@@ -204,3 +204,15 @@ a  img{
     height: 30px;
     width: 30px;
 }
+.btnClose{
+    background:none;
+    border: none;
+    font-size: 14px;
+    color:grey;
+    padding: 7px;
+}
+.btnClose:hover{
+    
+    color:#00c2cb;
+
+}

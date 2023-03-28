@@ -9,4 +9,8 @@ class Product extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

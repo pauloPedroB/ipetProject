@@ -31,13 +31,29 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">Produtos</a>
                         </li>
+                        @auth
                         <li class="nav-item">
                             <a href="/produto/adicionar" class="nav-link">Adicionar Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Entrar</a>
+                            <a href="/login" class="nav-link">Meus Produtos</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <input type="submit" onclick="product.preventDefault();
+                                this.closest('form').submit();" class="btnClose" value="Sair">
+                            </form>
+                        </li>
+                        @endauth
+                        @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Entrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/register" class="nav-link">Cadastrar</a>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </nav>
