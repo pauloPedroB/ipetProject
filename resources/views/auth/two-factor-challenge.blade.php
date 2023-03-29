@@ -19,12 +19,12 @@
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <x-label for="code" value="{{ __('Code') }}" />
+                    <x-label for="code" value="{{ __('Código') }}" />
                     <x-input id="code" class="block mt-1 w-full" type="text" inputmode="numeric" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <x-label for="recovery_code" value="{{ __('Recovery Code') }}" />
+                    <x-label for="recovery_code" value="{{ __('Código de Recuperação ') }}" />
                     <x-input id="recovery_code" class="block mt-1 w-full" type="text" name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
@@ -35,7 +35,7 @@
                                         recovery = true;
                                         $nextTick(() => { $refs.recovery_code.focus() })
                                     ">
-                        {{ __('Use a recovery code') }}
+                        {{ __('Use o Código de Recuperação') }}
                     </button>
 
                     <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
@@ -44,11 +44,11 @@
                                         recovery = false;
                                         $nextTick(() => { $refs.code.focus() })
                                     ">
-                        {{ __('Use an authentication code') }}
+                        {{ __('Use o código de Autenticação') }}
                     </button>
 
                     <x-button class="ml-4">
-                        {{ __('Log in') }}
+                        {{ __('Entrar') }}
                     </x-button>
                 </div>
             </form>
