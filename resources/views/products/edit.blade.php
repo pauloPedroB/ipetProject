@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Adicionar Produto')
+@section('title','Editando: '.{{$product->Name}})
 @section('content')
     <div id="event-create-container" class="col-md-6 offset-md-3">
         <h1>Adicionar produtos</h1>

@@ -14,18 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\ProductsController;
 Route::get('/', [ProductsController::class,'index']);
+Route::get('/dashboard', [ProductsController::class,'dashboard'])->middleware('auth');;
 Route::get('/produto/adicionar', [ProductsController::class,'create'])->middleware('auth');
 Route::post('/produto',[ProductsController::class,'store']);
 Route::get('/produto/{id}', [ProductsController::class,'show']);
+Route::delete('/produtos/{id}',[ProductsController::class,'destroy'])->middleware('auth');
+Route::get('/produtos/{id}',[ProductsController::class,'edit'])->middleware('auth');
 
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});

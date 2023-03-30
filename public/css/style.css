@@ -216,3 +216,13 @@ a  img{
     color:#00c2cb;
 
 }
+.dashboard-title-container{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.dashboard-products-container th{
+    width: 25%;
+}
+.dashboard-products-container form{
+    display: inline-block;
+}
