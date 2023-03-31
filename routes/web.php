@@ -20,4 +20,6 @@ Route::post('/produto',[ProductsController::class,'store']);
 Route::get('/produto/{id}', [ProductsController::class,'show']);
 Route::delete('/produtos/{id}',[ProductsController::class,'destroy'])->middleware('auth');
 Route::get('/produtos/{id}',[ProductsController::class,'edit'])->middleware('auth');
+Route::get('/usuario/Tipo_de_Acesso',[ProductsController::class,'acessLevel']);
+
 

@@ -19,7 +19,7 @@
                 @foreach ($products as $product)
                     <tr>
                         <td scope="row">{{$loop->index+1}}</td>
-                        <td><a href="/events/{{$product->id}}">{{$product->Name}}</a></td>
+                        <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
                         <td>{{$product->Value}}</td>
                         <td>
                             <a href="#" class="btn btn-info edit-btn">Editar</a>
@@ -34,7 +34,7 @@
             </tbody>
         </table>
     @else
-        <p>Você ainda não tem produtos cadastrados, <a href="/products/create">adicionar produto</a></p>
+        <p>Você ainda não tem produtos cadastrados, <a href="/produto/adicionar">adicionar produto</a></p>
     @endif
 
 </div>

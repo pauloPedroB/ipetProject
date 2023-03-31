@@ -8,11 +8,11 @@
             </div>
             <div id="info-container" class="col-md-6">
                 <h1>{{$product->Name}}</h1>
-                <a href="javascript:void(0)"><img src="/img/star0.png" id="s1"></a>
-                <a href="javascript:void(0)"><img src="/img/star0.png" id="s2"></a>
-                <a href="javascript:void(0)"><img src="/img/star0.png" id="s3"></a>
-                <a href="javascript:void(0)"><img src="/img/star0.png" id="s4"></a>
-                <a href="javascript:void(0)"><img src="/img/star0.png" id="s5"></a>
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
                 
                 <h3 class="product-Value">R$:{{$product->Value}},00</h3>
                 <p>{{$productOwner['name']}}</p>

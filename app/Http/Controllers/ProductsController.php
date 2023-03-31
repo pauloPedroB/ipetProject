@@ -74,4 +74,7 @@ class ProductsController extends Controller
 
         return view('products.view',['product' => $product]);
     }
+    public function acessLevel(){
+        return view('products.typeRegister');
+    }
 }

@@ -24,9 +24,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'access_level'
     ];
 
     /**
@@ -61,5 +61,12 @@ class User extends Authenticatable
 
     public function products(){
         return $this->hasMany('App\Models\Product');
+    }
+
+    public function acessLevel(){
+        return $this->belongsTo('App\Models\acessLevel');
+    }
+    public function comercy(){
+        return '1';
     }
 }

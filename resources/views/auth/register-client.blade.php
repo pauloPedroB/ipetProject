@@ -16,9 +16,9 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="CNPJ" value="{{ __('CNPJ') }}" />
-                <x-input id="CNPJ" class="block mt-1 w-full" type="text" pattern="[0-9]+" name="CNPJ"
-                    maxlength="11" :value="old('CNPJ')" required autocomplete="cpf" />
+                <x-label for="cpf" value="{{ __('CPF') }}" />
+                <x-input id="cpf" class="block mt-1 w-full" type="cpf" name="email" id="cpf"
+                    maxlength="11" :value="old('cpf')" required autocomplete="cpf" />
             </div>
 
             <div class="mt-4">

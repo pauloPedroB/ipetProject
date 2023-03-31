@@ -24,8 +24,8 @@ function Avaliar(estrela) {
     document.getElementById("s2").src = "/img/star1.png";
     document.getElementById("s3").src = "/img/star1.png";
     document.getElementById("s4").src = "/img/star1.png";
-    document.getElementById("s5").src = "/img/star0.png";
-    avaliacao = 4;
+    document.getElementById("s5").src = "/img/star1.png";
+    avaliacao = 5;
    }}
     
     //ESTRELA 4
@@ -41,9 +41,9 @@ function Avaliar(estrela) {
     document.getElementById("s1").src = "/img/star1.png";
     document.getElementById("s2").src = "/img/star1.png";
     document.getElementById("s3").src = "/img/star1.png";
-    document.getElementById("s4").src = "/img/star0.png";
+    document.getElementById("s4").src = "/img/star1.png";
     document.getElementById("s5").src = "/img/star0.png";
-    avaliacao = 3;
+    avaliacao = 4;
    }}
    
    //ESTRELA 3
@@ -58,10 +58,10 @@ function Avaliar(estrela) {
     } else {
     document.getElementById("s1").src = "/img/star1.png";
     document.getElementById("s2").src = "/img/star1.png";
-    document.getElementById("s3").src = "/img/star0.png";
+    document.getElementById("s3").src = "/img/star1.png";
     document.getElementById("s4").src = "/img/star0.png";
     document.getElementById("s5").src = "/img/star0.png";
-    avaliacao = 2;
+    avaliacao = 3;
    }}
     
    //ESTRELA 2
@@ -75,11 +75,11 @@ function Avaliar(estrela) {
     avaliacao = 2;
     } else {
     document.getElementById("s1").src = "/img/star1.png";
-    document.getElementById("s2").src = "/img/star0.png";
+    document.getElementById("s2").src = "/img/star1.png";
     document.getElementById("s3").src = "/img/star0.png";
     document.getElementById("s4").src = "/img/star0.png";
     document.getElementById("s5").src = "/img/star0.png";
-    avaliacao = 1;
+    avaliacao = 2;
    }}
     
     //ESTRELA 1
@@ -92,12 +92,12 @@ function Avaliar(estrela) {
     document.getElementById("s5").src = "/img/star0.png";
     avaliacao = 1;
     } else {
-    document.getElementById("s1").src = "/img/star0.png";
+    document.getElementById("s1").src = "/img/star1.png";
     document.getElementById("s2").src = "/img/star0.png";
     document.getElementById("s3").src = "/img/star0.png";
     document.getElementById("s4").src = "/img/star0.png";
     document.getElementById("s5").src = "/img/star0.png";
-    avaliacao = 0;
+    avaliacao = 1;
    }}
     
     document.getElementById('rating').innerHTML = avaliacao;
