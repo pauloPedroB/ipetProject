@@ -22,13 +22,13 @@
 
 
         <div class="pre-carregamento">
-            <img src="/img/logo.png" alt="" class="efeito-carregamento">
+            <img src="/img/loogoIpet-ret.png" alt="" class="efeito-carregamento">
         </div>
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary  text-end">
                 <div class="container-fluid">
                     <a href="" class="navbar-brand">
-                        <img src="/img/logo.png" alt="">
+                        <img src="/img/loogoIpet-ret.png" alt="">
                     </a>
                     <a class="navbar-brand" href="#">Ipet</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
