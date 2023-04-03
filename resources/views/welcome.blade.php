@@ -2,6 +2,14 @@
 @section('title','PRODUTOS')
 @section('content')
 
+@foreach($Enderecos as $Endereco)
+    @if($Endereco->id==$User->Endereco_id)
+        <?php
+            $latUser = $Endereco->Latitude;
+            $longUser = $Endereco->Longitude;
+        ?>
+    @endif
+@endforeach
 
 <div id="search-container" class="ol-md-12">
     <h1>Busque um Produto</h1>
@@ -33,12 +41,7 @@
     <div id="cards-container" class="row">
         @foreach ($products as $product)
             @foreach($Enderecos as $Endereco)
-                @if($Endereco->id==$User->Endereco_id)
-                <?php
-                    $latUser = $Endereco->Latitude;
-                    $longUSer = $Endereco->Longitude;
-                ?>
-                @endif
+               
                 @if($Endereco->id==$product->Endereco_id)
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
@@ -47,8 +50,7 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <h6 class="card-value">R$ {{$product->Value}}</h6>
                             <p class="card-distance">
-                                <?php 
-                                
+                                <?php
                                     $Endereco->Latitude = deg2rad($Endereco->Latitude);
                                     $Endereco->Longitude = deg2rad($Endereco->Longitude);
                                     $latUser = deg2rad($latUser);
@@ -62,7 +64,11 @@
                                     $r = 6371;
                                     $d=$c*$r;
                                 ?>
-                                {{$d}}
+                                @if($Endereco->id == $User->Endereco_id)
+                                    0
+                                @else
+                                    {{floatval(number_format($d,1))}}
+                                @endif
                             </p>
                             <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
                         </div>
