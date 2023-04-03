@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('access_level', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('Endereco_id')->nullable();
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('access_level');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('Endereco_id')->constrained()->onDelete('cascade');
+        });
     }
 };

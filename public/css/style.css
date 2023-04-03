@@ -226,3 +226,9 @@ a  img{
 .dashboard-products-container form{
     display: inline-block;
 }
+.img-preview{
+    width: 100px;
+}
+.img-fluid{
+    width: 600px;
+}

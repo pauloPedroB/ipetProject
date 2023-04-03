@@ -22,7 +22,7 @@
                         <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
                         <td>{{$product->Value}}</td>
                         <td>
-                            <a href="#" class="btn btn-info edit-btn">Editar</a>
+                            <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a>
                             <form action="/produtos/{{$product->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('access_levels')->constrained();
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreignId('Endereco_id')->nullable();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        chema::table('users', function (Blueprint $table) {
-            $table->foreignId('access_levels')->constrained()->onDelete('cascade');
+        Schema::table('products', function (Blueprint $table) {
+           $table->foreignId('Endereco_id')->constrained()->onDelete('cascade');
         });
     }
 };

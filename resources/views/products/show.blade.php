@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','{{$product->name}}')
+@section('title','{{$product->Name}}')
 @section('content')
     <div class="col-md-10 offset-md-1" id='show-main'>
         <div class="row">
@@ -15,7 +15,6 @@
                 <a href="javascript:void(0)"><img src="/img/star0.png"></a>
                 
                 <h3 class="product-Value">R$:{{$product->Value}},00</h3>
-                <p>{{$productOwner['name']}}</p>
                 
                 <p class="product-Category">Ração</p>
                 <p class="product-Weight">{{$product->Weight}}KG</p>

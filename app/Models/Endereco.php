@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Endereco extends Model
 {
     public $timestamps = false;
-    use HasFactory;
     protected $guarded=[];
-    public function user(){
-        return $this->belongsTo('App\Models\User');
+
+    use HasFactory;
+    public function User(){
+        return $this->hasMany('App\Models\User');
     }
     public function Endereco(){
-        return $this->belongsTo('App\Models\Endereco');
+        return $this->hasMany('App\Models\Product');
     }
 }

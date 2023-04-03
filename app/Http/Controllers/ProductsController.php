@@ -23,6 +23,7 @@ class ProductsController extends Controller
         return view('welcome',['products'=>$products,'search' => $search]);
     }
     public function create(){
+        $user = auth()->user();
         return view('products.create');
     }
     public function store(Request $request){
@@ -50,6 +51,7 @@ class ProductsController extends Controller
         }
         $user = auth()->user();
         $product->user_id = $user->id;
+        $product->Endereco_id = $user->Endereco_id;
         $product->save();
 
         return redirect('/')->with('msg','Produto adicionado com sucesso!');
@@ -72,9 +74,10 @@ class ProductsController extends Controller
     public function edit($id){
         $product=Product::findOrFail($id);
 
-        return view('products.view',['product' => $product]);
+        return view('products.edit',['product' => $product]);
     }
-    public function acessLevel(){
-        return view('products.typeRegister');
+    public function update(Request $request){
+        Product::findOrFail($request->id)->update($request->all());
+        return redirect('/dashboard')->with('msg','Produto Editado com sucesso!');
     }
 }

@@ -26,7 +26,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        'access_level'
+        'access_level',
     ];
 
     /**
@@ -40,6 +40,7 @@ class User extends Authenticatable
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+    protected $guarded=[];
 
     /**
      * The attributes that should be cast.
@@ -61,6 +62,11 @@ class User extends Authenticatable
 
     public function products(){
         return $this->hasMany('App\Models\Product');
+    }
+
+    
+    public function Endereco(){
+        return $this->belongsTo('App\Models\Endereco');
     }
 
     public function acessLevel(){
