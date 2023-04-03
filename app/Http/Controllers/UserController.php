@@ -23,6 +23,8 @@ class UserController extends Controller
         $Endereco->Numero = $request->Number;
         $Endereco->CEP = $request->cep;
         $Endereco->UF = 'sp';
+        $Endereco->Latitude = $request->lat;
+        $Endereco->Longitude = $request->long;
         $user = auth()->user();
         $Endereco->save();
         $registro = User::find($user->id);

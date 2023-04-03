@@ -64,6 +64,14 @@
                     <option value="TO">TO</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="title">Latitude</label>
+                <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..."  required>
+            </div>
+            <div class="form-group">
+                <label for="title">Latitude</label>
+                <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..."   required>
+            </div>
             <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
         </form>
     </div>

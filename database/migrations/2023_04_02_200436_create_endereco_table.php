@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('Numero');
             $table->char('CEP',8);
             $table->string('UF',2);
-            $table->float('Latitude')->nullable();
-            $table->float('Longitude')->nullable();
+            $table->string('Latitude')->nullable();
+            $table->string('Longitude')->nullable();
         });
     }
 

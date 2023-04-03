@@ -1,18 +1,5 @@
 
-const cep = '06785-050';
-const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
 
-fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cep}&key=${api_key}`)
-  .then(response => response.json())
-  .then(data => {
-    const location = data.results[0].geometry.location;
-    const latitude = location.lat;
-    const longitude = location.lng;
-
-    console.log('Latitude:', latitude);
-    console.log('Longitude:', longitude);
-  })
-  .catch(error => console.error(error));
 
 
 
@@ -22,6 +9,11 @@ const addressInput = document.querySelector("#street")
 const neighborhoodInput = document.querySelector("#neighborhood")
 const cityInput = document.querySelector("#city")
 const ufInput = document.querySelector("#uf")
+const latInput = document.querySelector("#lat")
+const longInput = document.querySelector("#long")
+const numberInput = document.querySelector("#Number")
+
+
 
 
 
@@ -60,7 +52,23 @@ cepInput.addEventListener("keypress",(e)=>{
             cityInput.value = data.localidade
             ufInput.value = data.uf
 
-        }
+            if(numberInput.value !==null)
+            {
+                const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
+        
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
+                .then(response => response.json())
+                .then(data => {
+                    const location = data.results[0].geometry.location;
+                    const latitude = location.lat;
+                    const longitude = location.lng;
+                    latInput.value = latitude;
+                    longInput.value = longitude
+                })
+                .catch(error => console.error(error));
+                }
+            }
+           
         
     }
 
@@ -70,4 +78,5 @@ cepInput.addEventListener("keypress",(e)=>{
         messageElement.innerText = msg;
     }
 
+  
 })

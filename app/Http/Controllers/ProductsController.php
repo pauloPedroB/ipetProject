@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Endereco;
+
 
 class ProductsController extends Controller
 {
@@ -19,8 +21,18 @@ class ProductsController extends Controller
         else{
             $products = Product::all();
         }
-
-        return view('welcome',['products'=>$products,'search' => $search]);
+        $User = auth()->user();
+        $Enderecos = Endereco::all();
+        $latUser = 0;
+        $longUser=0;
+        $dlon=0;
+        $dlat=0;
+        $a = 0;
+        $c=0;
+        $r=0;
+        $d=0;
+        return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
+        'dlon'=>$dlon,'dlat'=>$dlat,'a'=>$a,'c'=>$c,'r'=>$r,'d'=>$d,'latUser'=>$latUser,'longUser'=>$longUser]);
     }
     public function create(){
         $user = auth()->user();
