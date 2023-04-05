@@ -1,15 +1,16 @@
 @extends('layouts.main')
 @section('title','PRODUTOS')
 @section('content')
-
-@foreach($Enderecos as $Endereco)
-    @if($Endereco->id==$User->Endereco_id)
-        <?php
-            $latUser = $Endereco->Latitude;
-            $longUser = $Endereco->Longitude;
-        ?>
-    @endif
-@endforeach
+@auth
+    @foreach($Enderecos as $Endereco)
+        @if($Endereco->id==$User->Endereco_id)
+            <?php
+                $latUser = $Endereco->Latitude;
+                $longUser = $Endereco->Longitude;
+            ?>
+        @endif
+    @endforeach
+@endauth
 
 <div id="search-container" class="ol-md-12">
     <h1>Busque um Produto</h1>
@@ -40,9 +41,7 @@
     <p class="subtitle">Mais próximos de você</p>
     <div id="cards-container" class="row">
         @foreach ($products as $product)
-            @foreach($Enderecos as $Endereco)
-               
-                @if($Endereco->id==$product->Endereco_id)
+            
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
@@ -50,31 +49,35 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <h6 class="card-value">R$ {{$product->Value}}</h6>
                             <p class="card-distance">
-                                <?php
-                                    $Endereco->Latitude = deg2rad($Endereco->Latitude);
-                                    $Endereco->Longitude = deg2rad($Endereco->Longitude);
-                                    $latUser = deg2rad($latUser);
-                                    $longUser = deg2rad($longUser);
+                                @auth
+                                    @foreach($Enderecos as $Endereco)
+                                        @if($Endereco->id==$product->Endereco_id)
+                                            <?php
+                                                $Endereco->Latitude = deg2rad($Endereco->Latitude);
+                                                $Endereco->Longitude = deg2rad($Endereco->Longitude);
+                                                
 
-                                    $dlon = $Endereco->Longitude - $longUser;
-                                    $dlat = $Endereco->Latitude - $latUser;
+                                                $dlon = $Endereco->Longitude - deg2rad($longUser);
+                                                $dlat = $Endereco->Latitude - deg2rad($latUser);
 
-                                    $a = sin($dlat/2)**2+cos($latUser)*cos($Endereco->Latitude)*sin($dlon/2)**2;
-                                    $c = 2 * asin(sqrt($a));
-                                    $r = 6371;
-                                    $d=$c*$r;
-                                ?>
-                                @if($Endereco->id == $User->Endereco_id)
-                                    0
-                                @else
-                                    {{floatval(number_format($d,1))}}
-                                @endif
+                                                $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos($Endereco->Latitude)*sin($dlon/2)**2;
+                                                $c = 2 * asin(sqrt($a));
+                                                $r = 6371;
+                                                $d = $c*$r;
+                                            ?>
+                                            @if($Endereco->id == $User->Endereco_id)
+                                                0
+                                            @else
+                                                Distância: {{floatval(number_format($d,1))}} KM
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endauth
                             </p>
                             <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
                         </div>
                     </div>
-                @endif
-            @endforeach
+              
         @endforeach
         @if(count($products)==0)
             <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>

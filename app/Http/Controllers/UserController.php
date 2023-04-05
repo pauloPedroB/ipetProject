@@ -30,7 +30,6 @@ class UserController extends Controller
         $registro = User::find($user->id);
         $registro->Endereco_id = $Endereco->id;
         $registro->save();
-        
         return redirect('/');
     }
     public function update(Request $request){

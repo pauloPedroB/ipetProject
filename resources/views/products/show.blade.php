@@ -17,10 +17,13 @@
                 <h3 class="product-Value">R$:{{$product->Value}},00</h3>
                 
                 <p class="product-Category">Ração</p>
-                <p class="product-Weight">{{$product->Weight}}KG</p>
-
+                <p class="product-Weight">{{$product->Weight}}KG</p>                
+                <br>
                 
-                <a href="https://www.youtube.com/watch?v=UF3bUQAIXu4&list=PLnDvRpP8BnewYKI1n2chQrrR4EYiJKbUG&index=19" target="_blank" class="product-end"><i class="fa fa-map-marker"></i> Rua Bolinha, 123 - Taboão da Serra</a>
+                
+                    <div id="mapa" style="width:400px;height:250px;"></div>
+                
+
             </div>
             <div class="col-md-12" id="description-container">
                 <h3>Descrição: </h3>
@@ -42,7 +45,6 @@
                 <input type="text" name="avaliacao">
                 <input type="submit">
             </div>
-                
         </div>
     </div>
 @endsection
