@@ -7,6 +7,7 @@
                 <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
             </div>
             <div id="info-container" class="col-md-6">
+
                 <h1>{{$product->Name}}</h1>
                 <a href="javascript:void(0)"><img src="/img/star0.png"></a>
                 <a href="javascript:void(0)"><img src="/img/star0.png"></a>
@@ -19,9 +20,14 @@
                 <p class="product-Category">Ração</p>
                 <p class="product-Weight">{{$product->Weight}}KG</p>                
                 <br>
-                
-                
-                    <div id="mapa" style="width:400px;height:250px;"></div>
+                @foreach($Enderecos as $Endereco)
+                    @if($Endereco->id==$product->Endereco_id)
+                        <button onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Clique aqui para abrir o mapa</button>
+                        <div id="mapa" style="width:400px;height:250px;"></div>
+                        @break
+                    @endif
+                @endforeach
+               
                 
 
             </div>

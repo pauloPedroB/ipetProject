@@ -17,40 +17,18 @@
     <script src="/js/cep.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
     <script>
-        function initMap() {
-        var directionsService = new google.maps.DirectionsService({
-            polylineOptions: {
-                strokeColor: '#FF0000'
-            }
-        });
-        var directionsRenderer = new google.maps.DirectionsRenderer();
-
-        var map = new google.maps.Map(document.getElementById('mapa'), {
-          zoom: 18,
-          center: {lat: -23.6392240275146, lng: -46.80054076045346}
-        });
-        directionsRenderer.setMap(mapa);
-
-        var endereco1 = new google.maps.LatLng(-23.6392240275146, -46.80054076045346);
-        var endereco2 = new google.maps.LatLng(-23.6351095, -46.8049971);
-
-        var request = {
-          origin: endereco1,
-          destination: endereco2,
-          travelMode: 'DRIVING'
-        };
-
-        directionsService.route(request, function(result, status) {
-          if (status == 'OK') {
-            directionsRenderer.setDirections(result);
-          }
-        });
-      }
+        function initMap(lat1,long1) 
+        {
+            var minhaLocalizacao = {lat: lat1, lng: long1};
+            var mapa = new google.maps.Map(
+                document.getElementById('mapa'), {zoom: 18, center: minhaLocalizacao});
+            var marcador = new google.maps.Marker({position: minhaLocalizacao, map: mapa});
+        }
 
     </script>
 </head>
 
-<body onload="preCarregamento();initMap()">
+<body onload="preCarregamento();">
     <main>
 
 

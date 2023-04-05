@@ -69,9 +69,10 @@ class ProductsController extends Controller
         return redirect('/')->with('msg','Produto adicionado com sucesso!');
     }
     public function show($id){
+        $Enderecos = Endereco::all();
         $product = Product::findOrFail($id);
         $productOwner = User::where('id',$product->user_id)->first()->toArray();
-        return view('products.show',['product'=> $product,'productOwner'=>$productOwner]);
+        return view('products.show',['product'=> $product,'productOwner'=>$productOwner,'Enderecos'=>$Enderecos]);
     }
     public function dashboard(){
         $user = auth()->user();
