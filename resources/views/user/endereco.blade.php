@@ -3,36 +3,52 @@
 @section('content')
 
     <div id="event-create-container" class="col-md-6 offset-md-3">
-        <h1>Adicionar produtos</h1>
+        @foreach($Enderecos as $Endereco)
+            @if($User->Endereco_id == $Endereco->id)
+                    @php
+                        $Logradouro = $Endereco->Logradouro;
+                        $CEP = $Endereco->CEP;
+                        $Bairro = $Endereco->Bairro;
+                        $Cidade = $Endereco->Cidade;
+                        $Numero = $Endereco->Numero;
+                        $Latitude = $Endereco->Latitude;
+                        $Longitude = $Endereco->Longitude;
+                        $UF = $Endereco->UF;
+                        $title = 'Editar Endereço';
+                        $btn = 'Editar Endereço'
+                    @endphp
+                @break
+            @endif
+        @endforeach
+        <h1>{{$title}}</h1>
         <div id="message">
-            <p>oi</p>
+            <p></p>
         </div>
         <form action="/Endereco/Cadastrar" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
             <div class="form-group">
                 <label for="title">CEP:</label>
-                <input type="text" class="form-control" id="cep" name="cep" placeholder="Seu CEP..." maxlength="8" required>
-                <input type="button" class="btn btn-primary" value="Buscar Endereço">
+                <input type="text" class="form-control" id="cep" name="cep" placeholder="Seu CEP..." value="{{$CEP}}" maxlength="8" required>
             </div>
             <div class="form-group">
                 <label for="title">Rua:</label>
-                <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." required>
+                <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." value="{{$Logradouro}}" required>
             </div>
             <div class="form-group">
                 <label for="title">Número</label>
-                <input type="number" class="form-control" id="Number" name="Number" required>
+                <input type="number" class="form-control" id="Number" name="Number" value="{{$Numero}}" required>
             </div>
             <div class="form-group">
                 <label for="title">Bairro:</label>
-                <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Seu bairro..." required>
+                <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Seu bairro..." value="{{$Bairro}}" required>
             </div>
             <div class="form-group">
                 <label for="title">Cidade</label>
-                <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." required></textarea>
+                <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." value="{{$Cidade}}" required></textarea>
             </div>
             <div class="form-group">
                 <label for="title">Estado</label>
-                <select name="uf" id="uf"class="form-control" type="select" disabled required data-input>
+                <select name="uf" id="uf"class="form-control" type="select" value="{{$UF}}" disabled required data-input>
                     <option selected>Estado</option>
                     <option value="AL">AC</option>
                     <option value="AL">AL</option>
@@ -66,13 +82,13 @@
             </div>
             <div class="form-group">
                 <label for="title">Latitude</label>
-                <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..."  required>
+                <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$Latitude}}" disabled required data-input>
             </div>
             <div class="form-group">
                 <label for="title">Latitude</label>
-                <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..."   required>
+                <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$Longitude}}"  disabled required data-input>
             </div>
-            <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
+            <input type="submit" class="btn btn-primary" value="{{$btn}}">
         </form>
     </div>
 @endsection

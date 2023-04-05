@@ -17,7 +17,7 @@
     <script src="/js/cep.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
     <script>
-        function initMap(lat1,long1) 
+        function initMap(lat1,long1)
         {
             var minhaLocalizacao = {lat: lat1, lng: long1};
             var mapa = new google.maps.Map(

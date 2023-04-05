@@ -11,7 +11,19 @@ class UserController extends Controller
 {
     public function endereco()
     {
-        return view('user.endereco');
+        $user = auth()->user();
+        $Enderecos = Endereco::all();
+        $Logradouro = "";
+        $Cidade = "";
+        $Bairro = "";
+        $Numero = "";
+        $CEP="";
+        $UF="";
+        $Latitude = "";
+        $Longitude = "";
+        return view('user.endereco',['User'=>$user,'Enderecos'=>$Enderecos,'btn'=>'Registrar Endereço',
+        'Logradouro'=>$Logradouro,'Cidade'=>$Cidade,'Bairro'=>$Bairro,'Numero'=>$Numero,
+        'CEP'=>$CEP,'UF'=>$UF,'Latitude'=>$Latitude,'Longitude'=>$Longitude,'title'=>'Registrar Endereço']);
     }
     public function createEndereco(Request $request){
 

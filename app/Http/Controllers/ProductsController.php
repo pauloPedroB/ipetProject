@@ -35,8 +35,8 @@ class ProductsController extends Controller
         'dlon'=>$dlon,'dlat'=>$dlat,'a'=>$a,'c'=>$c,'r'=>$r,'d'=>$d,'latUser'=>$latUser,'longUser'=>$longUser]);
     }
     public function create(){
-        $user = auth()->user();
-        return view('products.create');
+        $User = auth()->user();
+        return view('products.create',['User'=>$User]);
     }
     public function store(Request $request){
 

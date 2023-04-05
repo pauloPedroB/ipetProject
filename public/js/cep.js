@@ -52,9 +52,17 @@ cepInput.addEventListener("keypress",(e)=>{
             cityInput.value = data.localidade
             ufInput.value = data.uf
 
-            if(numberInput.value !==null)
-            {
-                const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
+            
+            
+            
+        
+    }
+    numberInput.addEventListener("keyup", (e)=>{
+
+        const inputValue = e.target.value
+
+        if(inputValue.length === 3){
+            const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
         
                 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
                 .then(response => response.json())
@@ -66,17 +74,14 @@ cepInput.addEventListener("keypress",(e)=>{
                     longInput.value = longitude
                 })
                 .catch(error => console.error(error));
-                }
-            }
-           
-        
-    }
+                
+        }
+
+    });
 
     const toggleMessage =(msg)=>{
         const messageElement = document.querySelector("#message p");
         messageElement.style.backgroundColor = 'red';
         messageElement.innerText = msg;
     }
-
-  
-})
+}})
