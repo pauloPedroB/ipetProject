@@ -4,10 +4,10 @@
 @auth
     @foreach($Enderecos as $Endereco)
         @if($Endereco->id==$User->Endereco_id)
-            <?php
+            @php
                 $latUser = $Endereco->Latitude;
                 $longUser = $Endereco->Longitude;
-            ?>
+            @endphp
         @endif
     @endforeach
 @endauth
@@ -52,11 +52,10 @@
                                 @auth
                                     @foreach($Enderecos as $Endereco)
                                         @if($Endereco->id==$product->Endereco_id)
-                                            <?php
+                                            @php
                                                 $Endereco->Latitude = deg2rad($Endereco->Latitude);
                                                 $Endereco->Longitude = deg2rad($Endereco->Longitude);
                                                 
-
                                                 $dlon = $Endereco->Longitude - deg2rad($longUser);
                                                 $dlat = $Endereco->Latitude - deg2rad($latUser);
 
@@ -64,9 +63,10 @@
                                                 $c = 2 * asin(sqrt($a));
                                                 $r = 6371;
                                                 $d = $c*$r;
-                                            ?>
+                                                
+                                            @endphp
                                             @if($Endereco->id == $User->Endereco_id)
-                                                0
+                                                Distância: 0 KM
                                             @else
                                                 Distância: {{floatval(number_format($d,1))}} KM
                                             @endif

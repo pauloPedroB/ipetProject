@@ -15,7 +15,7 @@
                         $Longitude = $Endereco->Longitude;
                         $UF = $Endereco->UF;
                         $title = 'Editar Endereço';
-                        $btn = 'Editar Endereço'
+                        $Caminho = '/Endereco/Editar/'.$Endereco->id;
                     @endphp
                 @break
             @endif
@@ -24,7 +24,7 @@
         <div id="message">
             <p></p>
         </div>
-        <form action="/Endereco/Cadastrar" method="POST" enctype="multipart/form-data" id="addres">
+        <form action="{{$Caminho}}" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
             <div class="form-group">
                 <label for="title">CEP:</label>
@@ -88,7 +88,7 @@
                 <label for="title">Latitude</label>
                 <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$Longitude}}" required>
             </div>
-            <input type="submit" class="btn btn-primary" value="{{$btn}}">
+            <input type="submit" class="btn btn-primary" value="{{$title}}">
         </form>
     </div>
 @endsection

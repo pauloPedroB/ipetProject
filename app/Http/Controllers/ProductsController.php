@@ -78,7 +78,7 @@ class ProductsController extends Controller
         $user = auth()->user();
         $products = $user->products;
 
-        return view('products.dashboard',['products' =>$products]);
+        return view('products.dashboard',['products' =>$products,'user'=>$user]);
     }
     public function destroy($id){
         Product::findOrFail($id)->delete();

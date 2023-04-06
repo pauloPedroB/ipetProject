@@ -30,6 +30,8 @@ Route::get('/usuario/Tipo_de_Acesso',[ProductsController::class,'acessLevel']);
 Route::get('/Confirme',[UserController::class,'confirme']);
 Route::get('/Endereco',[UserController::class,'endereco'])->middleware('auth');
 Route::post('/Endereco/Cadastrar',[UserController::class,'createEndereco'])->middleware('auth');
+Route::put('/Endereco/Editar/{id}',[UserController::class,'editEndereco'])->middleware('auth');
+
 
 
 

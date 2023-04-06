@@ -21,9 +21,9 @@ class UserController extends Controller
         $UF="";
         $Latitude = "";
         $Longitude = "";
-        return view('user.endereco',['User'=>$user,'Enderecos'=>$Enderecos,'btn'=>'Registrar Endereço',
+        return view('user.endereco',['User'=>$user,'Enderecos'=>$Enderecos,
         'Logradouro'=>$Logradouro,'Cidade'=>$Cidade,'Bairro'=>$Bairro,'Numero'=>$Numero,
-        'CEP'=>$CEP,'UF'=>$UF,'Latitude'=>$Latitude,'Longitude'=>$Longitude,'title'=>'Registrar Endereço']);
+        'CEP'=>$CEP,'UF'=>$UF,'Latitude'=>$Latitude,'Longitude'=>$Longitude,'title'=>'Registrar Endereço','Caminho'=>'/Endereco/Cadastrar']);
     }
     public function createEndereco(Request $request){
 
@@ -43,6 +43,10 @@ class UserController extends Controller
         $registro->Endereco_id = $Endereco->id;
         $registro->save();
         return redirect('/');
+    }
+    public function editEndereco(Request $request){
+        Endereco::findOrFail($request->id)->update($request->all());
+        return redirect('/')->with('msg','Endereço Editado com sucesso!');
     }
     public function update(Request $request){
         

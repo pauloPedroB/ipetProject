@@ -2,16 +2,19 @@
 @section('title','Dasboard')
 @section('content')
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    <h1>Meus Eventos</h1>
+    <h1>Meus Dados</h1>
+</div>
+<div class="col-md-10 offset-md-1 dashboard-data-container">
+    <h2>{{$user->email}}</h2>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-products-container">
     @if(count($products)>0)
         <table class="table">
             <thead>
                 <tr>
+                    <th scope="col">Número</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Peso</th>
+                    <th scope="col">Valor</th>
 
                 </tr>
             </thead>
