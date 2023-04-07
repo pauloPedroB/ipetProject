@@ -9,7 +9,7 @@ class accessLevel extends Model
 {
     use HasFactory;
 
-    public function products(){
+    public function user(){
         return $this->hasMany('App\Models\User');
     }
 }

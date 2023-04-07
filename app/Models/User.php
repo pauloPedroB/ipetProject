@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'access_level',
+        'AL_id'
     ];
 
     /**
