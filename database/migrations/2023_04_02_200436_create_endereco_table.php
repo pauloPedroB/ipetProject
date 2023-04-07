@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Enderecos', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->string('Logradouro');
             $table->string('Cidade');
             $table->string('Bairro');
             $table->integer('Numero');
-            $table->char('CEP',8);
-            $table->string('UF',2);
+            $table->char('CEP', 8);
+            $table->string('UF', 2);
             $table->string('Latitude')->nullable();
             $table->string('Longitude')->nullable();
         });
