@@ -74,11 +74,13 @@ class ProductsController extends Controller
         $productOwner = User::where('id',$product->user_id)->first()->toArray();
         return view('products.show',['product'=> $product,'productOwner'=>$productOwner,'Enderecos'=>$Enderecos]);
     }
-    public function dashboard(){
+    public function dashboard($id){
         $user = auth()->user();
-        $products = $user->products;
+        $user2 = User::findOrFail($id);
+        $products = $user2->products;
 
-        return view('products.dashboard',['products' =>$products,'user'=>$user]);
+
+        return view('products.dashboard',['products' =>$products,'user'=>$user,'user2'=>$user2]);
     }
     public function destroy($id){
         Product::findOrFail($id)->delete();

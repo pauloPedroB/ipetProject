@@ -5,7 +5,7 @@
     <h1>Meus Dados</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-data-container">
-    <h2>{{$user->name}}</h2>
+    <h3>{{$user2->name}}</h3>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-products-container">
     @if(count($products)>0)

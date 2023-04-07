@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [ProductsController::class,'index']);
-Route::get('/dashboard', [ProductsController::class,'dashboard'])->middleware('auth');;
+Route::get('/dashboard/{id}', [ProductsController::class,'dashboard'])->middleware('auth');;
 Route::get('/produto/adicionar', [ProductsController::class,'create'])->middleware('auth');
 Route::post('/produto',[ProductsController::class,'store']);
 Route::get('/produto/{id}', [ProductsController::class,'show'])->where('id','[0-9]');;
