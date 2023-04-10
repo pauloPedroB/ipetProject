@@ -10,7 +10,7 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Nome') }}" />
+                <x-label for="name" value="{{ __('Nome da Loja') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
                     autofocus autocomplete="name" />
             </div>
@@ -18,7 +18,7 @@
             <div class="mt-4">
                 <x-label for="CNPJ" value="{{ __('CNPJ') }}" />
                 <x-input id="CNPJ" class="block mt-1 w-full" type="text" pattern="[0-9]+" name="CNPJ"
-                    maxlength="11" :value="old('CNPJ')" required autocomplete="cpf" />
+                    maxlength="13" :value="old('CNPJ')" required autocomplete="cpf" />
             </div>
 
             <div class="mt-4">
