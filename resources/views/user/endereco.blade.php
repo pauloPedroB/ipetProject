@@ -15,7 +15,6 @@
                         $Longitude = $Endereco->Longitude;
                         $UF = $Endereco->UF;
                         $title = 'Editar Endereço';
-                        $Caminho = '/Endereco/Editar/'.$Endereco->id;
                     @endphp
                 @break
             @endif
@@ -24,7 +23,7 @@
         <div id="message">
             <p></p>
         </div>
-        <form action="{{$Caminho}}" method="POST" enctype="multipart/form-data" id="addres">
+        <form action="/Endereco/Cadastrar" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
             <div class="form-group">
                 <label for="title">CEP:</label>
@@ -44,7 +43,9 @@
             </div>
             <div class="form-group">
                 <label for="title">Cidade</label>
-                <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." value="{{$Cidade}}" required></textarea>
+                <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." required>
+                    {{$Cidade}}
+                </textarea>
             </div>
             <div class="form-group">
                 <label for="title">Estado</label>

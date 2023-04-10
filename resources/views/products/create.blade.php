@@ -2,7 +2,7 @@
 @section('title','Adicionar Produto')
 @section('content')
     <div id="event-create-container" class="col-md-6 offset-md-3">
-        @if($User->Endereco_id != null)
+        @if($User->Endereco_id != null || $User->AL_id ==3)
             <h1>Adicionar produtos</h1>
             <form action="/produto" method="POST" enctype="multipart/form-data">
                 @csrf

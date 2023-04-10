@@ -42,11 +42,11 @@ class UserController extends Controller
         $registro = User::find($user->id);
         $registro->Endereco_id = $Endereco->id;
         $registro->save();
-        return redirect('/');
+        return redirect('/dashboard')->with('msg','Endereço Editado com sucesso!');
     }
     public function editEndereco(Request $request){
         Endereco::findOrFail($request->id)->update($request->all());
-        return redirect('/')->with('msg','Endereço Editado com sucesso!');
+        return redirect('/dashboard')->with('msg','Endereço Editado com sucesso!');
     }
     public function update(Request $request){
         

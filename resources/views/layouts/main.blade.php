@@ -46,14 +46,6 @@
                             <a href="/" class="nav-link"><h6>Produtos</h6> </a>
                         </li>
                         @auth
-                            <li>
-                                <a href="/Endereco/" class="nav-link">
-                                    Endereço
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/produto/adicionar" class="nav-link">Adicionar Produtos</a>
-                            </li>
                             <li class="nav-item">
                                 <a href="/login" class="nav-link">Meus Produtos</a>
                             </li>
@@ -61,8 +53,7 @@
                                 <form action="/logout" method="POST">
                                     @csrf
                                     <input type="submit"
-                                        onclick="product.preventDefault();
-                                this.closest('form').submit();"
+                                        onclick="product.preventDefault(); this.closest('form').submit();"
                                         class="btnClose" value="Sair">
                                 </form>
                             </li>

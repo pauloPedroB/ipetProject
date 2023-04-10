@@ -23,20 +23,45 @@ class ProductsController extends Controller
         }
         $User = auth()->user();
         $Enderecos = Endereco::all();
-        $latUser = 0;
-        $longUser=0;
-        $dlon=0;
-        $dlat=0;
-        $a = 0;
-        $c=0;
-        $r=0;
-        $d=0;
+       
         return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
-        'dlon'=>$dlon,'dlat'=>$dlat,'a'=>$a,'c'=>$c,'r'=>$r,'d'=>$d,'latUser'=>$latUser,'longUser'=>$longUser]);
+        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0]);
     }
     public function create(){
         $User = auth()->user();
         return view('products.create',['User'=>$User]);
+    }
+    public function copyProduct(){
+        $search = request('search');
+        if($search){
+            $products = Product::where([
+                ['name','like','%'.$search.'%']
+            ])->get();
+        }
+        else{
+            $products = Product::where([['user_id','=','1']])->get();
+        }
+        return view('products.copyProduct',['products'=>$products,'search' => $search]);
+    }
+    public function copy($id){
+
+        $product = Product::findOrFail($id);
+        $newProduct = new Product;
+
+        $newProduct->Name = $product->Name;
+        $newProduct->Description = $product->Description;
+        $newProduct->Value = $product->Value;
+        $newProduct->Specifications = $product->Specifications;
+        $newProduct->Category = $product->Specifications;
+        $newProduct->Weight = $product->Weight;
+        $newProduct->Image = $product->Image;
+        
+        $user = auth()->user();
+        $newProduct->user_id = $user->id;
+        $newProduct->Endereco_id = $user->Endereco_id;
+        $newProduct->save();
+
+        return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
     }
     public function store(Request $request){
 
@@ -49,10 +74,6 @@ class ProductsController extends Controller
         $product->Category = $request->Specifications;
         $product->Weight = $request->Weight;
         
-
-        
-        
-
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
             $requestImage = $request->image;
@@ -66,7 +87,7 @@ class ProductsController extends Controller
         $product->Endereco_id = $user->Endereco_id;
         $product->save();
 
-        return redirect('/')->with('msg','Produto adicionado com sucesso!');
+        return redirect('/dashboard')->with('msg','Produto adicionado com sucesso!');
     }
     public function show($id){
         $Enderecos = Endereco::all();
@@ -74,13 +95,14 @@ class ProductsController extends Controller
         $productOwner = User::where('id',$product->user_id)->first()->toArray();
         return view('products.show',['product'=> $product,'productOwner'=>$productOwner,'Enderecos'=>$Enderecos]);
     }
-    public function dashboard($id){
+    public function dashboard(){
         $user = auth()->user();
-        $user2 = User::findOrFail($id);
-        $products = $user2->products;
+        $Enderecos = Endereco::all();
+
+        $products = $user->products;
 
 
-        return view('products.dashboard',['products' =>$products,'user'=>$user,'user2'=>$user2]);
+        return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos]);
     }
     public function destroy($id){
         Product::findOrFail($id)->delete();
