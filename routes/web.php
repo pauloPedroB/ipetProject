@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [ProductsController::class,'index']);
-Route::get('/dashboard', [ProductsController::class,'dashboard'])->middleware('auth');;
+Route::get('/dashboard', [ProductsController::class,'dashboard'])->middleware('auth');
 Route::get('/produto/adicionar', [ProductsController::class,'create'])->middleware('auth');
 Route::get('/produto/disponiveis', [ProductsController::class,'copyProduct'])->middleware('auth');
 Route::get('/produto/copiar/{id}', [ProductsController::class,'copy'])->middleware('auth');
@@ -32,9 +32,11 @@ Route::put('/Editar/Usuario/{id}',[UserController::class,'update'])->middleware(
 
 Route::get('/usuario/Tipo_de_Acesso',[ProductsController::class,'acessLevel']);
 Route::get('/Confirme',[UserController::class,'confirme']);
-Route::get('/Endereco',[UserController::class,'endereco'])->middleware('auth');
+Route::get('/Endereco',[UserController::class,'endereco'])->middleware('auth')->name('Teste');
 Route::post('/Endereco/Cadastrar',[UserController::class,'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}',[UserController::class,'editEndereco'])->middleware('auth');
+
+Route::get('/Cadastrar/Usuario',[UserController::class,'typeUser'])->middleware('auth');
 
 
 

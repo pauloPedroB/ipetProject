@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Endereco;
 
 
+
 class ProductsController extends Controller
 {
     public function index(){
