@@ -20,4 +20,4 @@ use App\Http\Controllers\UserApiController;
 // });
 
 Route::get('/', [UserApiController::class, 'index']);
-Route::post('/user', [UserApiController::class, 'create']);
+Route::get('/user', [UserApiController::class, 'create']);
