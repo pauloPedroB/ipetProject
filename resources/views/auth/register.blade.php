@@ -9,6 +9,13 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            
+            <div style="display: none;">
+                <x-input id="AL" class="block mt-1 w-full" type="text" name="AL" :value="1" required
+                    autofocus autocomplete="1" />
+            </div>
+
+
             <div>
                 <x-label for="name" value="{{ __('Nome da Loja') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
