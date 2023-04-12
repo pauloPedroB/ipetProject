@@ -14,7 +14,8 @@ class UserApiController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $user = json_encode(User::find('1'));
+     
         return $user;
     }
 
