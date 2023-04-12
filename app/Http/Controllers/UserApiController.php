@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
+use League\CommonMark\Extension\Attributes\Node\Attributes;
 
 class UserApiController extends Controller
 {
@@ -13,8 +14,8 @@ class UserApiController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return json_encode($products);
+        $user = User::all();
+        return $user;
     }
 
     /**
@@ -22,10 +23,12 @@ class UserApiController extends Controller
      */
     public function create(Request $request)
     {
-        $dados = json_decode($request);
-        return $dados;
 
-        
+
+
+        return $request;
+
+
         // $user = new User();
         // $user->name = $dados->name;
         // $user->email = $dados->email;
