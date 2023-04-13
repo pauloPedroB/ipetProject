@@ -35,25 +35,33 @@ class ProductsController extends Controller
                     'user_id','=',$User->id
                 ]
             ])->get();
-            if($loja==null){
+
+            if(count($loja)==0){
                 $loja = Usuario::where([
                     [
                         'user_id','=',$User->id
                     ]
-                ]);
-                if($loja==null){
-                    $loja = 'nudasfadsfdaslo';
+                ])->get();
+                if(count($loja)==0){
+                    $loja = null;
                 }
             }
         }
         else{
-            $loja='uiugf';
+            $loja='teste';
         }
         $Loja = '';
         $Enderecos = Endereco::all();
-       
-        return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
+
+        if($loja==null){
+            return redirect('/Tipo/Usuario');
+        }
+        else{
+            return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
         'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0,'loja'=>$loja]);
+        }
+       
+        
     }
     public function create(){
         $User = auth()->user();

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Loja;
+
 
 //  AGRUPAMENTO DE ROTAS POR CONTROLLER - OPTIONS (CONTROLLER, PREFIX, NAME, MIDLEWARE) PODENDO SER ENCADEADOS
 // Route::controller('ProductsController::class')->group(
@@ -60,6 +62,11 @@ Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middlew
 Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth')->where('id', '[0-9]');
 Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth');
 Route::put('/Editar/Usuario/{id}', [UserController::class, 'update'])->middleware('auth');
+Route::get('/Tipo/Usuario', [UserController::class, 'typeUser']);
+
+Route::get('/Registar/Loja', [Loja::class, 'index']);
+
+
 
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel']);

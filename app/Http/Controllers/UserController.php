@@ -52,7 +52,7 @@ class UserController extends Controller
         
     }
     public function typeUser(){
-        return redirect('/');
+        return view('user.typeUser');
     }
     
     
