@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Endereco;
+use App\Models\Loja;
+use App\Models\Usuario;
+
+
 
 
 
@@ -22,11 +26,34 @@ class ProductsController extends Controller
         else{
             $products = Product::all();
         }
+
+
         $User = auth()->user();
+        if($User){
+            $loja = Loja::where([
+                [
+                    'user_id','=',$User->id
+                ]
+            ])->get();
+            if($loja==null){
+                $loja = Usuario::where([
+                    [
+                        'user_id','=',$User->id
+                    ]
+                ]);
+                if($loja==null){
+                    $loja = 'nudasfadsfdaslo';
+                }
+            }
+        }
+        else{
+            $loja='uiugf';
+        }
+        $Loja = '';
         $Enderecos = Endereco::all();
        
         return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
-        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0]);
+        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0,'loja'=>$loja]);
     }
     public function create(){
         $User = auth()->user();

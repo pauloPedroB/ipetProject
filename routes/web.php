@@ -68,4 +68,3 @@ Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth')
 Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth');
 
-Route::get('/Cadastrar/Usuario', [UserController::class, 'typeUser'])->middleware('auth');

@@ -80,4 +80,7 @@ class User extends Authenticatable
     public function loja(){
         return $this->hasOne('App\Models\Loja');
     }
+    public function usuario(){
+        return $this->hasOne('App\Models\Usuario');
+    }
 }
