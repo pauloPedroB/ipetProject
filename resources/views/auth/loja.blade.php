@@ -6,19 +6,19 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="">
             @csrf
 
             <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autocomplete="username" />
+                <x-label for="name" value="{{ __('Nome da Loja') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="name" name="text" :value="old('name')"
+                    required autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Senha') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="new-password" />
+                <x-label for="cnpj" value="{{ __('CNPJ') }}" />
+                <x-input id="cnpj" class="block mt-1 w-full" type="text" name="cnpj"  maxlength="18" 
+                pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" autocomplete="cnpj" placeholder="__.___.___/____-__" required  />
             </div>
 
             <div class="mt-4">
