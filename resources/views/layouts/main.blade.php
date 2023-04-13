@@ -36,14 +36,14 @@
             <img src="/img/logo.png" alt="" class="efeito-carregamento">
         </div>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar navbar-expand-lg">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="" class="navbar-brand">
-                        <img src="/img/loogoIpet-ret.png" alt="" id="nav-logo">
+                        <img  src="/img/IPetLogo.png" alt="" id="nav-logo">
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/" class="nav-link"><h6>Produtos</h6> </a>
+                            <a href="/" class="nav-link">Produtos</a>
                         </li>
                         @auth
                             <li class="nav-item">

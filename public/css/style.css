@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #00c2cb;
+    background-color: #DBF0E1;
     z-index: 11;
     display: flex;
     align-items: center;
@@ -46,28 +46,35 @@ body {
     }
 }
 header {
-    background-color: #00c2cb;
+    width: 100%;
+    height: 40%;
+
+    background-color: #DBF0E1;
     border-bottom: 2px solid grey;
     border-top: 2px solid grey;
 }
+
+
 #navbar {
     justify-content: space-between;
     padding: 5px 0;
+    height:8vw;
+    margin-right: 10%;
 }
 
 #navbar a {
-    font-size: 16px;
-    color: white;
+    font-size: 20px;
+    color: black;
 }
 
 #navbar a:hover {
-    color: rgb(221, 123, 11);
+    color: #FFC05F;
 }
 #nav-logo {
-    width: auto;
-    height: 50px;
-    margin: 0;
-    padding: 0;
+    width: 30%;
+    height: 30%;
+    margin-left: 30%;
+    
 }
 
 #search-container {
@@ -84,7 +91,7 @@ header {
 #search-container form input {
     width: 50%;
     margin: 0 auto;
-    border: 2px solid #00c2cb;
+    border: 2px solid #DBF0E1;
 }
 
 #products-container {
