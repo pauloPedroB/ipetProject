@@ -5,7 +5,7 @@
     <h1>Meus Dados</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-name-container">
-    <h3>{{$user->name}}</h3>
+    
 </div>
 @if($user->Endereco_id == null && $user->AL_id !=3)
     <div class="col-md-10 offset-md-1 dashboard-endereco-container">

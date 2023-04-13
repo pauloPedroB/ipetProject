@@ -2,6 +2,7 @@
 @section('title','PRODUTOS')
 @section('content')
 @auth
+    <p>oiiiiiiiiiiiiiii {{$loja}}</p>
     @foreach($Enderecos as $Endereco)
         @if($Endereco->id==$User->Endereco_id)
             @php

@@ -51,6 +51,9 @@ class UserController extends Controller
     public function update(Request $request){
         
     }
+    public function typeUser(){
+        return redirect('/');
+    }
     
     
     

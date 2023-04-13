@@ -77,4 +77,10 @@ class User extends Authenticatable
     public function comercy(){
         return '1';
     }
+    public function loja(){
+        return $this->hasOne('App\Models\Loja');
+    }
+    public function usuario(){
+        return $this->hasOne('App\Models\Usuario');
+    }
 }
