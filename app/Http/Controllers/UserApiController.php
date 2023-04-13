@@ -17,7 +17,7 @@ class UserApiController extends Controller
         $user = User::find('1');
 
         $data = ['id' => $user->id, "email" => $user->email];
-        return '{"id":1,"email":"email@email"}';
+        return response()->json($data, 200);
     }
 
     /**
