@@ -1,19 +1,11 @@
+
+/* Reset Page*/
 * {
     font-family: "Roboto";
 }
-body {
-    min-height: 100vh;
-    padding-bottom: 100px;
-    position: relative;
-}
 
-.row {
-    margin: 0;
-}
-.container-fluid {
-    padding: 0;
-}
 
+/* Pré Loading */
 .pre-carregamento {
     width: 100%;
     min-height: 100vh;
@@ -45,16 +37,27 @@ body {
         opacity: 1000%;
     }
 }
+.row {
+    margin:0;
+}
+.container-fluid {
+    padding: 0;
+}
+
+
+
+/* Header */
 header {
     width: 100%;
     height: 40%;
-
+    
     background-color: #DBF0E1;
     border-bottom: 2px solid grey;
     border-top: 2px solid grey;
 }
 
 
+/* Navigation */
 #navbar {
     justify-content: space-between;
     padding: 5px 0;
@@ -77,6 +80,17 @@ header {
     
 }
 
+
+/* Body */
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+
+
+/* Search */
 #search-container {
     background-size: cover;
     background-position: center;
@@ -86,13 +100,15 @@ header {
 }
 #search-container h1 {
     margin-bottom: 30px;
-    font-weight: 900;
+    font-weight: 500;
 }
 #search-container form input {
     width: 50%;
     margin: 0 auto;
     border: 2px solid #DBF0E1;
 }
+
+
 
 #products-container {
     padding: 50px;
