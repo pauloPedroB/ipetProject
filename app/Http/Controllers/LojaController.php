@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Loja;
 
-class Loja extends Controller
+
+class LojaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +19,14 @@ class Loja extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+        $loja = new Loja;
+        $loja->name = $request->name;
+        $user = auth()->user();
+        $loja->user_id = $user->id;
+        $loja->save();
+        return redirect('/');
     }
 
     /**

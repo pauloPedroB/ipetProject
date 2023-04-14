@@ -46,15 +46,30 @@ class ProductsController extends Controller
                     $loja = null;
                 }
             }
+            
         }
         else{
             $loja='teste';
         }
-        $Loja = '';
         $Enderecos = Endereco::all();
-
-        if($loja==null){
+        $end = false;
+        if($loja==null && $User->AL_id !=3){
             return redirect('/Tipo/Usuario');
+        }
+        else{
+            if($User &&$User->AL_id!=3)
+            {
+                foreach($loja as $loj){
+                    if($loj->Endereco_id == null)
+                    {
+                        $end = true;
+                    }
+               }
+            }
+           
+        }
+        if($end == true && $User->AL_id !=3){
+            return redirect('/Endereco');
         }
         else{
             return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
@@ -135,10 +150,40 @@ class ProductsController extends Controller
         $user = auth()->user();
         $Enderecos = Endereco::all();
 
+       
+        $loja = Loja::where([
+            [
+                'user_id','=',$user->id
+            ]
+        ])->get();
+
+        if(count($loja)==0){
+            $loja = Usuario::where([
+                [
+                    'user_id','=',$user->id
+                ]
+            ])->get();
+            if(count($loja)==0){
+                $loja = null;
+            }
+        }
+        $Loja = '';
+        if($user->AL_id !=3)
+        {
+            foreach($loja as $loj){
+                if($loj->user_id==$user->id)
+                {
+                    $Loja = $loj;
+                }
+           }
+        }
+       
+        
+
         $products = $user->products;
 
 
-        return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos]);
+        return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja]);
     }
     public function destroy($id){
         Product::findOrFail($id)->delete();

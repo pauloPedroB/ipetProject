@@ -1,3 +1,5 @@
+
+
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
@@ -6,20 +8,31 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="">
+        <form method="POST" action="/Cadastrar/Loja">
             @csrf
 
             <div class="mt-4">
                 <x-label for="name" value="{{ __('Nome da Loja') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="name" name="text" :value="old('name')"
+                <x-input id="name" class="block mt-1 w-full" type="name" name="name" :value="old('name')"
                     required autocomplete="name" />
             </div>
 
-            <div class="mt-4">
-                <x-label for="cnpj" value="{{ __('CNPJ') }}" />
-                <x-input id="cnpj" class="block mt-1 w-full" type="text" name="cnpj"  maxlength="18" 
-                pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" autocomplete="cnpj" placeholder="__.___.___/____-__" required  />
-            </div>
+            
+            <script>
+                var input = document.getElementById("cnpj");
+            
+                input.addEventListener("keydown", function(event) {
+                    // Permite apenas números
+                    if (!((event.keyCode >= 48 && event.keyCode <= 57) || 
+                        (event.keyCode >= 96 && event.keyCode <= 105) || 
+                        event.keyCode == 8 || event.keyCode == 9 || 
+                        event.keyCode == 13 || event.keyCode == 27 || 
+                        event.keyCode == 46 || event.keyCode == 110 || 
+                        event.keyCode == 190)) {
+                        event.preventDefault();
+                    }
+                });
+            </script>
 
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" />
