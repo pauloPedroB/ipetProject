@@ -13,11 +13,15 @@
 
             <div class="mt-4">
                 <x-label for="name" value="{{ __('Nome da Loja') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="name" name="name" :value="old('name')"
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
                     required autocomplete="name" />
             </div>
 
-            
+            <div class="mt-4">
+                <x-label for="cnpj" value="{{ __('CNPJ') }}" />
+                <x-input id="cnpj" class="block mt-1 w-full" type="text" name="cnpj"  maxlength="15" 
+                autocomplete="cnpj" placeholder="__.___.___/____-__" required  />
+            </div>
             <script>
                 var input = document.getElementById("cnpj");
             
@@ -33,12 +37,6 @@
                     }
                 });
             </script>
-
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                    name="password_confirmation" required autocomplete="new-password" />
-            </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
@@ -73,10 +71,69 @@
                     {{ __('Já tem cadastrado?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-4" id="sub" style="display: none;">
                     {{ __('Cadastrar') }}
                 </x-button>
             </div>
         </form>
+        <x-button class="ml-4" onclick="javascript:validar()" id="valide">
+            {{ __('Validar CNPJ') }}
+        </x-button>
+        
     </x-authentication-card>
 </x-guest-layout>
+
+<script>
+    validarCnpj = function () {
+        const cnpj = document.getElementById('cnpj');
+        const cnpj = cnpj.replace(/[^\d]+/g,'');
+
+        if(cnpj == '') return false;
+        
+        if (cnpj.length != 14)
+            return false;
+    
+        // Elimina CNPJs invalidos conhecidos
+        if (cnpj == "00000000000000" || 
+            cnpj == "11111111111111" || 
+            cnpj == "22222222222222" || 
+            cnpj == "33333333333333" || 
+            cnpj == "44444444444444" || 
+            cnpj == "55555555555555" || 
+            cnpj == "66666666666666" || 
+            cnpj == "77777777777777" || 
+            cnpj == "88888888888888" || 
+            cnpj == "99999999999999")
+            return false;
+            
+        // Valida DVs
+        tamanho = cnpj.length - 2
+        numeros = cnpj.substring(0,tamanho);
+        digitos = cnpj.substring(tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
+            return false;
+            
+        tamanho = tamanho + 1;
+        numeros = cnpj.substring(0,tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+            return false;
+            
+        return true;
+    }
+</script>

@@ -7,6 +7,49 @@
 <div class="col-md-10 offset-md-1 dashboard-name-container">
     
 </div>
+
+<div class="col-md-10 offset-md-1 dashboard-products-container">
+    @if(count($products)>0)
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($products as $product)
+                    <tr>
+                        <td scope="row">{{$loop->index+1}}</td>
+                        <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
+                        <td>{{$product->Value}}</td>
+                        <td>
+                            <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a>
+                            <form action="/produtos/{{$product->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @if($user->AL_id !=3)
+            <a href="/produto/disponiveis">adicionar produto</a>
+        @else
+            <a href="/produto/adicionar">adicionar produto</a>
+        @endif
+    @else
+        @if($user->AL_id !=3)
+            <p>Você ainda não tem produtos cadastrados, <a href="/produto/disponiveis">adicionar produto</a></p>
+        @else
+          <p>Você ainda não tem produtos cadastrados, <a href="/produto/adicionar">adicionar produto</a></p>
+        @endif
+    @endif
+</div>
 @if($user->AL_id !=3)
     @if($Loja->Endereco_id == null)
         <div class="col-md-10 offset-md-1 dashboard-endereco-container">
@@ -26,43 +69,8 @@
                 @break
             @endif
         @endforeach
-        <div class="col-md-10 offset-md-1 dashboard-products-container">
-            @if(count($products)>0)
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Número</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Valor</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($products as $product)
-                            <tr>
-                                <td scope="row">{{$loop->index+1}}</td>
-                                <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
-                                <td>{{$product->Value}}</td>
-                                <td>
-                                    <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a>
-                                    <form action="/produtos/{{$product->id}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <a href="/produto/disponiveis">adicionar produto</a>
-            @else
-                <p>Você ainda não tem produtos cadastrados, <a href="/produto/disponiveis">adicionar produto</a></p>
-            @endif
-        </div>
     @endif
-@else
-    <a href="/produto/disponiveis">adicionar produto</a>
+
 @endif
 
 

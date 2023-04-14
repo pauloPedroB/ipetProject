@@ -21,10 +21,13 @@ class ProductsController extends Controller
         if($search){
             $products = Product::where([
                 ['name','like','%'.$search.'%']
-            ])->get();
+            ])->whereNotIn('user_id',[1])
+            ->get();
         }
         else{
-            $products = Product::all();
+            $products = Product::join('users','products.user_id','=','users.id')
+                                ->where('users.AL_id','!=',3)
+                                ->get();
         }
 
 
@@ -90,7 +93,9 @@ class ProductsController extends Controller
             ])->get();
         }
         else{
-            $products = Product::where([['user_id','=','1']])->get();
+            $products = Product::join('users','products.user_id','=','users.id')
+                                ->where('users.AL_id','=',3)
+                                ->get();
         }
         return view('products.copyProduct',['products'=>$products,'search' => $search]);
     }
@@ -135,7 +140,14 @@ class ProductsController extends Controller
         }
         $user = auth()->user();
         $product->user_id = $user->id;
-        $product->Endereco_id = $user->Endereco_id;
+        $loja = Loja::where([['user_id','=',$user->id]])->get();
+        foreach($loja as $loj)
+        {
+            if($loj->user_id == $user->id){
+                $product->Endereco_id = $loj->Endereco_id;
+                break;
+            }
+        }
         $product->save();
 
         return redirect('/dashboard')->with('msg','Produto adicionado com sucesso!');
