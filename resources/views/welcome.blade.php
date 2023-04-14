@@ -2,7 +2,6 @@
 @section('title','PRODUTOS')
 @section('content')
 @auth
-    
     @foreach($Enderecos as $Endereco)
         @if($Endereco->id==$User->Endereco_id)
             @php

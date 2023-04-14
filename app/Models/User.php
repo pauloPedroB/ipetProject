@@ -65,12 +65,6 @@ class User extends Authenticatable
     public function products(){
         return $this->hasMany('App\Models\Product');
     }
-
-    
-    public function Endereco(){
-        return $this->belongsTo('App\Models\Endereco');
-    }
-
     public function acessLevel(){
         return $this->belongsTo('App\Models\acessLevel');
     }

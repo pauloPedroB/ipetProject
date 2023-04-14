@@ -11,10 +11,14 @@ class Endereco extends Model
     protected $guarded=[];
 
     use HasFactory;
-    public function User(){
-        return $this->hasMany('App\Models\User');
-    }
+   
     public function Endereco(){
         return $this->hasMany('App\Models\Product');
+    }
+    public function loja(){
+        return $this->hasOne('App\Models\Loja');
+    }
+    public function usuario(){
+        return $this->hasOne('App\Models\Usuario');
     }
 }

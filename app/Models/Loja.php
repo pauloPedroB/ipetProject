@@ -14,6 +14,8 @@ class Loja extends Model
     public function User(){
         return $this->hasOne('App\Models\User');
     }
-
+    public function endereco(){
+        return $this->hasOne('App\Models\Endereco');
+    }
 
 }
