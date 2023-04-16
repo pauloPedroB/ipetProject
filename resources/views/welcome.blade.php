@@ -3,7 +3,7 @@
 @section('content')
 @auth
     @foreach($Enderecos as $Endereco)
-        @if($Endereco->id==$User->Endereco_id)
+        @if($Endereco->id==$id_end)
             @php
                 $latUser = $Endereco->Latitude;
                 $longUser = $Endereco->Longitude;
@@ -65,9 +65,10 @@
                                                 $d = $c*$r;
                                                 
                                             @endphp
-                                            @if($Endereco->id == $User->Endereco_id)
+                                            @if($Endereco->id == $id_end)
                                                 Distância: 0 KM
                                             @else
+                                           
                                                 Distância: {{floatval(number_format($d,1))}} KM
                                             @endif
                                         @endif

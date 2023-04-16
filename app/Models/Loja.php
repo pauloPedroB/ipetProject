@@ -17,5 +17,8 @@ class Loja extends Model
     public function endereco(){
         return $this->hasOne('App\Models\Endereco');
     }
+    public function productsLoja(){
+        return $this->hasMany('App\Models\productsLoja');
+    }
 
 }

@@ -34,13 +34,11 @@
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
-                            <p class="card-date">19/03/2023</p>
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <h6 class="card-value">R$ {{$product->Value}}</h6>
                             <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
                         </div>
                     </div>
-              
         @endforeach
         @if(count($products)==0)
             <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>

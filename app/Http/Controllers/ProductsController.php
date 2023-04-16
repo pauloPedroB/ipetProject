@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Endereco;
 use App\Models\Loja;
 use App\Models\Usuario;
+use App\Models\productsLoja;
+
 
 
 
@@ -19,17 +21,18 @@ class ProductsController extends Controller
 
         $search = request('search');
         if($search){
-            $products = Product::where([
-                ['name','like','%'.$search.'%']
-            ])->whereNotIn('user_id',[1])
+            $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
+            ->join('users','products.user_id','=','users.id')
+            ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
+            ->where([['name','like','%'.$search.'%']])
             ->get();
         }
         else{
-            $products = Product::join('users','products.user_id','=','users.id')
-                                ->where('users.AL_id','!=',3)
+            $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
+                                ->join('users','products.user_id','=','users.id')
+                                ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
                                 ->get();
         }
-
 
         $User = auth()->user();
         if($User){
@@ -56,16 +59,20 @@ class ProductsController extends Controller
         }
         $Enderecos = Endereco::all();
         $end = false;
+        $id_end = 0;
         if($loja==null && $User->AL_id !=3){
             return redirect('/Tipo/Usuario');
         }
         else{
-            if($User &&$User->AL_id!=3)
+            if($User && $User->AL_id!=3)
             {
                 foreach($loja as $loj){
                     if($loj->Endereco_id == null)
                     {
                         $end = true;
+                    }
+                    else{
+                        $id_end=$loj->Endereco_id;
                     }
                }
             }
@@ -76,7 +83,7 @@ class ProductsController extends Controller
         }
         else{
             return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
-        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0,'loja'=>$loja]);
+        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0,'id_end'=>$id_end]);
         }
        
         
@@ -95,26 +102,39 @@ class ProductsController extends Controller
         else{
             $products = Product::join('users','products.user_id','=','users.id')
                                 ->where('users.AL_id','=',3)
+                                ->select('users.id as id_U','products.id as id','Name','Value','Image','User_id')
                                 ->get();
         }
-        return view('products.copyProduct',['products'=>$products,'search' => $search]);
+        $user = auth()->user();
+        $lojas = Loja::all();
+        $Loja = '';
+        foreach($lojas as $loja){
+            if($loja->User_id == $user->id){
+                $Loja = $loja->id;
+            }
+
+        }
+        if($Loja!=null){
+            $myproducts = productsLoja::where('Loja_id','=',$Loja->id);
+        }
+        else{
+            $myproducts = null;
+        }
+        return view('products.copyProduct',['products'=>$products,'search' => $search,'myproducts'=>$myproducts]);
     }
     public function copy($id){
-
-        $product = Product::findOrFail($id);
-        $newProduct = new Product;
-
-        $newProduct->Name = $product->Name;
-        $newProduct->Description = $product->Description;
-        $newProduct->Value = $product->Value;
-        $newProduct->Specifications = $product->Specifications;
-        $newProduct->Category = $product->Specifications;
-        $newProduct->Weight = $product->Weight;
-        $newProduct->Image = $product->Image;
-        
         $user = auth()->user();
-        $newProduct->user_id = $user->id;
-        $newProduct->Endereco_id = $user->Endereco_id;
+        $product = Product::findOrFail($id);
+        $newProduct = new productsLoja;
+        $lojas = Loja::all();
+        foreach($lojas as $loja){
+            if($loja->user_id == $user->id){
+                $newProduct->Loja_id = $loja->id;
+            }
+        }
+        $newProduct->Product_id = $product->id;
+
+        
         $newProduct->save();
 
         return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
@@ -154,9 +174,17 @@ class ProductsController extends Controller
     }
     public function show($id){
         $Enderecos = Endereco::all();
-        $product = Product::findOrFail($id);
-        $productOwner = User::where('id',$product->user_id)->first()->toArray();
-        return view('products.show',['product'=> $product,'productOwner'=>$productOwner,'Enderecos'=>$Enderecos]);
+        $products = productsLoja::findOrFail($id)
+                        ->join('products','products.id','=','products_Lojas.Product_id')
+                        ->join('users','products.user_id','=','users.id')
+                        ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
+                        ->get();
+        foreach($products as $product){
+            if($product->id == $id){
+                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos]);
+                
+            }
+        }
     }
     public function dashboard(){
         $user = auth()->user();
@@ -191,14 +219,28 @@ class ProductsController extends Controller
         }
        
         
-
-        $products = $user->products;
+        if($user->AL_id !=3){
+            $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
+            ->where('products_Lojas.Loja_id','=',$Loja->id)
+            ->select('products.id as id_U','products_Lojas.id as id','Name','Value','User_id')
+            ->get();
+        }
+        else{
+            $products = Product::all();
+        }
+       
 
 
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja]);
     }
     public function destroy($id){
-        Product::findOrFail($id)->delete();
+        $user = auth()->user();
+        if($user->AL_id != 3){
+            productsLoja::findOrFail($id)->delete();
+        }
+        else{
+            Product::findOrFail($id)->delete();
+        }
         return redirect('/dashboard')->with('msg','Produto excluído com sucesso!');
     }
     public function edit($id){

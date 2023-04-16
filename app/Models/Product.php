@@ -16,4 +16,7 @@ class Product extends Model
     public function Endereco(){
         return $this->belongsTo('App\Models\Endereco');
     }
+    public function productsLoja(){
+        return $this->hasMany('App\Models\productsLoja');
+    }
 }
