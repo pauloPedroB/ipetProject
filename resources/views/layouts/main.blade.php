@@ -47,7 +47,7 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">Meus Produtos</a>
+                                <a href="/dashboard" class="nav-link">Meus Dados</a>
                             </li>
                             <li class="nav-item">
                                 <form action="/logout" method="POST">
