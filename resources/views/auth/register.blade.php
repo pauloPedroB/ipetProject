@@ -5,24 +5,25 @@
         </x-slot>
 
         <x-validation-errors class="mb-4" />
+        <h4 id="error-message"></h4>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" id="myForm">
             @csrf
 
             <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('Email') }}" id="lbemail"/>
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
                     required autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Senha') }}" />
+                <x-label for="password" value="{{ __('Senha') }}" id="lbpass"/>
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" id="lbpassc"/>
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required autocomplete="new-password" />
             </div>
@@ -60,10 +61,40 @@
                     {{ __('Já tem cadastrado?') }}
                 </a>
 
-                <x-button class="ml-4">
-                    {{ __('Cadastrar') }}
-                </x-button>
+                <button type="submit" class="ml-4">Cadastrar</button>
             </div>
         </form>
     </x-authentication-card>
 </x-guest-layout>
+<script>
+    const form = document.getElementById("myForm");
+    const msg = document.getElementById('error-message');
+    form.addEventListener("submit", function(event)
+    {
+        console.log('teste');
+        event.preventDefault();
+        const re = /\S+@\S+\.\S+/;
+        if(re.test(document.getElementById('email').value)==false){
+            msg.innerText = 'Email inválido';
+            msg.style.color = 'red';
+            document.getElementById('lbemail').style.color = 'red';
+            return;
+        }
+        const rs = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if(rs.test(document.getElementById('password').value) == false){
+            msg.innerText = 'Sua senha deve conter no mínimo 8 caracteres, sendo com pelo menos um caractere especial, um número e uma letra maiuscula';
+            msg.style.color = 'red';
+            document.getElementById('lbpass').style.color = 'red';
+            return;
+        }
+        if(document.getElementById('password').value != document.getElementById('password_confirmation').value){
+            msg.innerText = 'Senha e confirmação de senha devem ser iguais';
+            msg.style.color = 'red';
+            document.getElementById('lbpass').style.color = 'red';
+            document.getElementById('lbpassc').style.color = 'red';
+            return;
+        }
+        return form.submit();
+
+    });
+</script>
