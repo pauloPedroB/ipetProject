@@ -35,7 +35,6 @@
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$product->Name}}</h5>
-                            <h6 class="card-value">R$ {{$product->Value}}</h6>
                             <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
                         </div>
                     </div>

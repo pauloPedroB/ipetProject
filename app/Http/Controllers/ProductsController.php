@@ -102,7 +102,7 @@ class ProductsController extends Controller
         else{
             $products = Product::join('users','products.user_id','=','users.id')
                                 ->where('users.AL_id','=',3)
-                                ->select('users.id as id_U','products.id as id','Name','Value','Image','User_id')
+                                ->select('users.id as id_U','products.id as id','Name','Image','User_id')
                                 ->get();
         }
         $user = auth()->user();
@@ -145,10 +145,6 @@ class ProductsController extends Controller
 
         $product->Name = $request->Name;
         $product->Description = $request->Description;
-        $product->Value = $request->Value;
-        $product->Specifications = $request->Specifications;
-        $product->Category = $request->Specifications;
-        $product->Weight = $request->Weight;
         
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -222,7 +218,7 @@ class ProductsController extends Controller
         if($user->AL_id !=3){
             $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
             ->where('products_Lojas.Loja_id','=',$Loja->id)
-            ->select('products.id as id_U','products_Lojas.id as id','Name','Value','User_id')
+            ->select('products.id as id_U','products_Lojas.id as id','Name','User_id')
             ->get();
         }
         else{
