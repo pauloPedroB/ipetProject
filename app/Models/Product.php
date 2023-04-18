@@ -13,10 +13,10 @@ class Product extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
-    public function Endereco(){
-        return $this->belongsTo('App\Models\Endereco');
-    }
     public function productsLoja(){
         return $this->hasMany('App\Models\productsLoja');
+    }
+    public function category(){
+        return $this->belongsTo('App\Models\Category');
     }
 }

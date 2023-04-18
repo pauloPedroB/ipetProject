@@ -12,9 +12,7 @@ class Endereco extends Model
 
     use HasFactory;
    
-    public function Endereco(){
-        return $this->hasMany('App\Models\Product');
-    }
+   
     public function loja(){
         return $this->hasOne('App\Models\Loja');
     }
