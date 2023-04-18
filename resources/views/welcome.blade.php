@@ -1,7 +1,69 @@
-@extends('layouts.main')
-@section('title','PRODUTOS')
-@section('content')
-@auth
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="/js/funcoes.js"></script>
+    <script src="/js/cep.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
+    <script>
+        function initMap(lat1,long1)
+        {
+            var minhaLocalizacao = {lat: lat1, lng: long1};
+            var mapa = new google.maps.Map(
+                document.getElementById('mapa'), {zoom: 18, center: minhaLocalizacao});
+            var marcador = new google.maps.Marker({position: minhaLocalizacao, map: mapa});
+        }
+
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbar">
+                <a href="" class="navbar-brand">
+                    <img  src="/img/IPetLogo.png" alt="" id="nav-logo">
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Produtos</a>
+                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Meus Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <input type="submit"
+                                    onclick="product.preventDefault(); this.closest('form').submit();"
+                                    class="btnClose" value="Sair">
+                            </form>
+                        </li>
+                    @endauth
+                    @guest
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="nav-link">Cadastrar</a>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </nav>
+        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+    </header>
+    @auth
     @foreach($Enderecos as $Endereco)
         @if($Endereco->id==$id_end)
             @php
@@ -29,7 +91,6 @@
                 <option value="">Avaliação</option>
             </select>
         </p>
-        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </form>
 </div>
 <div id="products-container" class="col-md-12">
@@ -87,6 +148,9 @@
         @endif
     </div>
 </div>
-@endsection
+
 
   
+    
+</body>
+</html>
