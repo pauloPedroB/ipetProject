@@ -29,7 +29,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
                 <a href="" class="navbar-brand">
                     <img src="/img/IPetLogo.png" alt="" id="nav-logo">
