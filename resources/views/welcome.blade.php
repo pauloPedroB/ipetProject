@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,16 +29,22 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
                 <a href="" class="navbar-brand">
-                    <img  src="/img/IPetLogo.png" alt="" id="nav-logo">
+                    <img src="/img/IPetLogo.png" alt="" id="nav-logo">
                 </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Produtos</a>
-                    </li>
-                    @auth
+                <a class="navbar-brand" href="#">iPET</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Produtos</a>
+                        </li>
+                        @auth
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">Meus Dados</a>
                         </li>
@@ -49,108 +56,111 @@
                                     class="btnClose" value="Sair">
                             </form>
                         </li>
-                    @endauth
-                    @guest
+                        @endauth
+                        @guest
                         <li class="nav-item">
                             <a href="/login" class="nav-link">Entrar</a>
                         </li>
                         <li class="nav-item">
                             <a href="/register" class="nav-link">Cadastrar</a>
                         </li>
-                    @endguest
-                </ul>
+                        @endguest
+                    </ul>
+                </div>
             </div>
         </nav>
         <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </header>
     @auth
     @foreach($Enderecos as $Endereco)
-        @if($Endereco->id==$id_end)
-            @php
-                $latUser = $Endereco->Latitude;
-                $longUser = $Endereco->Longitude;
-            @endphp
-        @endif
-    @endforeach
-@endauth
-
-<div id="search-container" class="ol-md-12">
-    <h1>Busque um Produto</h1>
-    <form action="/" method="GET">
-        <p> Pesquisar por: 
-            <select name="Category" id="">
-                <option value="">Todos</option>
-                <option value="">Rações</option>
-                <option value="">Remédios</option>
-                <option value="">Acessórios</option>
-            </select>
-            Pesquisar por ordem de: 
-            <select name="orderBy" id="">
-                <option value="">Distância</option>
-                <option value="">Preço</option>
-                <option value="">Avaliação</option>
-            </select>
-        </p>
-    </form>
-</div>
-<div id="products-container" class="col-md-12">
-    @if($search)
-        <h2>Buscando por: {{$search}}</h2>
-    @else
-        <h2>Produtos/Comércios</h2>
+    @if($Endereco->id==$id_end)
+    @php
+    $latUser = $Endereco->Latitude;
+    $longUser = $Endereco->Longitude;
+    @endphp
     @endif
-    <p class="subtitle">Mais próximos de você</p>
-    <div id="cards-container" class="row">
-        @foreach ($products as $product)
-            
-                    <div class="card col-md-3">
-                        <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
-                        <div class="card-body">
-                            <p class="card-date">19/03/2023</p>
-                            <h5 class="card-title">{{$product->Name}}</h5>
-                            <h6 class="card-value">R$ {{$product->Value}}</h6>
-                            <p class="card-distance">
-                                @auth
-                                    @foreach($Enderecos as $Endereco)
-                                        @if($Endereco->id==$product->Endereco_id)
-                                            @php
-                                                $Endereco->Latitude = deg2rad($Endereco->Latitude);
-                                                $Endereco->Longitude = deg2rad($Endereco->Longitude);
-                                                
-                                                $dlon = $Endereco->Longitude - deg2rad($longUser);
-                                                $dlat = $Endereco->Latitude - deg2rad($latUser);
+    @endforeach
+    @endauth
 
-                                                $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos($Endereco->Latitude)*sin($dlon/2)**2;
-                                                $c = 2 * asin(sqrt($a));
-                                                $r = 6371;
-                                                $d = $c*$r;
-                                                
-                                            @endphp
-                                            @if($Endereco->id == $id_end)
-                                                Distância: 0 KM
-                                            @else
-                                           
-                                                Distância: {{floatval(number_format($d,1))}} KM
-                                            @endif
-                                        @endif
-                                    @endforeach
-                                @endauth
-                            </p>
-                            <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
-                        </div>
-                    </div>
-              
-        @endforeach
-        @if(count($products)==0)
-            <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
-        @elseif(count($products)==0)
-            <p>Não há eventos disponíveis</p>
-        @endif
+    <div id="search-container" class="ol-md-12">
+        <h1>Busque um Produto</h1>
+        <form action="/" method="GET">
+            <p> Pesquisar por:
+                <select name="Category" id="">
+                    <option value="">Todos</option>
+                    <option value="">Rações</option>
+                    <option value="">Remédios</option>
+                    <option value="">Acessórios</option>
+                </select>
+                Pesquisar por ordem de:
+                <select name="orderBy" id="">
+                    <option value="">Distância</option>
+                    <option value="">Preço</option>
+                    <option value="">Avaliação</option>
+                </select>
+            </p>
+        </form>
     </div>
-</div>
+    <div id="products-container" class="col-md-12">
+        @if($search)
+        <h2>Buscando por: {{$search}}</h2>
+        @else
+        <h2>Produtos/Comércios</h2>
+        @endif
+        <p class="subtitle">Mais próximos de você</p>
+        <div id="cards-container" class="row">
+            @foreach ($products as $product)
+
+            <div class="card col-md-3">
+                <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
+                <div class="card-body">
+                    <p class="card-date">19/03/2023</p>
+                    <h5 class="card-title">{{$product->Name}}</h5>
+                    <h6 class="card-value">R$ {{$product->Value}}</h6>
+                    <p class="card-distance">
+                        @auth
+                        @foreach($Enderecos as $Endereco)
+                        @if($Endereco->id==$product->Endereco_id)
+                        @php
+                        $Endereco->Latitude = deg2rad($Endereco->Latitude);
+                        $Endereco->Longitude = deg2rad($Endereco->Longitude);
+
+                        $dlon = $Endereco->Longitude - deg2rad($longUser);
+                        $dlat = $Endereco->Latitude - deg2rad($latUser);
+
+                        $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos($Endereco->Latitude)*sin($dlon/2)**2;
+                        $c = 2 * asin(sqrt($a));
+                        $r = 6371;
+                        $d = $c*$r;
+
+                        @endphp
+                        @if($Endereco->id == $id_end)
+                        Distância: 0 KM
+                        @else
+
+                        Distância: {{floatval(number_format($d,1))}} KM
+                        @endif
+                        @endif
+                        @endforeach
+                        @endauth
+                    </p>
+                    <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
+                </div>
+            </div>
+
+            @endforeach
+            @if(count($products)==0)
+            <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
+            @elseif(count($products)==0)
+            <p>Não há eventos disponíveis</p>
+            @endif
+        </div>
+    </div>
 
 
-  
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
