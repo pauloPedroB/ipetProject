@@ -30,7 +30,7 @@ class ProductsController extends Controller
         else{
             $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
                                 ->join('users','products.user_id','=','users.id')
-                                ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
+                                ->join('lojas','lojas.id','=','Loja_id')
                                 ->get();
         }
 
@@ -144,7 +144,6 @@ class ProductsController extends Controller
         $product = new Product;
 
         $product->Name = $request->Name;
-        $product->Description = $request->Description;
         
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
