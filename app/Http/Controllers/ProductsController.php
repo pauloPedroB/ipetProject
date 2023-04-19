@@ -28,7 +28,7 @@ class ProductsController extends Controller
             ->get();
         }
         else{
-            $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
+            $products = productsLoja::join('products','products.id','=','Product_id')
                                 ->join('users','products.user_id','=','users.id')
                                 ->join('lojas','lojas.id','=','Loja_id')
                                 ->get();
