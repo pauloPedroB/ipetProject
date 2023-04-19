@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ipet</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -35,8 +35,9 @@
                     <img src="/img/IPetLogo.png" alt="" id="nav-logo">
                 </a>
                 <a class="navbar-brand" href="#">iPET</a>
-                <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -51,8 +52,7 @@
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <input type="submit"
-                                    onclick="product.preventDefault(); this.closest('form').submit();"
+                                <input type="submit" onclick="product.preventDefault(); this.closest('form').submit();"
                                     class="btnClose" value="Sair">
                             </form>
                         </li>
