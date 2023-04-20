@@ -141,12 +141,17 @@ class ProductsController extends Controller
     }
     public function store(Request $request){
 
-        $inputs = [];
-        foreach ($request as $name => $value) {
-            if (strpos($name, 'input-') === 0) {
-                $inputs[$value] = $value;
-            }
-        }
+        $idade = '';
+        $pet = '';
+        $porte = '';
+        $tipo = '';
+        $apresentação = '';
+        
+
+
+        $inputs = array("Idade: ".$request->idadeCombo,"Pet: ".$request->petCombo,
+                        'Porte: '.$request->porteCombo,'Tipo: '.$request->tipoCombo,'Apresentação: ',$request->Apresentacaoinput);
+        
 
         $product = new Product;
 

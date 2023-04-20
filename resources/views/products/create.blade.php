@@ -14,9 +14,13 @@
                     <label for="title">Nome</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
                 </div>
-                <h3>Descrições</h3>
-                <label for="new-label-name">Digite o nome da nova Descrição:</label>
-                <input type="text" id="new-label-name" class="form-control">
+                <h3>Adicionar descrição</h3>
+                <input type="checkbox" id="Idade"><label for="">Idade</label>
+                <input type="checkbox" id="Pet"><label for="">Pet</label>
+                <input type="checkbox" id="Porte"><label for="">Porte</label>
+                <input type="checkbox" id="Tipo"><label for="">Tipo</label>
+                <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
+
                 <p id="errorLabel"></p>
                 <a id="add-input" class="link">Adicionar Descrição</a>
 
@@ -24,39 +28,151 @@
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                 </div>
                 <script>
-                    var count = 1;
-                    document.getElementById("add-input").addEventListener("click", function() {
-                       var newLabelName = document.getElementById("new-label-name").value;
-                        if(newLabelName !== ''){
-                            var label = document.createElement("label");
-                            label.innerHTML = newLabelName + ": ";
-                            label.setAttribute("id", "label-" + count);
-                            label.setAttribute("name", "label-" + count);
-                            label.setAttribute("class", "labels");
+                    var Idade = document.getElementById('Idade');
+                    var Pet = document.getElementById('Pet');
+                    var Porte = document.getElementById('Porte');
+                    var Tipo = document.getElementById('Tipo');
+                    var Apresentacao = document.getElementById('Apresentacao');
+
+                    // Adicionar um evento de mudança ao checkbox
+                    Idade.addEventListener('change', function() {
+                        if (Idade.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "idadeCombo");
+                            newComboBox.setAttribute("name", "idadeCombo");
+                            newComboBox.setAttribute("class", "form-control");
 
 
-                            var input = document.createElement("input");
-                            input.type = "text";
-                            input.setAttribute("id", "label-" + count);
-                            input.setAttribute("name", "label-" + count);
-                            input.setAttribute("class", "form-control");
+                            var option1 = document.createElement("option");
+                            option1.value = "Filhote";
+                            option1.text = "Filhote";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Adulto";
+                            option2.text = "Adulto";
+                            newComboBox.add(option2);
 
                             var container = document.getElementById("dynamic-inputs");
-                            container.appendChild(label);
-                            container.appendChild(input);
-                            var errorLabel = document.getElementById("errorLabel");
-                            errorLabel.innerHTML = '';
-                            document.getElementById("new-label-name").value = "";
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('idadeCombo');
+                            newComboBox.remove();
+                            console.log('O checkbox foi desmarcado!');
+                        }
+                    });
+                    Pet.addEventListener('change', function() {
+                        if (Pet.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "petCombo");
+                            newComboBox.setAttribute("name", "petCombo");
+                            newComboBox.setAttribute("class", "form-control");
 
-                            count++;
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Cachorro";
+                            option1.text = "Cachorro";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Gato";
+                            option2.text = "Gato";
+                            newComboBox.add(option2);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('petCombo');
+                            newComboBox.remove();
                         }
-                        else{
-                            var errorLabel = document.getElementById("errorLabel");
-                            errorLabel.innerHTML = 'Nome da descrição não pode ser vazio';
-                            errorLabel.style.color = 'red';
+                    });
+                    Porte.addEventListener('change', function() {
+                        if (Porte.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "porteCombo");
+                            newComboBox.setAttribute("name", "porteCombo");
+                            newComboBox.setAttribute("class", "form-control");
+
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Pequeno";
+                            option1.text = "Pequeno";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Medio";
+                            option2.text = "Médio";
+                            newComboBox.add(option2);
+
+                            var option3 = document.createElement("option");
+                            option2.value = "Grande";
+                            option2.text = "Grande";
+                            newComboBox.add(option3);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('porteCombo');
+                            newComboBox.remove();
                         }
-                   });
-               </script>
+                    });
+
+                    Tipo.addEventListener('change', function() {
+                        if (Tipo.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "tipoCombo");
+                            newComboBox.setAttribute("name", "tipoCombo");
+                            newComboBox.setAttribute("class", "form-control custom-select");
+
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Alimentação";
+                            option1.text = "Alimentação";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Cuidados";
+                            option2.text = "Cuidados";
+                            newComboBox.add(option2);
+
+                            var option3 = document.createElement("option");
+                            option2.value = "Acessórios";
+                            option2.text = "Acessórios";
+                            newComboBox.add(option3);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('tipoCombo');
+                            newComboBox.remove();
+                        }
+                    });
+
+                    Apresentacao.addEventListener('change', function() {
+                        if (Apresentacao.checked) {
+                            var newComboBox = document.createElement("input");
+                            newComboBox.setAttribute("id", "Apresentacaoinput");
+                            newComboBox.setAttribute("name", "Apresentacaoinput");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.setAttribute("type", "text");
+                            newComboBox.setAttribute("placeholder", "Ex: Disponível em embalagens de 3kg e 15kg");
+
+
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('Apresentacaoinput');
+                            newComboBox.remove();
+                        }
+                    });
+
+                </script>
                 <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
             </form>
         @else
