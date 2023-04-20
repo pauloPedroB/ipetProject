@@ -11,18 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="/js/funcoes.js"></script>
-    <script src="/js/cep.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
-    <script>
-        function initMap(lat1,long1)
-        {
-            var minhaLocalizacao = {lat: lat1, lng: long1};
-            var mapa = new google.maps.Map(
-                document.getElementById('mapa'), {zoom: 18, center: minhaLocalizacao});
-            var marcador = new google.maps.Marker({position: minhaLocalizacao, map: mapa});
-        }
-
-    </script>
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -70,14 +59,14 @@
         <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </header>
     @auth
-    @foreach($Enderecos as $Endereco)
-    @if($Endereco->id==$id_end)
-    @php
-    $latUser = $Endereco->Latitude;
-    $longUser = $Endereco->Longitude;
-    @endphp
-    @endif
-    @endforeach
+        @foreach($Enderecos as $Endereco)
+            @if($Endereco->id==$id_end)
+                @php
+                    $latUser = $Endereco->Latitude;
+                    $longUser = $Endereco->Longitude;
+                @endphp
+            @endif
+        @endforeach
     @endauth
 
     <div id="search-container" class="ol-md-12">
@@ -118,7 +107,7 @@
                     <p class="card-distance">
                         @auth
                         @foreach($Enderecos as $Endereco)
-                        @if($Endereco->id==$product->Endereco_id)
+                        @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
                         @php
                         $Endereco->Latitude = deg2rad($Endereco->Latitude);
                         $Endereco->Longitude = deg2rad($Endereco->Longitude);
