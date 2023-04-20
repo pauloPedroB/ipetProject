@@ -146,17 +146,22 @@ class ProductsController extends Controller
         $porte = '';
         $tipo = '';
         $apresentação = '';
-        
+
+        isset($request->idadeCombo) ? $idade = "Idade: ".$request->idadeCombo : null;
+        isset($request->petCombo) ? $pet = "Pet: ".$request->petCombo : null;
+        isset($request->porteCombo) ? $porte = "Porte: ".$request->porteCombo : null;
+        isset($request->tipoCombo) ? $tipo = "Tipo: ".$request->tipoCombo : null;
+        isset($request->Apresentacaoinput) ? $apresentação = "Apresentação: ".$request->Apresentacaoinput : null;
 
 
-        $inputs = array("Idade: ".$request->idadeCombo,"Pet: ".$request->petCombo,
-                        'Porte: '.$request->porteCombo,'Tipo: '.$request->tipoCombo,'Apresentação: ',$request->Apresentacaoinput);
+
+        $inputs = array($idade,$pet,$porte,$tipo,$apresentação);
         
 
         $product = new Product;
 
         $product->Name = $request->Name;
-        $product->Description = implode('<>',$inputs);
+        $product->Description = implode('<!i!i>',$inputs);
 
         
         //image Upload

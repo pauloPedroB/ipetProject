@@ -41,7 +41,8 @@
                             newComboBox.setAttribute("id", "idadeCombo");
                             newComboBox.setAttribute("name", "idadeCombo");
                             newComboBox.setAttribute("class", "form-control");
-
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
 
                             var option1 = document.createElement("option");
                             option1.value = "Filhote";
@@ -68,6 +69,7 @@
                             newComboBox.setAttribute("id", "petCombo");
                             newComboBox.setAttribute("name", "petCombo");
                             newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
 
 
                             var option1 = document.createElement("option");
@@ -94,6 +96,7 @@
                             newComboBox.setAttribute("id", "porteCombo");
                             newComboBox.setAttribute("name", "porteCombo");
                             newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
 
 
                             var option1 = document.createElement("option");
@@ -126,6 +129,7 @@
                             newComboBox.setAttribute("id", "tipoCombo");
                             newComboBox.setAttribute("name", "tipoCombo");
                             newComboBox.setAttribute("class", "form-control custom-select");
+                            newComboBox.required = true;
 
 
                             var option1 = document.createElement("option");
@@ -160,6 +164,7 @@
                             newComboBox.setAttribute("class", "form-control");
                             newComboBox.setAttribute("type", "text");
                             newComboBox.setAttribute("placeholder", "Ex: Disponível em embalagens de 3kg e 15kg");
+                            newComboBox.required = true;
 
 
 
