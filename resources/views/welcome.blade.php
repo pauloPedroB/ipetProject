@@ -61,9 +61,7 @@
                         <li class="nav-item">
                             <a href="/login" class="nav-link">Entrar</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/register" class="nav-link">Cadastrar</a>
-                        </li>
+                        
                         @endguest
                     </ul>
                 </div>
