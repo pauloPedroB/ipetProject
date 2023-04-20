@@ -141,9 +141,18 @@ class ProductsController extends Controller
     }
     public function store(Request $request){
 
+        $inputs = [];
+        foreach ($request as $name => $value) {
+            if (strpos($name, 'input-') === 0) {
+                $inputs[$value] = $value;
+            }
+        }
+
         $product = new Product;
 
         $product->Name = $request->Name;
+        $product->Description = implode('<>',$inputs);
+
         
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){

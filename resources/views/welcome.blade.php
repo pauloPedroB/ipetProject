@@ -72,14 +72,14 @@
         <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </header>
     @auth
-    @foreach($Enderecos as $Endereco)
-    @if($Endereco->id==$id_end)
-    @php
-    $latUser = $Endereco->Latitude;
-    $longUser = $Endereco->Longitude;
-    @endphp
-    @endif
-    @endforeach
+        @foreach($Enderecos as $Endereco)
+            @if($Endereco->id==$id_end)
+                @php
+                    $latUser = $Endereco->Latitude;
+                    $longUser = $Endereco->Longitude;
+                @endphp
+            @endif
+        @endforeach
     @endauth
 
     <div id="search-container" class="ol-md-12">
@@ -120,7 +120,7 @@
                     <p class="card-distance">
                         @auth
                         @foreach($Enderecos as $Endereco)
-                        @if($Endereco->id==$product->Endereco_id)
+                        @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
                         @php
                         $Endereco->Latitude = deg2rad($Endereco->Latitude);
                         $Endereco->Longitude = deg2rad($Endereco->Longitude);
