@@ -59,7 +59,7 @@
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <input type="submit" onclick="product.preventDefault(); this.closest('form').submit();"
+                                <input style="color: #000" type="submit" onclick="product.preventDefault(); this.closest('form').submit();"
                                     class="btnClose" value="Sair">
                             </form>
                         </li>
@@ -68,13 +68,13 @@
                         <li class="nav-item">
                             <a href="/login" class="nav-link">Entrar</a>
                         </li>
-                        
+
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
         </header>
         <main>
             <div class="container-fluid">

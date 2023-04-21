@@ -41,8 +41,9 @@
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <input type="submit" onclick="product.preventDefault(); this.closest('form').submit();"
-                                    class="btnClose" value="Sair">
+                                <input style="color: #000" type="submit"
+                                    onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                    value="Sair">
                             </form>
                         </li>
                         @endauth
@@ -50,7 +51,7 @@
                         <li class="nav-item">
                             <a href="/login" class="nav-link">Entrar</a>
                         </li>
-                        
+
                         @endguest
                     </ul>
                 </div>
@@ -59,14 +60,14 @@
         <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </header>
     @auth
-        @foreach($Enderecos as $Endereco)
-            @if($Endereco->id==$id_end)
-                @php
-                    $latUser = $Endereco->Latitude;
-                    $longUser = $Endereco->Longitude;
-                @endphp
-            @endif
-        @endforeach
+    @foreach($Enderecos as $Endereco)
+    @if($Endereco->id==$id_end)
+    @php
+    $latUser = $Endereco->Latitude;
+    $longUser = $Endereco->Longitude;
+    @endphp
+    @endif
+    @endforeach
     @endauth
 
     <div id="search-container" class="ol-md-12">
