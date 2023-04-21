@@ -59,24 +59,28 @@ header {
     border-top: 2px solid grey;
 }
 
-#btnToogle{
+#btnToogle {
     margin-right: 20px;
 }
+
+
 /* Navigation */
 #navbarNav {
     justify-content: end;
     background-color: #DBF0E1;
-   
+
 }
 
-#navbarNav a {
+#navbarNav a,
+#btnClose {
     padding: 0;
     font-size: 20px;
     color: black;
     margin: 5px 10px;
 }
 
-#navbarNav a:hover {
+#navbarNav a:hover,
+#btnClose:hover {
     color: #FFC05F;
 }
 

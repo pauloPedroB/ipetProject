@@ -36,51 +36,52 @@
             <img src="/img/logo.png" alt="" class="efeito-carregamento">
         </div>
         <header>
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
-                <a href="" class="navbar-brand">
-                    <img src="/img/IPetLogo.png" alt="" id="nav-logo">
-                </a>
-                <a class="navbar-brand" href="#">iPET</a>
-                <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">Produtos</a>
-                        </li>
-                        @auth
-                        <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Meus Dados</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <input style="color: #000" type="submit" onclick="product.preventDefault(); this.closest('form').submit();"
-                                    class="btnClose" value="Sair">
-                            </form>
-                        </li>
-                        @endauth
-                        @guest
-                        <li class="nav-item">
-                            <a href="/login" class="nav-link">Entrar</a>
-                        </li>
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                    <a href="" class="navbar-brand">
+                        <img src="/img/IPetLogo.png" alt="" id="nav-logo">
+                    </a>
 
-                        @endguest
-                    </ul>
+                    <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Produtos</a>
+                            </li>
+                            @auth
+                            <li class="nav-item">
+                                <a href="/dashboard" class="nav-link">Meus Dados</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <input id="btnClose" type="submit"
+                                        onclick="product.preventDefault(); this.closest('form').submit();"
+                                        class="btnClose" value="Sair">
+                                </form>
+                            </li>
+                            @endauth
+                            @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Entrar</a>
+                            </li>
+
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
         </header>
         <main>
             <div class="container-fluid">
                 <div class="row">
                     @if (session('msg'))
-                        <p class="msg">{{ session('msg') }}</p>
+                    <p class="msg">{{ session('msg') }}</p>
                     @endif
                     @yield('content')
                 </div>

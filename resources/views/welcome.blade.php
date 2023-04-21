@@ -23,7 +23,7 @@
                 <a href="" class="navbar-brand">
                     <img src="/img/IPetLogo.png" alt="" id="nav-logo">
                 </a>
-                <a class="navbar-brand" href="#">iPET</a>
+
                 <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <input style="color: #000" type="submit"
+                                <input id="btnClose" type="submit"
                                     onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
                                     value="Sair">
                             </form>
@@ -144,7 +144,11 @@
             @endif
         </div>
     </div>
+    <footer>
+        <p>IPET DEVELOPMENT &copy; 2023</p>
+    </footer>
 
+    <script src="/js/app.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
