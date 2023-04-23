@@ -108,47 +108,11 @@
             </div>
             <div class="carousel-item">
                 <img src="/img/pet-care/3828509.jpg" class="img-fluid rounded-4 w-100" alt="...">
-                <div class="carousel-caption">
-                    <h1>Busque um Produto</h1>
-                    <form action="/" method="GET">
-                        <p> Pesquisar por:
-                            <select name="Category" id="">
-                                <option value="">Todos</option>
-                                <option value="">Rações</option>
-                                <option value="">Remédios</option>
-                                <option value="">Acessórios</option>
-                            </select>
-                            Pesquisar por ordem de:
-                            <select name="orderBy" id="">
-                                <option value="">Distância</option>
-                                <option value="">Preço</option>
-                                <option value="">Avaliação</option>
-                            </select>
-                        </p>
-                    </form>
-                </div>
+
             </div>
             <div class="carousel-item">
                 <img src="/img/pet-cools/3906954.jpg" class="img-fluid rounded-4 w-100" alt="...">
-                <div class="carousel-caption">
-                    <h1>Busque um Produto</h1>
-                    <form action="/" method="GET">
-                        <p> Pesquisar por:
-                            <select name="Category" id="">
-                                <option value="">Todos</option>
-                                <option value="">Rações</option>
-                                <option value="">Remédios</option>
-                                <option value="">Acessórios</option>
-                            </select>
-                            Pesquisar por ordem de:
-                            <select name="orderBy" id="">
-                                <option value="">Distância</option>
-                                <option value="">Preço</option>
-                                <option value="">Avaliação</option>
-                            </select>
-                        </p>
-                    </form>
-                </div>
+
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselIpet" data-bs-slide="prev">
