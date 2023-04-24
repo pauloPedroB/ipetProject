@@ -29,80 +29,81 @@
     @endif
 
 @endif
-<div class="col-md-10 offset-md-1 dashboard-products-container">
-    @if($user->AL_id == 3)
-        <h1>Categorias</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Número</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Descrição</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($categories as $category)
+@if($user->AL_id !=1)
+    <div class="col-md-10 offset-md-1 dashboard-products-container">
+        @if($user->AL_id == 3)
+            <h1>Categorias</h1>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td scope="row">{{$loop->index+1}}</td>
-                        <td><p>{{$category->name}}</p></td>
-                        <td>
-                            <form action="/categoria/{{$category->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-                            </form>
-                        </td>
+                        <th scope="col">Número</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <a href="/categoria/adicionar">adicionar categoria</a>
-    @endif
-    <h1>Produtos</h1>
-    @if($products != null)
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Número</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Valor</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($products as $product)
+                </thead>
+                <tbody>
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td scope="row">{{$loop->index+1}}</td>
+                            <td><p>{{$category->name}}</p></td>
+                            <td>
+                                <form action="/categoria/{{$category->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <a href="/categoria/adicionar">adicionar categoria</a>
+        @endif
+        <h1>Produtos</h1>
+        @if($products != null)
+            <table class="table">
+                <thead>
                     <tr>
-                        <td scope="row">{{$loop->index+1}}</td>
-                        <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
-                        <td>{{$product->Value}}</td>
-                        <td>
-                            @if($user->AL_id ==3)
-                               <!-- <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a> -->
-                            @endif
-                            <form action="/produtos/{{$product->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        @if($user->AL_id !=3)
-            <a href="/produto/disponiveis">adicionar produto</a>
-        @else
-           
-            <a href="/produto/adicionar">adicionar produto</a>
-        @endif
-    @else
-        @if($user->AL_id !=3)
-            <p>Você ainda não tem produtos cadastrados, <a href="/produto/disponiveis">adicionar produto</a></p>
-        @else
-          <p>Você ainda não tem produtos cadastrados, <a href="/produto/adicionar">adicionar produto</a></p>
-        @endif
-    @endif
-</div>
+                        <th scope="col">Número</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Valor</th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($products as $product)
+                        <tr>
+                            <td scope="row">{{$loop->index+1}}</td>
+                            <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
+                            <td>{{$product->Value}}</td>
+                            <td>
+                                @if($user->AL_id ==3)
+                                <!-- <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a> -->
+                                @endif
+                                <form action="/produtos/{{$product->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @if($user->AL_id !=3)
+                <a href="/produto/disponiveis">adicionar produto</a>
+            @else
+            
+                <a href="/produto/adicionar">adicionar produto</a>
+            @endif
+        @else
+            @if($user->AL_id !=3)
+                <p>Você ainda não tem produtos cadastrados, <a href="/produto/disponiveis">adicionar produto</a></p>
+            @else
+            <p>Você ainda não tem produtos cadastrados, <a href="/produto/adicionar">adicionar produto</a></p>
+            @endif
+        @endif
+    </div>
+@endif
 
 @endsection

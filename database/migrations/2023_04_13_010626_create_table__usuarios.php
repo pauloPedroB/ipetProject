@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('Name');
+            $table->string('CPF');
+            $table->string('Telefone');
+            $table->string('Celular');
+            $table->date('DT');
+
             $table->foreignId('user_id')->nullable();
             $table->foreignId('Endereco_id')->nullable();
         });

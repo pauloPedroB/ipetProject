@@ -10,6 +10,8 @@
     <h3>Você deseja se cadastrar como:</h3>
   
     <a href="/Registar/Loja">Loja</a>
+    <a href="/Registar/Usuario">Usuário</a>
+
 
 
 </body>

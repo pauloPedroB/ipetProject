@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Loja;
 use App\Http\Controllers\LojaController;
+use App\Http\Controllers\UsuarioController;
 
 //  AGRUPAMENTO DE ROTAS POR CONTROLLER - OPTIONS (CONTROLLER, PREFIX, NAME, MIDLEWARE) PODENDO SER ENCADEADOS
 // Route::controller('ProductsController::class')->group(
@@ -67,6 +68,10 @@ Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('au
 
 Route::get('/Registar/Loja', [LojaController::class, 'index'])->middleware('auth');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth');
+
+Route::get('/Registar/Usuario', [UsuarioController::class, 'index'])->middleware('auth');
+Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth');
+
 
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel']);

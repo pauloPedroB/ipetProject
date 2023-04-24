@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loja;
+use App\Models\User;
 
 
 class LojaController extends Controller
@@ -28,10 +29,13 @@ class LojaController extends Controller
         $loja->Telefone = $request->telefone;
         $loja->Celular = $request->celular;
 
-
         $user = auth()->user();
         $loja->user_id = $user->id;
         $loja->save();
+
+        $User=User::findOrFail($user->id);
+        $User->AL_id = 2;
+        $User->save();
         return redirect('/');
     }
 

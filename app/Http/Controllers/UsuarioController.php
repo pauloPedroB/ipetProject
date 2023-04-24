@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
+use App\Models\User;
+
+
 
 class UsuarioController extends Controller
 {
@@ -11,15 +15,29 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.usuario');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $usuario = new Usuario;
+        $usuario->Name = $request->Name;
+        $usuario->CPF = $request->CPF;
+        $usuario->Telefone = $request->Telefone;
+        $usuario->Celular = $request->Celular;
+        $usuario->DT = $request->DT;
+
+        $user = auth()->user();
+        $usuario->user_id = $user->id;
+        $usuario->save();
+
+        $User=User::findOrFail($user->id);
+        $User->AL_id = 1;
+        $User->save();
+        return redirect('/');
     }
 
     /**

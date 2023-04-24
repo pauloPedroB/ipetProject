@@ -242,8 +242,8 @@ class ProductsController extends Controller
 
         if($user->AL_id !=3){
             $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
-            ->where('products_Lojas.Loja_id','=',$Loja->id)
-            ->select('products.id as id_U','products_Lojas.id as id','Name','User_id')
+            ->where('Loja_id','=',$Loja->id)
+            ->select('products.id as id_U','id','Name','User_id')
             ->get();
         }
         else{
