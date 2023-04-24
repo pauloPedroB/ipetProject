@@ -112,7 +112,6 @@
             </div>
             <div class="carousel-item">
                 <img src="/img/pet-cools/3906954.jpg" class="img-fluid rounded-4 w-100" alt="...">
-
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselIpet" data-bs-slide="prev">
@@ -141,29 +140,28 @@
                         <h6 class="card-value">R$ {{$product->Value}}</h6>
                         <p class="card-distance">
                             @auth
-                            @foreach($Enderecos as $Endereco)
-                            @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
-                            @php
-                            $Endereco->Latitude = deg2rad($Endereco->Latitude);
-                            $Endereco->Longitude = deg2rad($Endereco->Longitude);
+                                @foreach($Enderecos as $Endereco)
+                                    @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
+                                        @php
 
-                            $dlon = $Endereco->Longitude - deg2rad($longUser);
-                            $dlat = $Endereco->Latitude - deg2rad($latUser);
+                                            $dlon = deg2rad($Endereco->Longitude) - deg2rad($longUser);
+                                            $dlat = deg2rad($Endereco->Latitude) - deg2rad($latUser);
 
-                            $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos($Endereco->Latitude)*sin($dlon/2)**2;
-                            $c = 2 * asin(sqrt($a));
-                            $r = 6371;
-                            $d = $c*$r;
+                                            $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos(deg2rad($Endereco->Latitude))*sin($dlon/2)**2;
+                                            $c = 2 * asin(sqrt($a));
+                                            $r = 6371;
+                                            $d = $c*$r;
 
-                            @endphp
-                            @if($Endereco->id == $id_end)
-                            Distância: 0 KM
-                            @else
+                                        @endphp
+                                        @if($Endereco->id == $id_end)
+                                            Distância: 0 KM
+                                        @else
 
-                            Distância: {{floatval(number_format($d,1))}} KM
-                            @endif
-                            @endif
-                            @endforeach
+                                            Distância: {{floatval(number_format($d,1))}} KM
+                                        @endif
+                                        
+                                    @endif
+                                @endforeach
                             @endauth
                         </p>
                         <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
@@ -172,9 +170,9 @@
 
             @endforeach
             @if(count($products)==0)
-            <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
+                <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
             @elseif(count($products)==0)
-            <p>Não há eventos disponíveis</p>
+                <p>Não há eventos disponíveis</p>
             @endif
         </div>
     </div>

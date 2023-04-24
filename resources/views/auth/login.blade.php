@@ -12,7 +12,7 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" id="myForm">
             @csrf
 
             <div>
@@ -53,3 +53,5 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+
+

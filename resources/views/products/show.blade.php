@@ -9,15 +9,19 @@
         <div id="info-container" class="col-md-6">
 
             <h1>{{$product->Name}}</h1>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-
-
-
             <p class="product-Category">{{$product->name}}</p>
+            <br>
+
+
+            <p>Avaliação da Loja:</p>
+            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+
+
+
             <br>
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
@@ -38,19 +42,26 @@
                 @endif
             @endforeach
         </div>
+        @if($user->AL_id==1)
+            <div class="col-md-12" id="Avaliation-container">
+                <h3>Avalie sua experiência:</h3>
+                <a href="javascript:void(0)" onclick="Avaliar(1)"><img src="/img/star0.png" id="s1"></a>
+                <a href="javascript:void(0)" onclick="Avaliar(2)"><img src="/img/star0.png" id="s2"></a>
+                <a href="javascript:void(0)" onclick="Avaliar(3)"><img src="/img/star0.png" id="s3"></a>
+                <a href="javascript:void(0)" onclick="Avaliar(4)"><img src="/img/star0.png" id="s4"></a>
+                <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5"></a>
+                <form action="/avaliar" method="POST">
+                    @csrf
+                    <input type="hidden" name="value" id="rating" value="0">
+                    <input type="hidden" name="loja" value="{{$product->id_Loja}}">
+                    <label for="avaliacao">Elogio, sugestão ou reclamação:</label>
+                    <input type="text" name="avaliacao" class="form-control">
+                    <input type="submit" class="btn btn-primary">
+                </form>
+                
+            </div>
+        @endif
         
-        <div class="col-md-12" id="Avaliation-container">
-            <p>Avalie sua experiência:</p>
-            <a href="javascript:void(0)" onclick="Avaliar(1)"><img src="/img/star0.png" id="s1"></a>
-            <a href="javascript:void(0)" onclick="Avaliar(2)"><img src="/img/star0.png" id="s2"></a>
-            <a href="javascript:void(0)" onclick="Avaliar(3)"><img src="/img/star0.png" id="s3"></a>
-            <a href="javascript:void(0)" onclick="Avaliar(4)"><img src="/img/star0.png" id="s4"></a>
-            <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5"></a>
-            <p id="rating">0</p>
-            <label for="avaliacao">Elogio, sugestão ou reclamação:</label>
-            <input type="text" name="avaliacao">
-            <input type="submit">
-        </div>
     </div>
 </div>
 @endsection

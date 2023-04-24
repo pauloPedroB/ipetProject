@@ -191,6 +191,7 @@ class ProductsController extends Controller
         return redirect('/dashboard')->with('msg','Produto adicionado com sucesso!');
     }
     public function show($id){
+        $user = auth()->user();
         $Enderecos = Endereco::all();
         $products = productsLoja::findOrFail($id)
                         ->join('products','products.id','=','products_Lojas.Product_id')
@@ -204,7 +205,7 @@ class ProductsController extends Controller
         foreach($products as $product){
             if($product->id == $id){
                 $description = explode('<!i!i>',$product->Description);
-                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description]);
+                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user]);
             }
         }
     }

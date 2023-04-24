@@ -20,5 +20,8 @@ class Loja extends Model
     public function productsLoja(){
         return $this->hasMany('App\Models\productsLoja');
     }
+    public function Avaliation(){
+        return $this->hasMany('App\Models\Avaliation');
+    }
 
 }

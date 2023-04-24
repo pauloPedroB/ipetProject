@@ -100,6 +100,6 @@ function Avaliar(estrela) {
     avaliacao = 1;
    }}
     
-    document.getElementById('rating').innerHTML = avaliacao;
+    document.getElementById('rating').value = avaliacao;
     
    }

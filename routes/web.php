@@ -18,6 +18,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Loja;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AvaliationsController;
+
 
 //  AGRUPAMENTO DE ROTAS POR CONTROLLER - OPTIONS (CONTROLLER, PREFIX, NAME, MIDLEWARE) PODENDO SER ENCADEADOS
 // Route::controller('ProductsController::class')->group(
@@ -82,3 +84,4 @@ Route::get('/categoria/adicionar',[CategoryController::class, 'index'])->middlew
 Route::post('/categoria',[CategoryController::class, 'create'])->middleware('auth');
 Route::delete('/categoria/{id}',[CategoryController::class, 'destroy'])->middleware('auth');
 
+Route::post('/avaliar',[AvaliationsController::class, 'create'])->middleware('auth','CheckUsuario');
