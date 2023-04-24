@@ -243,7 +243,7 @@ class ProductsController extends Controller
         if($user->AL_id !=3){
             $products = productsLoja::join('products','products.id','=','Product_id')
                                 ->join('users','products.user_id','=','users.id')
-                                ->join('lojas','lojas.id','=','Loja_id')
+                                ->join('lojas','lojas.id','=',$Loja->id)
                                 ->join('categories','categories.id','=','products.category_id')
                                 ->select('products.id as id_P','products.Name','products.Image','products.Description',
                                 'products_lojas.id','categories.name',
