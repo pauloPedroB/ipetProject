@@ -194,14 +194,14 @@ class ProductsController extends Controller
         $user = auth()->user();
         $Enderecos = Endereco::all();
         $products = productsLoja::findOrFail($id)
-                        ->join('products','products.id','=','products_Lojas.Product_id')
-                        ->join('users','products.user_id','=','users.id')
-                        ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
-                        ->join('categories','categories.id','=','products.category_id')
-                        ->from('products_Lojas as pl')
+                        ->join('products', 'products.id', '=', 'pl.Product_id')
+                        ->join('users', 'products.user_id', '=', 'users.id')
+                        ->join('lojas', 'lojas.id', '=', 'pl.Loja_id')
+                        ->join('categories', 'categories.id', '=', 'products.category_id')
+                        ->from('products_loja as pl')
                         ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                        'categories.name','users.id as idU', 'pl.id',
-                        'lojas.id as id_Loja','lojas.Nome as Name_Loja','lojas.user_id','lojas.Endereco_id')
+                            'categories.name','users.id as idU', 'id',
+                            'lojas.id as id_Loja','lojas.Nome as Name_Loja','lojas.user_id','lojas.Endereco_id')
                         ->get();
         foreach($products as $product){
             if($product->id == $id){
