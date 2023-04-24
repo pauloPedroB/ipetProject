@@ -240,7 +240,7 @@ class ProductsController extends Controller
            }
         }
 
-        if($user->AL_id !=3){
+        if($user->AL_id ==2){
             $products = productsLoja::join('products','products.id','=','Product_id')
                                 ->join('users','products.user_id','=','users.id')
                                 ->join('lojas','lojas.id','=','Loja_id')
@@ -250,6 +250,9 @@ class ProductsController extends Controller
                                 'products_lojas.id','categories.name',
                                 'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
                                 ->get();
+        }
+        else if($user->AL_id ==1){
+            $products = null;
         }
         else{
             $products = Product::all();
