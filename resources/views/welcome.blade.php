@@ -111,7 +111,7 @@
 
             </div>
             <div class="carousel-item">
-                <img src="/img/pet-cools/3906954.jpg" class="img-fluid rounded-4 w-100" alt="...">
+                <img src="/img/pet-cools/3906953.jpg" class="img-fluid rounded-4 w-100" alt="...">
 
             </div>
         </div>
