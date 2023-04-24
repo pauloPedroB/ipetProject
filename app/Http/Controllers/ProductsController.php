@@ -199,7 +199,7 @@ class ProductsController extends Controller
                         ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
                         ->join('categories','categories.id','=','products.category_id')
                         ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                        'products_Lojas.id as id','categories.name',
+                        'categories.name','id',
                         'lojas.id as id_Loja','lojas.Nome as Name_Loja','lojas.user_id','lojas.Endereco_id')
                         ->get();
         foreach($products as $product){
