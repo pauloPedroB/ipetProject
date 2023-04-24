@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckLoja
+class CheckADM
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class CheckLoja
     public function handle(Request $request, Closure $next): Response
     {
         $user = auth()->user();
-        if($user->AL_id == 1){
+        if($user->AL_id != 3){
             abort(403,'Não Autorizado');
         }
         return $next($request);

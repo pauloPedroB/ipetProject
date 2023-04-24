@@ -53,18 +53,17 @@ use App\Http\Controllers\UsuarioController;
 
 Route::get('/', [ProductsController::class, 'index']);
 Route::get('/dashboard', [ProductsController::class, 'dashboard'])->middleware('auth');
-Route::get('/produto/adicionar', [ProductsController::class, 'create'])->middleware('auth');
-Route::get('/produto/disponiveis', [ProductsController::class, 'copyProduct'])->middleware('auth');
-Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middleware('auth');
+Route::get('/produto/adicionar', [ProductsController::class, 'create'])->middleware('auth','CheckADM');
+Route::get('/produto/disponiveis', [ProductsController::class, 'copyProduct'])->middleware('auth','CheckLoja');
+Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middleware('auth','CheckLoja');
 
 
 Route::post('/produto', [ProductsController::class, 'store']);
 Route::get('/produto/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]');;
 Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth')->where('id', '[0-9]');
-Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth')->where('id', '[0-9]');
-Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth');
-Route::put('/Editar/Usuario/{id}', [UserController::class, 'update'])->middleware('auth');
-Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');;
+Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth','CheckLoja')->where('id', '[0-9]');
+Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth','CheckLoja');
+Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
 
 Route::get('/Registar/Loja', [LojaController::class, 'index'])->middleware('auth');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth');
