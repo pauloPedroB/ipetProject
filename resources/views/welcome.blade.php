@@ -35,22 +35,22 @@
                             <a href="/" class="nav-link">Produtos</a>
                         </li>
                         @auth
-                        <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Meus Dados</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <input id="btnClose" type="submit"
-                                    onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
-                                    value="Sair">
-                            </form>
-                        </li>
+                            <li class="nav-item">
+                                <a href="/dashboard" class="nav-link">Meus Dados</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <input id="btnClose" type="submit"
+                                        onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                        value="Sair">
+                                </form>
+                            </li>
                         @endauth
                         @guest
-                        <li class="nav-item">
-                            <a href="/login" class="nav-link">Entrar</a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Entrar</a>
+                            </li>
 
                         @endguest
                     </ul>
@@ -60,21 +60,21 @@
         <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
     </header>
     @auth
-    @foreach($Enderecos as $Endereco)
-    @if($Endereco->id==$id_end)
-    @php
-    $latUser = $Endereco->Latitude;
-    $longUser = $Endereco->Longitude;
-    @endphp
-    @endif
-    @endforeach
+        @foreach ($Enderecos as $Endereco)
+            @if ($Endereco->id == $id_end)
+                @php
+                    $latUser = $Endereco->Latitude;
+                    $longUser = $Endereco->Longitude;
+                @endphp
+            @endif
+        @endforeach
     @endauth
 
 
     <div id="carouselIpet" class="carousel slide">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
@@ -101,7 +101,8 @@
             </div>
             <div class="carousel-item active">
                 <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100
-                " alt="...">
+                "
+                    alt="...">
 
 
 
@@ -125,56 +126,55 @@
         </button>
     </div>
     <div id="products-container" class="col-md-12">
-        @if($search)
-        <h2>Buscando por: {{$search}}</h2>
+        @if ($search)
+            <h2>Buscando por: {{ $search }}</h2>
         @else
-        <h2>Produtos/Comércios</h2>
+            <h2>Produtos/Comércios</h2>
         @endif
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
             @foreach ($products as $product)
                 <div class="card col-md-3">
-                    <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
+                    <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                     <div class="card-body">
                         <p class="card-date">19/03/2023</p>
-                        <h5 class="card-title">{{$product->Name}}</h5>
-                        <h6 class="card-value">R$ {{$product->Value}}</h6>
+                        <h5 class="card-title">{{ $product->Name }}</h5>
+                        <h6 class="card-value">R$ {{ $product->Value }}</h6>
                         <p class="card-distance">
                             @auth
-                            @foreach($Enderecos as $Endereco)
-                            @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
-                            @php
-                            $Endereco->Latitude = deg2rad($Endereco->Latitude);
-                            $Endereco->Longitude = deg2rad($Endereco->Longitude);
-
-                            $dlon = $Endereco->Longitude - deg2rad($longUser);
-                            $dlat = $Endereco->Latitude - deg2rad($latUser);
-
-                            $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos($Endereco->Latitude)*sin($dlon/2)**2;
-                            $c = 2 * asin(sqrt($a));
-                            $r = 6371;
-                            $d = $c*$r;
-
-                            @endphp
-                            @if($Endereco->id == $id_end)
-                            Distância: 0 KM
-                            @else
-
-                            Distância: {{floatval(number_format($d,1))}} KM
-                            @endif
-                            @endif
-                            @endforeach
+                                @foreach ($Enderecos as $Endereco)
+                                    @if ($Endereco->id == $product->Endereco_id && $User->AL_id != 3)
+                                        @php
+                                            $Endereco->Latitude = deg2rad($Endereco->Latitude);
+                                            $Endereco->Longitude = deg2rad($Endereco->Longitude);
+                                            
+                                            $dlon = $Endereco->Longitude - deg2rad($longUser);
+                                            $dlat = $Endereco->Latitude - deg2rad($latUser);
+                                            
+                                            $a = sin($dlat / 2) ** 2 + cos(deg2rad($latUser)) * cos($Endereco->Latitude) * sin($dlon / 2) ** 2;
+                                            $c = 2 * asin(sqrt($a));
+                                            $r = 6371;
+                                            $d = $c * $r;
+                                            
+                                        @endphp
+                                        @if ($Endereco->id == $id_end)
+                                            Distância: 0 KM
+                                        @else
+                                            Distância: {{ floatval(number_format($d, 1)) }} KM
+                                        @endif
+                                    @endif
+                                @endforeach
                             @endauth
                         </p>
-                        <a href="/produto/{{$product->id}}" class="btn btn-primary">Saiba Mais...</a>
+                        <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
                     </div>
                 </div>
-
             @endforeach
-            @if(count($products)==0)
-            <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
-            @elseif(count($products)==0)
-            <p>Não há eventos disponíveis</p>
+            @if (count($products) == 0)
+                <p>Não foi possível encontrar nenhum produto com {{ $search }}! <a href="/">Ver Todos!</a>
+                </p>
+            @elseif(count($products) == 0)
+                <p>Não há eventos disponíveis</p>
             @endif
         </div>
     </div>
