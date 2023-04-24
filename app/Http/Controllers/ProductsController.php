@@ -34,7 +34,7 @@ class ProductsController extends Controller
                                 ->join('users','products.user_id','=','users.id')
                                 ->join('lojas','lojas.id','=','Loja_id')
                                 ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                                'products_Lojas.id',
+                                'products_lojas.id',
                                 'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
                                 ->get();
         }
