@@ -46,6 +46,7 @@
                         <tr>
                             <td scope="row">{{$loop->index+1}}</td>
                             <td><p>{{$category->name}}</p></td>
+                            <td>{{$category->Description}}</td>
                             <td>
                                 <form action="/categoria/{{$category->id}}" method="POST">
                                     @csrf
@@ -66,7 +67,6 @@
                     <tr>
                         <th scope="col">Número</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Valor</th>
 
                     </tr>
                 </thead>
@@ -75,7 +75,6 @@
                         <tr>
                             <td scope="row">{{$loop->index+1}}</td>
                             <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
-                            <td>{{$product->Value}}</td>
                             <td>
                                 @if($user->AL_id ==3)
                                 <!-- <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a> -->
