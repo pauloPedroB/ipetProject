@@ -9,6 +9,8 @@ use App\Models\Endereco;
 use App\Models\Loja;
 use App\Models\Usuario;
 use App\Models\productsLoja;
+use App\Models\Category;
+
 
 
 
@@ -31,6 +33,9 @@ class ProductsController extends Controller
             $products = productsLoja::join('products','products.id','=','Product_id')
                                 ->join('users','products.user_id','=','users.id')
                                 ->join('lojas','lojas.id','=','Loja_id')
+                                ->select('products.id as id_P','products.Name','products.Image','products.Description',
+                                'products_Lojas.id',
+                                'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
                                 ->get();
         }
 
@@ -90,7 +95,8 @@ class ProductsController extends Controller
     }
     public function create(){
         $User = auth()->user();
-        return view('products.create',['User'=>$User]);
+        $categories = Category::all();
+        return view('products.create',['User'=>$User,'categories'=>$categories]);
     }
     public function copyProduct(){
         $search = request('search');
@@ -144,25 +150,23 @@ class ProductsController extends Controller
         $idade = '';
         $pet = '';
         $porte = '';
-        $tipo = '';
         $apresentação = '';
 
         isset($request->idadeCombo) ? $idade = "Idade: ".$request->idadeCombo : null;
         isset($request->petCombo) ? $pet = "Pet: ".$request->petCombo : null;
         isset($request->porteCombo) ? $porte = "Porte: ".$request->porteCombo : null;
-        isset($request->tipoCombo) ? $tipo = "Tipo: ".$request->tipoCombo : null;
         isset($request->Apresentacaoinput) ? $apresentação = "Apresentação: ".$request->Apresentacaoinput : null;
 
 
 
-        $inputs = array($idade,$pet,$porte,$tipo,$apresentação);
+        $inputs = array($idade,$pet,$porte,$apresentação);
         
 
         $product = new Product;
 
         $product->Name = $request->Name;
         $product->Description = implode('<!i!i>',$inputs);
-
+        $product->category_id=$request->category;
         
         //image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -192,11 +196,15 @@ class ProductsController extends Controller
                         ->join('products','products.id','=','products_Lojas.Product_id')
                         ->join('users','products.user_id','=','users.id')
                         ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
+                        ->join('categories','categories.id','=','products.category_id')
+                        ->select('products.id as id_P','products.Name','products.Image','products.Description',
+                        'products_Lojas.id as id','categories.name',
+                        'lojas.id as id_Loja','lojas.name as Name_Loja','lojas.user_id','lojas.Endereco_id')
                         ->get();
         foreach($products as $product){
             if($product->id == $id){
-                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos]);
-                
+                $description = explode('<!i!i>',$product->Description);
+                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description]);
             }
         }
     }
@@ -231,8 +239,7 @@ class ProductsController extends Controller
                 }
            }
         }
-       
-        
+
         if($user->AL_id !=3){
             $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
             ->where('products_Lojas.Loja_id','=',$Loja->id)
@@ -242,10 +249,10 @@ class ProductsController extends Controller
         else{
             $products = Product::all();
         }
+        $categories = Category::all();
        
-
-
-        return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja]);
+        return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
+                    'categories'=>$categories]);
     }
     public function destroy($id){
         $user = auth()->user();

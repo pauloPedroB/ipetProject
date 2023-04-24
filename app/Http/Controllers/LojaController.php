@@ -22,7 +22,13 @@ class LojaController extends Controller
     public function create(Request $request)
     {
         $loja = new Loja;
-        $loja->name = $request->name;
+        $loja->Razao = $request->razaoSocial;
+        $loja->CNPJ = $request->cnpj;
+        $loja->Nome = $request->nomeFantasia;
+        $loja->Telefone = $request->telefone;
+        $loja->Celular = $request->celular;
+
+
         $user = auth()->user();
         $loja->user_id = $user->id;
         $loja->save();

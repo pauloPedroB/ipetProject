@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,8 +70,11 @@ Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('a
 
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel']);
-Route::get('/Confirme', [UserController::class, 'confirme']);
-Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth')->name('Teste');
+Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth');
 Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth');
+
+Route::get('/categoria/adicionar',[CategoryController::class, 'index'])->middleware('auth');
+Route::post('/categoria',[CategoryController::class, 'create'])->middleware('auth');
+Route::delete('/categoria/{id}',[CategoryController::class, 'destroy'])->middleware('auth');
 

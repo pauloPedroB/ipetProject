@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('lojas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('Razao');
+            $table->string('Nome');
+            $table->string('CNPJ')->unique();
+            $table->string('Telefone');
+            $table->string('Celular');
             $table->foreignId('user_id')->nullable();
             $table->foreignId('Endereco_id')->nullable();
         });

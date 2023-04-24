@@ -17,6 +17,6 @@ class Product extends Model
         return $this->hasMany('App\Models\productsLoja');
     }
     public function category(){
-        return $this->belongsTo('App\Models\Category');
+        return $this->hasOne('App\Models\Category');
     }
 }

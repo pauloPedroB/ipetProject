@@ -11,18 +11,32 @@
 
         <form method="POST" action="/Cadastrar/Loja" id="myForm">
             @csrf
-
-            <div class="mt-4">
-                <x-label for="name" value="{{ __('Nome da Loja') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
-                    required autocomplete="name" />
-            </div>
-
             <div class="mt-4">
                 <x-label for="cnpj" value="{{ __('CNPJ') }}"  id="lbcnpj" />
                 <x-input id="cnpj" class="block mt-1 w-full" type="text" name="cnpj"  maxlength="15" 
                 autocomplete="cnpj" placeholder="__.___.___/____-__" required  />
             </div>
+
+            <div class="mt-4">
+                <x-label for="razaoSocial" value="{{ __('Razão Social ou Nome Completo') }}" />
+                <x-input id="razaoSocial" class="block mt-1 w-full" type="text" name="razaoSocial" :value="old('razaoSocial')"
+                    required autocomplete="razaoSocial" />
+            </div>
+            <div class="mt-4">
+                <x-label for="nomeFantasia" value="{{ __('Nome Fantasia') }}" />
+                <x-input id="nomeFantasia" class="block mt-1 w-full" type="text" name="nomeFantasia" :value="old('nomeFantasia')"
+                    required autocomplete="nomeFantasia" />
+            </div>
+            <div class="mt-4">
+                <x-label for="telefone" value="{{ __('Telefone') }}" />
+                <x-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" :value="old('telefone')"
+                    required autocomplete="telefone" />
+            </div> <div class="mt-4">
+                <x-label for="celular" value="{{ __('Celular') }}" />
+                <x-input id="celular" class="block mt-1 w-full" type="text" name="celular" :value="old('celular')"
+                    required autocomplete="celular" />
+            </div>
+            
             <script>
                 var input = document.getElementById("cnpj");
             
@@ -80,6 +94,32 @@
 </x-guest-layout>
 
 <script>
+    const cnpj = document.getElementById("cnpj");
+   
+    cnpj.addEventListener('blur', function() {
+        const URL_BASE = 'https://api-publica.speedio.com.br/buscarcnpj?cnpj='+cnpj.value;
+        fetch(URL_BASE)
+            .then(response=>response.json())
+            .then(data=>{
+                const razao = document.getElementById("razaoSocial");
+                const nome = document.getElementById("nomeFantasia");
+                const telefone = document.getElementById("telefone");
+                const celular = document.getElementById("celular");
+
+                razao.value = data['RAZAO SOCIAL'];
+                nome.value = data['NOME FANTASIA'];
+                telefone.value = data['DDD']+data['TELEFONE'];
+                celular.value = data['DDD']+data['TELEFONE'];
+                console.log(data);
+                return;
+            })
+            .catch(error=>{
+                console.error('Erro: '.error);
+                return;
+            });
+            return;
+    });
+    
     const form = document.getElementById("myForm");
     form.addEventListener("submit", function(event)
     {
@@ -138,7 +178,7 @@
             return;
         }
         document.getElementById("cnpj").readOnly = true;
-        if(document.getElementById("name").length < 7){
+        if(document.getElementById("nomeFantasia").length < 7){
             msg.innerText = 'NOME INVÁLIDO!!'
             document.getElementById("name").style.color = 'red';
             return msg.style.color='red';

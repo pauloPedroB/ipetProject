@@ -7,6 +7,14 @@
             <form action="/produto" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
+                    <label for="title">Categoria: </label>
+                    <select name="category" id="category" required>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="title">Imagem do Produto: </label>
                     <input type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                 </div>
@@ -18,11 +26,8 @@
                 <input type="checkbox" id="Idade"><label for="">Idade</label>
                 <input type="checkbox" id="Pet"><label for="">Pet</label>
                 <input type="checkbox" id="Porte"><label for="">Porte</label>
-                <input type="checkbox" id="Tipo"><label for="">Tipo</label>
                 <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
 
-                <p id="errorLabel"></p>
-                <a id="add-input" class="link">Adicionar Descrição</a>
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
@@ -110,8 +115,8 @@
                             newComboBox.add(option2);
 
                             var option3 = document.createElement("option");
-                            option2.value = "Grande";
-                            option2.text = "Grande";
+                            option3.value = "Grande";
+                            option3.text = "Grande";
                             newComboBox.add(option3);
 
                             var container = document.getElementById("dynamic-inputs");
@@ -119,39 +124,6 @@
                             
                         } else {
                             var newComboBox = document.getElementById('porteCombo');
-                            newComboBox.remove();
-                        }
-                    });
-
-                    Tipo.addEventListener('change', function() {
-                        if (Tipo.checked) {
-                            var newComboBox = document.createElement("select");
-                            newComboBox.setAttribute("id", "tipoCombo");
-                            newComboBox.setAttribute("name", "tipoCombo");
-                            newComboBox.setAttribute("class", "form-control custom-select");
-                            newComboBox.required = true;
-
-
-                            var option1 = document.createElement("option");
-                            option1.value = "Alimentação";
-                            option1.text = "Alimentação";
-                            newComboBox.add(option1);
-
-                            var option2 = document.createElement("option");
-                            option2.value = "Cuidados";
-                            option2.text = "Cuidados";
-                            newComboBox.add(option2);
-
-                            var option3 = document.createElement("option");
-                            option2.value = "Acessórios";
-                            option2.text = "Acessórios";
-                            newComboBox.add(option3);
-
-                            var container = document.getElementById("dynamic-inputs");
-                            container.appendChild(newComboBox);
-                            
-                        } else {
-                            var newComboBox = document.getElementById('tipoCombo');
                             newComboBox.remove();
                         }
                     });
