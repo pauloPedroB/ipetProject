@@ -198,7 +198,7 @@ class ProductsController extends Controller
                         ->join('users', 'products.user_id', '=', 'users.id')
                         ->join('lojas', 'lojas.id', '=', 'pl.Loja_id')
                         ->join('categories', 'categories.id', '=', 'products.category_id')
-                        ->from('products_loja as pl')
+                        ->from('products_Lojas as pl')
                         ->select('products.id as id_P','products.Name','products.Image','products.Description',
                             'categories.name','users.id as idU', 'id',
                             'lojas.id as id_Loja','lojas.Nome as Name_Loja','lojas.user_id','lojas.Endereco_id')
