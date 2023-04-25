@@ -86,6 +86,7 @@ header {
 
 #nav-logo {
     width: 20%;
+    height: 20%;
 
 
 }
@@ -306,3 +307,5 @@ a img {
 .img-fluid {
     width: 600px;
 }
+
+
