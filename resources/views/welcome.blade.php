@@ -61,17 +61,7 @@
             <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
         </form>
     </header>
-    @auth
-        @foreach ($Enderecos as $Endereco)
-            @if ($Endereco->id == $id_end)
-                @php
-                    $latUser = $Endereco->Latitude;
-                    $longUser = $Endereco->Longitude;
-                @endphp
-            @endif
-        @endforeach
-    @endauth
-
+   
 
     <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -143,28 +133,6 @@
                         <h6 class="card-value">R$ {{ $product->Value }}</h6>
                         <p class="card-distance">
                             @auth
-                                @foreach($Enderecos as $Endereco)
-                                    @if($Endereco->id==$product->Endereco_id && $User->AL_id != 3)
-                                        @php
-
-                                            $dlon = deg2rad($Endereco->Longitude) - deg2rad($longUser);
-                                            $dlat = deg2rad($Endereco->Latitude) - deg2rad($latUser);
-
-                                            $a = sin($dlat/2)**2+cos(deg2rad($latUser))*cos(deg2rad($Endereco->Latitude))*sin($dlon/2)**2;
-                                            $c = 2 * asin(sqrt($a));
-                                            $r = 6371;
-                                            $d = $c*$r;
-
-                                        @endphp
-                                        @if($Endereco->id == $id_end)
-                                            Distância: 0 KM
-                                        @else
-
-                                            Distância: {{floatval(number_format($d,1))}} KM
-                                        @endif
-                                        
-                                    @endif
-                                @endforeach
                             @endauth
                         </p>
                         <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
