@@ -28,9 +28,7 @@
     @endif
 
 @endif
-@if($user->AL_id == null)
-    <h1>{{$user->AL_id}} é nulo</h1>
-@endif
+
 @if($user->AL_id !=1)
     <div class="col-md-10 offset-md-1 dashboard-products-container">
         @if($user->AL_id == 3)
