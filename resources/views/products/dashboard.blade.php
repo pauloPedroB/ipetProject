@@ -5,7 +5,7 @@
     <h1>Meus Dados</h1>
 </div>
 
-
+<h2>{{$user->AL_id}}</h2>
 
 @if($user->AL_id !=3)
     @if($Loja->Endereco_id == null)
