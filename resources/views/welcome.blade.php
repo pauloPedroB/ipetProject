@@ -132,7 +132,9 @@
                         <h5 class="card-title">{{ $product->Name }}</h5>
                         <p class="card-distance">
                             @auth
-                                {{$product->End_id}}
+
+                                <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
+                                
                             @endauth
                         </p>
                         <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>

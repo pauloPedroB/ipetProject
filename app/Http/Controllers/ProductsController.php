@@ -21,28 +21,10 @@ class ProductsController extends Controller
 {
     public function index(){
 
-        $search = request('search');
-        if($search){
-            $products = productsLoja::join('products','products.id','=','Product_id')
-                                ->join('users','products.user_id','=','users.id')
-                                ->join('lojas','lojas.id','=','Loja_id')
-                                ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                                'products_lojas.id',
-                                'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
-                                ->where([['products.Name','like','%'.$search.'%']])
-                                ->get();
-        }
-        else{
-            $products = productsLoja::join('products','products.id','=','Product_id')
-                                ->join('users','products.user_id','=','users.id')
-                                ->join('lojas','lojas.id','=','Loja_id')
-                                ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
-                                ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                                'products_lojas.id','enderecos.id as End_id',
-                                'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
-                                ->get();
-        }
-
+        
+        $Enderecos = Endereco::all();
+        $lat = 0;
+        $long = 0;
         $User = auth()->user();
         if($User){
             $loja = Loja::where([
@@ -60,13 +42,14 @@ class ProductsController extends Controller
                 if(count($loja)==0){
                     $loja = null;
                 }
+               
             }
             
         }
         else{
             $loja='teste';
         }
-        $Enderecos = Endereco::all();
+        
         $end = false;
         $id_end = 0;
         if($loja==null && $User->AL_id !=3){
@@ -85,14 +68,53 @@ class ProductsController extends Controller
                     }
                }
             }
-           
         }
+        if($loja != 'teste' && $loja != null){
+            foreach($loja as $loj){
+                foreach($Enderecos as $Endereco){
+                    if($loj->Endereco_id == $Endereco->id){
+                        $lat = $Endereco->Latitude;
+                        $long = $Endereco->Longitude;
+                    }
+                }
+            }
+            
+        }
+        
+
+        $search = request('search');
+        if($search){
+            $products = productsLoja::join('products','products.id','=','Product_id')
+                                    ->join('users','products.user_id','=','users.id')
+                                    ->join('lojas','lojas.id','=','Loja_id')
+                                    ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
+                                    ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
+                                    products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
+                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                    ->orderBy('distancia', 'asc')
+                                    ->take(10)
+                                    ->where([['products.Name','like','%'.$search.'%']])
+                                    ->get();
+        }
+        else{
+                $products = productsLoja::join('products','products.id','=','Product_id')
+                                        ->join('users','products.user_id','=','users.id')
+                                        ->join('lojas','lojas.id','=','Loja_id')
+                                        ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
+                                        ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
+                                        products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
+                                        lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                        ->orderBy('distancia', 'asc')
+                                        ->take(10)
+                                        ->get();   
+        }
+
+
         if($end == true && $User->AL_id !=3){
             return redirect('/Endereco');
         }
         else{
-            return view('welcome',['products'=>$products,'search' => $search,'Enderecos'=>$Enderecos,'User'=>$User,
-        'dlon'=>0,'dlat'=>0,'a'=>0,'c'=>0,'r'=>0,'d'=>0,'latUser'=>0,'longUser'=>0,'id_end'=>$id_end]);
+            return view('welcome',['products'=>$products,'search' => $search,'User'=>$User]);
         }
        
         
