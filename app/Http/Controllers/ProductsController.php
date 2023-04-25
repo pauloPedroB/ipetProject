@@ -23,11 +23,14 @@ class ProductsController extends Controller
 
         $search = request('search');
         if($search){
-            $products = productsLoja::join('products','products.id','=','products_Lojas.Product_id')
-            ->join('users','products.user_id','=','users.id')
-            ->join('lojas','lojas.id','=','products_Lojas.Loja_id')
-            ->where([['name','like','%'.$search.'%']])
-            ->get();
+            $products = productsLoja::join('products','products.id','=','Product_id')
+                                ->join('users','products.user_id','=','users.id')
+                                ->join('lojas','lojas.id','=','Loja_id')
+                                ->select('products.id as id_P','products.Name','products.Image','products.Description',
+                                'products_lojas.id',
+                                'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
+                                ->where([['products.Name','like','%'.$search.'%']])
+                                ->get();
         }
         else{
             $products = productsLoja::join('products','products.id','=','Product_id')

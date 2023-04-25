@@ -57,7 +57,9 @@
                 </div>
             </div>
         </nav>
-        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+        <form action="/" method="GET">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+        </form>
     </header>
     @auth
         @foreach ($Enderecos as $Endereco)
