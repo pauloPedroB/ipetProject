@@ -28,7 +28,7 @@
     @endif
 
 @endif
-<h1>{{$user->AL_id}}</h1>
+<h1>{{$user->AL_id}}fdsafasdfsda</h1>
 @if($user->AL_id !=1)
     <div class="col-md-10 offset-md-1 dashboard-products-container">
         @if($user->AL_id == 3)
