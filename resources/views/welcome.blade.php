@@ -130,9 +130,9 @@
                     <div class="card-body">
                         <p class="card-date">19/03/2023</p>
                         <h5 class="card-title">{{ $product->Name }}</h5>
-                        <h6 class="card-value">R$ {{ $product->Value }}</h6>
                         <p class="card-distance">
                             @auth
+                                {{$product->End_id}}
                             @endauth
                         </p>
                         <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>

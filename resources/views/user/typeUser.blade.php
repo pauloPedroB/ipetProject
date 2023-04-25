@@ -8,7 +8,7 @@
 
 
             <div class="btn cardLoja card d-inline-flex p-2 m-5 p-5 ">
-                <a href="/Registra/Loja"><span class="material-symbols-outlined">store</span></a>
+                <a href="/Registrar/Loja"><span class="material-symbols-outlined">store</span></a>
                 <div class="card-body">
                     <p class="fs-1">Loja</p>
                 </div>
@@ -16,7 +16,7 @@
 
 
             <div class="btn cardUsuario card d-inline-flex p-2 m-5 p-5">
-                <a href="/Registra/Usuario"><span class="material-symbols-outlined">person</span></a>
+                <a href="/Registrar/Usuario"><span class="material-symbols-outlined">person</span></a>
                 <div class="card-body">
                     <p class="fs-1">Usuário</p>
                 </div>

@@ -36,8 +36,9 @@ class ProductsController extends Controller
             $products = productsLoja::join('products','products.id','=','Product_id')
                                 ->join('users','products.user_id','=','users.id')
                                 ->join('lojas','lojas.id','=','Loja_id')
+                                ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
                                 ->select('products.id as id_P','products.Name','products.Image','products.Description',
-                                'products_lojas.id',
+                                'products_lojas.id','enderecos.id as End_id',
                                 'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
                                 ->get();
         }

@@ -70,10 +70,10 @@ Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middlewa
 Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja');
 Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
 
-Route::get('/Registar/Loja', [LojaController::class, 'index'])->middleware('auth');
+Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth');
 
-Route::get('/Registar/Usuario', [UsuarioController::class, 'index'])->middleware('auth');
+Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth');
 Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth');
 
 
