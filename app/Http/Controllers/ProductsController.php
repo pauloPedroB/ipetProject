@@ -246,7 +246,6 @@ class ProductsController extends Controller
                                 ->join('lojas','lojas.id','=','Loja_id')
                                 ->join('categories','categories.id','=','products.category_id')
                                 ->where('lojas.id','=',$Loja->id)
-                                ->where('users.id','!=','3')
                                 ->select('products.id as id_P','products.Name','products.Image','products.Description',
                                 'products_lojas.id','categories.name',
                                 'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
