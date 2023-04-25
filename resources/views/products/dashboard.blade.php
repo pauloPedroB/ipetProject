@@ -74,7 +74,11 @@
                     @foreach ($products as $product)
                         <tr>
                             <td scope="row">{{$loop->index+1}}</td>
-                            <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
+                            @if($user->AL_id ==2)
+                                <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
+                            @else
+                                <td><p>{{$product->Name}}</p></td>
+                            @endif
                             <td>
                                 @if($user->AL_id ==3)
                                 <!-- <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a> -->
