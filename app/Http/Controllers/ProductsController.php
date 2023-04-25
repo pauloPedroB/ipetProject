@@ -251,11 +251,14 @@ class ProductsController extends Controller
                                 'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
                                 ->get();
         }
-        else if($user->AL_id !=3){
+        else if($user->AL_id ==1){
             $products = null;
         }
-        else{
+        else if($user->AL_id ==3){
             $products = Product::all();
+        }
+        else{
+            $products = null;
         }
         $categories = Category::all();
        
