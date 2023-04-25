@@ -5,7 +5,6 @@
     <h1>Meus Dados</h1>
 </div>
 
-<h2>{{$user->AL_id}}</h2>
 
 @if($user->AL_id !=3)
     @if($Loja->Endereco_id == null)
@@ -29,6 +28,7 @@
     @endif
 
 @endif
+<h1>{{$user->AL_id}}</h1>
 @if($user->AL_id !=1)
     <div class="col-md-10 offset-md-1 dashboard-products-container">
         @if($user->AL_id == 3)
