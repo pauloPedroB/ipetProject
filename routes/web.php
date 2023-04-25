@@ -52,19 +52,22 @@ use App\Http\Controllers\AvaliationsController;
 //     }
 // );
 
+Route::get('/tela/{view}', function ($view) {
+    return view($view);
+});
 
 Route::get('/', [ProductsController::class, 'index']);
 Route::get('/dashboard', [ProductsController::class, 'dashboard'])->middleware('auth');
-Route::get('/produto/adicionar', [ProductsController::class, 'create'])->middleware('auth','CheckADM');
-Route::get('/produto/disponiveis', [ProductsController::class, 'copyProduct'])->middleware('auth','CheckLoja');
-Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middleware('auth','CheckLoja');
+Route::get('/produto/adicionar', [ProductsController::class, 'create'])->middleware('auth', 'CheckADM');
+Route::get('/produto/disponiveis', [ProductsController::class, 'copyProduct'])->middleware('auth', 'CheckLoja');
+Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middleware('auth', 'CheckLoja');
 
 
-Route::post('/produto', [ProductsController::class, 'store'])->middleware('auth','CheckADM');;
+Route::post('/produto', [ProductsController::class, 'store'])->middleware('auth', 'CheckADM');;
 Route::get('/produto/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]');;
-Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth','CheckLoja')->where('id', '[0-9]');
-Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth','CheckLoja')->where('id', '[0-9]');
-Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth','CheckLoja');
+Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
+Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
+Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja');
 Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
 
 Route::get('/Registar/Loja', [LojaController::class, 'index'])->middleware('auth');
@@ -80,8 +83,8 @@ Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth')
 Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth');
 
-Route::get('/categoria/adicionar',[CategoryController::class, 'index'])->middleware('auth');
-Route::post('/categoria',[CategoryController::class, 'create'])->middleware('auth');
-Route::delete('/categoria/{id}',[CategoryController::class, 'destroy'])->middleware('auth');
+Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth');
+Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth');
+Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth');
 
-Route::post('/avaliar',[AvaliationsController::class, 'create'])->middleware('auth','CheckUsuario');
+Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario');
