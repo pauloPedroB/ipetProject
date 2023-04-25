@@ -52,7 +52,7 @@ use App\Http\Controllers\AvaliationsController;
 //     }
 // );
 
-Route::get('/{view}', function ($view) {
+Route::get('/tela/{view}', function ($view) {
     return view($view);
 });
 
