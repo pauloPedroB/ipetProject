@@ -97,6 +97,7 @@ class ProductsController extends Controller
                                     ->get();
         }
         else{
+                $User? $limit=10 : $limit=5;
                 $products = productsLoja::join('products','products.id','=','Product_id')
                                         ->join('users','products.user_id','=','users.id')
                                         ->join('lojas','lojas.id','=','Loja_id')
@@ -105,7 +106,7 @@ class ProductsController extends Controller
                                         products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                         lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                         ->inRandomOrder()
-                                        ->take(10)
+                                        ->take($limit)
                                         ->get();   
         }
 
