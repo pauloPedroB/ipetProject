@@ -5,7 +5,7 @@
 
 <div id="search-container" class="ol-md-12">
     <h1>Adicione um Produto à sua loja</h1>
-    <form action="/" method="GET">
+    <form action="/produto/disponiveis" method="GET">
         <p> Pesquisar por: 
             <select name="Category" id="">
                 <option value="">Todos</option>
@@ -30,12 +30,25 @@
         <h2>Produtos</h2>
     @endif
     <div id="cards-container" class="row">
+        {{var_dump($myproducts)}}
+
         @foreach ($products as $product)
+           
+                
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$product->Name}}</h5>
-                            <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
+                            @if($myproducts != null)
+                                @foreach($myproducts as $myproduct)
+                                    @if($myproduct->Product_id == $product->id)
+                                        <a href="" class="btn btn-primary">Já adicionado</a>
+                                    @endif
+                                @endforeach
+                            @else
+                                <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
+                            @endif
+                            <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                         </div>
                     </div>
         @endforeach

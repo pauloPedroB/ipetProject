@@ -77,7 +77,7 @@
                             @if($user->AL_id ==2)
                                 <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
                             @else
-                                <td><p>{{$product->Name}}</p></td>
+                                <td><a href="/produto/{{$product->id}}/true">{{$product->Name}}</a></td>
                             @endif
                             <td>
                                 @if($user->AL_id ==3)
