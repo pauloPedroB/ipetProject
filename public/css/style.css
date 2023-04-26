@@ -94,7 +94,7 @@ header {
 .carousel-caption1 {
     position: absolute;
     color: #fff;
-    top: 8px;
+    top: 0;
     text-align: center;
     height: max-content;
     width: 100%;
