@@ -123,9 +123,10 @@
                     <p class="card-date">19/03/2023</p>
                     <h5 class="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
-                        @auth
-
-                    <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
+                    @auth
+                        @if($User->AL_id !=3)
+                            <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
+                        @endif
 
                     @endauth
                     </p>
