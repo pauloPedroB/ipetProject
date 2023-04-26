@@ -104,7 +104,7 @@ class ProductsController extends Controller
                                         ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
                                         products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                         lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
-                                        ->orderBy('distancia', 'asc')
+                                        ->inRandomOrder()
                                         ->take(10)
                                         ->get();   
         }
