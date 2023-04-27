@@ -10,6 +10,8 @@ use App\Models\Loja;
 use App\Models\Usuario;
 use App\Models\productsLoja;
 use App\Models\Category;
+use App\Models\Avaliation;
+
 
 
 
@@ -190,6 +192,7 @@ class ProductsController extends Controller
 
 
 
+
         $inputs = array($idade,$pet,$porte,$apresentação);
         
 
@@ -242,8 +245,19 @@ class ProductsController extends Controller
                                     ->get();
             foreach($products as $product){
                 if($product->id == $id){
+                    $avaliations = Avaliation::where('Loja_id','=',$product->Loja_id)->get();
+                    $sum=0;
+                    foreach($avaliations as $avaliation){
+                        $sum = $sum + $avaliation->Qntd;
+                    }
+                    if(count($avaliations)>0){
+                        $sum = $sum/count($avaliations);
+                    }
+                    else{
+                        $sum = 0;
+                    }
                     $description = explode('<!i!i>',$product->Description);
-                    return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user]);
+                    return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'sum'=>$sum]);
                 }
             }
         }

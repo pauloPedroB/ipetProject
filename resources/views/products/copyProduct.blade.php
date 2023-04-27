@@ -30,11 +30,8 @@
         <h2>Produtos</h2>
     @endif
     <div id="cards-container" class="row">
-        {{var_dump($myproducts)}}
 
         @foreach ($products as $product)
-           
-                
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">

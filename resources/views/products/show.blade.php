@@ -14,14 +14,34 @@
 
 
             <p>Avaliação da Loja:</p>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @if($sum>0.5)
+                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+            @else
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @endif
+            @if($sum>1.5)
+                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+            @else
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @endif
+            @if($sum>2.5)
+                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+            @else
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @endif
+            @if($sum>3.5)
+                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+            @else
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @endif
+            @if($sum>4.5)
+                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+            @else
+                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @endif
+            
 
-
-
+            {{$sum}}
             <br>
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
