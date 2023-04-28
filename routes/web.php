@@ -65,7 +65,7 @@ Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middlew
 
 Route::post('/produto', [ProductsController::class, 'store'])->middleware('auth', 'CheckADM');;
 Route::get('/produto/{id}/{prod?}', [ProductsController::class, 'show'])->where('id', '[0-9]');;
-Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
+Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]{1,2,3}');
 Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
 Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja');
 Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
