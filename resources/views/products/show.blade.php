@@ -14,30 +14,32 @@
 
 
             <p>Avaliação da Loja:</p>
-            @if($sum>=0.4)
-                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
-            @else
-                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            @endif
-            @if($sum>=1.4)
-                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
-            @else
-                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            @endif
-            @if($sum>=2.4)
-                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
-            @else
-                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            @endif
-            @if($sum>=3.4)
-                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
-            @else
-                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
-            @endif
-            @if($sum>=4.4)
-                <a href="javascript:void(0)"><img src="/img/star1.png"></a>
-            @else
-                <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+            @if($prod == 'false')
+                @if($sum>=0.4)
+                    <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+                @else
+                    <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                @endif
+                @if($sum>=1.4)
+                    <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+                @else
+                    <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                @endif
+                @if($sum>=2.4)
+                    <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+                @else
+                    <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                @endif
+                @if($sum>=3.4)
+                    <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+                @else
+                    <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                @endif
+                @if($sum>=4.4)
+                    <a href="javascript:void(0)"><img src="/img/star1.png"></a>
+                @else
+                    <a href="javascript:void(0)"><img src="/img/star0.png"></a>
+                @endif
             @endif
             
 
