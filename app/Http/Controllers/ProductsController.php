@@ -52,26 +52,9 @@ class ProductsController extends Controller
             $loja='teste';
         }
         
-        $end = false;
-        $id_end = 0;
-        if($loja==null && $User->AL_id !=3){
-            return redirect('/Tipo/Usuario');
-        }
-        else{
-            if($User && $User->AL_id!=3)
-            {
-                foreach($loja as $loj){
-                    if($loj->Endereco_id == null)
-                    {
-                        $end = true;
-                    }
-                    else{
-                        $id_end=$loj->Endereco_id;
-                    }
-               }
-            }
-        }
-        if($loja != 'teste' && $loja != null){
+        
+        
+        if($User){
             foreach($loja as $loj){
                 foreach($Enderecos as $Endereco){
                     if($loj->Endereco_id == $Endereco->id){
@@ -113,12 +96,8 @@ class ProductsController extends Controller
         }
 
 
-        if($end == true && $User->AL_id !=3){
-            return redirect('/Endereco');
-        }
-        else{
-            return view('welcome',['products'=>$products,'search' => $search,'User'=>$User]);
-        }
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User]);
+        
        
         
     }
