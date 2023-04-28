@@ -94,19 +94,19 @@ class ProductsController extends Controller
                                     products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                     lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                     ->orderBy('distancia', 'asc')
-                                    ->take(10)
+                                    ->take(6)
                                     ->where([['products.Name','like','%'.$search.'%']])
                                     ->get();
         }
         else{
-                $User? $limit=10 : $limit=5;
+                $User? $limit=6 : $limit=5;
                 $products = productsLoja::join('products','products.id','=','Product_id')
                                         ->join('users','products.user_id','=','users.id')
                                         ->join('lojas','lojas.id','=','Loja_id')
                                         ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
                                         ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
-                                        products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                        lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                                    products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
+                                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                         ->inRandomOrder()
                                         ->take($limit)
                                         ->get();   
