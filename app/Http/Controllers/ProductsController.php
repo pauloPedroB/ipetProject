@@ -54,7 +54,7 @@ class ProductsController extends Controller
         
         
         
-        if($User){
+        if($User && $User->AL_id != 3){
             foreach($loja as $loj){
                 foreach($Enderecos as $Endereco){
                     if($loj->Endereco_id == $Endereco->id){
