@@ -8,7 +8,8 @@
     <title>Ipet</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="/js/funcoes.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
 
@@ -23,22 +24,34 @@
                     <img class="img-fluid" src="/img/IPetLogo.png" alt="" id="nav-logo">
                 </a>
 
-                <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        @auth
                         <li class="nav-item">
+                            <a class="nav-link">Bem
+                                Vindo,
+                                {{stristr(Auth::user()->email,"@", true)}}.</a>
+                        </li>
+                        @endauth
+                        <li>
                             <a href="/" class="nav-link">Produtos</a>
                         </li>
                         @auth
+
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">Meus Dados</a>
                         </li>
                         <li class="nav-item">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <input id="btnClose" type="submit" onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose" value="Sair">
+                                <input id="btnClose" type="submit"
+                                    onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                    value="Sair">
                             </form>
                         </li>
                         @endauth
@@ -60,7 +73,8 @@
 
     <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
@@ -123,10 +137,10 @@
                     <p class="card-date">19/03/2023</p>
                     <h5 class="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
-                    @auth
+                        @auth
                         @if($User->AL_id !=3)
-                            <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
-                        @endif
+                    <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
+                    @endif
 
                     @endauth
                     </p>
@@ -147,7 +161,8 @@
 
     <script src="/js/app.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 </body>
 

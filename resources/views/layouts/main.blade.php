@@ -53,26 +53,33 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link">Bem
+                                Vindo,
+                                {{stristr(Auth::user()->email,"@", true)}}.</a>
+                        </li>
+                        @endauth
                         <li class="nav-item">
                             <a href="/" class="nav-link">Produtos</a>
                         </li>
                         @auth
-                            <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">Meus Dados</a>
-                            </li>
-                            <li class="nav-item">
-                                <form action="/logout" method="POST">
-                                    @csrf
-                                    <input id="btnClose" type="submit"
-                                        onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
-                                        value="Sair">
-                                </form>
-                            </li>
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Meus Dados</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <input id="btnClose" type="submit"
+                                    onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                    value="Sair">
+                            </form>
+                        </li>
                         @endauth
                         @guest
-                            <li class="nav-item">
-                                <a href="/login" class="nav-link">Entrar</a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Entrar</a>
+                        </li>
 
                         @endguest
                     </ul>
@@ -85,7 +92,7 @@
         <div class="container-fluid">
             <div class="row">
                 @if (session('msg'))
-                    <p class="msg">{{ session('msg') }}</p>
+                <p class="msg">{{ session('msg') }}</p>
                 @endif
                 @yield('content')
             </div>
