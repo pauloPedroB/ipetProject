@@ -36,15 +36,15 @@
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$product->Name}}</h5>
-                            @if($myproducts != null)
-                                @foreach($myproducts as $myproduct)
-                                    @if($myproduct->Product_id == $product->id)
-                                        <a href="" class="btn btn-primary">Já adicionado</a>
-                                    @endif
-                                @endforeach
-                            @else
-                                <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
-                            @endif
+                            
+                            @foreach($myproducts as $myproduct)
+                                @if($myproduct->Product_id == $product->id)
+                                    <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
+                                @else
+                                    <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
+                                @endif
+                            @endforeach
+                          
                             <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                         </div>
                     </div>

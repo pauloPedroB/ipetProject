@@ -109,18 +109,10 @@ class ProductsController extends Controller
     public function copyProduct(){
         
         $user = auth()->user();
-        $lojas = Loja::all();
-        $Loja = '';
+        $lojas = Loja::where('user_id','=',$user->id)->get();
         foreach($lojas as $loja){
-            if($loja->User_id == $user->id){
-                $Loja = $loja->id;
-                $myproducts = productsLoja::where('Loja_id','=',$loja->id);
-                break;
-            }
-            else{
-                $myproducts = null;
-            }
-
+            $myproducts = productsLoja::where('Loja_id','=',$loja->id)->get();
+            break;
         }
         $search = request('search');
         if($search){
