@@ -52,7 +52,7 @@ class CheckType
         if($User && $User->AL_id!=3)
         {
             foreach($loja as $loj){
-                if($loj->Endereco_id == null && $loj->User_id == $User->id)
+                if($loj->Endereco_id == null && $loj->user_id == $User->id)
                 {
                     $end = true;
                     break;
