@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('lojas', function (Blueprint $table) {
-            $table->foreignId('Premium')->nullable();
+            $table->integer('Premium')->nullable();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('lojas', function (Blueprint $table) {
-            $table->foreignId('Premium')->constrained()->onDelete('cascade');
+            $table->integer('Premium')->constrained()->onDelete('cascade');
         });
     }
 };
