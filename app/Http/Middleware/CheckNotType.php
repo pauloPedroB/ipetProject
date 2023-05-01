@@ -1,4 +1,4 @@
-<?php
+8<?php
 
 namespace App\Http\Middleware;
 
@@ -42,8 +42,7 @@ class CheckNotType
             $loja='teste';
         }
         
-        $end = false;
-        $id_end = 0;
+        
         if($loja!=null){
             return redirect('/');
         }
