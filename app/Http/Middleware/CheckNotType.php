@@ -47,21 +47,6 @@ class CheckNotType
         if($loja!=null){
             return redirect('/');
         }
-
-        $end = false;
-        if($User && $User->AL_id!=3)
-        {
-            foreach($loja as $loj){
-                if($loj->Endereco_id == null)
-                {
-                    $end = true;
-                }
-                
-            }
-        }
-        if($end == true && $User->AL_id !=3){
-            return redirect('/Endereco');
-        }
         return $next($request);
     }
 }
