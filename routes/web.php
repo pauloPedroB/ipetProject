@@ -81,7 +81,7 @@ Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middlew
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel'])->middleware('CheckNotType');
 Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth');
-Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth', 'CheckNotType');
+Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth', 'CheckType');
 
 Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckType');
