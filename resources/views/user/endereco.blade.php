@@ -83,11 +83,11 @@
             </div>
             <div class="form-group">
                 <label for="title">Latitude</label>
-                <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$Latitude}}" required disabled>
+                <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$Latitude}}" required>
             </div>
             <div class="form-group">
                 <label for="title">Latitude</label>
-                <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$Longitude}}" required disabled>
+                <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$Longitude}}" required>
             </div>
             <input type="submit" class="btn btn-primary" value="{{$title}}" id="mndEndereco">
         </form>
