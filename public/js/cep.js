@@ -61,7 +61,7 @@ cepInput.addEventListener("keypress",(e)=>{
 
         const inputValue = e.target.value
 
-        if(inputValue.length === 3){
+        if(inputValue.length >= 1){
             const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
         
                 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
@@ -84,4 +84,13 @@ cepInput.addEventListener("keypress",(e)=>{
         messageElement.style.backgroundColor = 'red';
         messageElement.innerText = msg;
     }
-}})
+}});
+const form = document.getElementById("addres");
+    form.addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+        latInput.disabled = false;
+        longInput.disabled = false;
+        return form.submit();
+
+    });
