@@ -57,11 +57,9 @@ cepInput.addEventListener("keypress",(e)=>{
             
         
     }
-    numberInput.addEventListener("keyup", (e)=>{
+    numberInput.addEventListener("blur", (e)=>{
 
-        const inputValue = e.target.value
-
-        if(inputValue.length >= 1){
+      
             const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
                 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
                 .then(response => response.json())
@@ -73,7 +71,7 @@ cepInput.addEventListener("keypress",(e)=>{
                     longInput.value = longitude
                 })
                 .catch(error => console.error(error));
-        }
+                
 
     });
 

@@ -78,4 +78,25 @@ class LojaController extends Controller
     {
         //
     }
+    public function premiumIndex(){
+        $User = auth()->user();
+        $loja = Loja::where([
+            [
+                'user_id','=',$User->id
+            ]
+        ])->get();
+
+        return view('user.premium',['user'=>$User,'loja'=>$loja]);
+    }
+    public function premium(){
+        $User = auth()->user();
+        $loja = Loja::where([
+            [
+                'user_id','=',$User->id
+            ]
+        ])->first();
+        $loja->Premium = 1;
+        $loja->save();
+        return redirect('/');
+    }
 }

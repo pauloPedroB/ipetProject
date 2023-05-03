@@ -32,19 +32,25 @@
     <div id="cards-container" class="row">
 
         @foreach ($products as $product)
+
+            @php
+                @count = false;
+                foreach($myproducts as $myproduct){
+                        if($myproduct->Product_id == $product->id){
+                            $count = true;
+                            break;
+                        }
+                    }
+            @endphp 
                     <div class="card col-md-3">
                         <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$product->Name}}</h5>
-                            
-                            @foreach($myproducts as $myproduct)
-                                @if($myproduct->Product_id == $product->id)
-                                    <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
-                                @else
-                                    <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary">Adicionar à sua loja</a>
-                                @endif
-                            @endforeach
-                          
+                            @if($count == true)
+                                <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
+                            @else
+                                <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
+                            @endif
                             <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                         </div>
                     </div>

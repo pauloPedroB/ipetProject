@@ -89,3 +89,7 @@ Route::post('/categoria', [CategoryController::class, 'create'])->middleware('au
 Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckType');
 
 Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario');
+
+Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth', 'CheckType','CheckLoja');
+Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja');
+
