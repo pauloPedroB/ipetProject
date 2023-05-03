@@ -34,7 +34,7 @@
         @foreach ($products as $product)
 
             @php
-                @count = false;
+                $count = false;
                 foreach($myproducts as $myproduct){
                         if($myproduct->Product_id == $product->id){
                             $count = true;
