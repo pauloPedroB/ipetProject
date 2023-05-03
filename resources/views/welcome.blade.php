@@ -153,6 +153,16 @@
    
       
             @foreach ($products as $product)
+                @php
+                    $count = false;
+                    foreach($premiumProducts as $premiumProduct){
+                            if($premiumProduct->id == $product->id){
+                                $count = true;
+                                break;
+                            }
+                        }
+                @endphp 
+            @if($count == false)
             <div class="card col-md-3">
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
@@ -169,6 +179,7 @@
                     <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
                 </div>
             </div>
+            @endif
             @endforeach
             @if(count($products)+count($premiumProducts)==0 && $search)
             <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>

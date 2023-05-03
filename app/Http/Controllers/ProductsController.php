@@ -131,7 +131,7 @@ class ProductsController extends Controller
         }
 
 
-        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>0]);
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false]);
         
        
         
