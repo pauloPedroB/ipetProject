@@ -19,55 +19,57 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
+            <div >
                 <a href="" class="navbar-brand">
                     <img class="img-fluid" src="/img/IPetLogo.png" alt="" id="nav-logo">
                 </a>
-
+            </div>
+            <div >
+                <form action="/" method="GET">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+                </form>
+            </div>
+            <div>
                 <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        @auth
-                        <li class="nav-item">
-                            <a class="nav-link">Bem
-                                Vindo,
-                                {{stristr(Auth::user()->email,"@", true)}}.</a>
-                        </li>
-                        @endauth
-                        <li>
-                            <a href="/" class="nav-link">Produtos</a>
-                        </li>
-                        @auth
-
-                        <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Meus Dados</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <input id="btnClose" type="submit"
-                                    onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
-                                    value="Sair">
-                            </form>
-                        </li>
-                        @endauth
-                        @guest
-                        <li class="nav-item">
-                            <a href="/login" class="nav-link">Entrar</a>
-                        </li>
-
-                        @endguest
-                    </ul>
-                </div>
             </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    @auth
+                    <li class="nav-item">
+                        <a class="nav-link">Bem
+                        Vindo,
+                        {{stristr(Auth::user()->email,"@", true)}}.</a>
+                    </li>
+                    @endauth
+                    <li>
+                        <a href="/" class="nav-link">Produtos</a>
+                    </li>
+                    @auth
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link">Meus Dados</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <input id="btnClose" type="submit"
+                                onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                value="Sair">
+                        </form>
+                    </li>
+                    @endauth
+                    @guest
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Entrar</a>
+                    </li>
+
+                    @endguest
+                </ul>
+                </div>
         </nav>
-        <form action="/" method="GET">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
-        </form>
     </header>
 
 
