@@ -148,8 +148,7 @@
                 </div>
             </div>
             @endforeach
-    </div>
-    <div id="products-container" class="col-md-12">
+   
       
             @foreach ($products as $product)
             <div class="card col-md-3">
