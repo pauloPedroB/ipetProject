@@ -96,7 +96,28 @@ class ProductsController extends Controller
         }
         else
         {
-            $User? $limit=6 : $limit=5;
+            $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
+                                            ->join('users','products.user_id','=','users.id')
+                                            ->join('lojas','lojas.id','=','Loja_id')
+                                            ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
+                                            ->where('lojas.Premium','=','1')
+                                            ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
+                                            products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
+                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                            ->orderBy('distancia', 'asc')
+                                            ->take(2)
+                                            ->get();
+            if(count($premiumProducts) == 2){
+                $limit = 6;
+            }
+            else if(count($premiumProducts)==1){
+                $limit = 7;
+            }
+            else{
+                $limit = 8;
+            }
+            
+
             $products = productsLoja::join('products','products.id','=','Product_id')
                                     ->join('users','products.user_id','=','users.id')
                                     ->join('lojas','lojas.id','=','Loja_id')
@@ -107,21 +128,10 @@ class ProductsController extends Controller
                                     ->inRandomOrder()
                                     ->take($limit)
                                     ->get();
-            $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
-                                ->join('users','products.user_id','=','users.id')
-                                ->join('lojas','lojas.id','=','Loja_id')
-                                ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
-                                ->where('lojas.Premium','=','1')
-                                ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
-                                products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
-                                ->orderBy('distancia', 'asc')
-                                ->take(2)
-                                ->get();
         }
 
 
-        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts]);
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>0]);
         
        
         
