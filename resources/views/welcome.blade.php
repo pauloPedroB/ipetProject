@@ -148,6 +148,7 @@
                 </div>
             </div>
             @endforeach
+            <br>
             @foreach ($products as $product)
             <div class="card col-md-3">
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
