@@ -148,8 +148,9 @@ body {
     border: 2px solid #DBF0E1;
 }
 
-.form-control{
-    width: 100%;
+.product-card {
+   height: 350px;
+   width: 250px;
 }
 
 #products-container {
