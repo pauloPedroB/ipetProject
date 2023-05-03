@@ -135,7 +135,10 @@ body {
     border: 2px solid #DBF0E1;
 }
 
-
+.product-card {
+   height: 350px;
+   width: 250px;
+}
 
 #products-container {
     padding: 50px;
