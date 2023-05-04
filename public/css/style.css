@@ -188,7 +188,7 @@ body {
     
 }
 #card-primary{
-    border-color:#DBF0E1;
+    border: 2px solid #DBF0E1;
 }
 
 #products-container .card {
