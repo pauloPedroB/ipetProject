@@ -187,7 +187,7 @@ body {
     display: flex;
     
 }
-#card-primary{
+#cards-container .card{
     border: 2px solid #DBF0E1;
 }
 
