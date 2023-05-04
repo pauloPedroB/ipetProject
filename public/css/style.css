@@ -54,11 +54,12 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 10vw;
-    top: 0;
     background-color: #DBF0E1;
-    border-bottom: 2px solid #FFC05F ;
     margin-bottom: 30px;
+}
+
+.navbar {
+    padding-bottom: 0;
 }
 
 .navbar-expand-lg{
@@ -76,7 +77,7 @@ header {
 #navbarNav {
     justify-content: end;
     background-color: #DBF0E1;
-    z-index: 1000
+    z-index: 1000;
 }
 
 .navbar-collapse {
@@ -86,7 +87,7 @@ header {
 #navbarNav a,
 #btnClose {
     padding: 0;
-    font-size: 25px;
+    font-size: 20px;
     color: black;
     margin: 5px 10px;
     text-decoration: underline;
@@ -109,20 +110,30 @@ header {
     width:50%;
 }
 .carousel-caption1 {
-    position: absolute;
-    color: #fff;
-    top: 0;
+    color: #000;
+    align-items: center;
     text-align: center;
     height: max-content;
-    width:100%;
-    background-color: #353e4862;
-    z-index: 1;
-
-    text-shadow: 2px 2px 5px black;
+    width: 100%;
+    padding-top: 10px;
+    z-index: 10;
+    background-color: #DBF0E1;
+    border-bottom: 2px solid #FFC05F ;
 }
 
-.carousel-item .active{
-    width: 50%;
+#Category{
+    color: black;
+    background-color: #FFC05F;
+
+}
+#orderBy{
+    color: black;
+    background-color: #FFC05F;
+}
+
+#carouselIpet{
+    margin-top: 0;
+    padding: 0px 220px;
 }
 
 /* Body */
@@ -372,4 +383,15 @@ a img {
 
 #icon_register{
     font-size: 10rem;
+}
+
+@media screen and (max-width:760px){
+    .card-body .btn-primary {
+        font-size: 12px;
+    }
+
+    .card .card-title {
+        font-size: 12px;
+    }
+    
 }

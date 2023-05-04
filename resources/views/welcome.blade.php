@@ -24,9 +24,9 @@
                     <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                 </a>
             </div>
-            <div >
+            <div class="input-container">
                 <form action="/" method="GET">
-                    <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+                    <input  type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
                 </form>
             </div>
             <div>
@@ -68,10 +68,27 @@
 
                     @endguest
                 </ul>
-                </div>
+            </div>
         </nav>
+        <div class="carousel-caption1">
+            <form action="/" method="GET">
+                <p > Pesquisar por:
+                    <select name="Category" id="Category">
+                        <option value="">Todos</option>
+                        <option value="">Rações</option>
+                        <option value="">Remédios</option>
+                        <option value="">Acessórios</option>
+                    </select>
+                    Pesquisar por ordem de:
+                    <select name="orderBy" id="orderBy">
+                        <option value="">Distância</option>
+                        <option value="">Preço</option>
+                        <option value="">Avaliação</option>
+                    </select>
+                </p>
+            </form>
+        </div>
     </header>
-
 
     <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -81,27 +98,6 @@
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner" data-bs-interval="500">
-
-            <div class="carousel-caption1">
-                <h1>Busque um Produto</h1>
-                <form action="/" method="GET">
-                    <p> Pesquisar por:
-                        <select name="Category" id="">
-                            <option value="">Todos</option>
-                            <option value="">Rações</option>
-                            <option value="">Remédios</option>
-                            <option value="">Acessórios</option>
-                        </select>
-                        Pesquisar por ordem de:
-                        <select name="orderBy" id="">
-                            <option value="">Distância</option>
-                            <option value="">Preço</option>
-                            <option value="">Avaliação</option>
-                        </select>
-                    </p>
-                </form>
-            </div>
-
             <div class="carousel-item active">
                 <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100
                 " alt="...">
