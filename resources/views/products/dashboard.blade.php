@@ -21,6 +21,10 @@
                     <p>Bairro: {{$Endereco->Bairro}}</p>
                     <p>Cidade: {{$Endereco->Cidade}}</p>
                     <p>Edite o seu <a href="/Endereco/">ENDEREÇO</a></p>
+
+                    @if($user->AL_id == 2)
+                        <p><a href="/pacote">Pacote</a></p>
+                    @endif
                 </div>
                 @break
             @endif
@@ -28,10 +32,7 @@
     @endif
 
 @endif
-@if($user->AL_id == 2)
-    <p><a href="/pacote">Pacote</a></p>
 
-@endif
 @if($user->AL_id !=1)
     <div class="col-md-10 offset-md-1 dashboard-products-container">
         @if($user->AL_id == 3)

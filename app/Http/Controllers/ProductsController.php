@@ -330,7 +330,8 @@ class ProductsController extends Controller
             $products = null;
         }
         $categories = Category::all();
-       
+        $UserEndereco = Product::findOrFail($Loja->Endereco_id);
+        
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
                     'categories'=>$categories]);
     }

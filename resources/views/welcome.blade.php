@@ -138,7 +138,7 @@
                     <p class="card-distance">
                     @auth
                         @if($User->AL_id !=3)
-                            <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
+                            <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
                         @endif
                     @endauth
                     </p>
@@ -158,24 +158,25 @@
                             }
                         }
                 @endphp 
-            @if($count == false)
-            <div class="card col-md-3">
-                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <p class="card-date">19/03/2023</p>
-                    <h5 class="card-title">{{ $product->Name }}</h5>
-                    <p class="card-distance">
-                        @auth
-                        @if($User->AL_id !=3)
-                    <p>Distancia: {{floatval(number_format($product->distancia,1))}} KM</p>
-                    @endif
+                @if($count == false)
+                <div class="card col-md-3">
+                    <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                    <div class="card-body">
+                        <p class="card-path">Mais próximo de você</p>
+                        <p class="card-date">19/03/2023</p>
+                        <h5 class="card-title">{{ $product->Name }}</h5>
+                        <p class="card-distance">
+                            @auth
+                            @if($User->AL_id !=3)
+                        <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                        @endif
 
-                    @endauth
-                    </p>
-                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
+                        @endauth
+                        </p>
+                        <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
+                    </div>
                 </div>
-            </div>
-            @endif
+                @endif
             @endforeach
             @if(count($products)+count($premiumProducts)==0 && $search)
             <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
