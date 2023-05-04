@@ -28,7 +28,10 @@
     @endif
 
 @endif
+@if($user->AL_id == 2)
+    <p><a href="/pacote">Pacote</a></p>
 
+@endif
 @if($user->AL_id !=1)
     <div class="col-md-10 offset-md-1 dashboard-products-container">
         @if($user->AL_id == 3)
@@ -108,5 +111,6 @@
         @endif
     </div>
 @endif
+
 
 @endsection
