@@ -22,8 +22,6 @@ use App\Models\Avaliation;
 class ProductsController extends Controller
 {
     public function index(){
-
-        
         $Enderecos = Endereco::all();
         $lat = 0;
         $long = 0;
@@ -69,6 +67,28 @@ class ProductsController extends Controller
 
         $search = request('search');
         if($search){
+            $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
+                                            ->join('users','products.user_id','=','users.id')
+                                            ->join('lojas','lojas.id','=','Loja_id')
+                                            ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
+                                            ->where('lojas.Premium','=','1')
+                                            ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
+                                            products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
+                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                            ->orderBy('distancia', 'asc')
+                                            ->take(2)
+                                            ->where([['products.Name','like','%'.$search.'%']])
+                                            ->get();
+
+            if(count($premiumProducts) == 2){
+                $limit = 6;
+            }
+            else if(count($premiumProducts)==1){
+                $limit = 7;
+            }
+            else{
+                $limit = 8;
+            }
             $products = productsLoja::join('products','products.id','=','Product_id')
                                     ->join('users','products.user_id','=','users.id')
                                     ->join('lojas','lojas.id','=','Loja_id')
@@ -78,19 +98,6 @@ class ProductsController extends Controller
                                     lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                     ->orderBy('distancia', 'asc')
                                     ->take(6)
-                                    ->where([['products.Name','like','%'.$search.'%']])
-                                    ->get();
-
-            $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
-                                    ->join('users','products.user_id','=','users.id')
-                                    ->join('lojas','lojas.id','=','Loja_id')
-                                    ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
-                                    ->where('lojas.Premium','=','1')
-                                    ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
-                                    products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
-                                    ->orderBy('distancia', 'asc')
-                                    ->take(2)
                                     ->where([['products.Name','like','%'.$search.'%']])
                                     ->get();
         }
@@ -104,7 +111,7 @@ class ProductsController extends Controller
                                             ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
                                             products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                             lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
-                                            ->orderBy('distancia', 'asc')
+                                            ->inRandomOrder()
                                             ->take(2)
                                             ->get();
             if(count($premiumProducts) == 2){
