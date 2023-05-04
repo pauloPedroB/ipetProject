@@ -385,6 +385,13 @@ a img {
     font-size: 10rem;
 }
 
+#nav-free{
+    width: 15vw;
+}
+#nav-premium{
+    width: 15vw;
+}
+
 @media screen and (max-width:760px){
     .card-body .btn-primary {
         font-size: 12px;
