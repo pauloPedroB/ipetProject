@@ -129,7 +129,7 @@
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
             @foreach ($premiumProducts as $product)
-            <div class="card col-md-3">
+            <div class="card col-md-3" style="border-color: brown">
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
