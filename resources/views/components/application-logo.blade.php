@@ -10,4 +10,4 @@
     fill="#6875F5" />
 </svg> --}}
 
-<img src="img/IPetLogo.png" alt="" width="60"> 
+<img src="img/LogoIpet.png" alt="" width="60"> 

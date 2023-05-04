@@ -43,7 +43,7 @@
                     }
             @endphp 
                     <div class="card col-md-3">
-                        <img src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
+                        <img class="img-product" src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                         <div class="card-body">
                             <h5 class="card-title">{{$product->Name}}</h5>
                             @if($count == true)

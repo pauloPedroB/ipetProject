@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg ">
             <div >
                 <a href="" class="navbar-brand">
-                    <img class="img-fluid" src="/img/IPetLogo.png" alt="" id="nav-logo">
+                    <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                 </a>
             </div>
             <div >
@@ -190,6 +190,11 @@
     </div>
     <footer>
         <p>IPET DEVELOPMENT &copy; 2023</p>
+        <div class="contacts">
+            <a href=""><img class="img-footer" src="/img/o-email (2).png" alt="" /></a>
+            <a href=""><img class="img-footer" src="/img/instagram.png" alt="" /></a>
+            <a href=""><img class="img-footer" src="/img/twitter.png" alt="" /></a>
+        </div>
     </footer>
 
     <script src="/js/app.js"></script>

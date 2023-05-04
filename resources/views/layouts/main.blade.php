@@ -43,7 +43,7 @@
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
                 <a href="" class="navbar-brand">
-                    <img class="img-fluid" src="/img/IPetLogo.png" alt="" id="nav-logo">
+                    <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                 </a>
 
                 <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="collapse"
