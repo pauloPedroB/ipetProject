@@ -187,7 +187,9 @@ body {
     display: flex;
     
 }
-
+#card-primary{
+    border-color:#DBF0E1;
+}
 
 #products-container .card {
     flex: 1 1 24%;

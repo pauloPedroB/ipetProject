@@ -159,7 +159,7 @@
                         }
                 @endphp 
                 @if($count == false)
-                <div class="card col-md-3">
+                <div class="card col-md-3" id="card-primary">
                     <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                     <div class="card-body">
                         <p class="card-path">Mais próximo de você</p>
