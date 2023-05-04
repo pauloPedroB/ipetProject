@@ -20,6 +20,41 @@
             @endif
         @endforeach
         <h1>{{$title}}</h1>
+
+        <div class="container-fluid " id="container-register">
+            <div id="header_form" class="row">
+                <h1 class="col" id="h1_register" >Cadastro - Pessoa Jurídica</h1>
+                <i class="fa-solid fa-city col d-flex justify-content-end align-items-center" id="icon_register"></i>
+            </div>
+            {{-- formulario  --}}
+            <form action="" id="formulario">
+                    
+                <div class="form-group">
+                    
+                    <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
+                    <input class="form-control" type="text" id="razaoSocial" >
+                    
+                    <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
+                    <input class="form-control" type="text" id="nomeFantasia" >
+                    
+                    <label class="form-label"  for="cnpj">CNPJ:</label>
+                    <input class="form-control" type="text" name="cnpj" class="" placeholder="00.000.000/0000-00" >
+                    
+                    <label class="form-label"  for="telefone">Telefone:</label>
+                    <input class="form-control" type="tel" id="telefone" name="telefone">
+                    
+                    <label class="form-label" for="celular">Celular:</label>
+                    <input class="form-control" type="tel" id="celular" name="celular">
+                    
+                    <input class="btn btn-primary" type="submit" name="btn-enviar" value="cadastre-se"> 
+                </div>
+                
+            </form>
+        
+    </div>
+
+
+
         <div id="message">
             <p></p>
         </div>

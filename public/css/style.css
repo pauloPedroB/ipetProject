@@ -329,5 +329,26 @@ a img {
 
 
 
+/* cadastro loja */
 
 
+#container-register{
+    width: 50vw;
+    height: 50vh;
+}
+
+#header_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#h1_register{
+    font-size: 2rem;
+    color: #F29200;
+}
+
+
+#icon_register{
+    font-size: 10rem;
+}

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('titlle', 'Tipo de Usuário')
+@section('title', 'Tipo de Usuário')
 @section('content')
 
 
