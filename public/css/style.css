@@ -62,12 +62,13 @@ header {
     padding-bottom: 0;
 }
 
-.navbar-expand-lg{
+.navbar-expand-lg {
     display: flex;
     justify-content: space-around;
     width: 100%;
 
 }
+
 #btnToogle {
     margin-right: 50px;
 }
@@ -87,7 +88,7 @@ header {
 #navbarNav a,
 #btnClose {
     padding: 0;
-    font-size:18px;
+    font-size: 18px;
     color: black;
     margin: 5px 10px;
     text-decoration: underline;
@@ -102,42 +103,43 @@ header {
     width: 9vw;
 }
 
-.form-control{
-    width:40vw;
+.form-control {
+    width: 40vw;
     border: 2px solid #FFC05F
 }
-.carousel .slide{
-    width:50%;
+
+.carousel .slide {
+    width: 50%;
 }
+
 .carousel-caption1 {
     color: #000;
     width: 100%;
     z-index: 10;
     background-color: #DBF0E1;
     padding-top: 2vw;
-    
+
 }
-#input-container{
-    display:flex;
+
+#input-container {
+    display: flex;
     justify-content: center;
     text-align: center;
     height: max-content;
     padding-top: 4vw;
 }
-#Category{
+
+#Category {
     color: black;
     background-color: #FFC05F;
 
 }
-#orderBy{
+
+#orderBy {
     color: black;
     background-color: #FFC05F;
 }
 
-#carouselIpet{
-    margin-top: 0;
-    padding: 0px 220px;
-}
 
 /* Body */
 body {
@@ -169,8 +171,8 @@ body {
 }
 
 .product-card {
-   height: 350px;
-   width: 250px;
+    height: 350px;
+    width: 250px;
 }
 
 #products-container {
@@ -188,16 +190,17 @@ body {
 
 #cards-container {
     display: flex;
-    
+
 }
-#cards-container .card{
+
+#cards-container .card {
     border: 2px solid #DBF0E1;
 }
 
 #products-container .card {
     flex: 1 1 24%;
     max-width: 25%;
-    border-radius: 10px solid #DBF0E1 ;
+    border-radius: 10px solid #DBF0E1;
     padding: 0;
     margin: 0.5%;
 }
@@ -239,17 +242,18 @@ footer {
     width: 100%;
 }
 
-.img-footer{
-    width: 1,5vw;
+.img-footer {
+    width: 1, 5vw;
     height: 3vh;
 }
 
-.contacts{
+.contacts {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
+
 /* Create*/
 .card-body .btn-primary {
     background-color: #FFC05F;
@@ -369,28 +373,28 @@ a img {
 /* cadastro loja */
 
 
-#container-register{
+#container-register {
     width: 50vw;
     height: 50vh;
 }
 
-#header_form{
+#header_form {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#h1_register{
+#h1_register {
     font-size: 2rem;
     color: #F29200;
 }
 
 
-#icon_register{
+#icon_register {
     font-size: 5rem;
 }
 
-.form-label{
+.form-label {
     font-size: 1rem;
 }
 
@@ -398,18 +402,19 @@ a img {
 
 
 
-#nav-free{
-    width: 15vw;
-}
-#nav-premium{
+#nav-free {
     width: 15vw;
 }
 
-@media screen and (max-width:760px){
-    
-    .carousel-caption1 {
-    font-size: 10px;  
+#nav-premium {
+    width: 15vw;
 }
+
+@media screen and (max-width:760px) {
+
+    .carousel-caption1 {
+        font-size: 10px;
+    }
 
 
     .card-body .btn-primary {
@@ -419,5 +424,5 @@ a img {
     .card .card-title {
         font-size: 12px;
     }
-    
+
 }

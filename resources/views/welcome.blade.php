@@ -19,21 +19,22 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg ">
-            <div >
+            <div>
                 <a href="" class="navbar-brand">
                     <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                 </a>
             </div>
             <div id="input-container">
                 <form action="/" method="GET">
-                    <input  type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+                    <input type="text" id="search" name="search" class="form-control"
+                        placeholder="Buscar Item ou Loja...">
                     <div class="carousel-caption1">
                         <select name="Category" id="Category">
                             <option value="all">Todos</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->name}}">{{$category->name}}</option>
+                            <option value="{{$category->name}}">{{$category->name}}</option>
                             @endforeach
-                           
+
                         </select>
                     </div>
                 </form>
@@ -50,8 +51,8 @@
                     @auth
                     <li class="nav-item">
                         <a class="nav-link">Bem
-                        Vindo,
-                        {{stristr(Auth::user()->email,"@", true)}}.</a>
+                            Vindo,
+                            {{stristr(Auth::user()->email,"@", true)}}.</a>
                     </li>
                     @endauth
                     <li>
@@ -89,17 +90,23 @@
             <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner" data-bs-interval="500">
-            <div class="carousel-item active">
-                <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100
-                " alt="...">
+            <div class="carousel-item active ">
+                <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5
+                        " alt="...">
+                <img src="/img/pet-supplies/6858348-cell.jpg" class="img-fluid w-100 h-screen d-block d-sm-none p-2 m-0
+                                        " alt="...">
 
             </div>
             <div class="carousel-item">
-                <img src="/img/pet-care/3828509.jpg" class="img-fluid rounded-4 w-100" alt="...">
+                <img src="/img/pet-care/3828509.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
+                    alt="...">
+                <img src="/img/pet-care/3828509-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
 
             </div>
             <div class="carousel-item">
-                <img src="/img/pet-cools/3906953.jpg" class="img-fluid rounded-4 w-100" alt="...">
+                <img src="/img/pet-cools/3906953.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
+                    alt="...">
+                <img src="/img/pet-cools/3906953-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev m-5" type="button" data-bs-target="#carouselIpet" data-bs-slide="prev">
@@ -120,54 +127,54 @@
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
             @foreach ($premiumProducts as $product)
-            <div class="card col-md-3"id="card-primary" >
+            <div class="card col-md-3" id="card-primary">
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
                     <p class="card-date">19/03/2023</p>
                     <h5 class="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
-                    @auth
+                        @auth
                         @if($User->AL_id !=3)
-                            <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
-                        @endif
+                    <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                    @endif
                     @endauth
                     </p>
-                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a> 
+                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
                 </div>
             </div>
             @endforeach
-   
-      
-            @foreach ($products as $product)
-                @php
-                    $count = false;
-                    foreach($premiumProducts as $premiumProduct){
-                            if($premiumProduct->id == $product->id){
-                                $count = true;
-                                break;
-                            }
-                        }
-                @endphp 
-                @if($count == false)
-                <div class="card col-md-3" id="card-primary">
-                    <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                    <div class="card-body">
-                        <p class="card-path">Mais próximo de você</p>
-                        <p class="card-date">19/03/2023</p>
-                        <h5 class="card-title">{{ $product->Name }}</h5>
-                        <p class="card-distance">
-                            @auth
-                            @if($User->AL_id !=3)
-                        <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
-                        @endif
 
-                        @endauth
-                        </p>
-                        <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
-                    </div>
+
+            @foreach ($products as $product)
+            @php
+            $count = false;
+            foreach($premiumProducts as $premiumProduct){
+            if($premiumProduct->id == $product->id){
+            $count = true;
+            break;
+            }
+            }
+            @endphp
+            @if($count == false)
+            <div class="card col-md-3" id="card-primary">
+                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                <div class="card-body">
+                    <p class="card-path">Mais próximo de você</p>
+                    <p class="card-date">19/03/2023</p>
+                    <h5 class="card-title">{{ $product->Name }}</h5>
+                    <p class="card-distance">
+                        @auth
+                        @if($User->AL_id !=3)
+                    <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                    @endif
+
+                    @endauth
+                    </p>
+                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
                 </div>
-                @endif
+            </div>
+            @endif
             @endforeach
             @if(count($products)+count($premiumProducts)==0 && $search)
             <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
