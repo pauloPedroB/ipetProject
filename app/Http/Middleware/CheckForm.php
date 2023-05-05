@@ -15,12 +15,12 @@ class CheckForm
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->is('post') && 
-            ($request->is('multipart/form-data') || 
-             $request->is('application/x-www-form-urlencoded'))) {
+        if ($request->isMethod('post')) {
             return $next($request);
+
         } else {
-            abort(403,'Não Autorizado');
+            abort(405, 'Método não permitido.');
         }
+       
     }
 }
