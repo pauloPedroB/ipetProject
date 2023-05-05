@@ -15,11 +15,14 @@ class CheckForm
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->server('HTTP_REFERER') != url('/')) {
-            abort(403, 'Access denied.');
+        try {
+            return $next($request);
+        } catch (\Exception $exception) {
+            
+            return response()->view('permission_error', [], 403);
+            
+            throw $exception;
         }
-        
-        return $next($request);
        
     }
 }
