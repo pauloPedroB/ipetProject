@@ -25,10 +25,7 @@
                 lat: lat1,
                 lng: long1
             };
-            var userLocalização = {
-                lat: lat2,
-                lng: long2
-            };
+           
             var mapa = new google.maps.Map(
                 document.getElementById('mapa'), {
                     zoom: 18,
