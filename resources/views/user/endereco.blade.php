@@ -24,7 +24,7 @@
         <div class="container-fluid " id="container-register">
             <div id="header_form" class="row">
                 <h1 class="col" id="h1_register" >Cadastro - Pessoa Jurídica</h1>
-                <i class="fa-solid fa-city col d-flex justify-content-end align-items-center" id="icon_register"></i>
+                <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center" id="icon_register"></i>
             </div>
             {{-- formulario  --}}
             <form action="" id="formulario">
@@ -44,9 +44,7 @@
                     <input class="form-control" type="tel" id="telefone" name="telefone">
                     
                     <label class="form-label" for="celular">Celular:</label>
-                    <input class="form-control" type="tel" id="celular" name="celular">
-                    
-                    <input class="btn btn-primary" type="submit" name="btn-enviar" value="cadastre-se"> 
+                    <input class="form-control" type="tel" id="celular" name="celular"> 
                 </div>
                 
             </form>

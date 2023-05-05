@@ -4,8 +4,7 @@
 
 
 {{-- container --}}
-<div class=" container-fluid" style="background-color: #ffff">
-
+<div class=" container-fluid" style="background-color: #F2F2F2">
 
     <div class="row " style="margin: 0">
         
