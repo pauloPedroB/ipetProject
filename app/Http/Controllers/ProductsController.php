@@ -65,8 +65,9 @@ class ProductsController extends Controller
         }
         
         $search = request('search');
-        $category = request('categories');
+        $category = request('Category');
         if($search){
+            
             $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
                                             ->join('users','products.user_id','=','users.id')
                                             ->join('lojas','lojas.id','=','Loja_id')
