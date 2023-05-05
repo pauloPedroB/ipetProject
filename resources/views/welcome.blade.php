@@ -29,7 +29,7 @@
                     <input  type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
                     <div class="carousel-caption1">
                         <select name="Category" id="Category">
-                            <option value="">Todos</option>
+                            <option value="all">Todos</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
