@@ -8,32 +8,150 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
+                    <label for="title">Categoria: </label>
+                    <select name="category" id="category" required>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="title">Imagem do Produto: </label>
-                    <input type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg">
-                    <img src="/img/products/{{$product->Image}}" alt="{{$product->Name}}" class="img-preview">
+                    <input type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" value="{{$product->Name}}" required>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
                 </div>
-                <div class="form-group">
-                    <label for="title">Descrição</label>
-                    <textarea type="text" class="form-control" id="Description" name="Description" placeholder="Descrição do Produto" required>{{$product->Description}}</textarea>
+                <h3>Adicionar descrição</h3>
+                <input type="checkbox" id="Idade"><label for="">Idade</label>
+                <input type="checkbox" id="Pet"><label for="">Pet</label>
+                <input type="checkbox" id="Porte"><label for="">Porte</label>
+                <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
+
+
+                <div id="dynamic-inputs">
+                    <!-- Aqui serão adicionados os novos inputs e labels -->
                 </div>
-                <div class="form-group">
-                    <label for="title">Valor</label>
-                    <input type="number" class="form-control" id="Value" name="Value" placeholder="R$..." required value="{{$product->Value}}">
-                </div>
-                <div class="form-group">
-                    <label for="Especificações">Especificações</label>
-                    <textarea type="text" class="form-control" id="Specifications" name="Specifications" placeholder="Especificações do Produto" required>{{$product->Specifications}}</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="title">Peso</label>
-                    <input type="number" class="form-control" id="Weight" name="Weight" placeholder="" value="{{$product->Weight}}" required>
-                </div>
-                <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
-            </form>
+                <script>
+                    var Idade = document.getElementById('Idade');
+                    var Pet = document.getElementById('Pet');
+                    var Porte = document.getElementById('Porte');
+                    var Tipo = document.getElementById('Tipo');
+                    var Apresentacao = document.getElementById('Apresentacao');
+
+                    // Adicionar um evento de mudança ao checkbox
+                    Idade.addEventListener('change', function() {
+                        if (Idade.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "idadeCombo");
+                            newComboBox.setAttribute("name", "idadeCombo");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Filhote";
+                            option1.text = "Filhote";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Adulto";
+                            option2.text = "Adulto";
+                            newComboBox.add(option2);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('idadeCombo');
+                            newComboBox.remove();
+                            console.log('O checkbox foi desmarcado!');
+                        }
+                    });
+                    Pet.addEventListener('change', function() {
+                        if (Pet.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "petCombo");
+                            newComboBox.setAttribute("name", "petCombo");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
+
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Cachorro";
+                            option1.text = "Cachorro";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Gato";
+                            option2.text = "Gato";
+                            newComboBox.add(option2);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('petCombo');
+                            newComboBox.remove();
+                        }
+                    });
+                    Porte.addEventListener('change', function() {
+                        if (Porte.checked) {
+                            var newComboBox = document.createElement("select");
+                            newComboBox.setAttribute("id", "porteCombo");
+                            newComboBox.setAttribute("name", "porteCombo");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.required = true;
+
+
+                            var option1 = document.createElement("option");
+                            option1.value = "Pequeno";
+                            option1.text = "Pequeno";
+                            newComboBox.add(option1);
+
+                            var option2 = document.createElement("option");
+                            option2.value = "Medio";
+                            option2.text = "Médio";
+                            newComboBox.add(option2);
+
+                            var option3 = document.createElement("option");
+                            option3.value = "Grande";
+                            option3.text = "Grande";
+                            newComboBox.add(option3);
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('porteCombo');
+                            newComboBox.remove();
+                        }
+                    });
+
+                    Apresentacao.addEventListener('change', function() {
+                        if (Apresentacao.checked) {
+                            var newComboBox = document.createElement("input");
+                            newComboBox.setAttribute("id", "Apresentacaoinput");
+                            newComboBox.setAttribute("name", "Apresentacaoinput");
+                            newComboBox.setAttribute("class", "form-control");
+                            newComboBox.setAttribute("type", "text");
+                            newComboBox.setAttribute("placeholder", "Ex: Disponível em embalagens de 3kg e 15kg");
+                            newComboBox.required = true;
+
+
+
+                            var container = document.getElementById("dynamic-inputs");
+                            container.appendChild(newComboBox);
+                            
+                        } else {
+                            var newComboBox = document.getElementById('Apresentacaoinput');
+                            newComboBox.remove();
+                        }
+                    });
+
+                </script>
+                <input type="submit" class="btn btn-primary" value="Editar Produto">
         @else
             <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
         @endif
