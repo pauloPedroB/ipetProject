@@ -384,8 +384,16 @@ a img {
 
 
 #icon_register{
-    font-size: 10rem;
+    font-size: 5rem;
 }
+
+.form-label{
+    font-size: 1rem;
+}
+
+
+
+
 
 #nav-free{
     width: 15vw;
