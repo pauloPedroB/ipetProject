@@ -52,6 +52,9 @@
                             <td><p>{{$category->name}}</p></td>
                             <td>{{$category->Description}}</td>
                             <td>
+                                @if($user->AL_id ==3)
+                                <a href="/categoria/{{$category->id}}" class="btn btn-info edit-btn">Editar</a>
+                               @endif
                                 <form action="/categoria/{{$category->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -85,7 +88,7 @@
                             @endif
                             <td>
                                 @if($user->AL_id ==3)
-                                <!-- <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a> -->
+                                 <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a>
                                 @endif
                                 <form action="/produtos/{{$product->id}}" method="POST">
                                     @csrf

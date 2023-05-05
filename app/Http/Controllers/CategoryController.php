@@ -22,6 +22,20 @@ class CategoryController extends Controller
         $category->save();
         return redirect('/dashboard')->with('msg','Categoria adicionada com sucesso!');
     }
+    public function edit($id){
+        $category=Category::findOrFail($id);
+        $User = auth()->user();
+        return view('products.editCategory',['category' => $category,'User'=>$User]);
+    }
+    public function update(Request $request){
+        $category = Category::findOrFail($request->id);;
+
+        $category->name = $request->Name;
+        $category->Description = $request->Description;
+
+        $category->save();
+        return redirect('/dashboard')->with('msg','Categoria Editada com sucesso!');
+    }
     public function destroy($id){
         Category::findOrFail($id)->delete();
         return redirect('/dashboard')->with('msg','Categoria excluída com sucesso!');

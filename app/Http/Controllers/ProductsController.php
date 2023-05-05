@@ -336,11 +336,52 @@ class ProductsController extends Controller
     }
     public function edit($id){
         $product=Product::findOrFail($id);
-
-        return view('products.edit',['product' => $product]);
+        $User = auth()->user();
+        $categories = Category::all();
+        return view('products.edit',['product' => $product,'User'=>$User,'categories'=>$categories]);
     }
     public function update(Request $request){
-        Product::findOrFail($request->id)->update($request->all());
+        $idade = '';
+        $pet = '';
+        $porte = '';
+        $apresentação = '';
+
+        isset($request->idadeCombo) ? $idade = "Idade: ".$request->idadeCombo : null;
+        isset($request->petCombo) ? $pet = "Pet: ".$request->petCombo : null;
+        isset($request->porteCombo) ? $porte = "Porte: ".$request->porteCombo : null;
+        isset($request->Apresentacaoinput) ? $apresentação = "Apresentação: ".$request->Apresentacaoinput : null;
+
+
+
+
+        $inputs = array($idade,$pet,$porte,$apresentação);
+        
+        $product=Product::findOrFail($request->id);
+        
+        $product->Name = $request->Name;
+        $product->Description = implode('<!i!i>',$inputs);
+        $product->category_id=$request->category;
+        
+        //image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime('now')) . ".".$extension;
+            $requestImage->move(public_path('img/products'),$imageName);
+            $product->image = $imageName;
+        }
+        $user = auth()->user();
+        $product->user_id = $user->id;
+        $loja = Loja::where([['user_id','=',$user->id]])->get();
+        foreach($loja as $loj)
+        {
+            if($loj->user_id == $user->id){
+                $product->Endereco_id = $loj->Endereco_id;
+                break;
+            }
+        }
+        $product->save();
+
         return redirect('/dashboard')->with('msg','Produto Editado com sucesso!');
     }
 }

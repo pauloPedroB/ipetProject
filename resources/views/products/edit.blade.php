@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">Nome</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" value="{{$product->Name}}" required>
                 </div>
                 <h3>Adicionar descrição</h3>
                 <input type="checkbox" id="Idade"><label for="">Idade</label>

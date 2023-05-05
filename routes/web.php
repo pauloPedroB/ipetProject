@@ -87,9 +87,12 @@ Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->mi
 
 Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckType');
 Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckType');
+Route::get('/categoria/{id}', [CategoryController::class, 'edit'])->middleware('auth', 'CheckType');
+Route::put('/categoria/editar/{id}', [CategoryController::class, 'update'])->middleware('auth', 'CheckType');
 Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckType');
 
 Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario');
+
 
 Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth', 'CheckType','CheckLoja');
 Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja');
