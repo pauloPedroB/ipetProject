@@ -85,11 +85,11 @@ Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth')
 Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
 Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth', 'CheckType');
 
-Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckType');
-Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckType');
-Route::get('/categoria/{id}', [CategoryController::class, 'edit'])->middleware('auth', 'CheckType');
-Route::put('/categoria/editar/{id}', [CategoryController::class, 'update'])->middleware('auth', 'CheckType');
-Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckType');
+Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckADM');
+Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckADM');
+Route::get('/categoria/{id}', [CategoryController::class, 'edit'])->middleware('auth', 'CheckADM');
+Route::put('/categoria/editar/{id}', [CategoryController::class, 'update'])->middleware('auth', 'CheckADM');
+Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckADM');
 
 Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario');
 
