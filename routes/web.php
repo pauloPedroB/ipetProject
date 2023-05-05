@@ -64,34 +64,34 @@ Route::get('/produto/disponiveis', [ProductsController::class, 'copyProduct'])->
 Route::get('/produto/copiar/{id}', [ProductsController::class, 'copy'])->middleware('auth', 'CheckLoja');
 
 
-Route::post('/produto', [ProductsController::class, 'store'])->middleware('auth', 'CheckADM','CheckForm');;
+Route::post('/produto', [ProductsController::class, 'store'])->middleware('auth', 'CheckADM');;
 Route::get('/produto/{id}/{prod?}', [ProductsController::class, 'show'])->where('id', '[0-9]{1,3}')->middleware('CheckType');
-Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth', 'CheckLoja','CheckForm')->where('id', '[0-9]{1,3}');
+Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]{1,3}');
 Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
-Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja','CheckForm');
+Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja');
 
 Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
 
 Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth', 'CheckNotType');
-Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType','CheckForm');
+Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType');
 
 Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth', 'CheckNotType');
-Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType','CheckForm');
+Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType');
 
 
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel'])->middleware('CheckNotType');
 Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth');
-Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth','CheckForm');
-Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth', 'CheckType','CheckForm');
+Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
+Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth', 'CheckType');
 
 Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckADM');
-Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckADM','CheckForm');
+Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckADM');
 Route::get('/categoria/{id}', [CategoryController::class, 'edit'])->middleware('auth', 'CheckADM');
-Route::put('/categoria/editar/{id}', [CategoryController::class, 'update'])->middleware('auth', 'CheckADM','CheckForm');
-Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckADM','CheckForm');
+Route::put('/categoria/editar/{id}', [CategoryController::class, 'update'])->middleware('auth', 'CheckADM');
+Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->middleware('auth', 'CheckADM');
 
-Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario','CheckForm');
+Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('auth', 'CheckUsuario');
 
 
 Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth', 'CheckType','CheckLoja');
