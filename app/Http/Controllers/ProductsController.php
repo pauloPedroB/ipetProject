@@ -125,9 +125,9 @@ class ProductsController extends Controller
                                     ->take(0)
                                     ->get();
         }
+        $categories = Category::all();
 
-
-        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false]);
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'$categories'=>$categories]);
         
        
         
