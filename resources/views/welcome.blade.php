@@ -30,14 +30,12 @@
                     <div class="carousel-caption1">
                         <select name="Category" id="Category">
                             <option value="">Todos</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->Name}}</option>
+                            @endforeach
                             <option value="">Rações</option>
                             <option value="">Remédios</option>
                             <option value="">Acessórios</option>
-                        </select>
-                        <select name="orderBy" id="orderBy">
-                            <option value="">Distância</option>
-                            <option value="">Preço</option>
-                            <option value="">Avaliação</option>
                         </select>
                     </div>
                 </form>
