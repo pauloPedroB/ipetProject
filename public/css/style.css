@@ -70,22 +70,22 @@ header {
 }
 
 #btnToogle {
-    margin-right: 50px;
+    margin: 0 50px;
 }
 
 
 /* Navigation */
-#navbarNav {
+#offcanvasNavbar {
     justify-content: end;
     background-color: #DBF0E1;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .navbar-collapse {
     flex-grow: 0;
 }
 
-#navbarNav a,
+#offcanvasNavbar a,
 #btnClose {
     padding: 0;
     font-size: 18px;
@@ -94,7 +94,7 @@ header {
     text-decoration: underline;
 }
 
-#navbarNav a:hover,
+#offcanvasNavbar a:hover,
 #btnClose:hover {
     color: #FFC05F;
 }
