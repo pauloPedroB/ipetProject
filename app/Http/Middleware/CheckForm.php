@@ -15,12 +15,11 @@ class CheckForm
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->isMethod('post')) {
-            return $next($request);
-
-        } else {
-            abort(405, 'Método não permitido.');
+        if ($request->server('HTTP_REFERER') != url('/')) {
+            abort(403, 'Access denied.');
         }
+        
+        return $next($request);
        
     }
 }
