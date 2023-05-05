@@ -16,7 +16,7 @@ class CheckLoja
     public function handle(Request $request, Closure $next): Response
     {
         $user = auth()->user();
-        if($user->AL_id != 2){
+        if($user->AL_id ==1){
             abort(403,'Não Autorizado');
         }
         return $next($request);
