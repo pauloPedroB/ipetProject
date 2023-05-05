@@ -95,5 +95,5 @@ Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('a
 
 
 Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth', 'CheckType','CheckLoja');
-Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja','CheckForm');
+Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja');
 
