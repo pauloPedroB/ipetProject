@@ -31,7 +31,7 @@
                         <select name="Category" id="Category">
                             <option value="">Todos</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->Name}}</option>
+                                <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                             <option value="">Rações</option>
                             <option value="">Remédios</option>
