@@ -24,9 +24,22 @@
                     <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                 </a>
             </div>
-            <div class="input-container">
+            <div id="input-container">
                 <form action="/" method="GET">
                     <input  type="text" id="search" name="search" class="form-control" placeholder="Buscar Item ou Loja...">
+                    <div class="carousel-caption1">
+                        <select name="Category" id="Category">
+                            <option value="">Todos</option>
+                            <option value="">Rações</option>
+                            <option value="">Remédios</option>
+                            <option value="">Acessórios</option>
+                        </select>
+                        <select name="orderBy" id="orderBy">
+                            <option value="">Distância</option>
+                            <option value="">Preço</option>
+                            <option value="">Avaliação</option>
+                        </select>
+                    </div>
                 </form>
             </div>
             <div>
@@ -70,24 +83,6 @@
                 </ul>
             </div>
         </nav>
-        <div class="carousel-caption1">
-            <form action="/" method="GET">
-                <p > Pesquisar por:
-                    <select name="Category" id="Category">
-                        <option value="">Todos</option>
-                        <option value="">Rações</option>
-                        <option value="">Remédios</option>
-                        <option value="">Acessórios</option>
-                    </select>
-                    Pesquisar por ordem de:
-                    <select name="orderBy" id="orderBy">
-                        <option value="">Distância</option>
-                        <option value="">Preço</option>
-                        <option value="">Avaliação</option>
-                    </select>
-                </p>
-            </form>
-        </div>
     </header>
 
     <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">

@@ -55,7 +55,7 @@ header {
     align-items: center;
     width: 100%;
     background-color: #DBF0E1;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .navbar {
@@ -87,7 +87,7 @@ header {
 #navbarNav a,
 #btnClose {
     padding: 0;
-    font-size: 20px;
+    font-size:18px;
     color: black;
     margin: 5px 10px;
     text-decoration: underline;
@@ -103,7 +103,7 @@ header {
 }
 
 .form-control{
-    width:50vw;
+    width:40vw;
     border: 2px solid #FFC05F
 }
 .carousel .slide{
@@ -111,16 +111,19 @@ header {
 }
 .carousel-caption1 {
     color: #000;
-    align-items: center;
-    text-align: center;
-    height: max-content;
     width: 100%;
-    padding-top: 10px;
     z-index: 10;
     background-color: #DBF0E1;
-    border-bottom: 2px solid #FFC05F ;
+    padding-top: 2vw;
+    
 }
-
+#input-container{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    height: max-content;
+    padding-top: 4vw;
+}
 #Category{
     color: black;
     background-color: #FFC05F;
@@ -403,6 +406,12 @@ a img {
 }
 
 @media screen and (max-width:760px){
+    
+    .carousel-caption1 {
+    font-size: 10px;  
+}
+
+
     .card-body .btn-primary {
         font-size: 12px;
     }
