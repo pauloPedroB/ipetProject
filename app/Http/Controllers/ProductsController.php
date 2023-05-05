@@ -127,7 +127,7 @@ class ProductsController extends Controller
         }
         $categories = Category::all();
 
-        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'$categories'=>$categories]);
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'categories'=>$categories]);
         
        
         
