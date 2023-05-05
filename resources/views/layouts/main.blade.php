@@ -20,7 +20,7 @@
     <script src="/js/cep.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4"></script>
     <script>
-        function initMap(lat1, long1, lat2, long2) {
+        function initMap(lat1, long1) {
             var minhaLocalizacao = {
                 lat: lat1,
                 lng: long1
@@ -38,10 +38,7 @@
                 position: minhaLocalizacao,
                 map: mapa
             });
-            var marcador2 = new google.maps.Marker({
-                position: userLocalização,
-                map: mapa
-            });
+            
         }
     </script>
 </head>

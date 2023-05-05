@@ -64,7 +64,6 @@ class ProductsController extends Controller
             
         }
         
-
         $search = request('search');
         if($search){
             $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
@@ -112,18 +111,8 @@ class ProductsController extends Controller
                                             products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                             lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                             ->inRandomOrder()
-                                            ->take(2)
+                                            ->take(8)
                                             ->get();
-            if(count($premiumProducts) == 2){
-                $limit = 6;
-            }
-            else if(count($premiumProducts)==1){
-                $limit = 7;
-            }
-            else{
-                $limit = 8;
-            }
-            
 
             $products = productsLoja::join('products','products.id','=','Product_id')
                                     ->join('users','products.user_id','=','users.id')
@@ -133,7 +122,7 @@ class ProductsController extends Controller
                                     products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                     lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                     ->inRandomOrder()
-                                    ->take($limit)
+                                    ->take(0)
                                     ->get();
         }
 
@@ -330,7 +319,7 @@ class ProductsController extends Controller
             $products = null;
         }
         $categories = Category::all();
-        $UserEndereco = Product::findOrFail($Loja->Endereco_id);
+        //$UserEndereco = Product::findOrFail($Loja->Endereco_id);
         
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
                     'categories'=>$categories]);
