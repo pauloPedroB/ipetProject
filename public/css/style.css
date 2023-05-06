@@ -70,7 +70,7 @@ header {
 }
 
 #btnToogle {
-    margin: 0 50px;
+    margin: 0 10px;
 }
 
 
@@ -91,7 +91,7 @@ header {
     font-size: 18px;
     color: black;
     margin: 5px 10px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #offcanvasNavbar a:hover,
@@ -243,8 +243,8 @@ footer {
 }
 
 .img-footer {
-    width: 1, 5vw;
-    height: 3vh;
+    width: 4vh;
+    height: 4vh;
 }
 
 .contacts {
@@ -368,22 +368,22 @@ a img {
 
 /* sessão de escolhas loja / usuario */
 
-#row_change{
+#row_change {
     margin: 0;
 }
 
-#title_change{
-    color:#F29200;
+#title_change {
+    color: #F29200;
 }
 
 /* card loja */
 
-#card_store{
-    width: 30rem; 
-    height:max-content; 
+#card_store {
+    width: 30rem;
+    height: max-content;
     background-color: #DBF0E1;
     border-radius: 5rem;
-        
+
     cursor: pointer;
     transition: border 0.4s linear;
     transition: color 0.4s linear;
@@ -391,37 +391,37 @@ a img {
 }
 
 
-#icon_store{
+#icon_store {
     font-size: 20rem;
 }
 
-#title_store{
-    margin-top:2rem;
+#title_store {
+    margin-top: 2rem;
     padding-bottom: 10rem;
 }
 
 
 /* card cliente */
 
-#card_user{
-    width: 30rem; 
-    height:max-content; 
+#card_user {
+    width: 30rem;
+    height: max-content;
     background-color: #DBF0E1;
     border-radius: 5rem;
-    
+
     cursor: pointer;
     transition: border 0.4s linear;
     transition: color 0.4s linear;
 
 }
 
-#icon_user{
+#icon_user {
     font-size: 20rem;
 }
 
 
-#title_user{
-    margin-top:2rem;
+#title_user {
+    margin-top: 2rem;
     padding-bottom: 10rem;
 }
 
@@ -431,14 +431,14 @@ a img {
 #card_user:hover {
     border: 4px solid red;
     color: red;
-    
-  }
+
+}
 
 #card_store:hover {
     border: 4px solid red;
     color: red;
-    
-  }
+
+}
 
 
 /* responsividade - tela de escolha */
@@ -446,98 +446,98 @@ a img {
 @media screen and (max-width: 412px) {
 
 
-    #title_change{
+    #title_change {
         text-align: center;
 
 
     }
 
-    #card_store{
+    #card_store {
         width: 16rem;
         height: 16rem;
         border-radius: 3rem;
 
     }
 
-    #icon_store{
-        text-align:center;
+    #icon_store {
+        text-align: center;
         font-size: 15rem;
     }
- 
-    #title_store{
+
+    #title_store {
         display: none;
     }
 
 
 
-    #card_user{
+    #card_user {
         width: 16rem;
         height: 16rem;
         border-radius: 3rem;
     }
 
 
-    #icon_user{
-        text-align:center;
+    #icon_user {
+        text-align: center;
         font-size: 15rem;
     }
 
 
 
-    #title_user{
+    #title_user {
         display: none;
     }
 
 
-  }
+}
 
 
-  @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 
-    #title_change{
+    #title_change {
         text-align: center;
 
 
     }
 
-    #card_store{
+    #card_store {
         width: 16rem;
         height: 16rem;
         border-radius: 3rem;
 
     }
 
-    #icon_store{
-        text-align:center;
+    #icon_store {
+        text-align: center;
         font-size: 15rem;
     }
- 
-    #title_store{
+
+    #title_store {
         display: none;
     }
 
 
 
-    #card_user{
+    #card_user {
         width: 16rem;
         height: 16rem;
         border-radius: 3rem;
     }
 
 
-    #icon_user{
-        text-align:center;
+    #icon_user {
+        text-align: center;
         font-size: 15rem;
     }
 
 
 
-    #title_user{
+    #title_user {
         display: none;
     }
 
 
-  }
+}
 
 
 
@@ -548,7 +548,7 @@ a img {
 
 
 
-  /* cadastro loja */
+/* cadastro loja */
 
 
 #container-register {

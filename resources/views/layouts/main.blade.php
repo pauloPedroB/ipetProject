@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
                 lat: lat1,
                 lng: long1
             };
-           
+
             var mapa = new google.maps.Map(
                 document.getElementById('mapa'), {
                     zoom: 18,
@@ -35,7 +35,7 @@
                 position: minhaLocalizacao,
                 map: mapa
             });
-            
+
         }
     </script>
 </head>

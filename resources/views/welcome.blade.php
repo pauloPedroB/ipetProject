@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -20,8 +20,8 @@
     <header>
 
         {{-- inicio --}}
-        <nav class="navbar navbar-expand-md">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-md container">
+            <div class="container">
 
                 <div>
                     <a href="" class="navbar-brand">
@@ -49,14 +49,17 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasNavbar"
+                    <div class="offcanvas offcanvas-start w-50 container" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
+
                             <h5 class="offcanvas-title" id="navbarNavLabel">iPet</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
+
                         <div class="offcanvas-body">
+                            <hr>
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 @auth
                                 <li class="nav-item">
@@ -82,6 +85,7 @@
                                 </li>
                                 @endauth
                                 @guest
+
                                 <li class="nav-item">
                                     <a href="/login" class="nav-link">Entrar</a>
                                 </li>
@@ -142,7 +146,7 @@
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
             @foreach ($premiumProducts as $product)
-            <div class="card col-md-3" id="card-primary">
+            <div class="card" id="card-primary">
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
@@ -201,9 +205,9 @@
     <footer>
         <p>IPET DEVELOPMENT &copy; 2023</p>
         <div class="contacts">
-            <a href=""><img class="img-footer" src="/img/o-email (2).png" alt="" /></a>
-            <a href=""><img class="img-footer" src="/img/instagram.png" alt="" /></a>
-            <a href=""><img class="img-footer" src="/img/twitter.png" alt="" /></a>
+            <a href=""><img class="img-footer " src="/img/o-email (2).png" alt="" /></a>
+            <a href=""><img class="img-footer " src="/img/instagram.png" alt="" /></a>
+            <a href=""><img class="img-footer " src="/img/twitter.png" alt="" /></a>
         </div>
     </footer>
 
