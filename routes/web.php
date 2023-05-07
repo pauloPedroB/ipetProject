@@ -20,7 +20,8 @@ use App\Http\Controllers\Loja;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AvaliationsController;
-
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 //  AGRUPAMENTO DE ROTAS POR CONTROLLER - OPTIONS (CONTROLLER, PREFIX, NAME, MIDLEWARE) PODENDO SER ENCADEADOS
 // Route::controller('ProductsController::class')->group(
@@ -97,3 +98,4 @@ Route::post('/avaliar', [AvaliationsController::class, 'create'])->middleware('a
 Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth', 'CheckType','CheckLoja');
 Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja');
 
+Route::post('/entrando',[AuthController::class, 'index']);
