@@ -28,7 +28,7 @@
                 <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" id="lbpassc" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required autocomplete="new-password" />
-                <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
+                <button type="button" onclick="togglePasswordVisibility2()" class="toggle-password2"></button>
                 
             </div>
 
@@ -108,6 +108,17 @@
     function togglePasswordVisibility() {
       var senhaInput = document.getElementById("password");
       var toggleBtn = document.querySelector(".toggle-password");
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        toggleBtn.classList.add("hide");
+      } else {
+        senhaInput.type = "password";
+        toggleBtn.classList.remove("hide");
+      }
+    }
+    function togglePasswordVisibility2() {
+      var senhaInput = document.getElementById("password_confirmation");
+      var toggleBtn = document.querySelector(".toggle-password2");
       if (senhaInput.type === "password") {
         senhaInput.type = "text";
         toggleBtn.classList.add("hide");
