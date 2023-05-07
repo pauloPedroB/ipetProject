@@ -38,7 +38,6 @@
                     position: absolute;
                     top: 50%;
                     right: 10px;
-                    transform: translateY(-30%);
                     background-color: transparent;
                     border: none;
                     outline: none;
