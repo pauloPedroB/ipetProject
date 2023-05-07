@@ -38,13 +38,13 @@
                     position: absolute;
                     top: 50%;
                     right: 10px;
-                    transform: translateY(-50%);
+                    transform: translateY(-30%);
                     background-color: transparent;
                     border: none;
                     outline: none;
                     cursor: pointer;
                     width: 25px;
-                    height: 100%;
+                    height: 25px;
                     background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
                     background-repeat: no-repeat;
                     background-size: contain;
