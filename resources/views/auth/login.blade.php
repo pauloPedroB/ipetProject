@@ -29,43 +29,7 @@
                     autocomplete="current-password" />
                 <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
             </div>
-            <style>
-                #password-input {
-                    position: relative;
-                }
-
-                #password-input .toggle-password {
-                    position: absolute;
-                    top: 50%;
-                    right: 10px;
-                    background-color: transparent;
-                    border: none;
-                    outline: none;
-                    cursor: pointer;
-                    width: 25px;
-                    height: 25px;
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                }
-
-                #password-input .toggle-password.hide {
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
-                }
-            </style>
-            <script>
-                function togglePasswordVisibility() {
-                  var senhaInput = document.getElementById("password");
-                  var toggleBtn = document.querySelector(".toggle-password");
-                  if (senhaInput.type === "password") {
-                    senhaInput.type = "text";
-                    toggleBtn.classList.add("hide");
-                  } else {
-                    senhaInput.type = "password";
-                    toggleBtn.classList.remove("hide");
-                  }
-                }
-            </script>
+            
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
@@ -92,5 +56,39 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
-
+<style>
+    #password-input {
+        position: relative;
+    }
+    #password-input .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #password-input .toggle-password.hide {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
+    }
+</style>
+<script>
+    function togglePasswordVisibility() {
+      var senhaInput = document.getElementById("password");
+      var toggleBtn = document.querySelector(".toggle-password");
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        toggleBtn.classList.add("hide");
+      } else {
+        senhaInput.type = "password";
+        toggleBtn.classList.remove("hide");
+      }
+    }
+</script>
 
