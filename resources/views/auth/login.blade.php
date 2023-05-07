@@ -45,13 +45,13 @@
                     cursor: pointer;
                     width: 25px;
                     height: 25px;
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/69/69425.png');
+                    background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
                     background-repeat: no-repeat;
                     background-size: contain;
                 }
 
                 #password-input .toggle-password.hide {
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/67/67553.png');
+                    background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
                 }
             </style>
             <script>
