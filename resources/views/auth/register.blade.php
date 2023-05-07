@@ -29,7 +29,7 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility2()" class="toggle-password2"></button>
-                
+
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -116,6 +116,7 @@
         toggleBtn.classList.remove("hide");
       }
     }
+
     function togglePasswordVisibility2() {
       var senhaInput = document.getElementById("password_confirmation");
       var toggleBtn = document.querySelector(".toggle-password2");
@@ -163,7 +164,7 @@
         background-repeat: no-repeat;
         background-size: contain;
     }
-    #password-input .toggle-password.hide2{
+    #password-input .toggle-password2.hide{
         background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
     }
 </style>
