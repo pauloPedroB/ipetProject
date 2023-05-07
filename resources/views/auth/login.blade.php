@@ -44,7 +44,7 @@
                     outline: none;
                     cursor: pointer;
                     width: 25px;
-                    height: 25px;
+                    height: 100%;
                     background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
                     background-repeat: no-repeat;
                     background-size: contain;
