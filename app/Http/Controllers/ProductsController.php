@@ -121,17 +121,7 @@ class ProductsController extends Controller
                                             ->inRandomOrder()
                                             ->take(8)
                                             ->get();
-
-            $products = productsLoja::join('products','products.id','=','Product_id')
-                                    ->join('users','products.user_id','=','users.id')
-                                    ->join('lojas','lojas.id','=','Loja_id')
-                                    ->join('enderecos','enderecos.id','=','lojas.Endereco_id')
-                                    ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
-                                    products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
-                                    ->inRandomOrder()
-                                    ->take(0)
-                                    ->get();
+            $products = null;
         }
         $categories = Category::all();
 

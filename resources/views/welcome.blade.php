@@ -164,41 +164,44 @@
             </div>
             @endforeach
 
+            @if($search != null)
+                @foreach ($products as $product)
+                    @php
+                        $count = false;
+                        foreach($premiumProducts as $premiumProduct){
+                            if($premiumProduct->id == $product->id){
+                                $count = true;
+                                break;
+                            }
+                        }
+                    @endphp
+                    @if($count == false)
+                        <div class="card col-md-3" id="card-primary">
+                            <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                            <div class="card-body">
+                                <p class="card-path">Mais próximo de você</p>
+                                <p class="card-date">19/03/2023</p>
+                                <h5 class="card-title">{{ $product->Name }}</h5>
+                                <p class="card-distance">
+                                    @auth
+                                    @if($User->AL_id !=3)
+                                <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                                @endif
 
-            @foreach ($products as $product)
-            @php
-            $count = false;
-            foreach($premiumProducts as $premiumProduct){
-            if($premiumProduct->id == $product->id){
-            $count = true;
-            break;
-            }
-            }
-            @endphp
-            @if($count == false)
-            <div class="card col-md-3" id="card-primary">
-                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <p class="card-path">Mais próximo de você</p>
-                    <p class="card-date">19/03/2023</p>
-                    <h5 class="card-title">{{ $product->Name }}</h5>
-                    <p class="card-distance">
-                        @auth
-                        @if($User->AL_id !=3)
-                    <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                                @endauth
+                                </p>
+                                <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
+                            </div>
+                        </div>
                     @endif
-
-                    @endauth
-                    </p>
-                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
-                </div>
-            </div>
+                @endforeach
             @endif
-            @endforeach
-            @if(count($products)+count($premiumProducts)==0 && $search)
-            <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
-            @elseif(count($products)+count($premiumProducts)==0)
-            <p>Não há eventos disponíveis</p>
+            @if($search)
+                @if(count($products)+count($premiumProducts)==0)
+                    <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
+                @endif
+            @elseif(count($premiumProducts)==0)
+                <p>Não há eventos disponíveis</p>
             @endif
         </div>
     </div>
