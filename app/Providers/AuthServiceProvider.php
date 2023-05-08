@@ -37,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
             return (new MailMessage)
                     ->subject('Notificação de Reset de senha')
                     ->line('Se você está recebendo este e-mail, é porque recebemos um pedido de reset de senha para sua conta')
-                    ->action('Resetar senha',$url,'')
+                    ->action('Resetar senha',$url ?? '')
                     ->line('Este link de reset de senha espirará em: '.$expires.' minutos.')
                     ->line('Se você não requisitou o reset, ignore está mensagem');
         });
