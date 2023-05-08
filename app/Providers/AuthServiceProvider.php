@@ -33,12 +33,10 @@ class AuthServiceProvider extends ServiceProvider
                     ->line('Se você não criou uma conta, nenhuma ação é requerida!');
         });
         ResetPassword::toMailUsing(function($notifiable,$url){
-            $expires = config('auth.passwords.'.config('auth.defaults.passwords').'.expire');
             return (new MailMessage)
                     ->subject('Notificação de Reset de senha')
                     ->line('Se você está recebendo este e-mail, é porque recebemos um pedido de reset de senha para sua conta')
-                    ->action('Resetar senha',$url ?? '')
-                    ->line('Este link de reset de senha espirará em: '.$expires.' minutos.')
+                    ->action('Resetar senha',$url)
                     ->line('Se você não requisitou o reset, ignore está mensagem');
         });
     }
