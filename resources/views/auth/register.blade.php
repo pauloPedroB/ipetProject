@@ -7,7 +7,7 @@
         <x-validation-errors class="mb-4" />
         <h4 id="error-message"></h4>
 
-        <form method="POST" action="{{ route('register') }}" id="myForm">
+        <form method="POST" action="/registrando" id="myForm">
             @csrf
 
             <div class="mt-4">

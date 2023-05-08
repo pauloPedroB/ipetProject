@@ -79,8 +79,6 @@ Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('a
 Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType');
 
-
-
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel'])->middleware('CheckNotType');
 Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth');
 Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
@@ -99,3 +97,5 @@ Route::get('/pacote',[LojaController::class, 'premiumIndex'])->middleware('auth'
 Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'CheckType','CheckLoja');
 
 Route::post('/entrando',[AuthController::class, 'index']);
+Route::post('/registrando',[AuthController::class, 'register']);
+
