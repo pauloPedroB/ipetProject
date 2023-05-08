@@ -144,22 +144,30 @@ class ProductsController extends Controller
             break;
         }
         $search = request('search');
+        $category = request('Category');
+
         if($search){
-            $products = Product::where([
-                ['name','like','%'.$search.'%']
-            ])
+            if($category == 'all'){
+                $category = "";
+            }
+            $products = Product::where([['products.Name','like','%'.$search.'%']])
             ->join('users','products.user_id','=','users.id')
+            ->join('categories','categories.id','=','products.category_id')
             ->where('users.AL_id','=',3)
-            ->select('users.id as id_U','products.id as id','Name','Image','User_id')
+            ->where([['categories.name','like','%'.$category.'%']])
+            ->select('users.id as id_U','products.id as id','products.Name','Image','User_id')
+
             ->get();
         }
         else{
             $products = Product::join('users','products.user_id','=','users.id')
+                                ->join('categories','categories.id','=','products.category_id')
                                 ->where('users.AL_id','=',3)
-                                ->select('users.id as id_U','products.id as id','Name','Image','User_id')
+                                ->select('users.id as id_U','products.id as id','products.Name','Image','User_id')
                                 ->get();
         }
-        return view('products.copyProduct',['products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false]);
+        $categories = Category::all();
+        return view('products.copyProduct',['categories'=>$categories,'products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false]);
     }
     public function copy($id){
         $user = auth()->user();
