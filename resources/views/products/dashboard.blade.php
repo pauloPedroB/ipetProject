@@ -1,20 +1,23 @@
 @extends('layouts.main')
 @section('title','Dasboard')
 @section('content')
-<div class="col-md-10 offset-md-1 dashboard-title-container">
+<div class="dashboard-title-container">
     <h1>Meus Dados</h1>
 </div>
 
 
+{{-- dados do endereço --}}
+
 @if($user->AL_id !=3)
     @if($Loja->Endereco_id == null)
-        <div class="col-md-10 offset-md-1 dashboard-endereco-container">
+        <div class="dashboard-endereco-container">
             <p>Registre o seu <a href="/Endereco/">ENDEREÇO</a></p>
         </div>
     @else
         @foreach($Enderecos as $Endereco)
             @if($Endereco->id == $Loja->Endereco_id)
-                <div class="col-md-10 offset-md-1 dashboard-endereco-container">
+                <div id="data-user-container" class="col dashboard-endereco-container">
+                    <h1>Endereço:</h1>
                     <p>CEP: {{$Endereco->CEP}}</p>
                     <p>Rua: {{$Endereco->Logradouro}}</p>
                     <p>Número: {{$Endereco->Numero}}</p>
@@ -33,11 +36,13 @@
 
 @endif
 
+{{-- categorias --}}
+
 @if($user->AL_id !=1)
-    <div class="col-md-10 offset-md-1 dashboard-products-container">
+    <div id="products-container" class="dashboard-products-container">
         @if($user->AL_id == 3)
-            <h1>Categorias</h1>
-            <table class="table">
+            <h1 class="text-uppercase">Categorias</h1>
+            <table id="table-categories" class="table">
                 <thead>
                     <tr>
                         <th scope="col">Número</th>
@@ -51,30 +56,32 @@
                             <td scope="row">{{$loop->index+1}}</td>
                             <td><p>{{$category->name}}</p></td>
                             <td>{{$category->Description}}</td>
-                            <td>
+                            <td id="td-buttons">
                                 @if($user->AL_id ==3)
-                                <a href="/categoria/{{$category->id}}" class="btn btn-info edit-btn">Editar</a>
+                                <a href="/categoria/{{$category->id}}"class="btn-edit">Editar</a>
                                @endif
-                                <form action="/categoria/{{$category->id}}" method="POST">
+                                <form id="form-categories" action="/categoria/{{$category->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                                    <button type="submit" class="btn-delete">Deletar</button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
-                </tbody>
+                        @endforeach
+                    </tbody>
+                    <a class="add-categories" href="/categoria/adicionar">Adicionar Categoria</a>
             </table>
-            <a href="/categoria/adicionar">adicionar categoria</a>
         @endif
-        <h1>Produtos</h1>
+
+{{-- produtos --}}
+        
+        <h1 id="title-products" class="text-uppercase">Produtos</h1>
         @if($products != null)
-            <table class="table">
+            <table id="table-produts" class="table">
                 <thead>
                     <tr>
                         <th scope="col">Número</th>
                         <th scope="col">Nome</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -88,12 +95,12 @@
                             @endif
                             <td>
                                 @if($user->AL_id ==3)
-                                 <a href="/produtos/edit/{{$product->id}}" class="btn btn-info edit-btn">Editar</a>
+                                 <a href="/produtos/edit/{{$product->id}}" class="btn-edit">Editar</a>
                                 @endif
                                 <form action="/produtos/{{$product->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                                    <button type="submit" class="btn-delete">Deletar</button>
                                 </form>
                             </td>
                         </tr>
@@ -101,16 +108,16 @@
                 </tbody>
             </table>
             @if($user->AL_id !=3)
-                <a href="/produto/disponiveis">adicionar produto</a>
+                <a class="add-categories" href="/produto/disponiveis">Adicionar Produto</a>
             @else
             
-                <a href="/produto/adicionar">adicionar produto</a>
+                <a class="add-categories" href="/produto/adicionar" >Adicionar Produto</a>
             @endif
         @else
             @if($user->AL_id !=3)
-                <p>Você ainda não tem produtos cadastrados, <a href="/produto/disponiveis">adicionar produto</a></p>
+                <p>Você ainda não tem produtos cadastrados, <a class="add-categories" href="/produto/disponiveis">adicionar produto</a></p>
             @else
-            <p>Você ainda não tem produtos cadastrados, <a href="/produto/adicionar">adicionar produto</a></p>
+            <p>Você ainda não tem produtos cadastrados, <a  class="add-categories" href="/produto/adicionar">adicionar produto</a></p>
             @endif
         @endif
     </div>

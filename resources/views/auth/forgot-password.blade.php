@@ -23,7 +23,7 @@
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
-
+            <p style="color: brown">Verificar sua caixa de E-mail após o envio</p>
             <div class="flex items-center justify-end mt-4">
                 <x-button>
                     {{ __('Email Link de restaução de senha') }}

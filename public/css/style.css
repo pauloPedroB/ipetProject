@@ -367,19 +367,6 @@ a img {
     color: #00c2cb;
 }
 
-.dashboard-title-container {
-    margin-bottom: 30px;
-    margin-top: 30px;
-}
-
-.dashboard-products-container th {
-    width: 25%;
-}
-
-.dashboard-products-container form {
-    display: inline-block;
-}
-
 .img-preview {
     width: 100px;
 }
@@ -563,6 +550,175 @@ a img {
 
 
 }
+
+
+/* dashboard - tela do usuario da loja */
+
+#data-user-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+#data-user-container p{
+    background-color: black;
+}
+
+
+
+/* adicionar produtos - tela adm */
+
+.dashboard-title-container {
+    display: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+
+#products-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#products-container h1{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #FFC05F;
+}
+
+/* categorias */
+
+#table-categories{
+    text-align: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+    font-size: 2rem;
+}
+
+#table-categories tr td{
+    padding: 2rem;
+}
+
+
+#table-categories tr th{
+    padding: 2rem;
+}
+
+
+
+
+#td-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+.btn-edit{
+    margin-top: 1rem;
+    padding: 15px 100px;
+    background-color: #0dcaf0 ; 
+    color: #ffff;
+    font-size: 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-edit:hover{
+    border: 2px solid #0dcaf0;
+    background-color: #fff;
+    color: black;
+}
+
+
+.btn-delete{ 
+    margin-top: 20px;
+    padding: 15px 100px;
+    background-color: #dc3545 ; 
+    color: #ffff;
+    font-size: 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    border:0 ;
+}
+
+
+.btn-delete:hover{
+    border: 2px solid #dc3545;
+    background-color: #fff;
+    color: black;
+}
+
+
+.add-categories{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 100px;
+    background-color: #4caf50 ; 
+    color: #ffff;
+    font-size: 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    border:0 ;
+
+}
+
+.add-categories:hover{
+    border: 2px solid #4caf50;
+    background-color: #fff;
+    color: black;
+}
+
+
+
+/* produtos */
+
+#title-products{
+    margin-top: 50px;
+    
+}
+
+#table-produts tr td a{
+    text-decoration: none;
+}
+
+#table-produts{
+    text-align: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+    font-size: 2rem;
+}
+
+
+#btn-edit-product{
+    color: black;
+    background-color: coral;
+}
+
+
+#add-products{
+    color: red;
+}
+
+
+
+
+
+
+
 
 
 

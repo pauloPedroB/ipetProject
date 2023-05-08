@@ -32,7 +32,7 @@
                 <div class="form-group">
                     
                     <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
-                    <input class="form-control" type="text" id="razaoSocial" >
+                    <input  class="form-control" type="text" id="razaoSocial" >
                     
                     <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
                     <input class="form-control" type="text" id="nomeFantasia" >

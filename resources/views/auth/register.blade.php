@@ -16,16 +16,20 @@
                     autocomplete="username" />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4" id="password-input">
                 <x-label for="password" value="{{ __('Senha') }}" id="lbpass" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="new-password" />
+                <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
+                
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4" id="password-input">
                 <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" id="lbpassc" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required autocomplete="new-password" />
+                <button type="button" onclick="togglePasswordVisibility2()" class="toggle-password2"></button>
+
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -101,4 +105,66 @@
         return form.submit();
 
     });
+    function togglePasswordVisibility() {
+      var senhaInput = document.getElementById("password");
+      var toggleBtn = document.querySelector(".toggle-password");
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        toggleBtn.classList.add("hide");
+      } else {
+        senhaInput.type = "password";
+        toggleBtn.classList.remove("hide");
+      }
+    }
+
+    function togglePasswordVisibility2() {
+      var senhaInput = document.getElementById("password_confirmation");
+      var toggleBtn = document.querySelector(".toggle-password2");
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        toggleBtn.classList.add("hide");
+      } else {
+        senhaInput.type = "password";
+        toggleBtn.classList.remove("hide");
+      }
+    }
 </script>
+<style>
+    #password-input {
+        position: relative;
+    }
+    #password-input .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #password-input .toggle-password.hide {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
+    }
+    #password-input .toggle-password2{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3178/3178377.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #password-input .toggle-password2.hide{
+        background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
+    }
+</style>
