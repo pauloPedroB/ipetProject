@@ -20,9 +20,8 @@
     <header>
 
         {{-- inicio --}}
-        <nav class="navbar navbar-expand-md container">
+        <nav class="navbar navbar-expand-md container" >
             <div class="container">
-
                 <div>
                     <a href="" class="navbar-brand">
                         <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
@@ -63,7 +62,7 @@
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 @auth
                                 <li class="nav-item">
-                                    <a class="nav-link">Bem
+                                    <a id="nav-link">Bem
                                         Vindo,
                                         {{stristr(Auth::user()->email,"@", true)}}.</a>
                                 </li>
@@ -205,7 +204,7 @@
     <footer>
         <p>IPET DEVELOPMENT &copy; 2023</p>
         <div class="contacts">
-            <a href=""><img class="img-footer " src="/img/o-email (2).png" alt="" /></a>
+            <a href=""><img class="img-footer " src="/img/whatsapp.png" alt="" /></a>
             <a href=""><img class="img-footer " src="/img/instagram.png" alt="" /></a>
             <a href=""><img class="img-footer " src="/img/twitter.png" alt="" /></a>
         </div>

@@ -103,6 +103,8 @@ header {
     width: 9vw;
 }
 
+
+
 .form-control {
     width: 40vw;
     border: 2px solid #FFC05F
@@ -132,6 +134,8 @@ header {
 #Category {
     color: black;
     background-color: #FFC05F;
+    border: none;
+    margin-bottom: 1rem;
 
 }
 
@@ -243,8 +247,8 @@ footer {
 }
 
 .img-footer {
-    width: 4vh;
-    height: 4vh;
+    width: 2rem;
+    height: 2rem;
 }
 
 .contacts {
@@ -254,6 +258,16 @@ footer {
     gap: 10px;
 }
 
+/*Products*/
+
+#maps{
+    background-color:#DBF0E1;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border: none;
+
+}
 /* Create*/
 .card-body .btn-primary {
     background-color: #FFC05F;
@@ -301,12 +315,11 @@ footer {
 }
 
 #info-container h1 {
-    font-size: 36px;
+    font-size: 2rem;
 }
 
 #info-container p {
-    margin: 0;
-    font-size: 14px;
+    font-size: 1.5rem;
     display: flex;
 }
 
@@ -315,6 +328,12 @@ footer {
 #Specifications-container h3 {
     font-size: 20px;
     font-weight: bold;
+    color: #FFC05F;
+
+}
+
+#description-container{
+    margin-bottom:1rem;
 }
 
 #info-container i {
@@ -325,6 +344,10 @@ footer {
 
 #info-container a {
     color: #00c2cb;
+}
+
+.product-Description{
+    margin-bottom:0;
 }
 
 a img {
@@ -445,7 +468,7 @@ a img {
 
 @media screen and (max-width: 412px) {
 
-
+    
     #title_change {
         text-align: center;
 
@@ -493,6 +516,8 @@ a img {
 
 
 @media screen and (max-width: 1024px) {
+
+
 
     #title_change {
         text-align: center;
@@ -588,19 +613,3 @@ a img {
     width: 15vw;
 }
 
-@media screen and (max-width:760px) {
-
-    .carousel-caption1 {
-        font-size: 10px;
-    }
-
-
-    .card-body .btn-primary {
-        font-size: 12px;
-    }
-
-    .card .card-title {
-        font-size: 12px;
-    }
-
-}
