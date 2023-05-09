@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Cadastrar Endereço')
+@section('title','Cadastrar Cliente')
 @section('content')
 
     <div id="event-create-container" class="col-md-6 offset-md-3">
@@ -20,8 +20,8 @@
             @endif
         @endforeach
         <div id="header_form" class="d-flex flex-column flex-md-row align-items-center">
-            <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center" id="icon_register"></i>
-            <h1 class="fs-2 m-3">Cadastro - Pessoa Jurídica</h1>
+            <i class=" col fa-solid fa-user  d-flex justify-content-center align-items-center" id="icon_register"></i>
+            <h1 class="fs-2 m-3">Cadastro - Pessoa Física</h1>
         </div>
         <div class="d-flex flex-column flex-md-row align-items-center">
             <div class="container-fluid " id="container-register">
@@ -31,13 +31,13 @@
                         
                     <div class="form-group">
                         
-                        <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
+                        <label class="form-label" for="razaoSocial">Nome completo</label>
                         <input  class="form-control" type="text" id="razaoSocial" >
                         
-                        <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
+                        <label class="form-label" for="nomeFantasia">CPF:</label>
                         <input class="form-control" type="text" id="nomeFantasia" >
                         
-                        <label class="form-label"  for="cnpj">CNPJ:</label>
+                        <label class="form-label"  for="cnpj">Data Nasc.:</label>
                         <input class="form-control" type="text" name="cnpj" class="" placeholder="00.000.000/0000-00" >
                         
                         <label class="form-label"  for="telefone">Telefone:</label>

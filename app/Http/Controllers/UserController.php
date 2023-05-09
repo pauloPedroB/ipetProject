@@ -49,7 +49,7 @@ class UserController extends Controller
             $Longitude = "";
             return view('user.endereco',['User'=>$user,'Enderecos'=>$Enderecos,
             'Logradouro'=>$Logradouro,'Cidade'=>$Cidade,'Bairro'=>$Bairro,'Numero'=>$Numero,
-            'CEP'=>$CEP,'UF'=>$UF,'Latitude'=>$Latitude,'Longitude'=>$Longitude,'title'=>'Registrar Endereço','Caminho'=>'/Endereco/Cadastrar']);
+            'CEP'=>$CEP,'UF'=>$UF,'Latitude'=>$Latitude,'Longitude'=>$Longitude,'Caminho'=>'/Endereco/Cadastrar']);
         }
         else{
             return redirect('/');

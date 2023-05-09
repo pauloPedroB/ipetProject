@@ -104,12 +104,6 @@ header {
 }
 
 
-
-.form-control {
-    width: 40vw;
-    border: 2px solid #FFC05F
-}
-
 .carousel .slide {
     width: 50%;
 }
@@ -714,21 +708,6 @@ a img {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* cadastro loja */
 
 
@@ -736,6 +715,7 @@ a img {
     width: 50vw;
     height: 50vh;
 }
+
 
 #header_form {
     display: flex;
@@ -748,7 +728,6 @@ a img {
     color: #F29200;
 }
 
-
 #icon_register {
     font-size: 5rem;
 }
@@ -757,15 +736,18 @@ a img {
     font-size: 1rem;
 }
 
+.form-control {
+    width: 60vw;
+    border: 2px solid #FFC05F
+}
 
-
-
+/* escolhe de pacote gratuito/premium */
 
 #nav-free {
-    width: 15vw;
+    width: 12vw;
 }
 
 #nav-premium {
-    width: 15vw;
+    width: 12vw;
 }
 
