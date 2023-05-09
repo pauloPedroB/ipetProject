@@ -577,14 +577,16 @@ a img {
 }
 
 #products-container{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 
 #products-container h1{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
     color: #FFC05F;
@@ -593,86 +595,40 @@ a img {
 /* categorias */
 
 #table-categories{
+    width: 80%;
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 #table-categories tr td{
-    padding: 2rem;
+    padding: 1rem;
 }
 
 
 #table-categories tr th{
-    padding: 2rem;
+    padding: 1rem;
 }
-
-
-
-
-#td-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 
 
 .btn-edit{
-    margin-top: 1rem;
-    padding: 15px 100px;
-    background-color: #0dcaf0 ; 
-    color: #ffff;
-    font-size: 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition-duration: 0.4s;
-    justify-content: center;
-    align-items: center;
+    width: 20rem;
 }
-
-.btn-edit:hover{
-    border: 2px solid #0dcaf0;
-    background-color: #fff;
-    color: black;
-}
-
-
-.btn-delete{ 
-    margin-top: 20px;
-    padding: 15px 100px;
-    background-color: #dc3545 ; 
-    color: #ffff;
-    font-size: 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition-duration: 0.4s;
-    text-align: center;
-    border:0 ;
-}
-
-
-.btn-delete:hover{
-    border: 2px solid #dc3545;
-    background-color: #fff;
-    color: black;
-}
-
 
 .add-categories{
+    width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 15px 100px;
+    padding: 15px 20px;
     background-color: #4caf50 ; 
     color: #ffff;
-    font-size: 25px;
+    font-size: 1rem;
     border-radius: 6px;
     text-decoration: none;
     transition-duration: 0.4s;
     text-align: center;
-    border:0 ;
+
 
 }
 
@@ -687,7 +643,7 @@ a img {
 /* produtos */
 
 #title-products{
-    margin-top: 50px;
+    margin-top: 10px;
     
 }
 
@@ -696,10 +652,11 @@ a img {
 }
 
 #table-produts{
+    width: 80%;
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 
