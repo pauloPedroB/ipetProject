@@ -654,16 +654,9 @@ a img {
 }
 
 
-#btn-edit-product{
-    color: black;
-    background-color: coral;
+.btn-wide{
+   width:150px ;
 }
-
-
-#add-products{
-    color: red;
-}
-
 
 /* cadastro loja */
 

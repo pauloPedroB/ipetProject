@@ -58,7 +58,7 @@
                             <td>{{$category->Description}}</td>
                             <td class="d-flex justify-content-around">
                                 @if($user->AL_id ==3)
-                                <a href="/categoria/{{$category->id}}" class="btn btn-outline-warning  btn-lg"><span class="material-symbols-outlined align-middle ">edit</span></a>
+                                <a href="/categoria/{{$category->id}}" class="btn btn-outline-warning  btn-lg "><span class="material-symbols-outlined align-middle ">edit</span></a>
                                @endif
                                 <form action="/categoria/{{$category->id}}" method="POST">
                                     @csrf
@@ -92,14 +92,14 @@
                             @else
                                 <td><a href="/produto/{{$product->id}}/true">{{$product->Name}}</a></td>
                             @endif
-                            <td class="d-flex justify-content-around">
+                            <td class="d-flex justify-content-center">
                                 @if($user->AL_id ==3)
-                                 <a href="/produtos/edit/{{$product->id}}" class="btn btn-outline-warning w-25  p-1"><span class="material-symbols-outlined align-middle">edit</span></a>
+                                <a href="/produtos/edit/{{$product->id}}" class="btn btn-outline-warning  btn-wide "><span class="material-symbols-outlined align-middle">edit</span></a>
                                 @endif
                                 <form class="w-25 p-1" action="/produtos/{{$product->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger w-100 p-3"><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                    <button type="submit" class="btn btn-outline-danger  btn-wide"><span class="material-symbols-outlined align-middle ">delete</span></button>
                                 </form>
                             </td>
                         </tr>
