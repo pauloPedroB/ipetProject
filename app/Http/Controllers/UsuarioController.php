@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\User;
-
+use DateTime;
 
 
 class UsuarioController extends Controller
@@ -31,6 +31,14 @@ class UsuarioController extends Controller
         if($registro != null){
             return redirect('/Registrar/Usuario')->with('error', 'O CPF enviado já está cadastrado');
         }
+        $today = new DateTime();
+        $diff = $today->diff(new DateTime($request->DT));
+        $years = $diff->y;
+        
+        if($years < 18){
+            return redirect('/Registrar/Usuario')->with('error', 'Cadastro proíbido para menores de 18 anos');
+        }
+ 
         $usuario = new Usuario;
         $usuario->Name = $request->Name;
         $usuario->CPF = $request->CPF;
