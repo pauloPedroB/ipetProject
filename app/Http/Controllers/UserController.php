@@ -94,12 +94,7 @@ class UserController extends Controller
         
     }
     public function typeUser(){
-        $user = auth()->user();
-        if($user){
-            if($user->email_verified_at == null && $user->AL_id != 3){
-                //return view('auth.verify-email');
-            }
-        }
+        
         return view('user.typeUser');
     }
     
