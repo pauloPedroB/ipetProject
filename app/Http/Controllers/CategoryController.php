@@ -11,7 +11,8 @@ class CategoryController extends Controller
 {
     public function index(){
         $User = auth()->user();
-        return view('products.createCategory',['User'=>$User]);
+        $categories = Category::all();
+        return view('products.createCategory',['User'=>$User,'categories'=>$categories]);
     }
     public function create(Request $request){
         $category = new Category;
