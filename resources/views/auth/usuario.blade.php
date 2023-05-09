@@ -11,6 +11,9 @@
 
         <form method="POST" action="/Cadastrar/Usuario" id="myForm">
             @csrf
+            @if(session('error'))
+                <div class="alert alert-danger"><p style="color: brown">{{ session('error') }}</p></div>
+            @endif
             <div class="mt-4">
                 <x-label for="Name" value="{{ __('Nome Completo') }}" />
                 <x-input id="Name" class="block mt-1 w-full" type="text" name="Name" :value="old('Name')"

@@ -23,6 +23,14 @@ class UsuarioController extends Controller
      */
     public function create(Request $request)
     {
+        $registro = Usuario::where([
+            [
+                'CPF','=',$request->CPF
+            ]
+        ])->first();
+        if($registro != null){
+            return redirect('/Registrar/Usuario')->with('error', 'O CPF enviado já está cadastrado');
+        }
         $usuario = new Usuario;
         $usuario->Name = $request->Name;
         $usuario->CPF = $request->CPF;
