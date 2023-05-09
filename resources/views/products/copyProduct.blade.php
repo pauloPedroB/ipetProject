@@ -139,7 +139,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="products-container" class="col-md-12">
+    <div id="products-container" class="col-md-12" >
         @if($search)
             <h2>Buscando por: {{$search}}</h2>
         @else
@@ -160,8 +160,8 @@
                 @endphp 
                         <div class="card col-md-3">
                             <img class="img-product" src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
+                            <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
-                                <h5 class="card-title">{{$product->Name}}</h5>
                                 @if($count == true)
                                     <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
                                 @else
@@ -181,7 +181,7 @@
     <footer>
         <p>IPET DEVELOPMENT &copy; 2023</p>
         <div class="contacts">
-            <a href=""><img class="img-footer " src="/img/o-email (2).png" alt="" /></a>
+            <a href=""><img class="img-footer " src="/img/whatsapp.png" alt="" /></a>
             <a href=""><img class="img-footer " src="/img/instagram.png" alt="" /></a>
             <a href=""><img class="img-footer " src="/img/twitter.png" alt="" /></a>
         </div>

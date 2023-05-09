@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Roboto";
 }
 
@@ -100,7 +101,8 @@ header {
 }
 
 #nav-logo {
-    width: 9vw;
+    width: 9vw;;
+    
 }
 
 
@@ -195,16 +197,25 @@ body {
     border: 2px solid #DBF0E1;
 }
 
+
 #products-container .card {
     flex: 1 1 24%;
     max-width: 25%;
     border-radius: 10px solid #DBF0E1;
     padding: 0;
     margin: 0.5%;
+    cursor: pointer;
+}
+
+#products-container .card:hover{
+    outline: 5px solid #FFC05F;
+    zoom: 105%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
 }
 
 #products-container img {
-    max-height: 15vw;
+    max-height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -218,6 +229,7 @@ body {
     color: #212121;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 1rem;
 }
 
 .card-distance {
@@ -263,10 +275,11 @@ footer {
 
 }
 /* Create*/
+
 .card-body .btn-primary {
     background-color: #FFC05F;
     border-color: #FFC05F;
-    font-size: 18px;
+    font-size: 1rem;
     color: #000000;
 }
 
@@ -320,7 +333,7 @@ footer {
 #info-container h3,
 #description-container h3,
 #Specifications-container h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #FFC05F;
 
@@ -366,8 +379,9 @@ a img {
 }
 
 .img-fluid {
-    width: 600px;
+    width: 30rem;
 }
+
 
 
 /* sessão de escolhas loja / usuario */
@@ -496,8 +510,7 @@ a img {
 }
 
 
-@media screen and (max-width: 1024px) {
-
+@media screen and (min-width: 413px) and (max-width: 1024px) {
 
 
     #title_change {
