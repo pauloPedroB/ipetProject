@@ -22,6 +22,14 @@ class LojaController extends Controller
      */
     public function create(Request $request)
     {
+        $registro = Loja::where([
+            [
+                'CNPJ','=',$request->cnpj
+            ]
+        ])->first();
+        if($registro != null){
+            return redirect('/Registrar/Loja')->with('error', 'O CNPJ enviado já está cadastrado');
+        }
         $loja = new Loja;
         $loja->Razao = $request->razaoSocial;
         $loja->CNPJ = $request->cnpj;

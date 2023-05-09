@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Jetstream;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -24,6 +25,14 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
+        $registro = User::where([
+            [
+                'email','=',$request->email
+            ]
+        ])->first();
+        if($registro != null){
+            return redirect('/register')->with('error', 'O E-mail enviado já está cadastrado');
+        }
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',

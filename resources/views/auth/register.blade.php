@@ -9,7 +9,14 @@
 
         <form method="POST" action="/registrando" id="myForm">
             @csrf
-
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger"><p style="color: brown">{{ session('error') }}</p></div>
+            @endif
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" id="lbemail" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
