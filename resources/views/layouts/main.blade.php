@@ -49,7 +49,12 @@
                         <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                     </a>
                 </div>
-                
+                <div id="input-container">
+                    <form action="/" method="GET">
+                        <input type="text" id="search" name="search" class="form-control"
+                            placeholder="Buscar Item ou Loja...">
+                    </form>
+                </div>
                 <div>
                     <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
