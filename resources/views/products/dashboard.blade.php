@@ -69,7 +69,7 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    <a class="add-categories" href="/categoria/adicionar">Adicionar Categoria</a>
+                    <a class="add-categories btn btn-outline-success" href="/categoria/adicionar">Adicionar Categoria</a>
             </table>
         @endif
 
@@ -107,16 +107,16 @@
                 </tbody>
             </table>
             @if($user->AL_id !=3)
-                <a class="add-categories" href="/produto/disponiveis">Adicionar Produto</a>
+                <a class="add-categories btn btn-outline-success" href="/produto/disponiveis">Adicionar Produto</a>
             @else
             
-                <a class="add-categories" href="/produto/adicionar" >Adicionar Produto</a>
+                <a class="add-categories btn btn-outline-success" href="/produto/adicionar" >Adicionar Produto</a>
             @endif
         @else
             @if($user->AL_id !=3)
-                <p>Você ainda não tem produtos cadastrados, <a class="add-categories" href="/produto/disponiveis">adicionar produto</a></p>
+                <p>Você ainda não tem produtos cadastrados, <a class=" btn btn-outline-success" href="/produto/disponiveis">adicionar produto</a></p>
             @else
-            <p>Você ainda não tem produtos cadastrados, <a  class="add-categories" href="/produto/adicionar">adicionar produto</a></p>
+            <p>Você ainda não tem produtos cadastrados, <a  class="btn btn-outline-success" href="/produto/adicionar">adicionar produto</a></p>
             @endif
         @endif
     </div>
