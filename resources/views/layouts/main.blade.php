@@ -42,7 +42,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md container">
+        <nav class="navbar navbar-expand-lg container">
             <div class="container">
                 <div>
                     <a href="" class="navbar-brand">

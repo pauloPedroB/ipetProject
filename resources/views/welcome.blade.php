@@ -20,7 +20,7 @@
     <header>
 
         {{-- inicio --}}
-        <nav class="navbar navbar-expand-md container" >
+        <nav class="navbar navbar-expand-lg container" >
             <div class="container">
                 <div id="container-img">
                     <a href="" class="navbar-brand">
