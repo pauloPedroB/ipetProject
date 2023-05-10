@@ -92,14 +92,14 @@
                             @else
                                 <td><a href="/produto/{{$product->id}}/true">{{$product->Name}}</a></td>
                             @endif
-                            <td class="d-flex justify-content-center">
+                            <td class="button-products" style="display: flex; flex-direction: row; justify-content:space-around; width: 100%; align-items:center;">
                                 @if($user->AL_id ==3)
-                                <a href="/produtos/edit/{{$product->id}}" class="btn btn-outline-warning  btn-wide "><span class="material-symbols-outlined align-middle">edit</span></a>
+                                <a href="/produtos/edit/{{$product->id}}" class="btn btn-outline-warning" style="width: 25%"><span class="material-symbols-outlined align-middle">edit</span></a>
                                 @endif
-                                <form class="w-25 p-1" action="/produtos/{{$product->id}}" method="POST">
+                                <form class="" action="/produtos/{{$product->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger  btn-wide"><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                    <button type="submit" class="btn btn-outline-danger" style="width: 100%" ><span class="material-symbols-outlined align-middle ">delete</span></button>
                                 </form>
                             </td>
                         </tr>

@@ -283,23 +283,7 @@ footer {
     color: #000000;
 }
 
-#event-create-container {
-    padding: 30px;
-}
 
-#event-create-container .btn-primary {
-    margin-top: 10px;
-}
-
-#event-create-container label {
-    font-weight: bold;
-}
-
-#event-create-container input,
-#event-create-container select,
-#event-create-container textarea {
-    font-size: 12px;
-}
 
 /* msg */
 .msg {
@@ -666,10 +650,11 @@ a img {
     font-size: 1rem;
 }
 
-
-.btn-wide{
-   width:150px ;
+.button-products{
+    display: flex ;
+    align-items: column;
 }
+
 
 /* cadastro loja */
 
@@ -714,3 +699,30 @@ a img {
     width: 12vw;
 }
 
+
+
+/* tela de adicionar produtos */
+
+#event-create-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    background-color: #F2F2F2;
+    padding: 2rem;
+}
+
+#event-create-container .btn-primary {
+    margin-top: 10px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 12px;
+}
