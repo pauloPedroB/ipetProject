@@ -15,6 +15,11 @@ class UserController extends Controller
     {
         $correct = false;
         $user = auth()->user();
+        if($user){
+            if($user->email_verified_at == null && $user->AL_id != 3){
+                return view('auth.verify-email');
+            }
+        }
         $registro = Loja::where([
             [
                 'user_id','=',$user->id
@@ -97,7 +102,7 @@ class UserController extends Controller
         $user = auth()->user();
         if($user){
             if($user->email_verified_at == null && $user->AL_id != 3){
-                //return view('auth.verify-email');
+                return view('auth.verify-email');
             }
         }
         return view('user.typeUser');
