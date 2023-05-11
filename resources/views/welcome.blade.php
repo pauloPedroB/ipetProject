@@ -20,7 +20,6 @@
     <header>
 
         {{-- inicio --}}
-        <form class="w-100" action="/" method="GET">
             <nav class="navbar navbar-expand-lg container" >
                 <div class="container container-header">
                     <div id="container-img">
@@ -87,13 +86,14 @@
                     </div>
             </nav>
             <div class="carousel-caption1">
-                <select name="Category" id="Category">
-                    <option value="all">Todos</option>
-                    @foreach($categories as $category)
-                        <option value="{{$category->name}}">{{$category->name}}</option>
-                    @endforeach
+                <form action="/" method="GET">
+                    <select name="Category" id="Category">
+                        <option value="all">Todos</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->name}}">{{$category->name}}</option>
+                        @endforeach
 
-                </select>
+                    </select>
             </div>
         </div>
         
