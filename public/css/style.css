@@ -102,7 +102,6 @@ header {
 
 #nav-logo {
     width: 9vw;;
-    
 }
 
 
@@ -111,12 +110,17 @@ header {
 }
 
 .carousel-caption1 {
+    display: flex;
+    justify-content: center;
     color: #000;
     width: 100%;
     z-index: 10;
-    background-color: #DBF0E1;
-    padding-top: 2vw;
+    margin-top: 1rem;
+}
 
+#Category{
+    background-color: #FFC05F;
+    border: none;
 }
 
 #input-container {
@@ -124,7 +128,6 @@ header {
     justify-content: center;
     text-align: center;
     height: max-content;
-    padding-top: 4vw;
 }
 
 
@@ -136,7 +139,7 @@ header {
 
 /* Body */
 body {
-    min-height: 100vh;
+    min-height: 100%;
     padding-bottom: 100px;
     position: relative;
 }
@@ -163,6 +166,14 @@ body {
     border: 2px solid #FFC05F;
 }
 
+.stars{
+    display: flex;
+    gap: 2px;
+}
+
+.stars-img{
+    width:2rem;
+}
 .product-card {
     height: 350px;
     width: 250px;
@@ -334,11 +345,6 @@ footer {
     margin-bottom:0;
 }
 
-a img {
-    height: 30px;
-    width: 30px;
-}
-
 .btnClose {
     background: none;
     border: none;
@@ -359,7 +365,19 @@ a img {
     width: 30rem;
 }
 
+@media (max-width: 768px) {
+    .container-header {
+        align-items: baseline !important;
+    }
+}
 
+.container-header {
+    align-items: center;
+}
+
+.logo-icon {
+    width: 15rem;
+}
 
 /* sessão de escolhas loja / usuario */
 
@@ -678,7 +696,7 @@ a img {
 }
 
 .form-control {
-    width: 60vw;
+    width: 28vw;
     border: 2px solid #FFC05F
 }
 
@@ -692,6 +710,10 @@ a img {
     width: 12vw;
 }
 
+.nav-p{
+    color: #000000;
+    font-weight: bold;
+}
 
 
 /* tela de adicionar produtos */
