@@ -731,8 +731,10 @@ a img {
     text-align: center;
 }
 
-
-
+#category label{
+    color: rebeccapurple;
+    font-weight: bold;
+}
 
 
 #event-create-container .btn-primary {

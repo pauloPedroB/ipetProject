@@ -8,7 +8,7 @@
                 @csrf
                 @method('PUT')
                 <div id="category" class="form-group ">
-                    <label for="title">Categoria: </label>
+                    <label class="font-weight-bold fs-1" for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
