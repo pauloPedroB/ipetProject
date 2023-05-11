@@ -67,7 +67,7 @@
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Bem
+                                    <a class="nav-link" href="#" id="nav-link">Bem
                                         Vindo,
                                         {{stristr(Auth::user()->email,"@", true)}}.</a>
                                 </li>
@@ -122,6 +122,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script>
+        const link = document.getElementById("nav-link");
+        if (link.innerText.length > 20) {
+          link.innerText = link.innerText.substring(0, 20)+"...";
+        }
+      </script>
 </body>
 
 </html>
