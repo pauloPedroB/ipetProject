@@ -219,8 +219,8 @@
 
     <script src="/js/app.js"></script>
     <script>
-      var link = document.getElementById("nav-link");
-      var linkText = link.innerText;
+      const link = document.getElementById("nav-link");
+      const linkText = link.innerText;
       if (linkText.length > 5) {
         link.innerText = linkText.substring(0, 5)+"...";
       }
