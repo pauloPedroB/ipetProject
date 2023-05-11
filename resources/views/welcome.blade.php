@@ -220,7 +220,7 @@
     <script src="/js/app.js"></script>
     <script>
       const link = document.getElementById("nav-link");
-      if (link.innerText.length > 12) {
+      if (link.innerText.length > 20) {
         link.innerText = link.innerText.substring(0, 12)+"...";
       }
     </script>
