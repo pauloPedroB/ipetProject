@@ -220,7 +220,7 @@
 
     <script src="/js/app.js"></script>
     <script>
-      var link = document.getElementById("myLink");
+      var link = document.getQuerySelector(".nameUser");
       var linkText = link.innerText;
       if (linkText.length > 8) {
         link.innerText = linkText.substring(0, 8)+"...";
