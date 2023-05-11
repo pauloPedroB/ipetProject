@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('title','Editando: ')
 @section('content')
-    <div id="event-create-container" class="col-md-6 offset-md-3">
+    <div id="event-create-container" class="">
         @if($User->Endereco_id != null || $User->AL_id ==3)
             <h1>Editando: {{$product->Name}}</h1>
-            <form action="/produtos/update/{{$product->id}}" method="POST" enctype="multipart/form-data">
+            <form id="form-products" action="/produtos/update/{{$product->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="form-group">
+                <div id="category" class="form-group ">
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
@@ -24,10 +24,12 @@
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" value="{{$product->Name}}" required>
                 </div>
                 <h3>Adicionar descrição</h3>
-                <input type="checkbox" id="Idade"><label for="">Idade</label>
-                <input type="checkbox" id="Pet"><label for="">Pet</label>
-                <input type="checkbox" id="Porte"><label for="">Porte</label>
-                <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
+                <div class="form-group">
+                    <input type="checkbox" id="Idade"><label for="">Idade</label>
+                    <input type="checkbox" id="Pet"><label for="">Pet</label>
+                    <input type="checkbox" id="Porte"><label for="">Porte</label>
+                    <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
+                </div>
 
 
                 <div id="dynamic-inputs">

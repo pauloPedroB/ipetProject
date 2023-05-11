@@ -127,13 +127,6 @@ header {
     padding-top: 4vw;
 }
 
-#Category {
-    color: black;
-    background-color: #FFC05F;
-    border: none;
-    margin-bottom: 1rem;
-
-}
 
 #orderBy {
     color: black;
@@ -705,13 +698,42 @@ a img {
 
 #event-create-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 2rem;
-    background-color: #F2F2F2;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-top: 2rem;
+    background-color: #ffff;
     padding: 2rem;
+    gap:6rem;
 }
+
+#event-create-container h1{
+    color: #F29200;
+    text-align:justify;
+}
+
+
+#event-create-container form {
+    margin: 2rem;
+}
+
+#category {
+    width: 60%;
+    padding: 5px;
+    border-radius: 1rem;
+    color: black;
+    background-color: #FFC05F;
+    border: none;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
 
 #event-create-container .btn-primary {
     margin-top: 10px;
