@@ -220,9 +220,8 @@
     <script src="/js/app.js"></script>
     <script>
       const link = document.getElementById("nav-link");
-      const linkText = link.innerText;
-      if (linkText.length > 5) {
-        link.innerText = linkText.substring(0, 5)+"...";
+      if (link.innerText.length > 5) {
+        link.innerText = link.innerText.substring(0, 5)+"...";
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
