@@ -1,8 +1,6 @@
 
 
 
-
-
 const addressForm = document.querySelector('#addres')
 const cepInput = document.querySelector("#cep")
 const addressInput = document.querySelector("#street")
@@ -57,29 +55,8 @@ cepInput.addEventListener("keypress",(e)=>{
             
         
     }
-    numberInput.addEventListener("blur", (e)=>{
 
-      
-            const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
-                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
-                .then(response => response.json())
-                .then(data => {
-                    const location = data.results[0].geometry.location;
-                    const latitude = location.lat;
-                    const longitude = location.lng;
-                    latInput.value = latitude;
-                    longInput.value = longitude
-                })
-                .catch(error => console.error(error));
-                
-
-    });
-
-    const toggleMessage =(msg)=>{
-        const messageElement = document.querySelector("#message p");
-        messageElement.style.backgroundColor = 'red';
-        messageElement.innerText = msg;
-    }
+    
 }});
 const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
@@ -87,6 +64,25 @@ const form = document.getElementById("addres");
         event.preventDefault();
         latInput.disabled = false;
         longInput.disabled = false;
-        return form.submit();
+
+        const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
+        .then(response => response.json())
+        .then(data => {
+            const location = data.results[0].geometry.location;
+            const latitude = location.lat;
+            const longitude = location.lng;
+            latInput.value = latitude;
+            longInput.value = longitude
+            return form.submit();
+        })
+        .catch(error => console.error(error));
+
+        const toggleMessage =(msg)=>{
+            const messageElement = document.querySelector("#message p");
+            messageElement.style.backgroundColor = 'red';
+            messageElement.innerText = msg;
+        }
+       
 
     });
