@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">Imagem do Produto: </label>
-                    <input type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
+                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome</label>
@@ -32,7 +32,26 @@
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                 </div>
+                <div id="imageforProduct">
+                    <img id="imagem-preview" src="#" alt="Imagem selecionada">
+                </div>
                 <script>
+                    function mostrarImagem(){
+                        const input = document.getElementById('image');
+                        const preview = document.getElementById('imagem-preview');
+                        if (input.files && input.files[0]) {
+                            // Cria um objeto URL temporário para a imagem selecionada
+                            const url = URL.createObjectURL(input.files[0]);
+                            // Define o src da tag <img> para a URL temporária
+                            preview.src = url;
+                            // Libera a URL temporária após carregar a imagem
+                            preview.onload = function() {
+                                URL.revokeObjectURL(url);
+                            };
+                        }
+                    }
+                   
+
                     var Idade = document.getElementById('Idade');
                     var Pet = document.getElementById('Pet');
                     var Porte = document.getElementById('Porte');
