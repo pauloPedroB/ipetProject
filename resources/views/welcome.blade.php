@@ -220,10 +220,10 @@
 
     <script src="/js/app.js"></script>
     <script>
-      var link = document.getQuerySelector(".nameUser");
+      var link = document.getElementById("nav-link");
       var linkText = link.innerText;
-      if (linkText.length > 8) {
-        link.innerText = linkText.substring(0, 8)+"...";
+      if (linkText.length > 12) {
+        link.innerText = linkText.substring(0, 12)+"...";
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
