@@ -221,7 +221,7 @@
     <script>
       const link = document.getElementById("nav-link");
       if (link.innerText.length > 20) {
-        link.innerText = link.innerText.substring(0, 12)+"...";
+        link.innerText = link.innerText.substring(0, 20)+"...";
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
