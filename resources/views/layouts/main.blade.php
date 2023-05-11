@@ -46,7 +46,7 @@
             <div class="container">
                 <div>
                     <a href="" class="navbar-brand">
-                        <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
+                        <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                     </a>
                 </div>
                 
@@ -68,7 +68,7 @@
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 @auth
                                 <li class="nav-item">
-                                    <a id="nav-link">Bem
+                                    <a class="nav-link" href="#">Bem
                                         Vindo,
                                         {{stristr(Auth::user()->email,"@", true)}}.</a>
                                 </li>
