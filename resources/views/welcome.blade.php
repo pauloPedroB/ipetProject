@@ -51,7 +51,7 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1">
                                     @auth
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">Bem
+                                        <a href="#" class="nav-link" id="nav-link">Bem
                                             Vindo,
                                             {{stristr(Auth::user()->email,"@", true)}}.</a>
                                     </li>
@@ -220,8 +220,8 @@
     <script src="/js/app.js"></script>
     <script>
       const link = document.getElementById("nav-link");
-      if (link.innerText.length > 5) {
-        link.innerText = link.innerText.substring(0, 5)+"...";
+      if (link.innerText.length > 12) {
+        link.innerText = link.innerText.substring(0, 12)+"...";
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
