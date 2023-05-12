@@ -15,49 +15,31 @@ const numberInput = document.querySelector("#Number")
 
 
 
-cepInput.addEventListener("keypress",(e)=>{
+cepInput.addEventListener("blur", async function() {
     const onlyNumbers = /[0-9]/;
-    const key = String.fromCharCode(e.keyCode);
-    if(!onlyNumbers.test(key))
-    {
-        e.preventDefault();
-        return;
-    }
-
-    cepInput.addEventListener("keyup", (e)=>{
-
-        const inputValue = e.target.value
-
-        if(inputValue.length === 8){
-            getAddress(inputValue);
-        }
-
-    });
-
-    const getAddress = async (cep)=>{
-        cepInput.blur();
-        console.log(cep)
-        const apiURL = `https://viacep.com.br/ws/${cep}/json/`
-        const response = await fetch(apiURL)
-        const data = await response.json()
-        if(data.erro === true){
-            addressForm.reset();
-            toggleMessage('CEP INVÁLIDO!!');
-        }
-        else{
-            addressInput.value = data.logradouro
-            neighborhoodInput.value = data.bairro
-            cityInput.value = data.localidade
-            ufInput.value = data.uf
-
-            
-            
-            
-        
-    }
-
     
-}});
+    cepInput.blur();
+    
+    const cep = cepInput.value.replace(/\D/g, '');
+    
+    const apiURL = `https://viacep.com.br/ws/${cep}/json/`;
+    
+    try {
+      const response = await fetch(apiURL);
+      const data = await response.json();
+      if (data.erro === true) {
+        addressForm.reset();
+        toggleMessage('CEP INVÁLIDO!!');
+      } else {
+        addressInput.value = data.logradouro;
+        neighborhoodInput.value = data.bairro;
+        cityInput.value = data.localidade;
+        ufInput.value = data.uf;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  })();
 const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
