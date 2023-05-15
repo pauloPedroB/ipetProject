@@ -32,7 +32,6 @@
                         <form action="/" method="GET">
                             <input type="text" id="search" name="search" class="form-control"
                                 placeholder= "Buscar Item ou Loja...">
-                            <br>
                             <select name="Category" id="Category">
                                 <option value="all">Todos</option>
                                 @foreach($categories as $category)
