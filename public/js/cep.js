@@ -7,8 +7,8 @@ const addressInput = document.querySelector("#street")
 const neighborhoodInput = document.querySelector("#neighborhood")
 const cityInput = document.querySelector("#city")
 const ufInput = document.querySelector("#uf")
-const latInput = document.querySelector("#lat")
-const longInput = document.querySelector("#long")
+const latInput = document.getElementById("lat")
+const longInput = document.getElementById("long")
 const numberInput = document.querySelector("#Number")
 
 
