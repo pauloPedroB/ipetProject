@@ -49,7 +49,7 @@ class AuthServiceProvider extends ServiceProvider
             $expires = config('auth.passwords.'.config('auth.defaults.passwords').'.expire');
             if (Agent::isMobile()) {
                 //Construa o URL usando o esquema de URL personalizado
-                $mobileVerificationUrl = 'meuapp://verificar-email/' . urlencode($url);
+                $mobileVerificationUrl = 'meuapp://verificar-email/' . urlencode($resetUrl);
 
                 return (new MailMessage)
                     ->subject('Notificação de Reset de senha')
