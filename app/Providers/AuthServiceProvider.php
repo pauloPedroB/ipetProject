@@ -25,12 +25,24 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        VerifyEmail::toMailUsing(function($notifiable,$url){
-            return (new MailMessage)
-                    ->subject('Verique seu E-mail')
-                    ->line('Por favor clique no link abaixo para verificar seu E-mail')
-                    ->action('Verifique seu E-mail',$url)
+        VerifyEmail::toMailUsing(function($notifiable, $url) {
+            // Verifique se o usuário está usando um dispositivo móvel
+            if (Agent::isMobile()) {
+                // Construa o URL usando o esquema de URL personalizado
+                $mobileVerificationUrl = 'meuapp://verificar-email/' . urlencode($url);
+
+                return (new MailMessage)
+                    ->subject('Verifique seu E-mail')
+                    ->line('Por favor, clique no link abaixo para verificar seu E-mail')
+                    ->action('Verifique seu E-mail', $mobileVerificationUrl)
                     ->line('Se você não criou uma conta, nenhuma ação é requerida!');
+            }
+
+            return (new MailMessage)
+                ->subject('Verifique seu E-mail')
+                ->line('Por favor, clique no link abaixo para verificar seu E-mail')
+                ->action('Verifique seu E-mail', $url)
+                ->line('Se você não criou uma conta, nenhuma ação é requerida!');
         });
         ResetPassword::toMailUsing(function($notifiable,$token){
             $resetUrl = url('reset-password', $token);
