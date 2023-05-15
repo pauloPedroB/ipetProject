@@ -107,4 +107,15 @@ class LojaController extends Controller
         $loja->save();
         return redirect('/');
     }
+    public function payment(){
+        $User = auth()->user();
+        $loja = Loja::where([
+            [
+                'user_id','=',$User->id
+            ]
+        ])->get();
+
+        return view('user.payment',['user'=>$User,'loja'=>$loja]);
+    }
+    
 }
