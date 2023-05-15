@@ -7,8 +7,8 @@ const addressInput = document.querySelector("#street")
 const neighborhoodInput = document.querySelector("#neighborhood")
 const cityInput = document.querySelector("#city")
 const ufInput = document.querySelector("#uf")
-const latInput = document.getElementById("lat")
-const longInput = document.getElementById("long")
+const latInput = document.querySelector("#lat")
+const longInput = document.querySelector("#long")
 const numberInput = document.querySelector("#Number")
 
 
@@ -40,6 +40,25 @@ cepInput.addEventListener("blur", async function() {
       console.error(error);
     }
   })();
+  numberInput.addEventListener("blur", async function() {
+    const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
+    .then(response => response.json())
+    .then(data => {
+        const location = data.results[0].geometry.location;
+        const latitude = location.lat;
+        const longitude = location.lng;
+        latInput.value = latitude;
+        longInput.value = longitude
+    })
+    .catch(error => console.error(error));
+
+    const toggleMessage =(msg)=>{
+        const messageElement = document.querySelector("#message p");
+        messageElement.style.backgroundColor = 'red';
+        messageElement.innerText = msg;
+    }
+  });
 const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
@@ -55,8 +74,15 @@ const form = document.getElementById("addres");
             const location = data.results[0].geometry.location;
             const latitude = location.lat;
             const longitude = location.lng;
+           
+            if(latitude == null){
+              latitude = '-23.61279792090457';
+            }
+            if(longitude == null){
+              longitude = '-46.780145384505474';
+            }
             latInput.value = latitude;
-            longInput.value = longitude
+            longInput.value = longitude;
             return form.submit();
         })
         .catch(error => console.error(error));
