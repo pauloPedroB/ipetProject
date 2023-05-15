@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
-
+use Jenssegers\Agent\Facades\Agent;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
