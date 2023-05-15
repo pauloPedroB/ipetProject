@@ -39,7 +39,7 @@ cepInput.addEventListener("blur", async function() {
     } catch (error) {
       console.error(error);
     }
-  })();
+  });
 const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
