@@ -29,8 +29,17 @@
                     </div>
                     <div id="input-container">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="search" name="search" class="form-control"
-                            placeholder= "Buscar Item ou Loja...">
+                        <form action="/" method="GET">
+                            <input type="text" id="search" name="search" class="form-control"
+                                placeholder= "Buscar Item ou Loja...">
+                            <select name="Category" id="Category">
+                                <option value="all">Todos</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->name}}">{{$category->name}}</option>
+                                @endforeach
+        
+                            </select>
+                        </form>
                     </div>
                     <div>
                         <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -87,14 +96,7 @@
                     </div>
             </nav>
             <div class="carousel-caption1">
-                <form action="/" method="GET">
-                    <select name="Category" id="Category">
-                        <option value="all">Todos</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->name}}">{{$category->name}}</option>
-                        @endforeach
-
-                    </select>
+                
             </div>
         </div>
         
