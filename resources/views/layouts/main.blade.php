@@ -115,7 +115,14 @@
         </div>
     </main>
     <footer>
-        <p>IPET DEVELOPMENT &copy; 2023</p>
+        <div class="footer-content">
+            <h3>IPET DEVELOPMENT &copy; 2023</h3>
+            <ul class="contacts">
+                <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
+            </ul>
+        </div>
     </footer>
     <script src="https://kit.fontawesome.com/0772530246.js" crossorigin="anonymous"></script>
     <script src="/js/app.js"></script>

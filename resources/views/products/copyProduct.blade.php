@@ -20,85 +20,83 @@
     <header>
 
         {{-- inicio --}}
-        <nav class="navbar navbar-expand-md container">
-            <div class="container">
-
-                <div>
-                    <a href="" class="navbar-brand">
-                        <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
-                    </a>
-                </div>
-                <div id="input-container">
-                    <form action="/produto/disponiveis" method="GET">
+            <nav class="navbar navbar-expand-lg container" >
+                <div class="container container-header">
+                    <div id="container-img">
+                        <a href="" class="navbar-brand">
+                            <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
+                        </a>
+                    </div>
+                    <div id="input-container">
                         <input type="text" id="search" name="search" class="form-control"
                             placeholder="Buscar Item ou Loja...">
-                        <div class="carousel-caption1">
-                            <select name="Category" id="Category">
-                                <option value="all">Todos</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->name}}">{{$category->name}}</option>
-                                @endforeach
+                    </div>
+                    <div>
+                        <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-start w-50 container" tabindex="-1" id="offcanvasNavbar"
+                            aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
 
-                            </select>
-                        </div>
-                        
+                                <h5 class="offcanvas-title" id="navbarNavLabel">iPet</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
 
-                    </form>
-                </div>
-                <div>
-                    <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="offcanvas offcanvas-start w-50 container" tabindex="-1" id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
+                            <div class="offcanvas-body">
+                                <hr>
+                                <ul class="navbar-nav justify-content-end flex-grow-1">
+                                    @auth
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" id="nav-link">Bem
+                                            Vindo,
+                                            {{stristr(Auth::user()->email,"@", true)}}.</a>
+                                    </li>
+                                    @endauth
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link">Produtos</a>
+                                    </li>
+                                    @auth
+                                    <li class="nav-item">
+                                        <a href="/dashboard" class="nav-link">Meus Dados</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form action="/logout" method="POST">
+                                            @csrf
+                                            <input id="btnClose" type="submit"
+                                                onclick="product.preventDefault(); this.closest('form').submit();"
+                                                class="btnClose" value="Sair">
+                                        </form>
+                                    </li>
+                                    @endauth
+                                    @guest
 
-                            <h5 class="offcanvas-title" id="navbarNavLabel">iPet</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
+                                    <li class="nav-item">
+                                        <a href="/login" class="nav-link">Entrar</a>
+                                    </li>
 
-                        <div class="offcanvas-body">
-                            <hr>
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                @auth
-                                <li class="nav-item">
-                                    <a class="nav-link">Bem
-                                        Vindo,
-                                        {{stristr(Auth::user()->email,"@", true)}}.</a>
-                                </li>
-                                @endauth
-                                <li>
-                                    <a href="/" class="nav-link">Produtos</a>
-                                </li>
-                                @auth
-                                <li class="nav-item">
-                                    <a href="/dashboard" class="nav-link">Meus Dados</a>
-                                </li>
-                                <li class="nav-item">
-                                    <form action="/logout" method="POST">
-                                        @csrf
-                                        <input id="btnClose" type="submit"
-                                            onclick="product.preventDefault(); this.closest('form').submit();"
-                                            class="btnClose" value="Sair">
-                                    </form>
-                                </li>
-                                @endauth
-                                @guest
+                                    @endguest
+                                </ul>
 
-                                <li class="nav-item">
-                                    <a href="/login" class="nav-link">Entrar</a>
-                                </li>
-
-                                @endguest
-                            </ul>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-        </nav>
+            </nav>
+            <div class="carousel-caption1">
+                <form action="/" method="GET">
+                    <select name="Category" id="Category">
+                        <option value="all">Todos</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->name}}">{{$category->name}}</option>
+                        @endforeach
+
+                    </select>
+            </div>
+        </div>
+
         {{-- fim --}}
 
     </header>
@@ -179,11 +177,13 @@
         </div>
     </div>
     <footer>
-        <p>IPET DEVELOPMENT &copy; 2023</p>
-        <div class="contacts">
-            <a href=""><img class="img-footer " src="/img/whatsapp.png" alt="" /></a>
-            <a href=""><img class="img-footer " src="/img/instagram.png" alt="" /></a>
-            <a href=""><img class="img-footer " src="/img/twitter.png" alt="" /></a>
+        <div class="footer-content">
+            <h3>IPET DEVELOPMENT &copy; 2023</h3>
+            <ul class="contacts">
+                <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
+            </ul>
         </div>
     </footer>
 
@@ -192,6 +192,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

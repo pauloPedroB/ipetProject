@@ -28,8 +28,9 @@
                         </a>
                     </div>
                     <div id="input-container">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" id="search" name="search" class="form-control"
-                            placeholder="Buscar Item ou Loja...">
+                            placeholder= "Buscar Item ou Loja...">
                     </div>
                     <div>
                         <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -209,11 +210,13 @@
         </div>
     </div>
     <footer>
-        <p>IPET DEVELOPMENT &copy; 2023</p>
-        <div class="contacts">
-            <a href=""><img class="img-footer " src="/img/whatsapp.png" alt="" /></a>
-            <a href=""><img class="img-footer " src="/img/instagram.png" alt="" /></a>
-            <a href=""><img class="img-footer " src="/img/twitter.png" alt="" /></a>
+        <div class="footer-content">
+            <h3>IPET DEVELOPMENT &copy; 2023</h3>
+            <ul class="contacts">
+                <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
+            </ul>
         </div>
     </footer>
 
@@ -227,6 +230,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

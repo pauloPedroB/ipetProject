@@ -99,3 +99,6 @@ Route::get('/premium',[LojaController::class, 'premium'])->middleware('auth', 'C
 Route::post('/entrando',[AuthController::class, 'index']);
 Route::post('/registrando',[AuthController::class, 'register']);
 
+
+
+

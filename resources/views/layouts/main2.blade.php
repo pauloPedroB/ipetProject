@@ -97,13 +97,21 @@
             </div>
         </main>
         <footer>
-            <p>IPET DEVELOPMENT &copy; 2023</p>
-        </footer>
+        <div class="footer-content">
+            <h3>IPET DEVELOPMENT &copy; 2023</h3>
+            <ul class="contacts">
+                <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
+            </ul>
+        </div>
+    </footer>
     </main>
     <script src="/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
