@@ -40,25 +40,6 @@ cepInput.addEventListener("blur", async function() {
       console.error(error);
     }
   })();
-  numberInput.addEventListener("blur", async function() {
-    const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep}&key=${api_key}`)
-    .then(response => response.json())
-    .then(data => {
-        const location = data.results[0].geometry.location;
-        const latitude = location.lat;
-        const longitude = location.lng;
-        latInput.value = latitude;
-        longInput.value = longitude
-    })
-    .catch(error => console.error(error));
-
-    const toggleMessage =(msg)=>{
-        const messageElement = document.querySelector("#message p");
-        messageElement.style.backgroundColor = 'red';
-        messageElement.innerText = msg;
-    }
-  });
 const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
