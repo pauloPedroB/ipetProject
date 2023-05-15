@@ -66,7 +66,11 @@ const form = document.getElementById("addres");
             longInput.value = longitude;
             return form.submit();
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+          latInput.value = '-23.61279792090457';
+          longInput.value = '-46.780145384505474';
+          return form.submit();
+        });
 
         const toggleMessage =(msg)=>{
             const messageElement = document.querySelector("#message p");
