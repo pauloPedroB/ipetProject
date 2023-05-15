@@ -57,7 +57,7 @@ const form = document.getElementById("addres");
             const longitude = location.lng;
             latInput.value = latitude;
             longInput.value = longitude
-            //return form.submit();
+            return form.submit();
         })
         .catch(error => console.error(error));
 
