@@ -192,6 +192,7 @@ body {
 
 #products-container {
     padding: 50px;
+
 }
 
 #products-container h2 {
@@ -411,9 +412,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .container-header {
-        align-items: baseline !important;
-    }
+
 }
 
 .container-header {
@@ -503,7 +502,15 @@ footer {
 
 @media screen and (min-width: 412px) and (max-width: 1024px) {
 
-    
+    .container-header {
+        align-items: baseline !important;
+    }
+
+    #products-container .card {
+        flex: 1  100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
     #title_change {
         text-align: center;
 
@@ -597,6 +604,13 @@ footer {
 
 }
 
+@media screen and (max-width: 413px) {
+    #products-container .card {
+        flex: 1  100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+}
 
 /* dashboard - tela do usuario da loja */
 

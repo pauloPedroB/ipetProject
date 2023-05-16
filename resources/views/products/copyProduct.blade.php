@@ -161,7 +161,7 @@
                         }
                 @endphp 
                         <div class="card col-md-3">
-                            <img class="img-product" src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
+                            <img class="img-fluid" src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
