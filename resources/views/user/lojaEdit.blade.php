@@ -22,10 +22,10 @@
                             </div>
                         @endif
                         <label for="" id="error-message"></label>
-                        <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="" disabled>
+                        <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="{{$registro->CNPJ}}" disabled>
                         
                         <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
-                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" required>
+                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" value ="{{$registro->CNPJ}}" required>
                         
                         <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
                         <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" required>
