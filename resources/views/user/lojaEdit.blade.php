@@ -25,16 +25,16 @@
                         <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="{{$registro->CNPJ}}" disabled>
                         
                         <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
-                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" value ="{{$registro->CNPJ}}" required>
+                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" value ="{{$registro->Razao}}" required>
                         
                         <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
-                        <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" required>
+                        <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" value ="{{$registro->Nome}}" required>
                     
                         <label class="form-label"  for="telefone">Telefone:</label>
-                        <input class="form-control" type="tel" id="telefone" name="telefone"required>
+                        <input class="form-control" type="tel" id="telefone" name="telefone" value ="{{$registro->Telefone}}"required>
                         
                         <label class="form-label" for="celular">Celular:</label>
-                        <input class="form-control" type="tel" id="celular" name="celular"required> 
+                        <input class="form-control" type="tel" id="celular" name="celular" value ="{{$registro->Celular}}"required> 
                     </div>
                     
             
