@@ -25,7 +25,7 @@
                             <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
                             <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
                         </div>
-                        <a href="/Endereco/"><button class="btn-dasboard"type="button">Edite o seu Endereço</button></a>
+                        <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn-dasboard"type="button">Edite o seu Endereço</button></a>
 
                         @if($user->AL_id == 2)
                         <a href="/pacote"><button class="btn-dasboard" type="button">Pacote</button></a>
