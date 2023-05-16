@@ -87,6 +87,11 @@ class LojaController extends Controller
      */
     public function edit(string $id)
     {
+         $registro = Loja::where([
+            [
+                'id','=',$id
+            ]
+        ])->first();
         return view('user.endereco');
     }
 
