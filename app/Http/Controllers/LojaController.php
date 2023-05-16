@@ -141,5 +141,15 @@ class LojaController extends Controller
 
         return view('user.payment',['user'=>$User,'loja'=>$loja]);
     }
+    public function pix(){
+        $User = auth()->user();
+        $loja = Loja::where([
+            [
+                'user_id','=',$User->id
+            ]
+        ])->get();
+
+        return view('user.pix',['user'=>$User,'loja'=>$loja]);
+    }
     
 }

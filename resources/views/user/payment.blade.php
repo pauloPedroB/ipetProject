@@ -7,10 +7,10 @@
 
         <h1>Escolha a forma de pagamento:</h1>
         <div class="container-option">
-            <input type="checkbox" checked>
-            <i class="fa-regular fa-credit-card"></i>
-            <input type="checkbox" checked>
-            <i class="fa-brands fa-pix"></i>
+            <a href="/payment"><i class="fa-regular fa-credit-card"></i></a>
+            
+            <a href="/pix"><i class="fa-brands fa-pix"></i></a>
+            
             <p>Débito/Crédito</p>
         </div>
         <div>
