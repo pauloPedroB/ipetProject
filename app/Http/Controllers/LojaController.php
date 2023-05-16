@@ -92,7 +92,7 @@ class LojaController extends Controller
                 'id','=',$id
             ]
         ])->first();
-        return view('user.endereco');
+        return view('user.endereco',['registro'=>$registro]);
     }
 
     /**
