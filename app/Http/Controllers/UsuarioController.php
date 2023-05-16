@@ -17,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('user.cadastroCLiente');
+        return view('user.cadastroCliente');
     }
 
     /**
