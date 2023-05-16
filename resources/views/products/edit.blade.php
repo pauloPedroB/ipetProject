@@ -15,28 +15,28 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="form-group-image">
                     <label for="title">Imagem do Produto: </label>
                     <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                 </div>
                 <div class="form-group">
-                    <label for="title">Nome</label>
+                    <label for="title">Nome:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" value="{{$product->Name}}" required>
                 </div>
                 <h3>Adicionar descrição</h3>
-                <div class="form-group">
+                <div class="form-group d-flex justify-content-star">
                     <input type="checkbox" id="Idade"><label for="">Idade</label>
                     <input type="checkbox" id="Pet"><label for="">Pet</label>
                     <input type="checkbox" id="Porte"><label for="">Porte</label>
                     <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
                 </div>
-
+                
+                <div id="imageforProduct">
+                    <img id="imagem-preview" src="#" alt="Imagem selecionada">
+                </div>
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
-                </div>
-                <div id="imageforProduct">
-                    <img id="imagem-preview" src="#" alt="Imagem selecionada">
                 </div>
                 <script>
                     function mostrarImagem(){
@@ -170,7 +170,7 @@
                     });
 
                 </script>
-                <input type="submit" class="btn btn-primary" value="Editar Produto">
+                <input type="submit" class="btn btn-outline-success" value="Editar Produto">
         @else
             <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
         @endif
