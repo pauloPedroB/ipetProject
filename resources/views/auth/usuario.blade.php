@@ -96,55 +96,7 @@
     form.addEventListener("submit", function(event)
     {
             event.preventDefault();
-            const msg = document.getElementById('error-message');
-            const cpf = document.getElementById('CPF').value;
-
-            let soma = 0;
-            let resto;
-
-            if (cpf == "000.000.000-00" || cpf == "111.111.111-11" || cpf == "222.222.222-22" ||
-                cpf == "333.333.333-33" || cpf == "444.444.444-44" || cpf == "555.555.555-55" ||
-                cpf == "666.666.666-66" || cpf == "777.777.777-77" || cpf == "888.888.888-88" ||
-                cpf == "999.999.999-99") {
-                msg.innerText = 'CPF INVÁLIDO!!'
-                msg.style.color='red';
-                document.getElementById('lbcpf').style.color='red';
-                return;
-            }
-
-            for (i = 1; i <= 9; i++) {
-                soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
-            }
-            resto = (soma * 10) % 11;
-
-            if ((resto == 10) || (resto == 11)) {
-                resto = 0;
-            }
-
-            if (resto != parseInt(cpf.substring(9, 10))) {
-                msg.innerText = 'CPF INVÁLIDO!!'
-                msg.style.color='red';
-                document.getElementById('lbcpf').style.color='red';
-                return;
-            }
-
-            soma = 0;
-
-            for (i = 1; i <= 10; i++) {
-                soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
-            }
-            resto = (soma * 10) % 11;
-
-            if ((resto == 10) || (resto == 11)) {
-                resto = 0;
-            }
-
-            if (resto != parseInt(cpf.substring(10, 11))) {
-                msg.innerText = 'CPF INVÁLIDO!!'
-                msg.style.color='red';
-                document.getElementById('lbcpf').style.color='red';
-                return;
-            }
+            
             return form.submit();
 
     });

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\User;
+use App\Models\Endereco;
+
 use DateTime;
 
 
@@ -15,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('auth.usuario');
+        return view('user.cadastroCLiente');
     }
 
     /**
@@ -38,6 +40,19 @@ class UsuarioController extends Controller
         if($years < 18){
             return redirect('/Registrar/Usuario')->with('error', 'Cadastro proíbido para menores de 18 anos');
         }
+
+        $Endereco = new Endereco;
+
+        $Endereco->Logradouro = $request->street;
+        $Endereco->Cidade = $request->city;
+        $Endereco->Bairro = $request->neighborhood;
+        $Endereco->Numero = $request->Number;
+        $Endereco->CEP = $request->cep;
+        $Endereco->UF = 'sp';
+        $Endereco->Latitude = $request->lat;
+        $Endereco->Longitude = $request->long;
+        $user = auth()->user();
+        $Endereco->save();
  
         $usuario = new Usuario;
         $usuario->Name = $request->Name;
@@ -48,6 +63,8 @@ class UsuarioController extends Controller
 
         $user = auth()->user();
         $usuario->user_id = $user->id;
+        $usuario->Endereco_id = $Endereco->id;
+
         $usuario->save();
 
         $User=User::findOrFail($user->id);

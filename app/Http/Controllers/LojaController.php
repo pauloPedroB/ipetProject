@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Loja;
 use App\Models\User;
+use App\Models\Usuario;
+use App\Models\Endereco;
+
+
 
 
 class LojaController extends Controller
@@ -14,7 +18,7 @@ class LojaController extends Controller
      */
     public function index()
     {
-        return view('auth.loja');
+        return view('user.endereco');
     }
 
     /**
@@ -30,6 +34,20 @@ class LojaController extends Controller
         if($registro != null){
             return redirect('/Registrar/Loja')->with('error', 'O CNPJ enviado já está cadastrado');
         }
+
+        $Endereco = new Endereco;
+
+        $Endereco->Logradouro = $request->street;
+        $Endereco->Cidade = $request->city;
+        $Endereco->Bairro = $request->neighborhood;
+        $Endereco->Numero = $request->Number;
+        $Endereco->CEP = $request->cep;
+        $Endereco->UF = 'sp';
+        $Endereco->Latitude = $request->lat;
+        $Endereco->Longitude = $request->long;
+        $user = auth()->user();
+        $Endereco->save();
+
         $loja = new Loja;
         $loja->Razao = $request->razaoSocial;
         $loja->CNPJ = $request->cnpj;
@@ -39,12 +57,13 @@ class LojaController extends Controller
 
         $user = auth()->user();
         $loja->user_id = $user->id;
+        $loja->Endereco_id = $Endereco->id;
         $loja->save();
 
         $User=User::findOrFail($user->id);
         $User->AL_id = 2;
         $User->save();
-        return redirect('/Endereco');
+        return redirect('/dashboard')->with('msg','Sua Loja foi cadastrada com sucesso!!');
     }
 
     /**
