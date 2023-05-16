@@ -437,7 +437,7 @@ footer {
 /* card loja */
 
 #card_store {
-    width: 30rem;
+    width: 15vw;
     height: max-content;
     background-color: #DBF0E1;
     border-radius: 5rem;
@@ -450,7 +450,7 @@ footer {
 
 
 #icon_store {
-    font-size: 20rem;
+    font-size: 10rem;
 }
 
 #title_store {
@@ -462,7 +462,7 @@ footer {
 /* card cliente */
 
 #card_user {
-    width: 30rem;
+    width: 15vw;
     height: max-content;
     background-color: #DBF0E1;
     border-radius: 5rem;
@@ -474,7 +474,7 @@ footer {
 }
 
 #icon_user {
-    font-size: 20rem;
+    font-size: 10rem;
 }
 
 
@@ -501,7 +501,7 @@ footer {
 
 /* responsividade - tela de escolha */
 
-@media screen and (max-width: 412px) {
+@media screen and (min-width: 412px) and (max-width: 1024px) {
 
     
     #title_change {
@@ -511,15 +511,14 @@ footer {
     }
 
     #card_store {
-        width: 16rem;
-        height: 16rem;
+        width: 20vw;
         border-radius: 3rem;
 
     }
 
     #icon_store {
         text-align: center;
-        font-size: 15rem;
+        font-size: 5px;
     }
 
     #title_store {
@@ -835,7 +834,6 @@ footer {
     margin-top: 2rem;
     background-color: #ffff;
     padding: 2rem;
-    gap:6rem;
 }
 
 #event-create-container h1{
@@ -864,8 +862,22 @@ footer {
 }
 
 
+
+#image{
+    color: #FFC05F ;
+
+}
+
+#imagem-preview{
+    width: 85vh;
+}
+
+
+
+
 #event-create-container .btn-primary {
-    margin-top: 10px;
+    width: 50vw;
+    margin-top: 20px;
 }
 
 #event-create-container label {
@@ -875,5 +887,7 @@ footer {
 #event-create-container input,
 #event-create-container select,
 #event-create-container textarea {
-    font-size: 12px;
+    font-size: 15px;
+    margin-bottom: 1rem;
 }
+
