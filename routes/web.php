@@ -75,6 +75,7 @@ Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('au
 
 Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType');
+Route::get('/Editar/Loja', [LojaController::class, 'edit'])->middleware('auth', 'CheckNotType');
 
 Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType');
