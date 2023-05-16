@@ -22,7 +22,7 @@
                             </div>
                         @endif
                         <label for="" id="error-message"></label>
-                        <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00"disabled>
+                        <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="" disabled>
                         
                         <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
                         <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" required>
