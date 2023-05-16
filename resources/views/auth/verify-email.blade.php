@@ -23,41 +23,7 @@
                     <x-button type="submit" id="meuBotao" onclick="clicouBotao()">
                         {{ __('Reenviar Email de Verificação') }}
                     </x-button>
-                    <script>
-                        function clicouBotao() 
-                        {
-                            // Desativa o botão
-                            document.getElementById("meuBotao").disabled = true;
-
-                            // Define o tempo total de espera em milissegundos
-                            var tempoTotal = 30000;
-
-                            // Exibe a contagem regressiva
-                            var tempoRestante = tempoTotal / 1000;
-                            document.getElementById("tempoRestante").innerHTML = "Aguarde " + tempoRestante + " segundos...";
-
-                            // Define o intervalo de atualização da contagem regressiva em milissegundos
-                            var intervalo = 1000;
-
-                            // Atualiza a contagem regressiva a cada intervalo
-                            var atualizarTempo = setInterval(function() {
-                                tempoRestante--;
-                                document.getElementById("tempoRestante").innerHTML = "Aguarde " + tempoRestante + " segundos...";
-                            }, intervalo);
-
-                            // Reativa o botão após o tempo total de espera
-                            setTimeout(function() {
-                                // Para a atualização da contagem regressiva
-                                clearInterval(atualizarTempo);
-
-                                // Reativa o botão
-                                document.getElementById("meuBotao").disabled = false;
-
-                                // Remove a contagem regressiva da página
-                                document.getElementById("tempoRestante").innerHTML = "";
-                            }, tempoTotal);
-                        }
-                    </script>
+                    
                 </div>
             </form>
 
