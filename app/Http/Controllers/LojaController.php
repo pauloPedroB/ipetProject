@@ -18,7 +18,7 @@ class LojaController extends Controller
      */
     public function index()
     {
-        return view('user.endereco');
+        return view('user.loja');
     }
 
     /**
