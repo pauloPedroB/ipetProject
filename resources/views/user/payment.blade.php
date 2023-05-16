@@ -2,7 +2,6 @@
 @section('title', 'Tipo de Usuário')
 @section('content')
 
-@endsection
 
 {{-- container --}}
 <div class=" container-fluid" style="background-color: #ffff">
@@ -43,3 +42,5 @@
     </div>
 </div>
 <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
+
+@endsection
