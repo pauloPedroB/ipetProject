@@ -27,18 +27,20 @@
                             <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                         </a>
                     </div>
-                    <div id="input-container">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <form action="/" method="GET">
-                            <input type="text" id="search" name="search" class="form-control"
-                                placeholder= "Buscar Item ou Loja...">
-                            <select name="Category" id="Category">
-                                <option value="all">Todos</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->name}}">{{$category->name}}</option>
-                                @endforeach
-        
-                            </select>
+                    <div class="form-control">
+                        <form action="" method="get">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search" name="search" 
+                            placeholder= "Buscar Item ou Loja...">
+                            <div>
+                                <select name="Category" id="Category">
+                                    <option value="all">Todos</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->name}}">{{$category->name}}</option>
+                                    @endforeach
+            
+                                </select>
+                            </div>
                         </form>
                     </div>
                     <div>
@@ -95,14 +97,22 @@
                         </div>
                     </div>
             </nav>
-            <div class="carousel-caption1">
-                
-            </div>
         </div>
         
         {{-- fim --}}
 
     </header>
+    <div class="container-fluid">
+        <div class="row">
+            @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')
+                <p class="msg">Houve algum problema no cadastro do seu endereço, cadastre-o novamente. Enquanto isso, continue pesquisando por produtos próximos a região de Taboão da Serra</p>
+            @endif
+            @if (session('msg'))
+                <p class="msg">{{ session('msg') }}</p>
+            @endif
+            @yield('content')
+        </div>
+    </div>
 
     <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">

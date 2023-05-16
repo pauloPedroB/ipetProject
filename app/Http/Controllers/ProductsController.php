@@ -125,10 +125,8 @@ class ProductsController extends Controller
         }
         $categories = Category::all();
 
-        if($lat =='-23.61279792090457' && $long =='-46.780145384505474'){
-            return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'categories'=>$categories])->with('msg','Produto excluído com sucesso!');
-        }
-        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'categories'=>$categories]);
+      
+        return view('welcome',['products'=>$products,'search' => $search,'User'=>$User,'premiumProducts'=>$premiumProducts,'count'=>false,'categories'=>$categories,'lat'=>$lat,'long'=>$long]);
         
        
         

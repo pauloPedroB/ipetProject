@@ -132,6 +132,7 @@ header {
 
 #input-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     height: max-content;
@@ -140,15 +141,7 @@ header {
     border-radius: 4px;
 }
 
-#input-container i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: #FFC05F;
-    margin: 1rem;
 
-}
 
 #orderBy {
     color: black;
@@ -794,10 +787,26 @@ footer {
 }
 
 .form-control {
-    width: 28vw;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width:25vw;
     border: none;
 }
 
+.form-control i{
+    font-size: 1rem;
+    color: #FFC05F;
+}
+
+.form-control input{
+    border: none;
+    width: 10vw;
+}
+.form-control input:focus{
+    outline: none;
+}
 /* escolhe de pacote gratuito/premium */
 
 #nav-free {
@@ -840,13 +849,11 @@ footer {
 }
 
 #category {
-    width: 60%;
-    padding: 5px;
+    width: 30%;
     border-radius: 1rem;
     color: black;
     background-color: #FFC05F;
     border: none;
-    margin-bottom: 1rem;
     font-weight: bold;
     text-align: center;
 }

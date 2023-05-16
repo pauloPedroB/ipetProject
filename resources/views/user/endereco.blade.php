@@ -32,10 +32,10 @@
                     <div class="form-group">
                         
                         <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
-                        <input  class="form-control" type="text" id="razaoSocial" >
+                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial">
                         
                         <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
-                        <input class="form-control" type="text" id="nomeFantasia" >
+                        <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia">
                         
                         <label class="form-label"  for="cnpj">CNPJ:</label>
                         <input class="form-control" type="text" name="cnpj" class="" placeholder="00.000.000/0000-00" >
@@ -56,7 +56,7 @@
                 <div id="message">
                     <p></p>
                 </div>
-                <form action="/Endereco/Cadastrar" method="POST" enctype="multipart/form-data" id="addres">
+                <form action="/Cadastrar/Loja" method="POST" enctype="multipart/form-data" id="addres">
                     @csrf
                     <div class="form-group">
                         <label for="title">CEP:</label>
