@@ -265,7 +265,7 @@ footer {
     position: absolute;
     width: 100%;
     height: auto;
-    padding: 30px;
+    padding: 10px;
 }
 
 .footer-content{
@@ -281,18 +281,26 @@ footer {
     text-transform: capitalize;
     line-height:3rem;
 }
- 
+
+.contacts ul{
+    justify-content: center;
+    align-items: center;
+}
+
 .contacts {
     list-style:none;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
     margin: 1rem 0 3rem 0;
 }
 
 .contacts li {
     margin: 0 10px;
 }
+
+
 
 .contacts a {
     text-decoration: none;
@@ -307,6 +315,7 @@ footer {
 .contacts a:hover i {
     color: #DBF0E1;
 }
+
 .img-footer {
     width: 2rem;
     height: 2rem;
@@ -411,10 +420,6 @@ footer {
     width: 30rem;
 }
 
-@media (max-width: 768px) {
-
-}
-
 .container-header {
     align-items: center;
 }
@@ -486,21 +491,71 @@ footer {
 /* transições - tela de escolhas usuario e loja */
 
 #card_user:hover {
-    border: 4px solid red;
-    color: red;
+    border: 4px solid #ee5253;
+    color: #ee5253;
 
 }
 
 #card_store:hover {
-    border: 4px solid red;
-    color: red;
+    border: 4px solid #ee5253;
+    color: #ee5253;
 
 }
 
 
 /* responsividade - tela de escolha */
 
-@media screen and (min-width: 412px) and (max-width: 1024px) {
+/* DISPOSIVOS MÓVEIS - CELULARES */
+
+@media screen and (max-width: 480px){
+
+
+    #title_change {
+        width: 100%;
+        text-align: center;
+    }
+
+    #card_store {
+        width: 100%;
+        border-radius: 3rem;
+
+    }
+
+    #icon_store {
+        text-align: center;
+        font-size: 10rem;
+    }
+
+    #title_store {
+        margin-top: -1rem;
+    }
+
+
+
+    #card_user {
+        width: 100%;
+        border-radius: 3rem;
+    }
+
+
+    #icon_user {
+        text-align: center;
+        font-size: 10rem;
+    }
+
+
+
+    #title_user {
+        margin-top: -1rem;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 481px) and (max-width: 750px) {
 
     .container-header {
         align-items: baseline !important;
@@ -511,98 +566,53 @@ footer {
         max-width: 100%;
         margin-top: 10px;
     }
+
     #title_change {
         text-align: center;
-
 
     }
 
     #card_store {
-        width: 20vw;
+        width: 100%;
         border-radius: 3rem;
 
     }
 
     #icon_store {
         text-align: center;
-        font-size: 5px;
+        font-size: 14rem;
     }
 
     #title_store {
-        display: none;
+        margin-top: -1rem;
     }
 
 
 
     #card_user {
-        width: 16rem;
-        height: 16rem;
+        width: 100%;
         border-radius: 3rem;
     }
 
 
     #icon_user {
         text-align: center;
-        font-size: 15rem;
+        font-size: 14rem;
     }
 
 
 
     #title_user {
-        display: none;
+        margin-top: -1rem;
     }
 
 
 }
 
 
-@media screen and (min-width: 413px) and (max-width: 1024px) {
-
-
-    #title_change {
-        text-align: center;
-
-
-    }
-
-    #card_store {
-        width: 16rem;
-        height: 16rem;
-        border-radius: 3rem;
-
-    }
-
-    #icon_store {
-        text-align: center;
-        font-size: 15rem;
-    }
-
-    #title_store {
-        display: none;
-    }
 
 
 
-    #card_user {
-        width: 16rem;
-        height: 16rem;
-        border-radius: 3rem;
-    }
-
-
-    #icon_user {
-        text-align: center;
-        font-size: 15rem;
-    }
-
-
-
-    #title_user {
-        display: none;
-    }
-
-
-}
 
 @media screen and (max-width: 413px) {
     #products-container .card {

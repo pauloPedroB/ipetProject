@@ -16,7 +16,7 @@
 
         <div class="d-flex flex-row mt-1 flex-wrap justify-content-around">
             {{-- card-market --}}
-            <div class="col-auto card-market flex-column text-center m-5 ">
+            <div class="col-auto card-market flex-column text-center m-3 ">
                 <a class="btn" href="/Registrar/Loja" >
                     <div id="card_store" class="icon-link">
                         <span id="icon_store" class="material-symbols-outlined">store</span>
@@ -26,11 +26,11 @@
             </div>
 
             {{-- card-user --}}
-            <div class=" col-auto card-user flex-column  text-center m-5">
+            <div class=" col-auto card-user flex-column  text-center m-3">
                 <a class="btn" href="/Registrar/Usuario">
                     <div id="card_user">
                         <span id="icon_user" class="material-symbols-outlined">person</span>
-                        <h2 id="title_user" class="fs-2 fw-bold  flex-column pb-4" style="">Cliente</h2>
+                        <h2 id="title_user" class="fs-3 fw-bold  flex-column pb-3" style="">Cliente</h2>
                     </div>
                 </a>
             </div>
