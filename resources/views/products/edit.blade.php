@@ -7,8 +7,8 @@
             <form id="form-products" action="/produtos/update/{{$product->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div id="category" class="form-group ">
-                    <label class="font-weight-bold fs-1" for="title">Categoria: </label>
+                 <div class="form-group">
+                    <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
