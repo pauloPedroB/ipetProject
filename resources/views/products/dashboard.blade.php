@@ -20,7 +20,12 @@
                         <div class="container-endereco">
                             <h1>Meus Dados</h1>
                             @if($user->AL_id == 2)
-                            
+                                <p> <span class="text-endereco">RAZÃO SOCIAL: </span>{{$loja->CNPJ}}</p>
+                                <p> <span class="text-endereco">Razão social: </span>{{$loja->Razao}}</p>
+                                <p> <span class="text-endereco">Nome fantasia: </span>{{$loja->Nome}}</p>
+                                <p> <span class="text-endereco">Telefone: </span>{{$loja->Telefone}}</p>
+                                <p> <span class="text-endereco">Celular: </span>{{$loja->Celular}}</p>
+                                
                             @endif
                             <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
                             <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
