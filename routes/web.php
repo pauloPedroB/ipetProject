@@ -71,6 +71,8 @@ Route::delete('/produtos/{id}', [ProductsController::class, 'destroy'])->middlew
 Route::get('/produtos/edit/{id}', [ProductsController::class, 'edit'])->middleware('auth', 'CheckLoja')->where('id', '[0-9]');
 Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->middleware('auth', 'CheckLoja');
 
+Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
+
 Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType');
 Route::get('/Editar/Loja/{id}', [LojaController::class, 'edit'])->middleware('auth', 'CheckType');
