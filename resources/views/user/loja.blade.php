@@ -7,13 +7,13 @@
             <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center" id="icon_register"></i>
             <h1 class="fs-2 m-3">Cadastro - Pessoa Jurídica</h1>
         </div>
-        <form class="d-flex flex-column flex-md-row align-items-center" action="/Cadastrar/Loja" method="POST" enctype="multipart/form-data" id="addres">
+        <form class="d-flex flex-column flex-md-row align-items-center w-75" action="/Cadastrar/Loja" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
-            <div class="container-fluid " id="container-register">
+            <div class="container-fluid" id="container-register">
                 
                 {{-- formulario  --}}
                         
-                    <div class="form-group">
+                    <div class="form-group ">
 
                         <label class="form-label"  for="cnpj">CNPJ:</label>
                         @if (session('status'))
@@ -108,7 +108,7 @@
                         <label for="title">Latitude</label>
                         <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..."  disabled>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Registrar" id="mndEndereco">
+                    <input type="submit" class="btn btn-primary w-25" value="Registrar" id="mndEndereco">
             </div>
         </form>
     </div>
