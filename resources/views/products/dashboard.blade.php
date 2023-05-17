@@ -18,14 +18,17 @@
                 @if($Endereco->id == $Loja->Endereco_id)
                     <div id="data-user-container" class="col dashboard-endereco-container">
                         <div class="container-endereco">
-                            <h1>Endereço</h1>
+                            <h1>Meus Dados</h1>
+                            @if($user->AL_id == 2)
+                            
+                            @endif
                             <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
                             <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
                             <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
                             <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
                             <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
                         </div>
-                        <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn-dasboard"type="button">Edite o seu Endereço</button></a>
+                        <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn-dasboard"type="button">Edite os seus dados</button></a>
 
                         @if($user->AL_id == 2)
                         <a href="/pacote"><button class="btn-dasboard" type="button">Pacote</button></a>
