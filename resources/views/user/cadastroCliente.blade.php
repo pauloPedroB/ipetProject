@@ -5,8 +5,8 @@
     <div id="event-create-container" class="col-md-6 offset-md-3">
         
         <div id="header_form" class="d-flex flex-column flex-md-row align-items-center">
-            <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center" id="icon_register"></i>
-            <h1 class="fs-2 m-3">Cadastro - Pessoa Física</h1>
+            <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center m-" id="icon_register"></i>
+            <h1 class="fs-2 m-4">Cadastro - Pessoa Física</h1>
         </div>
         <form class="d-flex flex-column flex-md-row align-items-center" action="/Cadastrar/Usuario" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
