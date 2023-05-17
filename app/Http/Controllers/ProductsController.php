@@ -137,7 +137,6 @@ class ProductsController extends Controller
         return view('products.create',['User'=>$User,'categories'=>$categories]);
     }
     public function copyProduct(){
-        
         $user = auth()->user();
         $lojas = Loja::where('user_id','=',$user->id)->get();
         foreach($lojas as $loja){

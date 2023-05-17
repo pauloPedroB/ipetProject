@@ -75,15 +75,12 @@ Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('au
 
 Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType');
-Route::get('/Editar/Loja/{id}', [LojaController::class, 'edit'])->middleware('auth', 'CheckLoja');
+Route::get('/Editar/Loja/{id}', [LojaController::class, 'edit'])->middleware('auth', 'CheckType');
 
 Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth', 'CheckNotType');
 Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType');
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel'])->middleware('CheckNotType');
-Route::get('/Endereco', [UserController::class, 'endereco'])->middleware('auth');
-Route::post('/Endereco/Cadastrar', [UserController::class, 'createEndereco'])->middleware('auth');
-Route::put('/Endereco/Editar/{id}', [UserController::class, 'editEndereco'])->middleware('auth', 'CheckType');
 
 Route::get('/categoria/adicionar', [CategoryController::class, 'index'])->middleware('auth', 'CheckADM');
 Route::post('/categoria', [CategoryController::class, 'create'])->middleware('auth', 'CheckADM');

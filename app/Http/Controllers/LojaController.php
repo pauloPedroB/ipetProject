@@ -92,9 +92,16 @@ class LojaController extends Controller
                 'id','=',$id
             ]
         ])->first();
-        
+        if($registro == null){
+            $registro = Usuario::where([
+                [
+                    'id','=',$id
+                ]
+            ])->first();
+        }
+        $user = auth()->user();   
         $endereco = Endereco::where([['id','=',$registro->Endereco_id]])->first();
-        return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco]);
+        return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco,'user'=>$user]);
     }
 
     /**

@@ -18,32 +18,21 @@ class CheckNotType
     public function handle(Request $request, Closure $next): Response
     {
         $User = auth()->user();
-        if($User){
-            $loja = Loja::where([
+        $registro = Loja::where([
+            [
+                'id','=',$User->id
+            ]
+        ])->first();
+        if($registro == null){
+            $registro = Usuario::where([
                 [
-                    'user_id','=',$User->id
+                    'id','=',$User->id
                 ]
-            ])->get();
-
-            if(count($loja)==0){
-                $loja = Usuario::where([
-                    [
-                        'user_id','=',$User->id
-                    ]
-                ])->get();
-                if(count($loja)==0){
-                    $loja = null;
-                }
-               
-            }
-            
-        }
-        else{
-            $loja='teste';
+            ])->first();
         }
         
         
-        if($loja!=null){
+        if($registro!=null){
             return redirect('/');
         }
         return $next($request);
