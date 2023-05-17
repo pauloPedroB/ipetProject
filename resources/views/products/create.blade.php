@@ -18,7 +18,7 @@
                     <label for="title">Imagem do Produto: </label>
                     <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                     <div id="imageforProduct">
-                        <img id="imagem-preview" src="#" alt="Imagem selecionada">
+                        <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width = '100px'">
                     </div>
                 </div>
                 <div class="form-group">
