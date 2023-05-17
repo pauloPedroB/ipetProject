@@ -17,6 +17,9 @@
                 <div class="form-group">
                     <label for="title">Imagem do Produto: </label>
                     <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
+                    <div id="imageforProduct">
+                        <img id="imagem-preview" src="#" alt="Imagem selecionada">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome</label>
@@ -32,9 +35,7 @@
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                 </div>
-                <div id="imageforProduct">
-                    <img id="imagem-preview" src="#" alt="Imagem selecionada">
-                </div>
+               
                 <script>
                     function mostrarImagem(){
                         const input = document.getElementById('image');
