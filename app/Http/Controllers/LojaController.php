@@ -99,9 +99,9 @@ class LojaController extends Controller
                 ]
             ])->first();
         }
-        
+        $user = auth()->user();   
         $endereco = Endereco::where([['id','=',$registro->Endereco_id]])->first();
-        return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco]);
+        return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco,'user'=>$user]);
     }
 
     /**

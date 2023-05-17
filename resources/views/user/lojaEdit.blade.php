@@ -21,20 +21,37 @@
                                 <label for="" id="error-message">{{ session('status') }}</label>
                             </div>
                         @endif
-                        <label for="" id="error-message"></label>
-                        <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="{{$registro->CNPJ}}" disabled>
+                        @if($user->AL_id == 2)
+                            <label for="" id="error-message"></label>
+                            <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="{{$registro->CNPJ}}" disabled>
+                            
+                            <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
+                            <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" value ="{{$registro->Razao}}" required>
+                            
+                            <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
+                            <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" value ="{{$registro->Nome}}" required>
                         
-                        <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
-                        <input  class="form-control" type="text" id="razaoSocial" name="razaoSocial" value ="{{$registro->Razao}}" required>
-                        
-                        <label class="form-label" for="nomeFantasia">Nome Fantasia:</label>
-                        <input class="form-control" type="text" id="nomeFantasia" name="nomeFantasia" value ="{{$registro->Nome}}" required>
-                    
-                        <label class="form-label"  for="telefone">Telefone:</label>
-                        <input class="form-control" type="tel" id="telefone" name="telefone" value ="{{$registro->Telefone}}"required>
-                        
-                        <label class="form-label" for="celular">Celular:</label>
-                        <input class="form-control" type="tel" id="celular" name="celular" value ="{{$registro->Celular}}"required> 
+                            <label class="form-label"  for="telefone">Telefone:</label>
+                            <input class="form-control" type="tel" id="telefone" name="telefone" value ="{{$registro->Telefone}}"required>
+                            
+                            <label class="form-label" for="celular">Celular:</label>
+                            <input class="form-control" type="tel" id="celular" name="celular" value ="{{$registro->Celular}}"required>
+                        @else
+                            <label for="" id="error-message"></label>
+                            <input class="form-control" type="text" name="CPF" id="CPF" class="" value="{{$registro->CPF}}" placeholder="__.___.___/____-__" required >
+                            
+                            <label class="form-label" for="nomeFantasia">Nome</label>
+                            <input class="form-control" type="text" id="Name" name="Name" value="{{$registro->Name}}" required>
+                            
+                            <label class="form-label"  for="telefone">Telefone:</label>
+                            <input class="form-control" type="tel" id="Telefone" name="Telefone" value="{{$registro->Telefone}}" required>
+                            
+                            <label class="form-label" for="celular">Celular:</label>
+                            <input class="form-control" type="tel" id="Celular" name="Celular" value="{{$registro->Celular}}" required>
+
+                            <label for="">Data de Nascimento:</label>
+                            <input type="date" name="DT" id="DT" value="{{$registro->DT}}" required>
+                        @endif
                     </div>
                     
             
