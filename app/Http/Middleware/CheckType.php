@@ -48,21 +48,7 @@ class CheckType
             return redirect('/Tipo/Usuario');
         }
 
-        $end = false;
-        if($User && $User->AL_id!=3)
-        {
-            foreach($loja as $loj){
-                if($loj->Endereco_id == null && $loj->user_id == $User->id)
-                {
-                    $end = true;
-                    break;
-                }
-                
-            }
-        }
-        if($end == true && $User->AL_id !=3){
-            return redirect('/Endereco');
-        }
+        
         return $next($request);
     }
 }
