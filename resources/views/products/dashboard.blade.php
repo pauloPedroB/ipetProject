@@ -9,11 +9,7 @@
     {{-- dados do endereço --}}
 
     @if($user->AL_id !=3)
-        @if($Loja->Endereco_id == null)
-            <div class="dashboard-endereco-container">
-                <p>Registre o seu <a href="/Endereco/">ENDEREÇO</a></p>
-            </div>
-        @else
+     
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id == $Loja->Endereco_id)
                     <div id="data-user-container" class="col dashboard-endereco-container">
@@ -42,7 +38,6 @@
                     @break
                 @endif
             @endforeach
-        @endif
 
     @endif
 
