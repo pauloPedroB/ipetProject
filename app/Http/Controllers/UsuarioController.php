@@ -60,6 +60,7 @@ class UsuarioController extends Controller
         $usuario->Telefone = $request->Telefone;
         $usuario->Celular = $request->Celular;
         $usuario->DT = $request->DT;
+        $usuario->User_id = $User->id;
 
         $user = auth()->user();
         $usuario->user_id = $user->id;
