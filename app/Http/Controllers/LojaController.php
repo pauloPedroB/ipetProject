@@ -92,6 +92,8 @@ class LojaController extends Controller
                 'id','=',$id
             ]
         ])->first();
+        
+        $endereco = Endereco::where([['id','=',$registro->Endereco_id]])->first();
         return view('user.lojaEdit',['registro'=>$registro]);
     }
 
