@@ -18,6 +18,9 @@
                 <div class="form-group" id="form-group-image">
                     <label for="title">Imagem do Produto: </label>
                     <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
+                     <div id="imageforProduct">
+                        <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width: 100px;">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome:</label>
@@ -31,9 +34,6 @@
                     <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
                 </div>
                 
-                <div id="imageforProduct">
-                    <img id="imagem-preview" src="#" alt="Imagem selecionada">
-                </div>
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
