@@ -170,7 +170,7 @@
                     });
 
                 </script>
-                <input type="submit" class="btn btn-outline-success" value="Editar Produto">
+                <input type="submit" class="btn btn-primary" value="Editar Produtos">
         @else
             <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
         @endif
