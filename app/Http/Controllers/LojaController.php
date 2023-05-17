@@ -94,7 +94,7 @@ class LojaController extends Controller
         ])->first();
         
         $endereco = Endereco::where([['id','=',$registro->Endereco_id]])->first();
-        return view('user.lojaEdit',['registro'=>$registro]);
+        return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco]);
     }
 
     /**
