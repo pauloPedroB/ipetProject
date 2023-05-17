@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Estado</label>
-                        <select name="uf" id="uf"class="form-control" type="select"  disabled required data-input>
+                        <select name="uf" id="uf"class="form-control" type="select" required data-input>
                             <option selected>Estado</option>
                             <option value="AL">AC</option>
                             <option value="AL">AL</option>
