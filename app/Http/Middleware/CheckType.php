@@ -18,37 +18,23 @@ class CheckType
     public function handle(Request $request, Closure $next): Response
     {
         $User = auth()->user();
-        if($User){
-            $loja = Loja::where([
+
+        $registro = Loja::where([
+            [
+                'id','=',$User->id
+            ]
+        ])->first();
+        if($registro == null){
+            $registro = Usuario::where([
                 [
-                    'user_id','=',$User->id
+                    'id','=',$User->id
                 ]
-            ])->get();
-
-            if(count($loja)==0){
-                $loja = Usuario::where([
-                    [
-                        'user_id','=',$User->id
-                    ]
-                ])->get();
-                if(count($loja)==0){
-                    $loja = null;
-                }
-               
-            }
-            
-        }
-        else{
-            $loja='teste';
+            ])->first();
         }
         
-        $end = false;
-        $id_end = 0;
-        if($loja==null && $User->AL_id !=3){
+        if($registro == null){
             return redirect('/Tipo/Usuario');
-        }
-
-        
+        }   
         return $next($request);
     }
 }
