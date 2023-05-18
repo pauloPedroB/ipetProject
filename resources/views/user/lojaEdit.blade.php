@@ -13,6 +13,7 @@
         </div>
         <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja/{{$registro->id}}" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
+            @method('PUT')
             <div class="container-fluid " id="container-register">
             
                 
