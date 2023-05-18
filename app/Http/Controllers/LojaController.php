@@ -126,6 +126,8 @@ class LojaController extends Controller
             $loja->Name = $request->Name;
             $loja->Telefone = $request->Telefone;
             $loja->Celular = $request->Celular;
+            $loja->save();
+
         }
 
         $Endereco = Endereco::findOrFail($loja->id);
