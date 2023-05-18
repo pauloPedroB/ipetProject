@@ -22,13 +22,13 @@ class CheckType
         {
             $registro = Loja::where([
                 [
-                    'id','=',$User->id
+                    'user_id','=',$User->id
                 ]
             ])->first();
             if($registro == null){
                 $registro = Usuario::where([
                     [
-                        'id','=',$User->id
+                        'user_id','=',$User->id
                     ]
                 ])->first();
             }
