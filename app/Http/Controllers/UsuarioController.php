@@ -70,7 +70,7 @@ class UsuarioController extends Controller
         $User=User::findOrFail($user->id);
         $User->AL_id = 1;
         $User->save();
-        return redirect('/dashboard')->with('msg','Sua Loja foi cadastrada com sucesso!!');
+        return redirect('/dashboard')->with('msg','Você foi cadastrado(a) com sucesso!!');
 
     }
 
