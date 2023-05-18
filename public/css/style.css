@@ -831,8 +831,9 @@ footer {
     outline: none;
 }
 
-#mndEndereco {
-    width: 100%;
+#btnCadastro {
+    width: 80%;
+    align-self: center;
 }
 /* escolhe de pacote gratuito/premium */
 
@@ -900,8 +901,6 @@ footer {
 #imagem-preview{
     width: 85vh;
 }
-
-
 
 
 #event-create-container .btn-primary {
