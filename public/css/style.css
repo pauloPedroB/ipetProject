@@ -549,7 +549,6 @@ footer {
         margin-top: -1rem;
     }
 
-
 }
 
 
@@ -790,7 +789,6 @@ footer {
     height: 100%;
 }
 
-
 #header_form {
     display: flex;
     flex-direction: row;
@@ -831,6 +829,10 @@ footer {
 }
 .form-control input:focus{
     outline: none;
+}
+
+#mndEndereco {
+    width: 100%;
 }
 /* escolhe de pacote gratuito/premium */
 
