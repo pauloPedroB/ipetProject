@@ -33,7 +33,7 @@ class CheckType
                 ])->first();
             }
             
-            if($registro == null){
+            if($registro == null && $User->AL_id='3'){
                 return redirect('/Tipo/Usuario');
             }   
         }
