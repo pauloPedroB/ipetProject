@@ -16,14 +16,18 @@
                         <div class="container-endereco">
                             <h1>Meus Dados</h1>
                             @if($user->AL_id == 2)
-                                <p> <span class="text-endereco">RAZÃO SOCIAL: </span>{{$Loja->CNPJ}}</p>
+                                <p> <span class="text-endereco">CNPJ: </span>{{$Loja->CNPJ}}</p>
                                 <p> <span class="text-endereco">Razão social: </span>{{$Loja->Razao}}</p>
                                 <p> <span class="text-endereco">Nome fantasia: </span>{{$Loja->Nome}}</p>
                                 <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
                                 <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
                                 
                             @else
-                                
+                                <p> <span class="text-endereco">CPF: </span>{{$Loja->CPF}}</p>
+                                <p> <span class="text-endereco">Nome: </span>{{$Loja->Name}}</p>
+                                <p> <span class="text-endereco">Data de Nascimento: </span>{{$Loja->DT}}</p>
+                                <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
+                                <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
                             @endif
                             <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
                             <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
