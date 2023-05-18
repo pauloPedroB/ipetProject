@@ -135,7 +135,7 @@ class LojaController extends Controller
         $Endereco->Bairro = $request->neighborhood;
         $Endereco->Numero = $request->Number;
         $Endereco->CEP = $request->cep;
-        $Endereco->UF = $request->uf;
+        $Endereco->UF = 'sp';
         $Endereco->Latitude = $request->lat;
         $Endereco->Longitude = $request->long;
         $Endereco->save();
