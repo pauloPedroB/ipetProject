@@ -107,11 +107,11 @@ class LojaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        $loja=Loja::findOrFail($id);
+        $loja=Loja::findOrFail($request->id);
 
-        $Endereco = Loja::findOrFail($id);
+        $Endereco = Loja::findOrFail($loja->id);
 
         $Endereco->Logradouro = $request->street;
         $Endereco->Cidade = $request->city;
