@@ -29,6 +29,7 @@
                                 <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
                                 <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
                             @endif
+                            <h1>Endereço</h1>
                             <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
                             <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
                             <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
