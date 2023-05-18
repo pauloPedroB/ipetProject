@@ -10,7 +10,7 @@
         
         {{-- tittle --}}
         <div id="title_change" class="p-5">
-            <h1>Cadastre-se como:</h1>
+            <h1>Cadas tre-se como:</h1>
         </div>
 
 

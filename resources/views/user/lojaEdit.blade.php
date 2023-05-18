@@ -7,22 +7,24 @@
             <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center m-2" id="icon_register"></i>
             <h1 class="fs-2 m-4">Cadastro - Pessoa Jurídica</h1>
         </div>
-        <form class="d-flex flex-column flex-md-row align-items-center" action="/Cadastrar/Loja" method="POST" enctype="multipart/form-data" id="addres">
+        <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja/{{$registro->id}}" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
-            <div class="container-fluid" id="container-register">
+
+            @method('PUT')
+            <div class="container-fluid " id="container-register">
+            
                 
                 {{-- formulario  --}}
                         
                     <div class="form-group">
 
-                        <label class="form-label"  for="cnpj">CNPJ:</label>
                         @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
                                 <label for="" id="error-message">{{ session('status') }}</label>
                             </div>
                         @endif
                         @if($user->AL_id == 2)
-                            <label for="" id="error-message"></label>
+                            <label class="form-label"  for="cnpj">CNPJ:</label>
                             <input class="form-control" type="text" name="cnpj" id="cnpj" class="" placeholder="00.000.000/0000-00" value ="{{$registro->CNPJ}}" disabled>
                             
                             <label class="form-label" for="razaoSocial">Razão social ou Nome completo</label>
