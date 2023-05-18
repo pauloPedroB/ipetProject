@@ -39,6 +39,7 @@
                             <label class="form-label" for="celular">Celular:</label>
                             <input class="form-control" type="tel" id="celular" name="celular" value ="{{$registro->Celular}}"required>
                         @else
+                            <label class="form-label"  for="cnpj">CPF:</label>
                             <label for="" id="error-message"></label>
                             <input class="form-control" type="text" name="CPF" id="CPF" class="" value="{{$registro->CPF}}" placeholder="__.___.___/____-__" disabled >
                             
