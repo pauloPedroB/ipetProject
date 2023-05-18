@@ -17,9 +17,9 @@
                 <div class="form-group ">
 
                     <label class="form-label"  for="cnpj">CNPJ:</label>
-                    @if (session('status'))
+                    @if (session('error'))
                         <div class="mb-4 font-medium text-sm text-green-600">
-                            <label for="" id="error-message">{{ session('status') }}</label>
+                            <label for="" id="error-message">{{ session('error') }}</label>
                         </div>
                     @endif
                     <label for="" id="error-message"></label>
