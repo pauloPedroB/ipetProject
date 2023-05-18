@@ -46,29 +46,29 @@
                     <p></p>
                 </div>
                     <div class="form-group">
-                        <label for="title">CEP:</label>
+                        <label class="form-label" for="title">CEP:</label>
                         <input type="text" class="form-control" id="cep" name="cep" placeholder="Seu CEP..."  maxlength="8" required>
                     </div>
                     <div class="form-group">
-                        <label for="title">Rua:</label>
+                        <label class="form-label" for="title">Rua:</label>
                         <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..."  required>
                     </div>
                     <div class="form-group">
-                        <label for="title">Número</label>
+                        <label class="form-label" for="title">Número</label>
                         <input type="number" class="form-control" id="Number" name="Number"  required>
                     </div>
                     <div class="form-group">
-                        <label for="title">Bairro:</label>
+                        <label class="form-label" for="title">Bairro:</label>
                         <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Seu bairro..."  required>
                     </div>
                     <div class="form-group">
-                        <label for="title">Cidade</label>
+                        <label class="form-label" for="title">Cidade</label>
                         <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." required>
                            
                         </textarea>
                     </div>
                     <div class="form-group">
-                        <label for="title">Estado</label>
+                        <label class="form-label" for="title">Estado</label>
                         <select name="uf" id="uf"class="form-control" type="select" required data-input>
                             <option selected>Estado</option>
                             <option value="AL">AC</option>
@@ -102,11 +102,11 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="title">Latitude</label>
+                        <label class="form-label" for="title">Latitude</label>
                         <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." disabled>
                     </div>
                     <div class="form-group">
-                        <label for="title">Latitude</label>
+                        <label class="form-label" for="title">Latitude</label>
                         <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." disabled>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Registrar" id="mndEndereco">
