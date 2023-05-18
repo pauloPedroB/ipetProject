@@ -180,8 +180,9 @@
             document.getElementById('lbcpf').style.color='red';
             return;
         }
-        latInput.disabled = false;
-        longInput.disabled = false;
+        document.getElementById('lat').disabled = false;
+        document.getElementById('long').disabled = false;
+
 
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';

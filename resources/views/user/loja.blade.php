@@ -198,8 +198,8 @@
             document.getElementById("name").style.color = 'red';
             return msg.style.color='red';
         }
-        latInput.disabled = false;
-        longInput.disabled = false;
+        document.getElementById('lat').disabled = false;
+        document.getElementById('long').disabled = false;
 
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
