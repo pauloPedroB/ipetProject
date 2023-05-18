@@ -25,7 +25,7 @@
                             @else
                                 <p> <span class="text-endereco">CPF: </span>{{$Loja->CPF}}</p>
                                 <p> <span class="text-endereco">Nome: </span>{{$Loja->Name}}</p>
-                                <p> <span class="text-endereco">Data de Nascimento: </span>{{$Loja->DT}}</p>
+                                <p> <span class="text-endereco">Data de Nascimento: </span>{{date('d/m/Y', strtotime($Loja->DT))}}</p>
                                 <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
                                 <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
                             @endif
