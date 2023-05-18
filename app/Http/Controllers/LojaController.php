@@ -111,7 +111,7 @@ class LojaController extends Controller
     {
         $loja=Loja::findOrFail($request->id);
 
-        $Endereco = Loja::findOrFail($loja->id);
+        $Endereco = Endereco::findOrFail($loja->id);
 
         $Endereco->Logradouro = $request->street;
         $Endereco->Cidade = $request->city;
