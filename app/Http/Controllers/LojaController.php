@@ -109,7 +109,32 @@ class LojaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $loja=Loja::findOrFail($id);
+
+        $Endereco = Loja::findOrFail($id);
+
+        $Endereco->Logradouro = $request->street;
+        $Endereco->Cidade = $request->city;
+        $Endereco->Bairro = $request->neighborhood;
+        $Endereco->Numero = $request->Number;
+        $Endereco->CEP = $request->cep;
+        $Endereco->UF = $request->uf;
+        $Endereco->Latitude = $request->lat;
+        $Endereco->Longitude = $request->long;
+        $user = auth()->user();
+        $Endereco->save();
+
+      
+        $loja->Razao = $request->razaoSocial;
+        $loja->Nome = $request->nomeFantasia;
+        $loja->Telefone = $request->telefone;
+        $loja->Celular = $request->celular;
+
+        $user = auth()->user();
+        $loja->Endereco_id = $Endereco->id;
+        $loja->save();
+
+        return redirect('/dashboard')->with('msg','Sua Loja foi editada com sucesso!!');
     }
 
     /**
