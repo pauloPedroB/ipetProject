@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 {{-- container --}}
 <div id="container_change" class=" container-fluid">
 
@@ -11,6 +12,7 @@
         {{-- tittle --}}
         <div id="title_change" class="p-5">
             <h1>Cadas-tre-se como:</h1>
+            
         </div>
 
 
