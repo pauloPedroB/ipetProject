@@ -126,11 +126,11 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$endereco->Latitude}}">
+                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$endereco->Latitude}}" disabled>
                     </div>
                     <div class="form-group">
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$endereco->Longitude}}">
+                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$endereco->Longitude}}"  disabled>
                     </div>
                     <input type="submit" class="btn btn-primary w-10" value="Registrar" id="mndEndereco">
             </div>
