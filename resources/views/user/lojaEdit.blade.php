@@ -11,7 +11,7 @@
                 <h1 class="fs-2 m-4">Ed-itando - {{$registro->Name}}</h1>
             @endif
         </div>
-        <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja" method="POST" enctype="multipart/form-data" id="addres">
+        <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja/{{$registro->id}}" method="POST" enctype="multipart/form-data" id="addres">
             @csrf
             @method('PUT')
             <div class="container-fluid " id="container-register">
