@@ -123,9 +123,9 @@ class LojaController extends Controller
         }
         else{
             $loja=Usuario::findOrFail($request->id);
-            $usuario->Name = $request->Name;
-            $usuario->Telefone = $request->Telefone;
-            $usuario->Celular = $request->Celular;
+            $loja->Name = $request->Name;
+            $loja->Telefone = $request->Telefone;
+            $loja->Celular = $request->Celular;
         }
 
         $Endereco = Endereco::findOrFail($loja->id);
