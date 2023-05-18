@@ -113,9 +113,19 @@ class LojaController extends Controller
         if($user->AL_id == 2)
         {
             $loja=Loja::findOrFail($request->id);
+            $loja->Razao = $request->razaoSocial;
+            $loja->Nome = $request->nomeFantasia;
+            $loja->Telefone = $request->telefone;
+            $loja->Celular = $request->celular;
+
+            $loja->Endereco_id = $Endereco->id;
+            $loja->save();
         }
         else{
             $loja=Usuario::findOrFail($request->id);
+            $usuario->Name = $request->Name;
+            $usuario->Telefone = $request->Telefone;
+            $usuario->Celular = $request->Celular;
         }
 
         $Endereco = Endereco::findOrFail($loja->id);
@@ -128,18 +138,10 @@ class LojaController extends Controller
         $Endereco->UF = $request->uf;
         $Endereco->Latitude = $request->lat;
         $Endereco->Longitude = $request->long;
-        $user = auth()->user();
         $Endereco->save();
 
       
-        $loja->Razao = $request->razaoSocial;
-        $loja->Nome = $request->nomeFantasia;
-        $loja->Telefone = $request->telefone;
-        $loja->Celular = $request->celular;
-
-        $user = auth()->user();
-        $loja->Endereco_id = $Endereco->id;
-        $loja->save();
+        
 
         return redirect('/dashboard')->with('msg','Sua Loja foi editada com sucesso!!');
     }
