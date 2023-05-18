@@ -109,7 +109,14 @@ class LojaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $loja=Loja::findOrFail($request->id);
+        $user = auth()->user();
+        if($user->AL_id == 2)
+        {
+            $loja=Loja::findOrFail($request->id);
+        }
+        else{
+            $loja=Usuario::findOrFail($request->id);
+        }
 
         $Endereco = Endereco::findOrFail($loja->id);
 
