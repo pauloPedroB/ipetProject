@@ -126,11 +126,11 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$endereco->Latitude}}" disabled>
+                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$endereco->Latitude}}" >
                     </div>
                     <div class="form-group">
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$endereco->Longitude}}"  disabled>
+                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$endereco->Longitude}}"  >
                     </div>
                     <input type="submit" class="btn btn-primary w-10" value="Registrar" id="mndEndereco">
             </div>
@@ -141,11 +141,9 @@
         const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
-        latInput = document.getElementById('lat');
-        longInput = document.getElementById('lat');
-        document.getElementById('lat').disabled = false;
-        document.getElementById('long').disabled = false;
-
+        const latInput = document.getElementById('lat');
+        const longInput = document.getElementById('lat');
+    
 
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
