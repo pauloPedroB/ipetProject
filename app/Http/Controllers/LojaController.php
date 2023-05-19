@@ -7,7 +7,7 @@ use App\Models\Loja;
 use App\Models\User;
 use App\Models\Usuario;
 use App\Models\Endereco;
-
+use App\Utils\Validations;
 
 
 
