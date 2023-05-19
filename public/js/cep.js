@@ -26,7 +26,7 @@ cepInput.addEventListener("blur", async function() {
       const response = await fetch(apiURL);
       const data = await response.json();
       if (data.erro === true) {
-        addressForm.reset();
+        cepInput.value = "";
         toggleMessage('CEP INVÁLIDO!!');
       } else {
         addressInput.value = data.logradouro;
