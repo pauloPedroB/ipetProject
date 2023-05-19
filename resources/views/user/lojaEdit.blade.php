@@ -49,10 +49,10 @@
                         <input class="form-control" type="text" id="Name" name="Name" value="{{$registro->Name}}" required>
                         
                         <label class="form-label"  for="telefone">Telefone:</label>
-                        <input class="form-control" type="tel" id="Telefone" name="Telefone" value="{{$registro->Telefone}}" required>
+                        <input class="form-control" type="tel" id="telefone" name="telefone" value="{{$registro->Telefone}}" required>
                         
                         <label class="form-label" for="celular">Celular:</label>
-                        <input class="form-control" type="tel" id="Celular" name="Celular" value="{{$registro->Celular}}" required>
+                        <input class="form-control" type="tel" id="celular" name="celular" value="{{$registro->Celular}}" required>
 
                         <label class="form-label" for="">Data de Nascimento:</label>
                         <input type="date" name="DT" id="DT" value="{{$registro->DT}}" disabled>
@@ -132,6 +132,20 @@
         </form>
     </div>
     <script>
+    
+    var celularInput = document.getElementById('celular');
+
+    celularInput.addEventListener('input', function() {
+      var celular = celularInput.value;
+      var regex = /^\(\d{2}\) \d{5}-\d{4}$/;
+      
+      if (!regex.test(celular)) {
+        celularInput.setCustomValidity('Informe um número de celular válido no formato (XX) XXXXX-XXXX.');
+      } else {
+        celularInput.setCustomValidity('');
+      }
+    });
+    
     const form = document.getElementById("addres");
     
     form.addEventListener("submit", function(event)
