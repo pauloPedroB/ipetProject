@@ -126,7 +126,7 @@
                 </div>
                 <div class="d-flex flex-row">
                     <button type="submit" class="btn btn-primary m-2" id="btnCadastro">Registrar</button>
-                    <a href="" class="btn btn-danger m-2" id="btnCadastro">Cancelar</a>
+                    <a href="/dashboard" class="btn btn-danger m-2" id="btnCadastro">Cancelar</a>
                 </div>
             </div>
         </form>
