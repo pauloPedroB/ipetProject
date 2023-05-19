@@ -128,8 +128,8 @@ class LojaController extends Controller
             }
             $loja=Usuario::findOrFail($request->id);
             $loja->Name = $request->Name;
-            $loja->Telefone = $request->Telefone;
-            $loja->Celular = $request->Celular;
+            $loja->Telefone = $request->telefone;
+            $loja->Celular = $request->celular;
             $loja->save();
 
         }
