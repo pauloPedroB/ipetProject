@@ -141,6 +141,8 @@
         const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
+        latInput = document.getElementById('lat');
+        longInput = document.getElementById('lat');
         document.getElementById('lat').disabled = false;
         document.getElementById('long').disabled = false;
 
