@@ -68,7 +68,7 @@ class UsuarioController extends Controller
             return redirect('/Registrar/Usuario')->with('error', 'Cadastro proíbido para menores de 18 anos');
         }
         
-        $erro = Validations::validarNome($nome);
+        $erro = validations::validarNome($nome);
         
         if ($erro) {
             return redirect('/Registrar/Usuario')->with('error', 'Nome Inválido');
