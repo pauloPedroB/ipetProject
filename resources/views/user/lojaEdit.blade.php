@@ -142,7 +142,9 @@
     {
         event.preventDefault();
         const msg = document.getElementById('error-message');
-        
+        const latInput = document.getElementById('lat');
+        const longInput = document.getElementById('long');
+    
 
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
