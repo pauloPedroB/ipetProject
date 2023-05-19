@@ -87,11 +87,13 @@ class LojaController extends Controller
      */
     public function edit(string $id)
     {
+         $user = auth()->user();   
          $registro = Loja::where([
             [
                 'id','=',$id
             ]
-        ])->first();
+        ])->where('user_id','=',$user->id)
+             first();
         if($registro == null){
             $registro = Usuario::where([
                 [
@@ -99,7 +101,6 @@ class LojaController extends Controller
                 ]
             ])->first();
         }
-        $user = auth()->user();   
         $endereco = Endereco::where([['id','=',$registro->Endereco_id]])->first();
         return view('user.lojaEdit',['registro'=>$registro,'endereco'=>$endereco,'user'=>$user]);
     }
