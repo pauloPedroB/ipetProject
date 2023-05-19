@@ -154,27 +154,6 @@
         const msg = document.getElementById('error-message');
         const latInput = document.getElementById('lat');
         const longInput = document.getElementById('long');
-    
-        const cep = cepInput.value.replace(/\D/g, '');
-        const apiURL = `https://viacep.com.br/ws/${cep}/json/`;
-
-        try {
-          const response = await fetch(apiURL);
-          const data = await response.json();
-          if (data.erro === true) {
-            cepInput.value = "";
-            toggleMessage('CEP INVÁLIDO!!');
-            return;
-          } else {
-            addressInput.value = data.logradouro;
-            neighborhoodInput.value = data.bairro;
-            cityInput.value = data.localidade;
-            ufInput.value = data.uf;
-          }
-        } catch (error) {
-          console.error(error);
-          return;
-        }
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cepInput.value} ${numberInput.value},${cepInput.value}&key=${api_key}`)
