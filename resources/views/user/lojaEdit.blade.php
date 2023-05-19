@@ -70,7 +70,7 @@
                 <div class="form-group">
                 
                     <label class="form-label" for="title">Rua:</label>
-                    <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." value="{{$endereco->Logradouro}}" required>
+                    <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." value="" required>
                 
                     <label class="form-label" for="title">Número</label>
                     <input type="number" class="form-control" id="Number" name="Number" value="{{$endereco->Numero}}" required>
