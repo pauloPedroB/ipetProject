@@ -137,7 +137,7 @@
 
     celularInput.addEventListener('input', function() {
       var celular = celularInput.value;
-      var regex = /^\(\d{2}\) \d{5}-\d{4}$/;
+      var regex = /^\(\d{2}\)\s?\d{5}-\d{4}$/;
       
       if (!regex.test(celular)) {
         celularInput.setCustomValidity('Informe um número de celular válido no formato (XX) XXXXX-XXXX.');
