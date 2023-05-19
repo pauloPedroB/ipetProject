@@ -26,7 +26,11 @@ class UsuarioController extends Controller
     public function create(Request $request)
     {
        
-
+        $cpf = Validations::validarCPF($request->CPF);
+        
+        if ($cpf){
+            return redirect('/Registrar/Usuario')->with('error', 'O CPF inválido');
+        }
         $registro = Usuario::where([
             [
                 'CPF','=',$request->CPF
