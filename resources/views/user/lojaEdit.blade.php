@@ -142,7 +142,7 @@
     form.addEventListener("submit", function(event)
     {
         const latInput = document.getElementById('lat');
-        const longInput = document.getElementById('lat');
+        const longInput = document.getElementById('long');
     
 
         
