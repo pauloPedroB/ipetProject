@@ -118,7 +118,6 @@ class LojaController extends Controller
             $loja->Telefone = $request->telefone;
             $loja->Celular = $request->celular;
 
-            $loja->Endereco_id = $Endereco->id;
             $loja->save();
         }
         else{
