@@ -8,7 +8,7 @@
             @if($user->AL_id == 2)
                 <h1 class="fs-2 m-4">Editando - {{$registro->Nome}}</h1>
             @else
-                <h1 class="fs-2 m-4">Editando - {{$registro->Name}}</h1>
+                <h1 class="fs-2 m-4">Ed-itando - {{$registro->Name}}</h1>
             @endif
         </div>
         <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja/{{$registro->id}}" method="POST" enctype="multipart/form-data" id="addres">
@@ -137,11 +137,94 @@
         </form>
     </div>
     <script>
-
+        const cnpj = document.getElementById("cnpj");
+       
+        cnpj.addEventListener('blur', function() {
+            const URL_BASE = 'https://api-publica.speedio.com.br/buscarcnpj?cnpj='+cnpj.value;
+            fetch(URL_BASE)
+                .then(response=>response.json())
+                .then(data=>{
+                    const razao = document.getElementById("razaoSocial");
+                    const nome = document.getElementById("nomeFantasia");
+                    const telefone = document.getElementById("telefone");
+                    const celular = document.getElementById("celular");
+    
+                    razao.value = data['RAZAO SOCIAL'];
+                    nome.value = data['NOME FANTASIA'];
+                    telefone.value = data['DDD']+data['TELEFONE'];
+                    celular.value = data['DDD']+data['TELEFONE'];
+                    console.log(data);
+                    return;
+                })
+                .catch(error=>{
+                    console.error('Erro: '.error);
+                    return;
+                });
+                return;
+        });
+        const form = document.getElementById("addres");
     form.addEventListener("submit", function(event)
     {
         event.preventDefault();
         const msg = document.getElementById('error-message');
+        const cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g,'');
+
+        if (cnpj == '') {
+            msg.innerText = 'CNPJ INVÁLIDO!!'
+            msg.style.color='red';
+            document.getElementById('lbcnpj').style.color='red';
+            return;
+        }
+
+        if (cnpj.length != 14) {
+            msg.innerText = 'CNPJ INVÁLIDO!!';
+            msg.style.color='red';
+            document.getElementById('lbcnpj').style.color='red';
+            return;
+        }
+
+        // Validação do primeiro dígito verificador
+        let soma = 0;
+        let multiplicador = 2;
+
+        for (let i = 11; i >= 0; i--) {
+            soma += parseInt(cnpj.charAt(i)) * multiplicador;
+            multiplicador = multiplicador == 9 ? 2 : multiplicador + 1;
+        }
+
+        const resto = soma % 11;
+        const digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+
+        if (parseInt(cnpj.charAt(12)) != digitoVerificador1) {
+            msg.innerText = 'CNPJ INVÁLIDO!!'
+            msg.style.color='red';
+            document.getElementById('lbcnpj').style.color='red';
+            return;
+        }
+
+        // Validação do segundo dígito verificador
+        soma = 0;
+        multiplicador = 2;
+
+        for (let i = 12; i >= 0; i--) {
+            soma += parseInt(cnpj.charAt(i)) * multiplicador;
+            multiplicador = multiplicador == 9 ? 2 : multiplicador + 1;
+        }
+
+        const digitoVerificador2 = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+        if (parseInt(cnpj.charAt(13)) != digitoVerificador2) {
+            msg.innerText = 'CNPJ INVÁLIDO!!'
+            msg.style.color='red';
+            document.getElementById('lbcnpj').style.color='red';
+            return;
+        }
+        document.getElementById("cnpj").readOnly = true;
+        if(document.getElementById("nomeFantasia").length < 7){
+            msg.innerText = 'NOME INVÁLIDO!!'
+            document.getElementById("name").style.color = 'red';
+            return msg.style.color='red';
+        }
         const latInput = document.getElementById('lat');
         const longInput = document.getElementById('long');
     
