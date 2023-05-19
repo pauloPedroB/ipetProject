@@ -61,8 +61,18 @@ class UsuarioController extends Controller
         $Endereco->Numero = $request->Number;
         $Endereco->CEP = $request->cep;
         $Endereco->UF = $request->uf;
-        $Endereco->Latitude = $request->lat;
-        $Endereco->Longitude = $request->long;
+        if($request->lat != null){
+            $Endereco->Latitude = $request->lat;  
+        }
+        else{
+            $Endereco->Latitude= '-23.61279792090457';
+        }
+        if($request->long != null){
+            $Endereco->Longitude = $request->long;
+        }
+        else{
+            $Endereco->Latitude= '-46.780145384505474';
+        }
         $user = auth()->user();
         $Endereco->save();
  
