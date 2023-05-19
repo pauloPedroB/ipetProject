@@ -154,6 +154,7 @@
             const location = data.results[0].geometry.location;
             const latitude = location.lat;
             const longitude = location.lng;
+            console.log('location.lat');
            
             if(latitude == null){
               latitude = '-23.61279792090457';
