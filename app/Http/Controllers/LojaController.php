@@ -107,9 +107,45 @@ class LojaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $user = auth()->user();
+        if($user->AL_id == 2)
+        {
+            $loja=Loja::findOrFail($request->id);
+            $loja->Razao = $request->razaoSocial;
+            $loja->Nome = $request->nomeFantasia;
+            $loja->Telefone = $request->telefone;
+            $loja->Celular = $request->celular;
+
+            $loja->Endereco_id = $Endereco->id;
+            $loja->save();
+        }
+        else{
+            $loja=Usuario::findOrFail($request->id);
+            $loja->Name = $request->Name;
+            $loja->Telefone = $request->Telefone;
+            $loja->Celular = $request->Celular;
+            $loja->save();
+
+        }
+
+        $Endereco = Endereco::findOrFail($loja->id);
+
+        $Endereco->Logradouro = $request->street;
+        $Endereco->Cidade = $request->city;
+        $Endereco->Bairro = $request->neighborhood;
+        $Endereco->Numero = $request->Number;
+        $Endereco->CEP = $request->cep;
+        $Endereco->UF = 'sp';
+        $Endereco->Latitude = $request->lat;
+        $Endereco->Longitude = $request->long;
+        $Endereco->save();
+
+      
+        
+
+        return redirect('/dashboard')->with('msg','Sua Loja foi editada com sucesso!!');
     }
 
     /**
