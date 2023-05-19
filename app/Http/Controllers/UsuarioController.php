@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Endereco;
 
 use DateTime;
-use App\Utils\validations;
+use App\Utils\Validations;
 
 class UsuarioController extends Controller
 {
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
             return redirect('/Registrar/Usuario')->with('error', 'Cadastro proíbido para menores de 18 anos');
         }
         
-        $erro = validations::validarNome($nome);
+        $erro = Validations::validarNome($nome);
         
         if ($erro) {
             return redirect('/Registrar/Usuario')->with('error', 'Nome Inválido');
