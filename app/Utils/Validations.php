@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-class validations
+class Validations
 {
     public static function validarNome($nome)
     {
