@@ -7,9 +7,15 @@
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ session('status') }}
-        </div>
+        @if(session('status') == "Your password has been reset.")
+            <div class="mb-4 font-medium text-sm text-green-600">
+                Sua senha foi resetada com sucesso
+            </div>
+        @else
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
         @endif
         @if(session('error'))
             <div class="alert alert-danger"><p style="color: brown">{{ session('error') }}</p></div>
