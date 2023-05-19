@@ -70,11 +70,11 @@
             @if($user->AL_id==1)
                 <div class="col-md-12" id="Avaliation-container">
                     <h3>Avalie sua experiência:</h3>
-                    <a href="javascript:void(0)" onclick="Avaliar(1)"><img src="/img/star0.png" id="s1"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(2)"><img src="/img/star0.png" id="s2"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(3)"><img src="/img/star0.png" id="s3"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(4)"><img src="/img/star0.png" id="s4"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5"></a>
+                    <a href="javascript:void(0)" onclick="Avaliar(1)"><img src="/img/star0.png" id="s1" style="width: 50px"></a>
+                    <a href="javascript:void(0)" onclick="Avaliar(2)"><img src="/img/star0.png" id="s2" style="width: 50px"></a>
+                    <a href="javascript:void(0)" onclick="Avaliar(3)"><img src="/img/star0.png" id="s3" style="width: 50px"></a>
+                    <a href="javascript:void(0)" onclick="Avaliar(4)"><img src="/img/star0.png" id="s4" style="width: 50px"></a>
+                    <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5" style="width: 50px"></a>
                     <form action="/avaliar" method="POST">
                         @csrf
                         <input type="hidden" name="value" id="rating" value="0">
