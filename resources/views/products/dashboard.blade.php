@@ -35,8 +35,7 @@
                             <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
                             <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
                             <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
-                            <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Latitude}}</p>
-                            <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Longitude}}</p>
+
                         </div>
                         <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn-dasboard"type="button">Edite os seus dados</button></a>
 
