@@ -149,7 +149,7 @@
 
         
         const api_key = 'AIzaSyCXoIfvEDdZDSGfKCDEfcdxBoaTY1ooX-4';
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressInput.value} ${numberInput.value},${cep.value}&key=${api_key}`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cepInput.value} ${numberInput.value},${cepInput.value}&key=${api_key}`)
         .then(response => response.json())
         .then(data => {
             const location = data.results[0].geometry.location;
