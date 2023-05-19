@@ -137,7 +137,8 @@
         </form>
     </div>
     <script>
-
+    const form = document.getElementById("addres");
+    
     form.addEventListener("submit", function(event)
     {
         event.preventDefault();
