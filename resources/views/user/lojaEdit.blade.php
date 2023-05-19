@@ -8,7 +8,7 @@
             @if($user->AL_id == 2)
                 <h1 class="fs-2 m-4">Editando - {{$registro->Nome}}</h1>
             @else
-                <h1 class="fs-2 m-4">Ed-itando - {{$registro->Name}}</h1>
+                <h1 class="fs-2 m-4">Editando - {{$registro->Name}}</h1>
             @endif
         </div>
         <form class="d-flex flex-column flex-md-row align-items-center" action="/Update/Loja/{{$registro->id}}" method="POST" enctype="multipart/form-data" id="addres">
