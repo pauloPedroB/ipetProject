@@ -12,7 +12,7 @@
      
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id == $Loja->Endereco_id)
-                    <div id="data-user-container" class="col dashboard-endereco-container">
+                    <div id="data-user-container" class="col dashboard-endereco-container container-fluid">
                         <div class="container-endereco">
                             <h1>Meus Dados</h1>
                             @if($user->AL_id == 2)
@@ -21,7 +21,6 @@
                                 <p> <span class="text-endereco">Nome fantasia: </span>{{$Loja->Nome}}</p>
                                 <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
                                 <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
-                                
                             @else
                                 <p> <span class="text-endereco">CPF: </span>{{$Loja->CPF}}</p>
                                 <p> <span class="text-endereco">Nome: </span>{{$Loja->Name}}</p>
