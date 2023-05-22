@@ -96,11 +96,7 @@
                     </select>
             </div>
         </div>
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 9f65e09b7a1cfb76f3b690710f01e667afa64de5
         {{-- fim --}}
 
     </header>
