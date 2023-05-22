@@ -57,7 +57,7 @@
     {{-- categorias --}}
 
     @if($user->AL_id !=1)
-        <div id="table-container" class="dashboard-products-container">
+        <div id="table-container">
             @if($user->AL_id == 3)
                 <h1 class="text-uppercase">Categorias</h1>
                 <table class="table">

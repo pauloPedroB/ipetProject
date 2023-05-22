@@ -693,7 +693,7 @@ footer {
 }
 
 #table-container{
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -712,7 +712,7 @@ footer {
 /* Tabelas - Produtos / Categorias */
 
 .table{
-    width: 80%;
+    width: 50%;
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
