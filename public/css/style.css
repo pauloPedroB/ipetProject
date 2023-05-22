@@ -711,7 +711,7 @@ footer {
 
 /* categorias */
 
-#table-categories{
+.table{
     width: 80%;
     text-align: center;
     justify-content: center;
@@ -719,12 +719,12 @@ footer {
     font-size: 1rem;
 }
 
-#table-categories tr td{
+.table tr td{
     padding: 1rem;
 }
 
 
-#table-categories tr th{
+.table tr th{
     padding: 1rem;
 }
 
