@@ -164,7 +164,7 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
-                                <form action="/categoria/{{$category->id}}" method="POST">
+                                <form action="/produtos/{{$product->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
