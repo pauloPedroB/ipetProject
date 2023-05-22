@@ -57,10 +57,10 @@
     {{-- categorias --}}
 
     @if($user->AL_id !=1)
-        <div id="products-container" class="dashboard-products-container">
+        <div id="table-container">
             @if($user->AL_id == 3)
                 <h1 class="text-uppercase">Categorias</h1>
-                <table id="table-categories" class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Número</th>
@@ -74,12 +74,12 @@
                                 <td><p>{{$category->name}}</p></td>
                                 <td class="button-products" style="display: flex; flex-direction: row; justify-content:center; align-items:center; gap:15px;">
                                     @if($user->AL_id ==3)
-                                    <a href="/categoria/{{$category->id}}" class="btn btn-outline-warning  btn-lg " style="padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">edit</span></a>
+                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg " style="padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">edit</span></a>
                                 @endif
                                     <form action="/categoria/{{$category->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger btn-lg " style="width: 100%; padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                        <button type="submit" class="btn btn-danger btn-lg " style="width: 100%; padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle ">delete</span></button>
                                     </form>
                                 </td>
                             </tr>
@@ -90,9 +90,9 @@
             @endif
 
     {{-- produtos --}} 
-            <h1 id="title-products" class="text-uppercase">Produtos</h1>
+            <h1 class="text-uppercase">Produtos</h1>
             @if($products != null)
-                <table id="table-produts" class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Número</th>
@@ -110,12 +110,12 @@
                                 @endif
                                 <td class="button-products" style="display: flex; flex-direction: row; justify-content:center; width: 100%; align-items:center; gap:15px;">
                                     @if($user->AL_id ==3)
-                                    <a href="/produtos/edit/{{$product->id}}" class="btn btn-outline-warning"  style="padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle">edit</span></a>
+                                    <a href="/produtos/edit/{{$product->id}}" class="btn btn-warning"  style="padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle">edit</span></a>
                                     @endif
                                     <form class="" action="/produtos/{{$product->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger" style="width: 100%; padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                        <button type="submit" class="btn btn-danger" style="width: 100%; padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">delete</span></button>
                                     </form>
                                 </td>
                             </tr>

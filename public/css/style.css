@@ -654,7 +654,7 @@ footer {
     width: 100%;
 }
 
-#btn-dasboard{
+.btn-dasboard{
     width: 13rem;
     margin:0.7rem;
     background-color: #ffc05f;
@@ -686,10 +686,14 @@ footer {
 
 }
 
+.container-endereco{
+    display:flex;
+    flex-direction: column;
 
+}
 
-#products-container{
-    width: 100%;
+#table-container{
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -698,29 +702,29 @@ footer {
 }
 
 
-#products-container h1{
+#table-container h1{
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
     color: #FFC05F;
 }
 
-/* categorias */
+/* Tabelas - Produtos / Categorias */
 
-#table-categories{
-    width: 80%;
+.table{
+    width: 50%;
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
     font-size: 1rem;
 }
 
-#table-categories tr td{
+.table tr td{
     padding: 1rem;
 }
 
 
-#table-categories tr th{
+.table tr th{
     padding: 1rem;
 }
 
@@ -754,23 +758,6 @@ footer {
 
 
 /* produtos */
-
-#title-products{
-    margin-top: 10px;
-    
-}
-
-#table-produts tr td a{
-    text-decoration: none;
-}
-
-#table-produts{
-    width: 80%;
-    text-align: center;
-    justify-content: center;
-    background-color: #F2F2F2;
-    font-size: 1rem;
-}
 
 .button-products{
     display: flex ;
@@ -837,7 +824,6 @@ footer {
     width: 80%;
     align-self: center;
 }
-
 /* escolhe de pacote gratuito/premium */
 
 #nav-free {
@@ -851,19 +837,6 @@ footer {
 .nav-p{
     color: #000000;
     font-weight: bold;
-}
-
-#card_pacote{
-    width: 20rem;
-    height:max-content;
-    background-color: #DBF0E1;
-    cursor: pointer;
-    transition-duration: 0.2s;
-}
-
-#card_pacote:hover{
-    border: solid 2px #d40f0f;
-    color: #d40f0f;
 }
 
 
