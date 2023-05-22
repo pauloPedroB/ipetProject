@@ -27,18 +27,19 @@
                             <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                         </a>
                     </div>
-                    <div class="form-control">
-                        <form action="" method="get">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="search" name="search" 
-                            placeholder= "Buscar Item ou Loja...">
-                            <div>
+                    <div class="form-control ">
+                        <form class="d-flex flex-row" action="" method="get">
+                            <div class="me-5">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search" name="search" 
+                                placeholder= "Buscar Produto...">
+                            </div>
+                            <div class="ms-5">
                                 <select name="Category" id="Category">
                                     <option value="all">Todos</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->name}}">{{$category->name}}</option>
                                     @endforeach
-            
                                 </select>
                             </div>
                         </form>
@@ -154,7 +155,7 @@
         @if ($search)
         <h2>Buscando por: {{ $search }}</h2>
         @else
-        <h2>Produtos/Comércios</h2>
+        <h2>Produtos</h2>
         @endif
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
