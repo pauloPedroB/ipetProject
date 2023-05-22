@@ -15,10 +15,10 @@
         </div>
 
         <div class="d-flex flex-row mt-1 flex-wrap justify-content-around">
-            {{-- card-market --}}
+          
             <div class="col-auto card-market flex-column text-center m-5 ">
                 <a class="btn" href="/">
-                    <div class="rounded-5 p-3" style="width: 20rem; height:max-content; background-color: #DBF0E1;">
+                    <div class="rounded-5 p-3" id="card_pacote">
                         <img class="img-fluid mt-2" src="/img/gratuito.png" alt="" id="nav-free">
                         <h2 class="fs-4 fw-bold flex-column pb-3" style="margin-top:2rem">Gratuito</h2>
                         <p class="fs-6">Seus produtos aparecerão para os clientes por ordem de proximidade</p>
@@ -26,10 +26,9 @@
                 </a>
             </div>
 
-            {{-- card-user --}}
             <div class=" col-auto card-user flex-column  text-center m-5">
                 <a class="btn" href="/payment">
-                    <div class="rounded-5 p-3" style="width: 20rem; height:max-content; background-color: #DBF0E1">
+                    <div class="rounded-5 p-3" id="card_pacote">
                         <img class="img-fluid" src="/img/premium.png" alt="" id="nav-premium" >
                         <h2 class="fs-4 fw-bold  flex-column pb-3" style="margin-top:2rem">Premium</h2>
                         <p class="fs-6">Seus produtos aparecerão primeiro para os clientes em relação as outras lojas!</p>

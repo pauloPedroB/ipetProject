@@ -60,7 +60,7 @@
         <div id="products-container" class="dashboard-products-container">
             @if($user->AL_id == 3)
                 <h1 class="text-uppercase">Categorias</h1>
-                <table id="table-categories" class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Número</th>
@@ -92,7 +92,7 @@
     {{-- produtos --}} 
             <h1 id="title-products" class="text-uppercase">Produtos</h1>
             @if($products != null)
-                <table id="table-produts" class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Número</th>
