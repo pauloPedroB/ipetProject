@@ -26,11 +26,7 @@ class UsuarioController extends Controller
     public function create(Request $request)
     {
        
-        $cpf = Validations::validarCPF($request->CPF);
-        
-        if ($cpf){
-            return redirect('/Registrar/Usuario')->with('error', 'O CPF inválido');
-        }
+      
         $registro = Usuario::where([
             [
                 'CPF','=',$request->CPF
@@ -47,11 +43,7 @@ class UsuarioController extends Controller
             return redirect('/Registrar/Usuario')->with('error', 'Cadastro proíbido para menores de 18 anos');
         }
         
-        $erro = Validations::validarNome($request->Name);
-        
-        if ($erro) {
-            return redirect('/Registrar/Usuario')->with('error', 'Nome Inválido');
-        }
+      
 
         $Endereco = new Endereco;
 
