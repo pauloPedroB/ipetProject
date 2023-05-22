@@ -151,6 +151,25 @@
     form.addEventListener("submit", function(event)
     {
         event.preventDefault();
+        const cep = cepInput.value.replace(/\D/g, '');
+    
+        const apiURL = `https://viacep.com.br/ws/${cep}/json/`;
+
+        try {
+          const response = await fetch(apiURL);
+          const data = await response.json();
+          if (data.erro === true) {
+            cepInput.value = "";
+            toggleMessage('CEP INVÁLIDO!!');
+          } else {
+            addressInput.value = data.logradouro;
+            neighborhoodInput.value = data.bairro;
+            cityInput.value = data.localidade;
+            ufInput.value = data.uf;
+          }
+        } catch (error) {
+          console.error(error);
+        }
         const msg = document.getElementById('error-message');
         const latInput = document.getElementById('lat');
         const longInput = document.getElementById('long');
