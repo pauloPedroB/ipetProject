@@ -759,23 +759,6 @@ footer {
 
 /* produtos */
 
-#title-products{
-    margin-top: 10px;
-    
-}
-
-#table-produts tr td a{
-    text-decoration: none;
-}
-
-#table-produts{
-    width: 80%;
-    text-align: center;
-    justify-content: center;
-    background-color: #F2F2F2;
-    font-size: 1rem;
-}
-
 .button-products{
     display: flex ;
     align-items: column;
