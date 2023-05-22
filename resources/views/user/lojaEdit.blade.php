@@ -60,7 +60,7 @@
                         <br>
                     @endif
                     <label class="form-label" for="title">CEP:</label>
-                    <input type="text" class="form-control" id="cep" name="cep" placeholder="Seu CEP..." value="{{$endereco->CEP}}" maxlength="8" required>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="Seu CEP..." value="" maxlength="8" required>
                 </div>
                     
             </div>
@@ -70,21 +70,21 @@
                 <div class="form-group">
                 
                     <label class="form-label" for="title">Rua:</label>
-                    <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." value="{{$endereco->Logradouro}}" required>
+                    <input type="text" class="form-control" id="street" name="street" placeholder="Sua Rua..." value="" required>
                 
                     <label class="form-label" for="title">Número</label>
-                    <input type="number" class="form-control" id="Number" name="Number" value="{{$endereco->Numero}}" required>
+                    <input type="number" class="form-control" id="Number" name="Number" value="" required>
                 
                     <label class="form-label" for="title">Bairro:</label>
-                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Seu bairro..." value="{{$endereco->Bairro}}" required>
+                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Seu bairro..." value="" required>
                 
                     <label class="form-label" for="title">Cidade</label>
                     <textarea type="text" class="form-control" id="city" name="city" placeholder="Sua Cidade..." required>
-                        {{$endereco->Cidade}}
+                 
                     </textarea>
                 
                     <label class="form-label" for="title">Estado</label>
-                    <select name="uf" id="uf"class="form-control" type="select" value="{{$endereco->UF}}" required data-input>
+                    <select name="uf" id="uf"class="form-control" type="select" value="" required data-input>
                         <option selected>Estado</option>
                         <option value="AL">AC</option>
                         <option value="AL">AL</option>
@@ -118,10 +118,10 @@
                     
                     <div class="d-none">
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="{{$endereco->Latitude}}">
+                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Sua Latitude..." value="">
                     
                         <label for="title">Latitude</label>
-                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="{{$endereco->Longitude}}">
+                        <input type="text" class="form-control" id="long" name="long" placeholder="Sua Longitude..." value="">
                     </div>
                 </div>
                 <div class="d-flex flex-row">
