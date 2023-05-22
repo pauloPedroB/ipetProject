@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Editar Endereço')
+@section('title','Editar Dados')
 @section('content')
 
     <div id="event-create-container" class="col-md-6 offset-md-3">
