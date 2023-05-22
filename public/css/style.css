@@ -837,6 +837,7 @@ footer {
     width: 80%;
     align-self: center;
 }
+
 /* escolhe de pacote gratuito/premium */
 
 #nav-free {
@@ -850,6 +851,19 @@ footer {
 .nav-p{
     color: #000000;
     font-weight: bold;
+}
+
+#card_pacote{
+    width: 20rem;
+    height:max-content;
+    background-color: #DBF0E1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#card_pacote:hover{
+    border: solid 2px #d40f0f;
+    color: #d40f0f;
 }
 
 
