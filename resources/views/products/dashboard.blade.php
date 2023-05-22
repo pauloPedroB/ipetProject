@@ -57,7 +57,7 @@
     {{-- categorias --}}
 
     @if($user->AL_id !=1)
-        <div id="products-container" class="dashboard-products-container">
+        <div id="table-container" class="dashboard-products-container">
             @if($user->AL_id == 3)
                 <h1 class="text-uppercase">Categorias</h1>
                 <table class="table">
@@ -90,7 +90,7 @@
             @endif
 
     {{-- produtos --}} 
-            <h1 id="title-products" class="text-uppercase">Produtos</h1>
+            <h1 class="text-uppercase">Produtos</h1>
             @if($products != null)
                 <table class="table">
                     <thead>
