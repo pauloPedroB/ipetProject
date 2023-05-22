@@ -138,7 +138,7 @@ class LojaController extends Controller
             $loja->save();
         }
 
-        $Endereco = Endereco::findOrFail($loja->id);
+        $Endereco = Endereco::findOrFail($loja->Endereco_id);
 
         $Endereco->Logradouro = $request->street;
         $Endereco->Cidade = $request->city;
