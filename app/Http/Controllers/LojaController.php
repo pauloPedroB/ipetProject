@@ -131,17 +131,11 @@ class LojaController extends Controller
             $loja->save();
         }
         else{
-             $erro = Validations::validarNome($request->Name);
-        
-            if ($erro) {
-                //return redirect('/Registrar/Usuario')->with('error', 'Nome Inválido');
-            }
             $loja=Usuario::findOrFail($request->id);
             $loja->Name = $request->Name;
             $loja->Telefone = $request->telefone;
             $loja->Celular = $request->celular;
             $loja->save();
-
         }
 
         $Endereco = Endereco::findOrFail($loja->id);
