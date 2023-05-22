@@ -156,7 +156,7 @@ class LojaController extends Controller
             $Endereco->Longitude = $request->long;
         }
         else{
-            $Endereco->Latitude= '-46.780145384505474';
+            $Endereco->Longitude= '-46.780145384505474';
         }
         $Endereco->save();
 
