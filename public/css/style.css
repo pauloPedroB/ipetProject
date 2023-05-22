@@ -692,7 +692,7 @@ footer {
 
 }
 
-#products-container{
+#table-container{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -702,14 +702,14 @@ footer {
 }
 
 
-#products-container h1{
+#table-container h1{
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
     color: #FFC05F;
 }
 
-/* categorias */
+/* Tabelas - Produtos / Categorias */
 
 .table{
     width: 80%;
