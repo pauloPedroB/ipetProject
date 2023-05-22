@@ -12,35 +12,41 @@
      
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id == $Loja->Endereco_id)
-                    <div id="data-user-container" class="col dashboard-endereco-container container-fluid">
-                        <div class="container-endereco">
-                            <h1>Meus Dados</h1>
-                            @if($user->AL_id == 2)
-                                <p> <span class="text-endereco">CNPJ: </span>{{$Loja->CNPJ}}</p>
-                                <p> <span class="text-endereco">Razão social: </span>{{$Loja->Razao}}</p>
-                                <p> <span class="text-endereco">Nome fantasia: </span>{{$Loja->Nome}}</p>
-                                <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
-                                <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
-                            @else
-                                <p> <span class="text-endereco">CPF: </span>{{$Loja->CPF}}</p>
-                                <p> <span class="text-endereco">Nome: </span>{{$Loja->Name}}</p>
-                                <p> <span class="text-endereco">Data de Nascimento: </span>{{date('d/m/Y', strtotime($Loja->DT))}}</p>
-                                <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
-                                <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
-                            @endif
-                            <h1>Endereço</h1>
-                            <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
-                            <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}, {{$Endereco->id}}</p>
-                            <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
-                            <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}, {{$Endereco->Latitude}}</p>
-                            <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}, {{$Endereco->Longitude}}</p>
-
+                    <div id="data-user-container" class="col dashboard-endereco-container container-fluid m-5 p-3">
+                        <div class="d-flex flex-column flex-md-row align-items-baseline">
+                            <div class="d-flex flex-column m-5">
+                                <h1>Meus Dados</h1>
+                                @if($user->AL_id == 2)
+                                    <p> <span class="text-endereco">CNPJ: </span>{{$Loja->CNPJ}}</p>
+                                    <p> <span class="text-endereco">Razão social: </span>{{$Loja->Razao}}</p>
+                                    <p> <span class="text-endereco">Nome fantasia: </span>{{$Loja->Nome}}</p>
+                                    <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
+                                    <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
+                                @else
+                                    <p> <span class="text-endereco">CPF: </span>{{$Loja->CPF}}</p>
+                                    <p> <span class="text-endereco">Nome: </span>{{$Loja->Name}}</p>
+                                    <p> <span class="text-endereco">Data de Nascimento: </span>{{date('d/m/Y', strtotime($Loja->DT))}}</p>
+                                    <p> <span class="text-endereco">Telefone: </span>{{$Loja->Telefone}}</p>
+                                    <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
+                                @endif
+                            </div>
+                            <div class="d-flex flex-column m-5">
+                                <h1>Endereço</h1>
+                                <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
+                                <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
+                                <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
+                                <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
+                                <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
+    
+                            </div>
                         </div>
-                        <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn-dasboard"type="button">Edite os seus dados</button></a>
-
-                        @if($user->AL_id == 2)
-                        <a href="/pacote"><button class="btn-dasboard" type="button">Pacote</button></a>
-                        @endif
+                        <div class="d-flex flex-column flex-md-row ">
+                            <a href="/Editar/Loja/{{$Loja->id}}"><button class="m-2" id="btn-dasboard"type="button">Edite os seus dados</button></a>
+    
+                            @if($user->AL_id == 2)
+                            <a href="/pacote"><button class="m-2" id="btn-dasboard" type="button">Pacote</button></a>
+                            @endif
+                        </div>
                     </div>
                     @break
                 @endif
