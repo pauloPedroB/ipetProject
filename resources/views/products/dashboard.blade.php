@@ -30,7 +30,7 @@
                             @endif
                             <h1>Endereço</h1>
                             <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
-                            <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}, {{$Endereco->Id}}</p>
+                            <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}, {{$Endereco->id}}</p>
                             <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
                             <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}, {{$Endereco->Latitude}}</p>
                             <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}, {{$Endereco->Longitude}}</p>
