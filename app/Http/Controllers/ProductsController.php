@@ -239,7 +239,15 @@ class ProductsController extends Controller
         {
             $product = Product::findOrFail($id);
             $description = explode('<!i!i>',$product->Description);
-            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod]);
+            $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
+            $my = false;
+            foreach($myproducts as $myproduct){
+                if($myproduct->Product_id == $product->id){
+                    $my = true;
+                }
+            }
+
+            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my]);
 
         }
         else{
@@ -328,7 +336,7 @@ class ProductsController extends Controller
         //$UserEndereco = Product::findOrFail($Loja->Endereco_id);
         
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
-                    'categories'=>$categories]);
+                    'categories'=>$categories,'myproducts'=>$myproducts]);
     }
     public function destroy($id, Request $request){
         $user = auth()->user();
