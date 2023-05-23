@@ -37,6 +37,30 @@
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
+                    @foreach($description as $des)
+                        @if (strpos($des, 'Idade: ') !== false)
+                            <select name="idadeCombo" id="idadeCombo" class="form-control" required>
+                                <option value="Filhote">Filhote</option>
+                                <option value="Adulto">Adulto</option>
+                            </select>
+                        @endif
+                        @if (strpos($des, 'Pet: ') !== false)
+                            <select name="petCombo" id="petCombo" class="form-control" required>
+                                <option value="Cachorro">Cachorro</option>
+                                <option value="Gato">Gato</option>
+                            </select>
+                        @endif
+                        @if (strpos($des, 'Porte: ') !== false)
+                            <select name="porteCombo" id="porteCombo" class="form-control" required>
+                                <option value="Pequeno">Pequeno</option>
+                                <option value="Medio">Medio</option>
+                                <option value="Grande">Grande</option>
+                            </select>
+                        @endif
+                        @if (strpos($des, 'Apresentação: ') !== false)
+                            <input name="Apresentacaoinput" id="Apresentacaoinput" class="form-control" type="text" placeholder="Ex: Disponível em embalagens de 3kg e 15kg" value="{{$product->Description}}" required>
+                        @endif
+                    @endforeach
                 </div>
                 <script>
                     function mostrarImagem(){

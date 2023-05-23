@@ -361,7 +361,9 @@ class ProductsController extends Controller
         $product=Product::findOrFail($id);
         $User = auth()->user();
         $categories = Category::all();
-        return view('products.edit',['product' => $product,'User'=>$User,'categories'=>$categories]);
+        $description = explode('<!i!i>',$product->Description);
+        $apresentation = end($description);
+        return view('products.edit',['product' => $product,'User'=>$User,'categories'=>$categories,'description'=>$description,'apresentation'=>$apresentation]);
     }
     public function update(Request $request){
         $idade = '';
