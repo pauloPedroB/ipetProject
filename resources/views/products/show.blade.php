@@ -50,7 +50,7 @@
                             <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
                         </form>
                     @else
-                        <form action="/produtos/{{$product->my_Id}}" method="POST">
+                        <form action="/produtos/{{my_Id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button id="maps" type="submit" style="background-color: red; border-color: red">Remover produto</button>
