@@ -21,6 +21,10 @@
                      <div id="imageforProduct">
                         <img id="imagem-preview" src="/img/products/{{$product->Image}}" alt="Imagem selecionada" style="width: 100px;">
                     </div>
+                    <script>
+                        var campoImagem = document.getElementById("image");
+                        inputImagem.files = [{{$product->Image}}];
+                    </script>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome:</label>
