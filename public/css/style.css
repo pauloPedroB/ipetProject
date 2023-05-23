@@ -839,6 +839,33 @@ footer {
     font-weight: bold;
 }
 
+#card_pacote{
+    width: 20rem;
+    height:max-content;
+    background-color: #DBF0E1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: solid 2px #ffffff;
+}
+
+#card_pacote:hover{
+    border: solid 2px #d40f0f;
+    color: #d40f0f;
+}
+
+#card_pacote_premiun{
+    width: 20rem;
+    height:max-content;
+    background-color: #DBF0E1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: solid 2px #ffffff;
+}
+
+#card_pacote_premiun:hover{
+    border: solid 2px #45f170;
+    color: #1db844;
+}
 
 /* tela de adicionar produtos */
 
