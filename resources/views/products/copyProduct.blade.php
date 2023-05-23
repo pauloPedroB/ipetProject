@@ -152,9 +152,11 @@
     
                 @php
                     $count = false;
+                    $id = 0;
                     foreach($myproducts as $myproduct){
                             if($myproduct->Product_id == $product->id){
                                 $count = true;
+                                $id = $myproduct->id;
                                 break;
                             }
                         }
@@ -170,7 +172,7 @@
                                     <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
                                 </form>
                                 @else
-                                    <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
+                                    <a href="/produto/copiar/{{$id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
                                 @endif
                                 <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                             </div>
