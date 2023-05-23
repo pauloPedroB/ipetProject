@@ -66,7 +66,7 @@ class ProductsController extends Controller
         
         $search = request('search');
         $category = request('Category');
-        if($search){
+        if($search || $search){
             if($category == 'all'){
                 $category = "";
             }
