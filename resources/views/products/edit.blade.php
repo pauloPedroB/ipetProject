@@ -11,7 +11,7 @@
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}" @if $product->category_id == $category->id) selected @endif>{{$category->name}}</option>
+                            <option value="{{$category->id}}" @if ($product->category_id == $category->id) selected @endif>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
