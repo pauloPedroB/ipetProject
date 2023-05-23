@@ -36,6 +36,7 @@
                 
 
                 <div id="dynamic-inputs">
+                    aaaaaaaaaaaaaaaaaaaaaaaaa
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
