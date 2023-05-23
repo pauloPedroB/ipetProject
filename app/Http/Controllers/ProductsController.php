@@ -81,19 +81,19 @@ class ProductsController extends Controller
                                             products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
                                             lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
                                             ->orderBy('distancia', 'asc')
-                                            ->take(2)
+                                            ->take(4)
                                             ->where([['products.Name','like','%'.$search.'%']])
                                             ->where('categories.name','like','%'.$category.'%')
                                             ->get();
 
             if(count($premiumProducts) == 2){
-                $limit = 8;
+                $limit = 16;
             }
             else if(count($premiumProducts)==1){
-                $limit = 9;
+                $limit = 18;
             }
             else{
-                $limit = 10;
+                $limit = 20;
             }
             $products = productsLoja::join('products','products.id','=','Product_id')
                                     ->join('users','products.user_id','=','users.id')
