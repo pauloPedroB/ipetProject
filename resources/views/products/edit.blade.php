@@ -40,12 +40,24 @@
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
-                            <select name="idadeCombo" id="idadeCombo" class="form-control" value="{{str_replace('Idade: ','',$des)}}" required>
+                            <select name="idadeCombo" id="idadeCombo" class="form-control" required>
                                 <option value="Filhote">Filhote</option>
                                 <option value="Adulto">Adulto</option>
                             </select>
                             <script>
                                 Idade.checked = true;
+                                
+                                const combobox = document.getElementById('idadeCombo');
+                                for (let i = 0; i < combobox.options.length; i++) {
+                                  const option = combobox.options[i];
+
+                                  // Verificando se o valor da opção corresponde ao valor do banco
+                                  if (option.value === str_replace('Idade: ','',$des)) {
+                                    // Definindo a opção como selecionada
+                                    option.selected = true;
+                                    break;
+                                  }
+                                }
                             </script>
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
