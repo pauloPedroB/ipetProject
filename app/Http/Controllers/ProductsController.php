@@ -235,6 +235,8 @@ class ProductsController extends Controller
     public function show($id,$prod = 'false'){
         $user = auth()->user();
         $Enderecos = Endereco::all();
+        $user = auth()->user();   
+        $Loja = Loja::where([['user_id','=',$user->id]])->first();
         if($prod != 'false' && $user->AL_id != 1)
         {
             $product = Product::findOrFail($id);
