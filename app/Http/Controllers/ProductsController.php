@@ -330,7 +330,7 @@ class ProductsController extends Controller
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
                     'categories'=>$categories]);
     }
-    public function destroy($id){
+    public function destroy($id, Request $request){
         $user = auth()->user();
         if($user->AL_id != 3){
             productsLoja::findOrFail($id)->delete();
