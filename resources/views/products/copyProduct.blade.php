@@ -27,9 +27,22 @@
                             <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                         </a>
                     </div>
-                    <div id="input-container">
-                        <input type="text" id="search" name="search" class="form-control"
-                            placeholder="Buscar Item ou Loja...">
+                    <div class="form-control ">
+                        <form class="d-flex flex-row" action="/produto/disponiveis" method="get">
+                            <div class="me-5">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search" name="search" 
+                                placeholder= "Buscar Produto...">
+                            </div>
+                            <div class="ms-5">
+                                <select name="Category" id="Category">
+                                    <option value="all">Todos</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->name}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form>
                     </div>
                     <div>
                         <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -85,62 +98,13 @@
                         </div>
                     </div>
             </nav>
-            <div class="carousel-caption1">
-                <form action="/" method="GET">
-                    <select name="Category" id="Category">
-                        <option value="all">Todos</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->name}}">{{$category->name}}</option>
-                        @endforeach
-
-                    </select>
-            </div>
         </div>
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 9f65e09b7a1cfb76f3b690710f01e667afa64de5
         {{-- fim --}}
 
     </header>
 
-    <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" data-bs-interval="500">
-            <div class="carousel-item active ">
-                <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5
-                        " alt="...">
-                <img src="/img/pet-supplies/6858348-cell.jpg" class="img-fluid w-100 h-screen d-block d-sm-none p-2 m-0
-                                        " alt="...">
-
-            </div>
-            <div class="carousel-item">
-                <img src="/img/pet-care/3828509.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
-                    alt="...">
-                <img src="/img/pet-care/3828509-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
-
-            </div>
-            <div class="carousel-item">
-                <img src="/img/pet-cools/3906953.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
-                    alt="...">
-                <img src="/img/pet-cools/3906953-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev m-5" type="button" data-bs-target="#carouselIpet" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next m-5" type="button" data-bs-target="#carouselIpet" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    
     <div id="products-container" class="col-md-12" >
         @if($search)
             <h2>Buscando por: {{$search}}</h2>
@@ -153,9 +117,11 @@
     
                 @php
                     $count = false;
+                    $id = 0;
                     foreach($myproducts as $myproduct){
                             if($myproduct->Product_id == $product->id){
                                 $count = true;
+                                $id = $myproduct->id;
                                 break;
                             }
                         }
@@ -165,7 +131,12 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
-                                    <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
+                                <form action="/produtos/{{$id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" name="ond" style="display: none" value="true">
+                                    <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
+                                </form>
                                 @else
                                     <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
                                 @endif

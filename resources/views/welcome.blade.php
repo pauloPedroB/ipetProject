@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ipet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,18 +30,19 @@
                             <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                         </a>
                     </div>
-                    <div class="form-control">
-                        <form action="" method="get">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="search" name="search" 
-                            placeholder= "Buscar Item ou Loja...">
-                            <div>
+                    <div class="form-control ">
+                        <form class="d-flex flex-row" action="" method="get">
+                            <div class="me-5">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search" name="search" 
+                                placeholder= "Buscar Produto...">
+                            </div>
+                            <div class="ms-5">
                                 <select name="Category" id="Category">
                                     <option value="all">Todos</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->name}}">{{$category->name}}</option>
                                     @endforeach
-            
                                 </select>
                             </div>
                         </form>
@@ -154,7 +158,7 @@
         @if ($search)
         <h2>Buscando por: {{ $search }}</h2>
         @else
-        <h2>Produtos/Comércios</h2>
+        <h2>Produtos</h2>
         @endif
         <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">

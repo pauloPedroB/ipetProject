@@ -17,7 +17,7 @@
                             <div class="card-dados" >
                                 <h1 class="title-payment">Escolha a forma de pagamento:</h1>
                                 <div class="container-option">
-                                    <a href="/payment"><i class="fa-regular fa-credit-card" style="color: #ee5253;"></i></a>
+                                    <a href="/payment"><i class="fa-regular fa-credit-card" style="color: #d40f0f;"></i></a>
                                     <p>Débito/Crédito</p>
                                     <a href="/pix"><i class="fa-brands fa-pix"></i></a>
                                     <p>PIX</p>

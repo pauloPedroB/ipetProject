@@ -11,7 +11,7 @@
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}" @if ($product->category_id == $category->id) selected @endif>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -19,8 +19,9 @@
                     <label for="title">Imagem do Produto: </label>
                     <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
                      <div id="imageforProduct">
-                        <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width: 100px;">
+                        <img id="imagem-preview" src="/img/products/{{$product->Image}}" alt="Imagem selecionada" style="width: 100px;">
                     </div>
+                   
                 </div>
                 <div class="form-group">
                     <label for="title">Nome:</label>
@@ -37,6 +38,43 @@
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
+                    @foreach($description as $des)
+                        @if (strpos($des, 'Idade: ') !== false)
+                            <select name="idadeCombo" id="idadeCombo" class="form-control" required>
+                                <option value="Filhote" @if (str_replace('Idade: ', '', $des) === 'Filhote') selected @endif>Filhote</option>
+                                <option value="Adulto" @if (str_replace('Idade: ', '', $des) === 'Adulto') selected @endif>Adulto</option>
+                            </select>
+                            <script>
+                                Idade.checked = true;
+                            </script>
+                        @endif
+                        @if (strpos($des, 'Pet: ') !== false)
+                            <select name="petCombo" id="petCombo" class="form-control" value="{{str_replace('Pet: ','',$des)}}" required>
+                                <option value="Cachorro" @if (str_replace('Pet: ', '', $des) === 'Cachorro') selected @endif>Cachorro</option>
+                                <option value="Gato" @if (str_replace('Pet: ', '', $des) === 'Gato') selected @endif>Gato</option>
+                                <script>
+                                    Pet.checked = true;
+                                </script>
+                            </select>
+                        @endif
+                        @if (strpos($des, 'Porte: ') !== false)
+                            <select name="porteCombo" id="porteCombo" class="form-control" value="{{str_replace('Porte: ','',$des)}}" required>
+                                <option value="Pequeno" @if (str_replace('Porte: ', '', $des) === 'Pequeno') selected @endif>Pequeno</option>
+                                <option value="Medio" @if (str_replace('Porte: ', '', $des) === 'Medio') selected @endif>Medio</option>
+                                <option value="Grande" @if (str_replace('Porte: ', '', $des) === 'Grande') selected @endif>Grande</option>
+                                <script>
+                                    Porte.checked = true;
+                                </script>
+                            </select>
+                        @endif
+                        
+                        @if (strpos($des, 'Apresentação: ') !== false)
+                            <input name="Apresentacaoinput" id="Apresentacaoinput" class="form-control" type="text" placeholder="Ex: Disponível em embalagens de 3kg e 15kg" value="{{str_replace('Apresentação: ','',end($description))}}" required>
+                            <script>
+                                Apresentacao.checked = true;
+                            </script>
+                        @endif
+                    @endforeach
                 </div>
                 <script>
                     function mostrarImagem(){

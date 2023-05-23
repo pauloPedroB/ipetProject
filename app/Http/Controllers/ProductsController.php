@@ -66,10 +66,11 @@ class ProductsController extends Controller
         
         $search = request('search');
         $category = request('Category');
-        if($search){
-            if($category == 'all'){
+        if($category == 'all'){
                 $category = "";
             }
+        if($search){
+            
             $premiumProducts = productsLoja::join('products','products.id','=','Product_id')
                                             ->join('users','products.user_id','=','users.id')
                                             ->join('lojas','lojas.id','=','Loja_id')
@@ -145,11 +146,11 @@ class ProductsController extends Controller
         }
         $search = request('search');
         $category = request('Category');
-
-        if($search){
-            if($category == 'all'){
+         if($category == 'all'){
                 $category = "";
             }
+        if($search){
+           
             $products = Product::where([['products.Name','like','%'.$search.'%']])
             ->join('users','products.user_id','=','users.id')
             ->join('categories','categories.id','=','products.category_id')
@@ -163,11 +164,12 @@ class ProductsController extends Controller
             $products = Product::join('users','products.user_id','=','users.id')
                                 ->join('categories','categories.id','=','products.category_id')
                                 ->where('users.AL_id','=',3)
+                                ->where([['categories.name','like','%'.$category.'%']])
                                 ->select('users.id as id_U','products.id as id','products.Name','Image','User_id')
                                 ->get();
         }
         $categories = Category::all();
-        return view('products.copyProduct',['categories'=>$categories,'products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false]);
+        return view('products.copyProduct',['categories'=>$categories,'products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false,'id'=>0]);
     }
     public function copy($id){
         $user = auth()->user();
@@ -183,7 +185,7 @@ class ProductsController extends Controller
 
         
         $newProduct->save();
-
+        
         return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
     }
     public function store(Request $request){
@@ -235,11 +237,26 @@ class ProductsController extends Controller
     public function show($id,$prod = 'false'){
         $user = auth()->user();
         $Enderecos = Endereco::all();
+        $Loja = Loja::where([['user_id','=',$user->id]])->first();
         if($prod != 'false' && $user->AL_id != 1)
         {
             $product = Product::findOrFail($id);
             $description = explode('<!i!i>',$product->Description);
-            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod]);
+            $my = false;
+            $myId = 0;
+            if($user->AL_id == 2)
+            {
+                $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
+                foreach($myproducts as $myproduct){
+                    if($myproduct->Product_id == $product->id){
+                        $myId = $myproduct->id;
+                        $my = true;
+                    }
+                }
+            }
+           
+
+            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my,'myId'=>$myId]);
 
         }
         else{
@@ -330,7 +347,7 @@ class ProductsController extends Controller
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
                     'categories'=>$categories]);
     }
-    public function destroy($id){
+    public function destroy($id, Request $request){
         $user = auth()->user();
         if($user->AL_id != 3){
             productsLoja::findOrFail($id)->delete();
@@ -338,13 +355,18 @@ class ProductsController extends Controller
         else{
             Product::findOrFail($id)->delete();
         }
+        if($request->ond)
+        {
+            return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
+        }
         return redirect('/dashboard')->with('msg','Produto excluído com sucesso!');
     }
     public function edit($id){
         $product=Product::findOrFail($id);
         $User = auth()->user();
         $categories = Category::all();
-        return view('products.edit',['product' => $product,'User'=>$User,'categories'=>$categories]);
+        $description = explode('<!i!i>',$product->Description);
+        return view('products.edit',['product' => $product,'User'=>$User,'categories'=>$categories,'description'=>$description]);
     }
     public function update(Request $request){
         $idade = '';

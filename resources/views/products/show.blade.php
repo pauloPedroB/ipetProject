@@ -12,39 +12,53 @@
             <p class="product-Category">{{$product->name}}</p>
             <br>
 
+            @if($prod == 'false')
+                <p>Avaliação da Loja:</p>
 
-            <p>Avaliação da Loja:</p>
-            <div class="stars">
-                @if($prod == 'false')
+                <div class="stars">
 
-                @if($sum>=0.4)
-                <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
-                @else
-                <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @if($sum>=0.4)
+                        <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=1.4)
+                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=2.4)
+                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=3.4)
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=4.4)
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                </div>
+            @else
+                @if($user->AL_id == 2)
+                    @if($my == false)
+                        <form action="/produto/copiar/{{$product->id}}">
+                            <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
+                        </form>
+                    @else
+                        <form action="/produtos/{{$myId}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button id="maps" type="submit" style="background-color: red; border-color: red">Remover produto</button>
+                        </form>
+                    @endif
                 @endif
-                @if($sum>=1.4)
-                <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=2.4)
-                <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=3.4)
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=4.4)
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @endif
-            </div>
-                
+            @endif
+            
                 
             <br>
             @foreach($Enderecos as $Endereco)

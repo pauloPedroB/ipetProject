@@ -115,7 +115,7 @@
         </div>
     </main>
     <footer>
-        <div class="footer-content">
+        <div class="footer-content mt-1">
             <h3>IPET DEVELOPMENT &copy; 2023</h3>
             <ul class="contacts">
                 <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>

@@ -68,6 +68,9 @@ header {
 .navbar {
     padding-bottom: 0;
 }
+.nav-link{
+    font-family: 'Pangolin', cursive;
+}
 
 .navbar-expand-lg {
     display: flex;
@@ -523,6 +526,9 @@ footer {
         margin-top: 10px;
     }
 
+    #carouselIpet{
+        margin-top:4rem;
+    }
     #title_change {
         width: 100%;
         text-align: center;
@@ -619,6 +625,9 @@ footer {
         margin-top: 10px;
     }
 
+    #carouselIpet{
+        margin-top:4rem;
+    }
     #title_change {
         text-align: center;
 
@@ -763,8 +772,11 @@ footer {
 
 }
 
-#products-container{
-    width: 100%;
+
+/*tabelas categorias / produtos */
+
+#table-container{
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -772,37 +784,54 @@ footer {
     gap: 1rem;
 }
 
-
-#products-container h1{
+#table-container h1{
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
     color: #FFC05F;
 }
 
-/* categorias */
-
-#table-categories{
-    width: 80%;
+.table{
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
     font-size: 1rem;
 }
 
-#table-categories tr td{
+.table tr td{
     padding: 1rem;
+    text-decoration: none;
 }
 
-
-#table-categories tr th{
+.table tr th{
     padding: 1rem;
+    color:  #ffc05f;
 }
 
+.button-products{
+    display: flex; 
+    width: 100%;
+    flex-direction: row; 
+    justify-content:center; 
+    align-items:center; 
+    gap:1rem;
+} 
 
-.btn-edit{
-    width: 20rem;
+.button-products a{
+    width: 10vw;
+    text-decoration: none;
 }
+
+.button-products button{
+    width: 10vw;
+}
+
+.button-products span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .add-categories{
     width: 80%;
@@ -927,6 +956,33 @@ footer {
     font-weight: bold;
 }
 
+#card_pacote{
+    width: 20rem;
+    height:max-content;
+    background-color: #DBF0E1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: solid 2px #ffffff;
+}
+
+#card_pacote:hover{
+    border: solid 2px #d40f0f;
+    color: #d40f0f;
+}
+
+#card_pacote_premiun{
+    width: 20rem;
+    height:max-content;
+    background-color: #DBF0E1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: solid 2px #ffffff;
+}
+
+#card_pacote_premiun:hover{
+    border: solid 2px #45f170;
+    color: #1db844;
+}
 
 /* tela de adicionar produtos */
 
@@ -1099,7 +1155,7 @@ footer {
 .confirmation button{
     width:40%;
     color: white;
-    background-color: #ee5253;
+    background-color: #d40f0f;
     border-radius: 10px;
     padding:0.5rem;
     border: none;
