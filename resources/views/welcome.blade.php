@@ -168,7 +168,7 @@
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
                     <p class="card-date">19/03/2023</p>
-                    <h5 class="card-title">{{ $product->Name }}</h5>
+                    <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
                         @auth
                         @if($User->AL_id !=3)
@@ -198,7 +198,7 @@
                             <div class="card-information"> 
                             <p class="card-path">Mais próximo de você</p>
                                 <p class="card-date">19/03/2023</p>
-                                <h5 class="card-title">{{ $product->Name }}</h5>
+                                <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                                 <p class="card-distance">
                                     @auth
                                     @if($User->AL_id !=3)
@@ -247,6 +247,9 @@
       if (titles.innerText.length > 29) {
         titles.innerText = titles.innerText.substring(0, 29)+"...";
       }
+    </script>
+    <script>
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
