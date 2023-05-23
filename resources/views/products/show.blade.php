@@ -46,8 +46,7 @@
             @else
                 @if($user->AL_id == 2)
                     @if($my == false)
-                        <form action="/produto/copiar/{{$product->id}}" method="POST">
-                            @csrf
+                        <form action="/produto/copiar/{{$product->id}}">
                             <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
                         </form>
                     @else
