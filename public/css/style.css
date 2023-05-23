@@ -723,6 +723,7 @@ footer {
 
 .table tr td{
     padding: 1rem;
+    text-decoration: none;
 }
 
 .table tr th{
@@ -741,6 +742,7 @@ footer {
 
 .button-products a{
     width: 10vw;
+    text-decoration: none;
 }
 
 .button-products button{
