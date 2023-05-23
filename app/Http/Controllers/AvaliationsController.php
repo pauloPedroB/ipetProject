@@ -36,7 +36,7 @@ class AvaliationsController extends Controller
                         $avaliation->Loja_id = $request->loja;
                         $avaliation->Usuario_id = $usu->id;
                         $avaliation->save();
-                        return redirect('/produto/2')->with('msg','Avaliação enviada');
+                        return redirect('/produto'.'/'.$id)->with('msg','Avaliação enviada');
 
                     }
                 }
