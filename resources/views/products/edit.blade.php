@@ -40,6 +40,7 @@
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
+                        teste
                             <select name="idadeCombo" id="idadeCombo" class="form-control" required>
                                 <option value="Filhote" @if (str_replace('Idade: ', '', $des) === 'Filhote') selected @endif>Filhote</option>
                                 <option value="Adulto" @if (str_replace('Idade: ', '', $des) === 'Adulto') selected @endif>Adulto</option>
