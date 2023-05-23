@@ -169,6 +169,7 @@
                                 <form action="/produtos/{{$id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
+                                    <input type="text" name="ond" style="display: none">
                                     <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
                                 </form>
                                 @else
