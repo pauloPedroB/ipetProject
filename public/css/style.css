@@ -725,6 +725,16 @@ footer {
     padding: 1rem;
 }
 
+.button-products{
+    display: flex; 
+    flex-direction: row; 
+    justify-content:center; 
+    align-items:center; 
+    gap:15px;
+}
+
+
+
 
 .btn-edit{
     width: 20rem;
@@ -755,14 +765,6 @@ footer {
 
 
 /* produtos */
-
-.button-products{
-    display: flex; 
-    flex-direction: row; 
-    justify-content:center; 
-    align-items:center; 
-    gap:15px;
-}
 
 
 /* cadastro loja */

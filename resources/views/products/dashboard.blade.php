@@ -74,7 +74,7 @@
                                 <td><p>{{$category->name}}</p></td>
                                 <td class="button-products">
                                     @if($user->AL_id ==3)
-                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg " style="" ><span class="material-symbols-outlined align-middle ">edit</span></a>
+                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg " ><span class="material-symbols-outlined align-middle ">edit</span></a>
                                 @endif
                                     <form action="/categoria/{{$category->id}}" method="POST">
                                         @csrf
