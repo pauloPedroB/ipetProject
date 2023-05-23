@@ -241,18 +241,20 @@ class ProductsController extends Controller
             $product = Product::findOrFail($id);
             $description = explode('<!i!i>',$product->Description);
             $my = false;
+            $myId = 0;
             if($user->AL_id == 2)
             {
                 $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
                 foreach($myproducts as $myproduct){
                     if($myproduct->Product_id == $product->id){
+                        $myId = $myproduct->id;
                         $my = true;
                     }
                 }
             }
            
 
-            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my]);
+            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my,'myId'=>$myId]);
 
         }
         else{
