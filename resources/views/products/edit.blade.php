@@ -44,13 +44,16 @@
                                 <option value="Adulto">Adulto</option>
                             </select>
                             <script>
-                                
+                                Idade.checked = true;
                             </script>
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
                             <select name="petCombo" id="petCombo" class="form-control" required>
                                 <option value="Cachorro">Cachorro</option>
                                 <option value="Gato">Gato</option>
+                                <script>
+                                    Pet.checked = true;
+                                </script>
                             </select>
                         @endif
                         @if (strpos($des, 'Porte: ') !== false)
@@ -58,10 +61,16 @@
                                 <option value="Pequeno">Pequeno</option>
                                 <option value="Medio">Medio</option>
                                 <option value="Grande">Grande</option>
+                                <script>
+                                    Porte.checked = true;
+                                </script>
                             </select>
                         @endif
                         @if (strpos($des, 'Apresentação: ') !== false)
                             <input name="Apresentacaoinput" id="Apresentacaoinput" class="form-control" type="text" placeholder="Ex: Disponível em embalagens de 3kg e 15kg" value="{{$product->Description}}" required>
+                            <script>
+                                Apresentacao.checked = true;
+                            </script>
                         @endif
                     @endforeach
                 </div>

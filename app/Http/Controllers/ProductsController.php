@@ -240,10 +240,10 @@ class ProductsController extends Controller
         {
             $product = Product::findOrFail($id);
             $description = explode('<!i!i>',$product->Description);
+            $my = false;
             if($user->AL_id == 2)
             {
                 $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
-                $my = false;
                 foreach($myproducts as $myproduct){
                     if($myproduct->Product_id == $product->id){
                         $my = true;
