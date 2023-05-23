@@ -46,11 +46,11 @@
             @else
                 @if($my == false)
                     <form action="/produto/copiar/{{$product->id}}">
-                        <button id="maps" type="submit">Adicionar a minha loja</button>
+                        <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
                     </form>
                 @else
                     <form action="/produto/copiar/{{$product->id}}">
-                        <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
+                        <button id="maps" type="submit" style="background-color: red; border-color: red">Remover produto</button>
                     </form>
                 @endif
             @endif
