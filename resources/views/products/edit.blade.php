@@ -43,6 +43,9 @@
                                 <option value="Filhote">Filhote</option>
                                 <option value="Adulto">Adulto</option>
                             </select>
+                            <script>
+                                
+                            </script>
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
                             <select name="petCombo" id="petCombo" class="form-control" required>
