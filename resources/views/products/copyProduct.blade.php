@@ -166,13 +166,13 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
-                                <form action="/produtos/{{$product->id}}" method="POST">
+                                <form action="/produtos/{{$id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
                                 </form>
                                 @else
-                                    <a href="/produto/copiar/{{$id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
+                                    <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
                                 @endif
                                 <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                             </div>
