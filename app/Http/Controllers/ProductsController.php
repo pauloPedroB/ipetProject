@@ -167,7 +167,7 @@ class ProductsController extends Controller
                                 ->get();
         }
         $categories = Category::all();
-        return view('products.copyProduct',['categories'=>$categories,'products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false]);
+        return view('products.copyProduct',['categories'=>$categories,'products'=>$products,'search' => $search,'myproducts'=>$myproducts,'count'=>false,'id'=>0]);
     }
     public function copy($id){
         $user = auth()->user();

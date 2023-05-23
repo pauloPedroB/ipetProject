@@ -27,9 +27,22 @@
                             <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
                         </a>
                     </div>
-                    <div id="input-container">
-                        <input type="text" id="search" name="search" class="form-control"
-                            placeholder="Buscar Item ou Loja...">
+                    <div class="form-control ">
+                        <form class="d-flex flex-row" action="/produto/disponiveis" method="get">
+                            <div class="me-5">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search" name="search" 
+                                placeholder= "Buscar Produto...">
+                            </div>
+                            <div class="ms-5">
+                                <select name="Category" id="Category">
+                                    <option value="all">Todos</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->name}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form>
                     </div>
                     <div>
                         <button id="btnToogle" class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -85,16 +98,6 @@
                         </div>
                     </div>
             </nav>
-            <div class="carousel-caption1">
-                <form action="/" method="GET">
-                    <select name="Category" id="Category">
-                        <option value="all">Todos</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->name}}">{{$category->name}}</option>
-                        @endforeach
-
-                    </select>
-            </div>
         </div>
         
         {{-- fim --}}
@@ -149,9 +152,11 @@
     
                 @php
                     $count = false;
+                    $id = 0;
                     foreach($myproducts as $myproduct){
                             if($myproduct->Product_id == $product->id){
                                 $count = true;
+                                $id = $myproduct->id;
                                 break;
                             }
                         }
@@ -161,9 +166,13 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
-                                    <a href="" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Já adicionado</a>
+                                <form action="/produtos/{{$product->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
+                                </form>
                                 @else
-                                    <a href="/produto/copiar/{{$product->id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
+                                    <a href="/produto/copiar/{{$id}}" class="btn btn-primary" id='adc{{$product->id}}'>Adicionar à sua loja</a>
                                 @endif
                                 <a href="/produto/{{$product->id}}/true" class="btn btn-primary">Visualizar Produto</a>
                             </div>

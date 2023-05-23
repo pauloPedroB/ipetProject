@@ -3,7 +3,7 @@
 @section('content')
 
 {{-- container --}}
-    <div class=" container-fluid" style="background-color: #ffff">
+    <form class=" container-fluid" style="background-color: #ffff" action="/premium">
         
         <section id="content-payment">
             <div class="payment-dados">
@@ -38,7 +38,7 @@
             <button>Confirmar Pagamento</button>
             <p>*Aprovação imediata*</p>
         </div>
-    </div>
+    </form>
                
 
     <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
