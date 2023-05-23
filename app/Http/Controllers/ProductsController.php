@@ -164,6 +164,7 @@ class ProductsController extends Controller
             $products = Product::join('users','products.user_id','=','users.id')
                                 ->join('categories','categories.id','=','products.category_id')
                                 ->where('users.AL_id','=',3)
+                                ->where([['categories.name','like','%'.$category.'%']])
                                 ->select('users.id as id_U','products.id as id','products.Name','Image','User_id')
                                 ->get();
         }
