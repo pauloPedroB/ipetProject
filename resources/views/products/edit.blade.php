@@ -11,7 +11,7 @@
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}" @if (str_replace('Idade: ', '', $category) === 'Filhote') selected @endif>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
