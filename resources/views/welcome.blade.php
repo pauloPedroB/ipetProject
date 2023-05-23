@@ -247,9 +247,9 @@
     </script>
     <script>
         const titles = document.getElementById("card-title");
-        if (titles.innerText.length > 29) {
-            titles.innerText = titles.innerText.substring(0, 29)+"...";
-        }
+        var textoH5 = titles.textContent;
+        var textoCortado = textoH5.substring(0, 29);
+        titles.textContent = textoCortado;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
