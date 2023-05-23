@@ -979,23 +979,19 @@ footer {
     color: #1db844;
 }
 
-/* tela de adicionar produtos */
-
 #event-create-container {
     display: flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
     margin: 0;
-    margin-top: 2rem;
-    background-color: #ffff;
-    padding: 2rem;
+    padding-top: 15rem !important;
 }
 
 #event-create-container h1{
     color: #F29200;
+    font-weight: bold;
     text-align:justify;
 }
 
