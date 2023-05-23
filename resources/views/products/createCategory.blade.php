@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Adicionar categoria')
 @section('content')
-    <div id="event-create-container" class="col-md-6 offset-md-3">
+    <div id="event-create-container">
         @if($User->Endereco_id != null || $User->AL_id ==3)
             <h1>Adicionar Categoria</h1>
             <form action="/categoria" method="POST" enctype="multipart/form-data">
