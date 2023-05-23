@@ -72,7 +72,7 @@
                             <tr>
                                 <td scope="row">{{$loop->index+1}}</td>
                                 <td><p>{{$category->name}}</p></td>
-                                <td class="button-products" style="display: flex; flex-direction: row; justify-content:center; align-items:center; gap:15px;">
+                                <td class="button-products" style="">
                                     @if($user->AL_id ==3)
                                     <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg " style="padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">edit</span></a>
                                 @endif

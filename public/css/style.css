@@ -709,10 +709,7 @@ footer {
     color: #FFC05F;
 }
 
-/* Tabelas - Produtos / Categorias */
-
 .table{
-    width: 50%;
     text-align: center;
     justify-content: center;
     background-color: #F2F2F2;
@@ -760,8 +757,11 @@ footer {
 /* produtos */
 
 .button-products{
-    display: flex ;
-    align-items: column;
+    display: flex; 
+    flex-direction: row; 
+    justify-content:center; 
+    align-items:center; 
+    gap:15px;
 }
 
 
