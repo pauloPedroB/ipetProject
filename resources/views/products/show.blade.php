@@ -91,6 +91,7 @@
                     <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5" style="width: 50px"></a>
                     <form action="/avaliar" method="POST">
                         @csrf
+                        <input type="hidden" name="product" id="rating" value="{{$id}}">
                         <input type="hidden" name="value" id="rating" value="0">
                         <input type="hidden" name="loja" value="{{$product->id_Loja}}">
                         <label for="avaliacao">Elogio, sugestão ou reclamação:</label>

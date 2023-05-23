@@ -13,7 +13,7 @@ class AvaliationsController extends Controller
 {
     public function create(Request $request){
         $User = auth()->user();
-
+        $id = $request->product;
         $usuario = Usuario::where([
             [
                 'user_id','=',$User->id
@@ -27,7 +27,7 @@ class AvaliationsController extends Controller
                                         ->where('Loja_id','=',$request->loja)
                                         ->get();
                     if(count($av)>0){
-                        return redirect('/produto/2')->with('msg','Você já fez uma Avaliação para essa loja');
+                        return redirect('/produto'.'/'.$id)->with('msg','Você já fez uma Avaliação para essa loja');
                     }
                     else{
                         $avaliation = new Avaliation;
@@ -36,7 +36,7 @@ class AvaliationsController extends Controller
                         $avaliation->Loja_id = $request->loja;
                         $avaliation->Usuario_id = $usu->id;
                         $avaliation->save();
-                        return redirect('/produto/2')->with('msg','Avaliação enviada');
+                        return redirect('/produto'.'/'.$id)->with('msg','Avaliação enviada');
 
                     }
                 }

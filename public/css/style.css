@@ -811,7 +811,7 @@ footer {
 .button-products{
     display: flex; 
     width: 100%;
-    flex-direction: row; 
+    flex-direction:row; 
     justify-content:center; 
     align-items:center; 
     gap:1rem;
@@ -874,11 +874,6 @@ footer {
     justify-content: center;
     background-color: #F2F2F2;
     font-size: 1rem;
-}
-
-.button-products{
-    display: block ;
-    align-items: column;
 }
 
 
@@ -984,29 +979,26 @@ footer {
     color: #1db844;
 }
 
-/* tela de adicionar produtos */
-
 #event-create-container {
     display: flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
     margin: 0;
-    margin-top: 2rem;
-    background-color: #ffff;
-    padding: 2rem;
+    padding-top: 15rem !important;
+    gap: 2rem;
 }
 
 #event-create-container h1{
     color: #F29200;
+    font-weight: bold;
     text-align:justify;
 }
 
 
 #event-create-container form {
-    margin: 2rem;
+    width: 50%;
 }
 
 #category {
