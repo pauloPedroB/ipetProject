@@ -730,17 +730,17 @@ footer {
 
 .button-products{
     display: flex; 
-    flex-direction: column; 
+    flex-direction: row; 
     justify-content:center; 
     align-items:center; 
-    gap:2rem;
-}
+    gap:4rem;
+} 
 
 
 
-
+/* 
 .btn-edit{ 
-    width: 50%;
+    width: 50;
     padding-left: 4rem; 
     padding-right: 2rem;
 }
@@ -750,7 +750,7 @@ footer {
     padding-left: 2rem; 
     padding-right: 2rem;
 }
-
+ */
 
 .add-categories{
     width: 80%;
