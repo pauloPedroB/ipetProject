@@ -282,7 +282,7 @@ class ProductsController extends Controller
                         $sum = 0;
                     }
                     $description = explode('<!i!i>',$product->Description);
-                    return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'sum'=>$sum,'prod'=>$prod]);
+                    return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'sum'=>$sum,'prod'=>$prod,'id'=>$id]);
                 }
             }
         }
