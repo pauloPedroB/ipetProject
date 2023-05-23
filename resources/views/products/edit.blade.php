@@ -41,8 +41,8 @@
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
                             <select name="idadeCombo" id="idadeCombo" class="form-control" required>
-                                <option value="Filhote">Filhote</option>
-                                <option value="Adulto">Adulto</option>
+                                <option value="Filhote" @if (str_replace('Idade: ', '', $des) === 'Filhote') selected @endif>Filhote</option>
+                                <option value="Adulto" @if (str_replace('Idade: ', '', $des) === 'Adulto') selected @endif>Adulto</option>
                             </select>
                             <script>
                                 Idade.checked = true;
