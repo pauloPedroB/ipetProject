@@ -74,12 +74,12 @@
                                 <td><p>{{$category->name}}</p></td>
                                 <td class="button-products" style="">
                                     @if($user->AL_id ==3)
-                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg btn-edit "><span class="material-symbols-outlined align-middle ">edit</span></a>
+                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg"><span class="material-symbols-outlined align-middle ">edit</span></a>
                                 @endif
                                     <form action="/categoria/{{$category->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-lg btn-delete"><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                        <button type="submit" class="btn btn-danger btn-lg"><span class="material-symbols-outlined align-middle ">delete</span></button>
                                     </form>
                                 </td>
                             </tr>
@@ -104,18 +104,18 @@
                             <tr>
                                 <td scope="row">{{$loop->index+1}}</td>
                                 @if($user->AL_id ==2)
-                                    <td><a href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
+                                    <td><a class="text-decoration-none" href="/produto/{{$product->id}}">{{$product->Name}}</a></td>
                                 @else
-                                    <td><a href="/produto/{{$product->id}}/true">{{$product->Name}}</a></td>
+                                    <td><a class="text-decoration-none" href="/produto/{{$product->id}}/true">{{$product->Name}}</a></td>
                                 @endif
-                                <td class="button-products" style="display: flex; flex-direction: row; justify-content:center; width: 100%; align-items:center; gap:15px;">
+                                <td class="button-products">
                                     @if($user->AL_id ==3)
-                                    <a href="/produtos/edit/{{$product->id}}" class="btn btn-warning"  style="padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle">edit</span></a>
+                                    <a href="/produtos/edit/{{$product->id}}" class="btn btn-warning"><span class="material-symbols-outlined align-middle">edit</span></a>
                                     @endif
                                     <form class="" action="/produtos/{{$product->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" style="width: 100%; padding-left: 2rem; padding-right: 2rem;" ><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                        <button type="submit" class="btn btn-danger" ><span class="material-symbols-outlined align-middle ">delete</span></button>
                                     </form>
                                 </td>
                             </tr>
