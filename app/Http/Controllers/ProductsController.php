@@ -146,11 +146,11 @@ class ProductsController extends Controller
         }
         $search = request('search');
         $category = request('Category');
-
-        if($search){
-            if($category == 'all'){
+         if($category == 'all'){
                 $category = "";
             }
+        if($search){
+           
             $products = Product::where([['products.Name','like','%'.$search.'%']])
             ->join('users','products.user_id','=','users.id')
             ->join('categories','categories.id','=','products.category_id')
