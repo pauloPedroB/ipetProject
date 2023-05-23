@@ -104,42 +104,7 @@
 
     </header>
 
-    <div id="carouselIpet" class="carousel slide " data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselIpet" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" data-bs-interval="500">
-            <div class="carousel-item active ">
-                <img src="/img/pet-supplies/6858348.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5
-                        " alt="...">
-                <img src="/img/pet-supplies/6858348-cell.jpg" class="img-fluid w-100 h-screen d-block d-sm-none p-2 m-0
-                                        " alt="...">
-
-            </div>
-            <div class="carousel-item">
-                <img src="/img/pet-care/3828509.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
-                    alt="...">
-                <img src="/img/pet-care/3828509-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
-
-            </div>
-            <div class="carousel-item">
-                <img src="/img/pet-cools/3906953.jpg" class="img-fluid rounded-4 w-100 d-none d-sm-block ps-5 pe-5"
-                    alt="...">
-                <img src="/img/pet-cools/3906953-cell.jpg" class="img-fluid  w-100 d-block d-sm-none p-2 m-0" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev m-5" type="button" data-bs-target="#carouselIpet" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next m-5" type="button" data-bs-target="#carouselIpet" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    
     <div id="products-container" class="col-md-12" >
         @if($search)
             <h2>Buscando por: {{$search}}</h2>
