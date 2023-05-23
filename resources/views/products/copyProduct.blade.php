@@ -152,9 +152,11 @@
     
                 @php
                     $count = false;
+                    $id = 0;
                     foreach($myproducts as $myproduct){
                             if($myproduct->Product_id == $product->id){
                                 $count = true;
+                                $id = $myproduct->id;
                                 break;
                             }
                         }
@@ -164,7 +166,7 @@
                             <h5 class="card-title">{{$product->Name}}</h5>
                             <div class="card-body">
                                 @if($count == true)
-                                <form action="/produtos/{{$product->id}}" method="POST">
+                                <form action="/produtos/{{$id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
