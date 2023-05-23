@@ -50,7 +50,7 @@
                     </form>
                 @else
                     <form action="/produto/copiar/{{$product->id}}">
-                        <button id="maps" type="submit">Adicionar a minha loja</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: chartreuse; border-color: chartreuse">Remover produto</button>
                     </form>
                 @endif
             @endif
