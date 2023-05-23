@@ -64,6 +64,9 @@ header {
 .navbar {
     padding-bottom: 0;
 }
+.nav-link{
+    font-family: 'Pangolin', cursive;
+}
 
 .navbar-expand-lg {
     display: flex;
