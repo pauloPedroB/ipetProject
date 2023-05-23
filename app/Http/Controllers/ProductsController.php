@@ -235,19 +235,22 @@ class ProductsController extends Controller
     public function show($id,$prod = 'false'){
         $user = auth()->user();
         $Enderecos = Endereco::all();
-        $user = auth()->user();   
         $Loja = Loja::where([['user_id','=',$user->id]])->first();
         if($prod != 'false' && $user->AL_id != 1)
         {
             $product = Product::findOrFail($id);
             $description = explode('<!i!i>',$product->Description);
-            $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
-            $my = false;
-            foreach($myproducts as $myproduct){
-                if($myproduct->Product_id == $product->id){
-                    $my = true;
+            if($user->AL_id == 2)
+            {
+                $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
+                $my = false;
+                foreach($myproducts as $myproduct){
+                    if($myproduct->Product_id == $product->id){
+                        $my = true;
+                    }
                 }
             }
+           
 
             return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my]);
 

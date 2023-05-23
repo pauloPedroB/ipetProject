@@ -44,14 +44,16 @@
                     @endif
                 </div>
             @else
-                @if($my == false)
-                    <form action="/produto/copiar/{{$product->id}}">
-                        <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
-                    </form>
-                @else
-                    <form action="/produto/copiar/{{$product->id}}">
-                        <button id="maps" type="submit" style="background-color: red; border-color: red">Remover produto</button>
-                    </form>
+                @if($user->AL_id == 2)
+                    @if($my == false)
+                        <form action="/produto/copiar/{{$product->id}}">
+                            <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar a minha loja</button>
+                        </form>
+                    @else
+                        <form action="/produto/copiar/{{$product->id}}">
+                            <button id="maps" type="submit" style="background-color: red; border-color: red">Remover produto</button>
+                        </form>
+                    @endif
                 @endif
             @endif
             
