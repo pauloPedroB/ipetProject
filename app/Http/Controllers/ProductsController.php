@@ -87,13 +87,13 @@ class ProductsController extends Controller
                                             ->get();
 
             if(count($premiumProducts) == 2){
-                $limit = 6;
+                $limit = 8;
             }
             else if(count($premiumProducts)==1){
-                $limit = 7;
+                $limit = 9;
             }
             else{
-                $limit = 8;
+                $limit = 10;
             }
             $products = productsLoja::join('products','products.id','=','Product_id')
                                     ->join('users','products.user_id','=','users.id')
