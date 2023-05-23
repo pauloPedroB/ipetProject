@@ -987,6 +987,7 @@ footer {
     width: 100%;
     margin: 0;
     padding-top: 15rem !important;
+    gap: 2rem;
 }
 
 #event-create-container h1{
@@ -997,7 +998,7 @@ footer {
 
 
 #event-create-container form {
-    margin: 2rem;
+    width: 50%;
 }
 
 #category {
