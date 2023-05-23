@@ -728,10 +728,29 @@ footer {
     padding: 1rem;
 }
 
-
-.btn-edit{
-    width: 20rem;
+.button-products{
+    display: flex; 
+    flex-direction: column; 
+    justify-content:center; 
+    align-items:center; 
+    gap:2rem;
 }
+
+
+
+
+.btn-edit{ 
+    width: 50%;
+    padding-left: 4rem; 
+    padding-right: 2rem;
+}
+
+.btn-delete{
+    width: 100%; 
+    padding-left: 2rem; 
+    padding-right: 2rem;
+}
+
 
 .add-categories{
     width: 80%;
@@ -758,14 +777,6 @@ footer {
 
 
 /* produtos */
-
-.button-products{
-    display: flex; 
-    flex-direction: row; 
-    justify-content:center; 
-    align-items:center; 
-    gap:15px;
-}
 
 
 /* cadastro loja */

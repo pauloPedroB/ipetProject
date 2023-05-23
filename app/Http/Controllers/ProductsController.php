@@ -183,7 +183,7 @@ class ProductsController extends Controller
 
         
         $newProduct->save();
-
+        
         return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
     }
     public function store(Request $request){
@@ -330,13 +330,17 @@ class ProductsController extends Controller
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
                     'categories'=>$categories]);
     }
-    public function destroy($id){
+    public function destroy($id, Request $request){
         $user = auth()->user();
         if($user->AL_id != 3){
             productsLoja::findOrFail($id)->delete();
         }
         else{
             Product::findOrFail($id)->delete();
+        }
+        if($request->ond)
+        {
+            return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
         }
         return redirect('/dashboard')->with('msg','Produto excluído com sucesso!');
     }

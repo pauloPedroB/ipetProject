@@ -67,9 +67,9 @@
                                 <ul class="navbar-nav justify-content-end flex-grow-1">
                                     @auth
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" id="nav-link">Bem
+                                        <h5><a href="#" class="nav-link" id="nav-link">Bem
                                             Vindo,
-                                            {{stristr(Auth::user()->email,"@", true)}}.</a>
+                                            {{stristr(Auth::user()->email,"@", true)}}.</a></h5>
                                     </li>
                                     @endauth
                                     <li class="nav-item">
