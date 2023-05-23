@@ -72,14 +72,14 @@
                             <tr>
                                 <td scope="row">{{$loop->index+1}}</td>
                                 <td><p>{{$category->name}}</p></td>
-                                <td class="button-products">
+                                <td class="button-products" style="">
                                     @if($user->AL_id ==3)
-                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg " ><span class="material-symbols-outlined align-middle ">edit</span></a>
+                                    <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg btn-edit " ><span class="material-symbols-outlined align-middle ">edit</span></a>
                                 @endif
                                     <form action="/categoria/{{$category->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-lg " style="width: 100%; padding-left: 2rem; padding-right: 2rem;"><span class="material-symbols-outlined align-middle ">delete</span></button>
+                                        <button type="submit" class="btn btn-danger btn-lg btn-delete"><span class="material-symbols-outlined align-middle ">delete</span></button>
                                     </form>
                                 </td>
                             </tr>
