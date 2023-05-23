@@ -695,6 +695,9 @@ footer {
 
 }
 
+
+/*tabelas categorias / produtos */
+
 #table-container{
     width: 80%;
     display: flex;
@@ -703,7 +706,6 @@ footer {
     align-items: center;
     gap: 1rem;
 }
-
 
 #table-container h1{
     font-size: 2rem;
@@ -722,7 +724,6 @@ footer {
 .table tr td{
     padding: 1rem;
 }
-
 
 .table tr th{
     padding: 1rem;
@@ -752,22 +753,6 @@ footer {
     justify-content: center;
 }
 
-
-
-
-/* 
-.btn-edit{ 
-    width: 50;
-    padding-left: 4rem; 
-    padding-right: 2rem;
-}
-
-.btn-delete{
-    width: 100%; 
-    padding-left: 2rem; 
-    padding-right: 2rem;
-}
- */
 
 .add-categories{
     width: 80%;
