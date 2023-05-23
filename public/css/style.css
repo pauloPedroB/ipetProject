@@ -726,15 +726,32 @@ footer {
 
 .table tr th{
     padding: 1rem;
+    color:  #ffc05f;
 }
 
 .button-products{
     display: flex; 
+    width: 100%;
     flex-direction: row; 
     justify-content:center; 
     align-items:center; 
-    gap:4rem;
+    gap:1rem;
 } 
+
+.button-products a{
+    width: 10vw;
+}
+
+.button-products button{
+    width: 10vw;
+}
+
+.button-products span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 
