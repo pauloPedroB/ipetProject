@@ -336,7 +336,7 @@ class ProductsController extends Controller
         //$UserEndereco = Product::findOrFail($Loja->Endereco_id);
         
         return view('products.dashboard',['products' =>$products,'user'=>$user,'Enderecos'=>$Enderecos,'Loja'=>$Loja,
-                    'categories'=>$categories,'myproducts'=>$myproducts]);
+                    'categories'=>$categories]);
     }
     public function destroy($id, Request $request){
         $user = auth()->user();
