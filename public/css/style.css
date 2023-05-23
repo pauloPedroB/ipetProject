@@ -47,17 +47,21 @@
     margin: 0;
 }
 
-
+#container-premium{
+    padding-top: 10rem;
+}
 
 /* Header */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
     width: 100%;
     background-color: #DBF0E1;
     margin-bottom: 10px;
     border-bottom: 2px solid #FFC05F;
+    z-index: 100;
     
 }
 
@@ -109,6 +113,9 @@ header {
 
 .carousel .slide {
     width: 50%;
+}
+#carouselIpet{
+    margin-top:8rem;
 }
 
 .carousel-caption1 {
@@ -262,9 +269,8 @@ footer {
     text-align: center;
     background-color: #FFC05F;
     color: black;
-    position: absolute;
+    position:absolute;
     width: 100%;
-    height: auto;
     padding: 10px;
 }
 
@@ -344,6 +350,7 @@ footer {
 
 
 
+
 /* msg */
 .msg {
     background-color: #d4edda;
@@ -358,6 +365,7 @@ footer {
 #image-container,
 #info-container {
     margin-top: 30px;
+    padding-top: 10rem;
 }
 
 #image-container img {
@@ -509,6 +517,11 @@ footer {
 
 @media screen and (max-width: 480px){
 
+    #products-container .card {
+        flex: 1  100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
 
     #title_change {
         width: 100%;
@@ -548,7 +561,47 @@ footer {
     #title_user {
         margin-top: -1rem;
     }
+    
+    .dashboard-content{
+        padding-top: 5rem !important;
+    }
 
+    .content-payment{
+        display: flex;
+        flex-direction: column !important;
+        padding-top: 5rem !important;
+    }
+
+    .card-dados input{
+        width: 60% !important;
+    }
+
+    .confirmation{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-premium{
+        margin-top: 1rem !important;
+    }
+
+    .payment-dados{
+       margin: 1rem;
+    }
+
+    .confirmation button{
+        width:70% !important;
+    }
+
+    .confirmation-pix button {
+        width: 100%!important;
+        font-size: 13px;
+        margin: 0.8rem;
+    
+    }
+
+    #container-premium{
+        padding-top: 1.5rem;
+    }
 }
 
 
@@ -605,21 +658,38 @@ footer {
         margin-top: -1rem;
     }
 
+    
+    .content-payment{
+        display: flex;
+        flex-direction: column !important;
+        padding-top: 5rem !important;
 
-}
-
-
-
-
-
-
-@media screen and (max-width: 413px) {
-    #products-container .card {
-        flex: 1  100%;
-        max-width: 100%;
-        margin-top: 10px;
     }
+
+    .card-dados input{
+        width: 60% !important;
+    }
+
+    .confirmation{
+        margin-bottom: 1rem !important;
+    }
+
+    .card-premium{
+        margin-top: 1rem !important;
+    }
+
+    .payment-dados{
+       margin: 1rem;
+    }
+
+    #container-premium{
+        padding-top: 1rem;
+    }
+
 }
+
+
+
 
 /* dashboard - tela do usuario da loja */
 
@@ -652,6 +722,7 @@ footer {
     align-items:center;
     justify-content: space-between;
     width: 100%;
+    padding-top: 15rem;
 }
 
 .btn-dasboard{
@@ -777,7 +848,7 @@ footer {
 }
 
 .button-products{
-    display: flex ;
+    display: block ;
     align-items: column;
 }
 
@@ -923,17 +994,18 @@ footer {
 }
 
 /*Payment*/
-#content-payment{
+.content-payment{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-top: 12rem;
 }
 .icon-card{
     color:#FFC05F
 }
 .title-payment{
     color: #FFC05F;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
 .container-option{
@@ -953,6 +1025,7 @@ footer {
 .payment-dados{
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 .card-dados{
     display: flex;
@@ -961,7 +1034,7 @@ footer {
     gap: 1rem;
 }
 .card-dados input{
-    width: 80%;
+    width: 50%;
     border: none;
     border-bottom: 4px solid #DBF0E1;
 }
@@ -975,7 +1048,7 @@ footer {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
-    gap: 1rem;
+    gap: 2rem;
 }
 .card-dados-validity input{
     width: 70%;
@@ -992,11 +1065,11 @@ footer {
 .card-dados-cvv{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 .card-dados-cvv input{
-    width: 2vw;
+    width: 25%;
     border: none;
     border-bottom: 4px solid #DBF0E1;
 }
@@ -1008,57 +1081,34 @@ footer {
     flex-direction: row;
     margin-top: 0;
 }
-.card-checkbox{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    margin-bottom: 2rem;
- 
-}
-.card-checkbox input{
-    width: 1.5rem;
-}
-.card-checkbox input:focus{
-    background-color: #DBF0E1;
-}
-.card-checkbox p{
-    font-size:1.2rem;
-    margin-bottom: 0;
-}
 .card-premium{
     display: flex;
     flex-direction: column;
-    margin-top: 7rem;
+    margin-top: 10rem;
     align-items: center;
 }
 .img-premium{
-    width: 80%;
+    width: 50%;
 }
 .confirmation{
     display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items: center;
     margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 .confirmation button{
-    width:10vw;
+    width:40%;
     color: white;
     background-color: #ee5253;
     border-radius: 10px;
     padding:0.5rem;
     border: none;
-    align-items: center;
-}
-.confirmation p{
-    font-weight: bold;
 }
 
 .pix-dados{
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5rem;
-    gap: 2rem;
+    gap: 2rem; 
 }
 .pix-recebedor h2{
     font-size:1.2rem;
@@ -1067,7 +1117,7 @@ footer {
     font-size:1rem;
     border-bottom: 4px solid #DBF0E1;
     text-align: center;
-    width: 50%;
+    width: 55%;
 }
 .pix-codigo{
     display: flex;
@@ -1076,10 +1126,10 @@ footer {
     text-align: center;
 }
 #qrcode{
-    font-size:15rem;
+    font-size:12rem;
 }
 .pix-codigo p{
     font-size:1rem;
     font-weight:bold;
-    margin:1rem;
 }
+

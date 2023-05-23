@@ -3,9 +3,14 @@
 @section('content')
 
 {{-- container --}}
-    <div class=" container-fluid" style="background-color: #ffff">
-        
-        <section id="content-payment">
+    <div class=" container" style="background-color: #ffff">
+        <section class="content-payment">
+            <div class="card-premium">
+                <img class="img-premium" src="/img/premium.png" alt="" >
+                <h2>Premium</h2>
+                <p>Seus produtos terão prioridade na divulgação!</p>                        
+                <p>Total:R$ 00,00</p>
+            </div>
             <div class="payment-dados">
                     <div class="pix-dados" >
                         <h1 class="title-payment">Escolha a forma de pagamento:</h1>
@@ -26,18 +31,10 @@
                         <span id="qrcode" class="material-symbols-outlined">qr_code_2</span>
                         <p>000232056988044775006</p>
                     </div>
+                   
             </div>
-                    <div class="card-premium">
-                        <img class="img-premium" src="/img/premium.png" alt="" >
-                        <h2>Premium</h2>
-                        <p>Descrição do Produto</p>
-                        <p>Total:R$ 00,00</p>
-                    </div>
+                  
         </section>
-        <div class="confirmation">
-            <button>Confirmar Pagamento</button>
-            <p>*Aprovação imediata*</p>
-        </div>
     </div>
                
 
