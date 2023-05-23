@@ -183,7 +183,7 @@ class ProductsController extends Controller
 
         
         $newProduct->save();
-
+        
         return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
     }
     public function store(Request $request){
@@ -337,6 +337,10 @@ class ProductsController extends Controller
         }
         else{
             Product::findOrFail($id)->delete();
+        }
+        if($request->ond)
+        {
+            return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
         }
         return redirect('/dashboard')->with('msg','Produto excluído com sucesso!');
     }
