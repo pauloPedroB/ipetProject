@@ -40,7 +40,7 @@
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
-                            <select name="idadeCombo" id="idadeCombo" class="form-control" required>
+                            <select name="idadeCombo" id="idadeCombo" class="form-control" value="{{str_replace('Idade: ','',$des)}}" required>
                                 <option value="Filhote">Filhote</option>
                                 <option value="Adulto">Adulto</option>
                             </select>
@@ -49,7 +49,7 @@
                             </script>
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
-                            <select name="petCombo" id="petCombo" class="form-control" required>
+                            <select name="petCombo" id="petCombo" class="form-control" value="{{str_replace('Pet: ','',$des)}}" required>
                                 <option value="Cachorro">Cachorro</option>
                                 <option value="Gato">Gato</option>
                                 <script>
@@ -58,7 +58,7 @@
                             </select>
                         @endif
                         @if (strpos($des, 'Porte: ') !== false)
-                            <select name="porteCombo" id="porteCombo" class="form-control" required>
+                            <select name="porteCombo" id="porteCombo" class="form-control" value="{{str_replace('Porte: ','',$des)}}" required>
                                 <option value="Pequeno">Pequeno</option>
                                 <option value="Medio">Medio</option>
                                 <option value="Grande">Grande</option>
