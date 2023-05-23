@@ -13,7 +13,7 @@ class AvaliationsController extends Controller
 {
     public function create(Request $request){
         $User = auth()->user();
-        $id = $request->value;
+        $id = $request->product;
         $usuario = Usuario::where([
             [
                 'user_id','=',$User->id
