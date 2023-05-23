@@ -40,7 +40,6 @@
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                     @foreach($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
-                        teste
                             <select name="idadeCombo" id="idadeCombo" class="form-control" required>
                                 <option value="Filhote" @if (str_replace('Idade: ', '', $des) === 'Filhote') selected @endif>Filhote</option>
                                 <option value="Adulto" @if (str_replace('Idade: ', '', $des) === 'Adulto') selected @endif>Adulto</option>
@@ -51,8 +50,8 @@
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
                             <select name="petCombo" id="petCombo" class="form-control" value="{{str_replace('Pet: ','',$des)}}" required>
-                                <option value="Cachorro">Cachorro</option>
-                                <option value="Gato">Gato</option>
+                                <option value="Cachorro" @if (str_replace('Pet: ', '', $des) === 'Cachorro') selected @endif>Cachorro</option>
+                                <option value="Gato" @if (str_replace('Pet: ', '', $des) === 'Gato') selected @endif>Gato</option>
                                 <script>
                                     Pet.checked = true;
                                 </script>
@@ -60,9 +59,9 @@
                         @endif
                         @if (strpos($des, 'Porte: ') !== false)
                             <select name="porteCombo" id="porteCombo" class="form-control" value="{{str_replace('Porte: ','',$des)}}" required>
-                                <option value="Pequeno">Pequeno</option>
-                                <option value="Medio">Medio</option>
-                                <option value="Grande">Grande</option>
+                                <option value="Pequeno" @if (str_replace('Porte: ', '', $des) === 'Pequeno') selected @endif>Pequeno</option>
+                                <option value="Medio" @if (str_replace('Porte: ', '', $des) === 'Medio') selected @endif>Medio</option>
+                                <option value="Grande" @if (str_replace('Porte: ', '', $des) === 'Grande') selected @endif>Grande</option>
                                 <script>
                                     Porte.checked = true;
                                 </script>
