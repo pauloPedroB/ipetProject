@@ -52,7 +52,7 @@
                                   const option = combobox.options[i];
 
                                   // Verificando se o valor da opção corresponde ao valor do banco
-                                  if (option.value === str_replace('Idade: ','',$des)) {
+                                  if (option.value === {{str_replace('Idade: ','',$des))}} {
                                     // Definindo a opção como selecionada
                                     option.selected = true;
                                     break;
