@@ -11,7 +11,7 @@ use App\Models\Usuario;
 use App\Models\productsLoja;
 use App\Models\Category;
 use App\Models\Avaliation;
-
+use DateTime;
 
 
 
@@ -79,7 +79,7 @@ class ProductsController extends Controller
                                             ->where('lojas.Premium','=','1')
                                             ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
                                             products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id, products_lojas.created_at as criation')
                                             ->orderBy('distancia', 'asc')
                                             ->take(4)
                                             ->where([['products.Name','like','%'.$search.'%']])
@@ -102,7 +102,7 @@ class ProductsController extends Controller
                                     ->join('categories','categories.id','=','products.category_id')
                                     ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
                                     products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                    lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id,products_lojas.created_at as criation')
                                     ->orderBy('distancia', 'asc')
                                     ->take($limit)
                                     ->where([['products.Name','like','%'.$search.'%']])
@@ -118,7 +118,7 @@ class ProductsController extends Controller
                                             ->where('lojas.Premium','=','1')
                                             ->selectRaw('products.id as id_P, products.Name, products.Image, products.Description,
                                             products_lojas.id, enderecos.id as End_id, (6371 * acos(cos(radians('.$lat.')) * cos(radians(Latitude)) * cos(radians(Longitude) - radians('.$long.')) + sin(radians('.$lat.')) * sin(radians(Latitude)))) AS distancia,
-                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id')
+                                            lojas.id as id_Loja, lojas.user_id, lojas.Endereco_id,products_lojas.created_at as criation')
                                             ->inRandomOrder()
                                             ->take(8)
                                             ->get();
@@ -182,7 +182,7 @@ class ProductsController extends Controller
             }
         }
         $newProduct->Product_id = $product->id;
-
+        $newProduct->created_at = new DateTime();
         
         $newProduct->save();
         
