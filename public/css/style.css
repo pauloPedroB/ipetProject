@@ -200,10 +200,6 @@ body {
     width: 250px;
 }
 
-#products-container {
-    padding: 18rem !important;
-
-}
 
 #products-container h2 {
     margin-bottom: 10px;
@@ -572,7 +568,7 @@ footer {
         padding-top: 5rem !important;
         width: 90%;
     }
-
+    
     .content-payment{
         display: flex;
         flex-direction: column !important;

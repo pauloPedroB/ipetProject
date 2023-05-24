@@ -102,19 +102,19 @@
                     </div>
             </nav>
         </div>
-        
+        @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')
+            <p class="msg">Houve algum problema no cadastro do seu endereço, cadastre-o novamente. Enquanto isso, continue pesquisando por produtos próximos a região de Taboão da Serra</p>
+        @endif
+        @if (session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
         {{-- fim --}}
 
     </header>
     <div></div>
     <div class="container-fluid">
         <div class="row">
-            @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')
-                <p class="msg">Houve algum problema no cadastro do seu endereço, cadastre-o novamente. Enquanto isso, continue pesquisando por produtos próximos a região de Taboão da Serra</p>
-            @endif
-            @if (session('msg'))
-                <p class="msg">{{ session('msg') }}</p>
-            @endif
+           
             @yield('content')
         </div>
     </div>
@@ -155,7 +155,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="products-container" class="col-md-12 "  >
+    <div id="products-container" class="col-md-12 m-5"  >
         @if ($search)
         <h2>Buscando por: {{ $search }}</h2>
         @else
@@ -168,7 +168,8 @@
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
-                    <p class="card-date">19/03/2023</p>
+                    <p class="card-date">@if($product->criation != null){{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}@else 23/05/2023 @endif</p>
+
                     <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
                         @auth
@@ -198,7 +199,7 @@
                             <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                             <div class="card-information"> 
                             <p class="card-path">Mais próximo de você</p>
-                                <p class="card-date">19/03/2023</p>
+                                <p class="card-date">@if($product->criation != null){{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}@else 23/05/2023 @endif</p>
                                 <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                                 <p class="card-distance">
                                     @auth
