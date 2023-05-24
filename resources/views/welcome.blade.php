@@ -168,7 +168,8 @@
                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                 <div class="card-body">
                     <p class="card-path">Loja Patrocinada</p>
-                    <p class="card-date">19/03/2023</p>
+                    <p class="card-date">@if($product->criation != null){{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}@else 23/05/2023 @endif</p>
+
                     <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                     <p class="card-distance">
                         @auth
