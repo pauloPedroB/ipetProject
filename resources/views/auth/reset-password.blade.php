@@ -16,14 +16,14 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4" id="password-input">
                 <x-label for="password" value="{{ __('Senha') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
 
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4" id="password-input">
                 <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility2()" class="toggle-password2"></button>
