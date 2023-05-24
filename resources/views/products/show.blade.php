@@ -61,8 +61,19 @@
             
                 
             <br>
+            <p class="product-Nome">{{$product->Nome}}</p>
+            <p class="product-Telefone">{{$product->Telefone}}</p>
+            <p class="product-Celular">{{$product->Celular}}</p>
+
+
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
+
+                    <p class="product-Bairro">{{$Endereco->CEP}}</p>
+                    <p class="product-Logradouro">{{$Endereco->Logradouro}}, Número: {{$Endereco->Numero}}</p>
+                    <p class="product-Bairro">{{$Endereco->Bairro}}</p>
+                    <p class="product-Cidade">{{$Endereco->Cidade}}</p>
+
                     <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
                     <div id="mapa" style="width:400px;height:250px;"></div>
                     @break
@@ -91,7 +102,7 @@
                     <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5" style="width: 50px"></a>
                     <form action="/avaliar" method="POST">
                         @csrf
-                        <input type="hidden" name="product" id="rating" value="{{$id}}">
+                        <input type="hidden" name="product" id="product" value="{{$id}}">
                         <input type="hidden" name="value" id="rating" value="0">
                         <input type="hidden" name="loja" value="{{$product->id_Loja}}">
                         <label for="avaliacao">Elogio, sugestão ou reclamação:</label>

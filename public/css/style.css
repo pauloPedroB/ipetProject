@@ -704,8 +704,8 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 1rem;
-    width: 85%;
+    padding: 2rem;
+    width: 60%;
     border-radius: 8px;
     background-color: #f2f2f2;
 }
@@ -731,16 +731,17 @@ footer {
     padding-top: 15rem;
 }
 
-/* .btn-dasboard{
+.btn-dasboard{
     width: 13rem;
     margin:0.7rem;
     background-color: #ffc05f;
     font-size: 1rem;
+    color: #000;
     border: none;
     border-radius:10px;
     padding: 0.5rem;
 
-} */
+}
 
 .btn-dasboard a{
     text-decoration: none;
@@ -995,7 +996,21 @@ footer {
 
 #event-create-container form {
     width: 50%;
+    padding: 1rem;
+    gap: 2rem;
 }
+
+
+#event-create-container form div{
+    margin-bottom: 2rem;
+}
+
+#event-create-container form div label{
+    color: #F29200;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 
 #category {
     width: 30%;
