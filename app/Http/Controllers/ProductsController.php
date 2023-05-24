@@ -271,7 +271,7 @@ class ProductsController extends Controller
                                     ->join('categories','categories.id','=','products.category_id')
                                     ->select('products.id as id_P','products.Name','products.Image','products.Description',
                                     'products_lojas.id','categories.name',
-                                    'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id')
+                                    'lojas.id as id_Loja','lojas.user_id','lojas.Endereco_id','lojas.Razao','lojas.Nome','lojas.Telefone','lojas.Celular')
                                     ->get();
             foreach($products as $product){
                 if($product->id == $id){
