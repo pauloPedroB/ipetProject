@@ -5,6 +5,7 @@
         </x-slot>
 
         <x-validation-errors class="mb-4" />
+        <h4 id="error-message"></h4>
 
         <form method="POST" action="{{ route('password.update') }}" id="myForm">
             @csrf
@@ -17,14 +18,14 @@
             </div>
 
             <div class="mt-4" id="password-input">
-                <x-label for="password" value="{{ __('Senha') }}" />
+                <x-label for="password" value="{{ __('Senha') }}" id="lbpass"/>
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
 
             </div>
 
             <div class="mt-4" id="password-input">
-                <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirme Senha') }}" id="lbpassc"/>
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility2()" class="toggle-password2"></button>
 
