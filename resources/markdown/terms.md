@@ -1,8 +1,8 @@
-# Terms of Service - https://diegocastro.adv.br/modelo-de-termos-de-uso-para-blogs-e-sites/ - acesso em 12 de maio de 2023.
+<!-- Terms of Service - https://diegocastro.adv.br/modelo-de-termos-de-uso-para-blogs-e-sites/ - acesso em 12 de maio de 2023. -->
 
-#Termos e condições de uso do site
+# Termos e condições de uso do site
 
-##Seja bem-vindo ao nosso site. Leia com atenção todos os termos abaixo.
+## Seja bem-vindo ao nosso site. Leia com atenção todos os termos abaixo.
 
 Este documento, e todo o conteúdo do site é oferecido por IPET.com, neste termo representado apenas por “EMPRESA”, que regulamenta todos os direitos e obrigações com todos que acessam o site, denominado neste termo como “VISITANTE”, reguardado todos os direitos previstos na legislação, trazem as cláusulas abaixo como requisito para acesso e visita do mesmo, situado no endereço www.ipet.com.br.
 

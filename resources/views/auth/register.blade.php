@@ -10,12 +10,14 @@
         <form method="POST" action="/registrando" id="myForm">
             @csrf
             @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
             @endif
             @if(session('error'))
-                <div class="alert alert-danger"><p style="color: brown">{{ session('error') }}</p></div>
+            <div class="alert alert-danger">
+                <p style="color: brown">{{ session('error') }}</p>
+            </div>
             @endif
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" id="lbemail" />
@@ -28,7 +30,7 @@
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="new-password" />
                 <button type="button" onclick="togglePasswordVisibility()" class="toggle-password"></button>
-                
+
             </div>
 
             <div class="mt-4" id="password-input">
@@ -46,14 +48,14 @@
                         <x-checkbox name="terms" id="terms" required />
 
                         <div class="ml-2">
-                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                            {!! __('EU ACEITO OS: :terms_of_service e :privacy_policy', [
                             'terms_of_service' =>
                             '<a target="_blank" href="' .
                                         route('terms.show') .
                                         '"
                                 class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'
                                 .
-                                __('Terms of Service') .
+                                __('Termos de Serviço') .
                                 '</a>',
                             'privacy_policy' =>
                             '<a target="_blank" href="' .
@@ -61,7 +63,7 @@
                                         '"
                                 class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'
                                 .
-                                __('Privacy Policy') .
+                                __('Política de Privacidade') .
                                 '</a>',
                             ]) !!}
                         </div>
@@ -140,6 +142,7 @@
     #password-input {
         position: relative;
     }
+
     #password-input .toggle-password {
         position: absolute;
         top: 50%;
@@ -154,10 +157,12 @@
         background-repeat: no-repeat;
         background-size: contain;
     }
+
     #password-input .toggle-password.hide {
         background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
     }
-    #password-input .toggle-password2{
+
+    #password-input .toggle-password2 {
         position: absolute;
         top: 50%;
         right: 10px;
@@ -171,7 +176,8 @@
         background-repeat: no-repeat;
         background-size: contain;
     }
-    #password-input .toggle-password2.hide{
+
+    #password-input .toggle-password2.hide {
         background-image: url('https://cdn-icons-png.flaticon.com/512/3502/3502545.png');
     }
 </style>
