@@ -61,7 +61,6 @@
             
                 
             <br>
-            <p class="product-Razao">{{$product->Razao}}</p>
             <p class="product-Nome">{{$product->Nome}}</p>
             <p class="product-Telefone">{{$product->Telefone}}</p>
             <p class="product-Celular">{{$product->Celular}}</p>
