@@ -64,6 +64,7 @@
             
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
+                    <p class="product-Razao">{{$product->Razao}}</p>
                     <p class="product-Bairro">{{$Endereco->CEP}}</p>
                     <p class="product-Logradouro">{{$Endereco->Logradouro}}, Número: {{$Endereco->Numero}}</p>
                     <p class="product-Bairro">{{$Endereco->Bairro}}</p>
