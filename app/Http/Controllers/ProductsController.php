@@ -237,27 +237,32 @@ class ProductsController extends Controller
     public function show($id,$prod = 'false'){
         $user = auth()->user();
         $Enderecos = Endereco::all();
-        $Loja = Loja::where([['user_id','=',$user->id]])->first();
-        if($prod != 'false' && $user->AL_id != 1)
+        
+        if($prod != 'false' && $user)
         {
-            $product = Product::findOrFail($id);
-            $description = explode('<!i!i>',$product->Description);
-            $my = false;
-            $myId = 0;
-            if($user->AL_id == 2)
-            {
-                $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
-                foreach($myproducts as $myproduct){
-                    if($myproduct->Product_id == $product->id){
-                        $myId = $myproduct->id;
-                        $my = true;
+            if($user){
+                $Loja = Loja::where([['user_id','=',$user->id]])->first();
+            
+                $product = Product::findOrFail($id);
+                $description = explode('<!i!i>',$product->Description);
+                $my = false;
+                $myId = 0;
+                if($user->AL_id == 2)
+                {
+                    $myproducts = productsLoja::where('Loja_id','=',$Loja->id)->get();
+                    foreach($myproducts as $myproduct){
+                        if($myproduct->Product_id == $product->id){
+                            $myId = $myproduct->id;
+                            $my = true;
+                        }
                     }
                 }
+            
+
+                return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my,'myId'=>$myId]);
+
             }
-           
-
-            return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my,'myId'=>$myId]);
-
+            
         }
         else{
             $products = productsLoja::join('products','products.id','=','Product_id')
