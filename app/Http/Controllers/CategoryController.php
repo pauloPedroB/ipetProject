@@ -32,7 +32,8 @@ class CategoryController extends Controller
         $category = Category::findOrFail($request->id);;
 
         $category->name = $request->Name;
-        $category->Description = $request->Description;
+        $category->Description = 'a';
+
 
         $category->save();
         return redirect('/dashboard')->with('msg','Categoria Editada com sucesso!');
