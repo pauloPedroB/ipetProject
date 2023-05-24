@@ -4,9 +4,17 @@
 <div class="dashboard-title-container">
     <h1>Meus Dados</h1>
 </div>
-
+<div class="container-fluid">
+    <div class="row">
+        @if (session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
+        @yield('content')
+    </div>
+</div>
 <div class="dashboard-content">
     {{-- dados do endereço --}}
+    
 
     @if($user->AL_id !=3)
      
