@@ -106,6 +106,7 @@
         {{-- fim --}}
 
     </header>
+    <div></div>
     <div class="container-fluid">
         <div class="row">
             @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')

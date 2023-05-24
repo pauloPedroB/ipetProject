@@ -12,9 +12,10 @@
      
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id == $Loja->Endereco_id)
-                    <div id="data-user-container" class="col dashboard-endereco-container container-fluid m-5 p-3">
+                    <div id="data-user-container" class="col dashboard-endereco-container container-fluid d-flex flex-column align-items-center m-3
+                     p-2">
                         <div class="d-flex flex-column flex-md-row align-items-baseline">
-                            <div class="d-flex flex-column m-5">
+                            <div class="d-flex flex-column m-4">
                                 <h1>Meus Dados</h1>
                                 @if($user->AL_id == 2)
                                     <p> <span class="text-endereco">CNPJ: </span>{{$Loja->CNPJ}}</p>
@@ -30,7 +31,7 @@
                                     <p> <span class="text-endereco">Celular: </span>{{$Loja->Celular}}</p>
                                 @endif
                             </div>
-                            <div class="d-flex flex-column m-5">
+                            <div class="d-flex flex-column m-4">
                                 <h1>Endereço</h1>
                                 <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
                                 <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
@@ -40,11 +41,11 @@
     
                             </div>
                         </div>
-                        <div class="d-flex flex-column flex-md-row ">
-                            <a href="/Editar/Loja/{{$Loja->id}}"><button class="m-2" id="btn-dasboard"type="button">Edite os seus dados</button></a>
+                        <div class="d-flex flex-column flex-md-row align-items-center">
+                            <a href="/Editar/Loja/{{$Loja->id}}"><button class="btn btn-primary m-2" type="button">Edite os seus dados</button></a>
     
                             @if($user->AL_id == 2)
-                            <a href="/pacote"><button class="m-2" id="btn-dasboard" type="button">Pacote</button></a>
+                            <a href="/pacote"><button class="btn btn-success m-2" type="button">Torne-se Premium</button></a>
                             @endif
                         </div>
                     </div>
