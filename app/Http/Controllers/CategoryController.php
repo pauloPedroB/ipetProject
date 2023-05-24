@@ -15,6 +15,9 @@ class CategoryController extends Controller
         return view('products.createCategory',['User'=>$User,'categories'=>$categories]);
     }
     public function create(Request $request){
+        if(strlen($request->Name) >25){
+            return redirect('/categoria/adicionar')->with('msg','Nome da categoria muito grande');
+        }
         $category = new Category;
 
         $category->name = $request->Name;
@@ -29,6 +32,9 @@ class CategoryController extends Controller
         return view('products.editCategory',['category' => $category,'User'=>$User]);
     }
     public function update(Request $request){
+        if(strlen($request->Name)>20){
+            return redirect('/categoria'.'/'.$request->id);
+        }
         $category = Category::findOrFail($request->id);;
 
         $category->name = $request->Name;
