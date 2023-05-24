@@ -240,7 +240,7 @@ class ProductsController extends Controller
         
         if($prod != 'false' && $user)
         {
-            if($user){
+            if($user->AL_id !=1){
                 $Loja = Loja::where([['user_id','=',$user->id]])->first();
             
                 $product = Product::findOrFail($id);
