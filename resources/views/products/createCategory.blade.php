@@ -7,11 +7,13 @@
             <form action="/categoria" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Nome da Categoria</label>
+                    <label for="title">Nome da Categoria:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome da Categoria" required>
                 </div>
+
+                {{-- deletar form (não precisa mais) --}}
                 <div class="form-group">
-                    <label for="title">Descrição</label>
+                    <label for="title">Descrição:</label>
                     <input type="text" class="form-control" id="Description" name="Description" placeholder="Descrição da Categoria" required>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Adicionar Categoria">

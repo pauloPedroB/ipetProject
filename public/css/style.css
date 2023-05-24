@@ -1000,11 +1000,19 @@ footer {
 
 #event-create-container form {
     width: 50%;
+    padding: 1rem;
+    gap: 2rem;
 }
 
 
 #event-create-container form div{
-    background-color: #000;
+    margin-bottom: 2rem;
+}
+
+#event-create-container form div label{
+    color: #F29200;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 
