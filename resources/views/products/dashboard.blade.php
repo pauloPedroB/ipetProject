@@ -72,7 +72,7 @@
                         @foreach ($categories as $category)
                             <tr>
                                 <td scope="row">{{$loop->index+1}}</td>
-                                <td><p>{{$category->name}}</p></td>
+                                <td><p class="text-decoration-none">{{$category->name}}</p></td>
                                 <td class="button-products" style="">
                                     @if($user->AL_id ==3)
                                     <a href="/categoria/{{$category->id}}" class="btn btn-warning  btn-lg"><span class="material-symbols-outlined align-middle ">edit</span></a>
