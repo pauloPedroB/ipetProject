@@ -18,7 +18,7 @@ class CategoryController extends Controller
         $category = new Category;
 
         $category->name = $request->Name;
-        $category->Description = $request->Description;
+        $category->Description = 'a';
 
         $category->save();
         return redirect('/dashboard')->with('msg','Categoria adicionada com sucesso!');
