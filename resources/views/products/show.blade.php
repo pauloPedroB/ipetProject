@@ -61,8 +61,14 @@
             
                 
             <br>
+            
             @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
+                    <p class="product-Bairro">{{$Endereco->CEP}}</p>
+                    <p class="product-Logradouro">{{$Endereco->Logradouro}}, Número: {{$Endereco->Numero}}</p>
+                    <p class="product-Bairro">{{$Endereco->Bairro}}</p>
+                    <p class="product-Cidade">{{$Endereco->Cidade}}</p>
+
                     <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
                     <div id="mapa" style="width:400px;height:250px;"></div>
                     @break
