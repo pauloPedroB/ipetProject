@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Cadastrar Endereço')
+@section('title','Avaliações da Loja')
 @section('content')
-    
+
 @endsection
