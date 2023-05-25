@@ -155,6 +155,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    
     <div id="products-container" class="col-md-12"  >
         @if ($search)
         <h2>Buscando por: {{ $search }}</h2>
