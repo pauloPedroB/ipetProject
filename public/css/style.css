@@ -210,8 +210,8 @@ body {
 }
 
 #products-container .card {
-    flex: 1 1 24%;
-    max-width: 25%;
+    flex: 1 1 19%;
+    max-width: 20%;
 
     border-radius: 10px solid #dbf0e1;
     padding: 0;
