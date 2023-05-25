@@ -158,10 +158,13 @@
     <div id="products-container" class="col-md-12"  >
         @if ($search)
         <h2>Buscando por: {{ $search }}</h2>
+        <p class="subtitle">Mais próximos de você</p>
+        
         @else
         <h2>Produtos</h2>
+        <p class="subtitle">Produtos recomendados</p>
+        
         @endif
-        <p class="subtitle">Mais próximos de você</p>
         <div id="cards-container" class="row">
             @foreach ($premiumProducts as $product)
             <div class="card col-md-3" id="card-primary">
