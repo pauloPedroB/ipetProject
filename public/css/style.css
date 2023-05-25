@@ -177,6 +177,13 @@ body {
     margin: 0 auto;
 }
 
+.name-loja{
+    display:flex;
+    gap: 1rem;
+}
+.name-loja p{
+    font-size: 2rem;
+}
 .stars{
     display: flex;
     gap: 2px;
@@ -228,7 +235,9 @@ body {
     width: 250px;
 }
 
-
+#products-container {
+    padding-top: 10rem;
+}
 #products-container h2 {
     margin-bottom: 10px;
 }
@@ -240,6 +249,11 @@ body {
 
 #cards-container {
     display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content:center;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -250,7 +264,7 @@ body {
 
 #products-container .card {
     flex: 1 1 24%;
-    max-width: 25%;
+    max-width: 15%;
     border-radius: 10px solid #DBF0E1;
     padding: 0;
     cursor: pointer;
@@ -259,7 +273,7 @@ body {
 
 #products-container .card:hover{
     outline: 5px solid #FFC05F;
-    zoom: 105%;
+    zoom: 100%;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
     border: #fff;
@@ -303,7 +317,6 @@ footer {
     text-align: center;
     background-color: #ffc05f;
     color: black;
-    position:absolute;
     width: 100%;
     padding: 10px;
     display: block;
@@ -375,10 +388,17 @@ footer {
 .card-body .btn-primary {
     background-color: #FFC05F;
     border-color: #FFC05F;
-    font-size: 1rem;
+    font-size: 0.6rem;
+    font-weight: bold;
     color: #000000;
 }
 
+.card-button{
+    display: flex;
+    gap:0.5rem;
+    align-items: center;
+    justify-content:center;
+}
 
 
 
@@ -532,7 +552,12 @@ footer {
 }
 
 
-/* responsividade - tela de escolha */
+@media screen and (max-width: 1080px){
+    #products-container .card {
+        flex: 1 1 50%;
+        max-width: 25%;
+        margin-top: 10px;
+    }
 
     .content-payment{
         display: flex;
@@ -546,6 +571,7 @@ footer {
     }
 }
 
+/* DISPOSIVOS MÓVEIS - CELULARES */
 @media screen and (max-width: 480px){
 
     #products-container .card {
@@ -595,12 +621,6 @@ footer {
         width: 90%;
     }
 
-    .content-payment{
-        display: flex;
-        flex-direction: column !important;
-        padding-top: 5rem !important;
-    }
-
     .card-dados input{
         width: 60% !important;
     }
@@ -638,8 +658,8 @@ footer {
     }
 
     #products-container .card {
-        flex: 1  100%;
-        max-width: 100%;
+        flex: 1  50%;
+        max-width: 50%;
         margin-top: 10px;
     }
 
@@ -676,14 +696,6 @@ footer {
 
     #title_user {
         margin-top: -1rem;
-    }
-
-    
-    .content-payment{
-        display: flex;
-        flex-direction: column !important;
-        padding-top: 5rem !important;
-
     }
 
     .card-dados input{
