@@ -12,10 +12,7 @@
                 </div>
 
                 {{-- deletar form (não precisa mais) --}}
-                <div class="form-group">
-                    <label for="title">Descrição:</label>
-                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Descrição da Categoria" required>
-                </div>
+               
                 <input type="submit" class="btn btn-primary" value="Adicionar Categoria">
             </form>
         @else

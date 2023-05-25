@@ -34,6 +34,43 @@ class LojaController extends Controller
         if($registro != null){
             return redirect('/Registrar/Loja')->with('error', 'O CNPJ enviado já está cadastrado');
         }
+        $cnpj = preg_replace('/[^0-9]/', '', $request->cnpj);
+    
+        // Verificar longitud
+        if (strlen($cnpj) != 14) {
+            return redirect('/Registrar/Loja')->with('error', 'CNPJ inválido');
+        }
+        
+        // Verificar dígitos repetidos
+        if (preg_match('/(\d)\1{13}/', $cnpj)) {
+            return redirect('/Registrar/Loja')->with('error', 'CNPJ inválido');
+
+        }
+        
+        // Calcular primer dígito verificador
+        $soma = 0;
+        for ($i = 0, $j = 5; $i < 12; $i++) {
+            $soma += $cnpj[$i] * $j;
+            $j = ($j == 2) ? 9 : $j - 1;
+        }
+        $resto = $soma % 11;
+        $dv1 = ($resto < 2) ? 0 : 11 - $resto;
+        
+        // Calcular segundo dígito verificador
+        $soma = 0;
+        for ($i = 0, $j = 6; $i < 13; $i++) {
+            $soma += $cnpj[$i] * $j;
+            $j = ($j == 2) ? 9 : $j - 1;
+        }
+        $resto = $soma % 11;
+        $dv2 = ($resto < 2) ? 0 : 11 - $resto;
+        
+        // Verificar dígitos verificadores
+        if ($cnpj[12] == $dv1 && $cnpj[13] == $dv2) {
+
+        } else {
+            return redirect('/Registrar/Loja')->with('error', 'CNPJ inválido');
+        }
 
         $Endereco = new Endereco;
 

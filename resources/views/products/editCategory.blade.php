@@ -11,10 +11,6 @@
                     <label for="title">Nome da Categoria</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome da Categoria" value="{{$category->name}}" required>
                 </div>
-                <div class="form-group">
-                    <label for="title">Descrição</label>
-                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Descrição da Categoria" value="{{$category->Description}}" required>
-                </div>
                 <input type="submit" class="btn btn-primary" value="Adicionar Categoria">
             </form>
         @else

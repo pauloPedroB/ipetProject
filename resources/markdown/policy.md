@@ -1,6 +1,7 @@
-# Privacy Policy
+<!-- Privacy Policy -->
 
-POLÍTICA DE PRIVACIDADE
+# POLÍTICA DE PRIVACIDADE
+
 Dados pessoais são informações muito importantes e de extrema importância e sabemos o quanto o nosso usuário se preocupa com todas as informações referentes a ele.
 
 Por esse motivo, respeitamos todas as normas e regras estabelecidas pelas legislações que buscam proteger os dados pessoais, principalmente a Lei 13.709/18, bem como, utilizamos as técnicas de segurança mais adequadas para todas as etapas de tratamentos que realizamos com as informações coletadas em nosso site.

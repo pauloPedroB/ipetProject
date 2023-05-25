@@ -7,12 +7,15 @@
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
         <div id="info-container" class="col-md-6">
-        <div>
-           
-        </div>
-        <div class="name-loja">
-            <p>{{$product->Nome}}</p>
-            <div class="stars">
+
+            <h1>{{$product->Name}}</h1>
+            <p class="product-Category">{{$product->name}}</p>
+            <br>
+
+            @if($prod == 'false')
+                <p>Avaliação da Loja:</p>
+
+                <div class="stars">
 
                 @if($sum>=0.4)
                     <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>

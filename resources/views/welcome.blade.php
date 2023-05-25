@@ -102,19 +102,19 @@
                     </div>
             </nav>
         </div>
-        
+        @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')
+            <p class="msg">Houve algum problema no cadastro do seu endereço, cadastre-o novamente. Enquanto isso, continue pesquisando por produtos próximos a região de Taboão da Serra</p>
+        @endif
+        @if (session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
         {{-- fim --}}
 
     </header>
     <div></div>
     <div class="container-fluid">
         <div class="row">
-            @if($lat =='-23.61279792090457' && $long =='-46.780145384505474')
-                <p class="msg">Houve algum problema no cadastro do seu endereço, cadastre-o novamente. Enquanto isso, continue pesquisando por produtos próximos a região de Taboão da Serra</p>
-            @endif
-            @if (session('msg'))
-                <p class="msg">{{ session('msg') }}</p>
-            @endif
+           
             @yield('content')
         </div>
     </div>

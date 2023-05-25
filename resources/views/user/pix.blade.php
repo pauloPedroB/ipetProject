@@ -21,8 +21,8 @@
                             <p>PIX</p>
                         </div>
                         <div class="pix-recebedor" >
-                            <h2>Recebedor</h2>
-                            <p>IPET</p>
+                            <h2>Quem recebe:</h2>
+                            <p>IPET Serviços LTDA.</p>
                             <h2>Código pix valido até: </h2>
                             <p>23:59 horas</p>
                         </div>

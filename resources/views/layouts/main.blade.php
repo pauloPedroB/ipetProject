@@ -102,7 +102,9 @@
                 </div>
             </div>
         </nav>
-
+        @if (session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
     </header>
     <main>
         <div class="container-fluid">
