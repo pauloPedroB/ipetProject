@@ -7,42 +7,47 @@
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
         <div id="info-container" class="col-md-6">
+        <div>
+           
+        </div>
+        <div class="name-loja">
+            <p>{{$product->Nome}}</p>
+            <div class="stars">
 
+                @if($sum>=0.4)
+                    <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
+                @else
+                    <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                @endif
+                @if($sum>=1.4)
+                    <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                @else
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                @endif
+                @if($sum>=2.4)
+                    <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                @else
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                @endif
+                @if($sum>=3.4)
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                @else
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                @endif
+                @if($sum>=4.4)
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                @else
+                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                @endif
+            </div>
+        </div>
             <h1>{{$product->Name}}</h1>
+            
             <p class="product-Category">{{$product->name}}</p>
             <br>
 
             @if($prod == 'false')
-                <p>Avaliação da Loja:</p>
 
-                <div class="stars">
-
-                    @if($sum>=0.4)
-                        <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
-                    @else
-                        <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                    @endif
-                    @if($sum>=1.4)
-                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                    @else
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                    @endif
-                    @if($sum>=2.4)
-                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                    @else
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                    @endif
-                    @if($sum>=3.4)
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                    @else
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                    @endif
-                    @if($sum>=4.4)
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                    @else
-                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                    @endif
-                </div>
             @else
                 @if($user->AL_id == 2)
                     @if($my == false)
@@ -61,26 +66,27 @@
             
                 
             <br>
-            <p class="product-Nome">{{$product->Nome}}</p>
-            <p class="product-Telefone">{{$product->Telefone}}</p>
-            <p class="product-Celular">{{$product->Celular}}</p>
+            <div class="data-user-product">
+                <h1>Dados da Loja</h1>
+                <p> <span class="text-endereco">Telefone:</span>{{$product->Telefone}}</p>
+                <p> <span class="text-endereco">Celular:</span>{{$product->Celular}}</p>
 
 
-            @foreach($Enderecos as $Endereco)
-                @if($Endereco->id==$product->Endereco_id)
+                @foreach($Enderecos as $Endereco)
+                    @if($Endereco->id==$product->Endereco_id)
+                        <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
+                        <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
+                        <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
+                        <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
+                        <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
+            </div>
+                        <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
+                        <div id="mapa" style="width:400px;height:250px;"></div>
+                        @break
+                    @endif
+                @endforeach
 
-                    <p class="product-Bairro">{{$Endereco->CEP}}</p>
-                    <p class="product-Logradouro">{{$Endereco->Logradouro}}, Número: {{$Endereco->Numero}}</p>
-                    <p class="product-Bairro">{{$Endereco->Bairro}}</p>
-                    <p class="product-Cidade">{{$Endereco->Cidade}}</p>
-
-                    <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
-                    <div id="mapa" style="width:400px;height:250px;"></div>
-                    @break
-                @endif
-            @endforeach
-
-
+           
 
         </div>
         <div class="col-md-12" id="description-container">
@@ -95,18 +101,20 @@
             @if($user->AL_id==1)
                 <div class="col-md-12" id="Avaliation-container">
                     <h3>Avalie sua experiência:</h3>
-                    <a href="javascript:void(0)" onclick="Avaliar(1)"><img src="/img/star0.png" id="s1" style="width: 50px"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(2)"><img src="/img/star0.png" id="s2" style="width: 50px"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(3)"><img src="/img/star0.png" id="s3" style="width: 50px"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(4)"><img src="/img/star0.png" id="s4" style="width: 50px"></a>
-                    <a href="javascript:void(0)" onclick="Avaliar(5)"><img src="/img/star0.png" id="s5" style="width: 50px"></a>
+                    <div class="stars" >
+                        <a href="javascript:void(0)" onclick="Avaliar(1)"><img class="stars-img" src="/img/star0.png" id="s1" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(3)"><img class="stars-img" src="/img/star0.png" id="s3" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(2)"><img class="stars-img" src="/img/star0.png" id="s2" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(4)"><img class="stars-img" src="/img/star0.png" id="s4" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(5)"><img class="stars-img" src="/img/star0.png" id="s5" ></a>
+                    </div>
                     <form action="/avaliar" method="POST">
                         @csrf
                         <input type="hidden" name="product" id="product" value="{{$id}}">
                         <input type="hidden" name="value" id="rating" value="0">
                         <input type="hidden" name="loja" value="{{$product->id_Loja}}">
                         <label for="avaliacao">Elogio, sugestão ou reclamação:</label>
-                        <input type="text" name="avaliacao" class="form-control">
+                        <input type="text" name="avaliacao" class="form-control" id="avaliacao">
                         <input type="submit" class="btn btn-primary">
                     </form>
                     

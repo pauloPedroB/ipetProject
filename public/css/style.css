@@ -187,6 +187,13 @@ body {
     margin: 0 auto;
 }
 
+.name-loja{
+    display:flex;
+    gap: 1rem;
+}
+.name-loja p{
+    font-size: 2rem;
+}
 .stars{
     display: flex;
     gap: 2px;
@@ -195,23 +202,68 @@ body {
 .stars-img{
     width:2rem;
 }
+
+.data-user-product{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 50%;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+}
+.data-user-product h1{
+    color: #000;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#Avaliation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#avaliacao{
+    width: 30%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.container-title{
+    text-align: center;
+    margin-bottom:0.5rem;
+}
+
+.container-title-loja{
+    text-align: center;
+    margin-bottom:0.5rem;
+    padding-top: 3rem;
+}
+
+
 .product-card {
     height: 350px;
     width: 250px;
 }
 
-
+#products-container {
+    padding-top: 10rem;
+}
 #products-container h2 {
     margin-bottom: 10px;
 }
 
 #products-container .subtitle {
     color: grey;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
 }
 
 #cards-container {
     display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content:center;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -222,18 +274,19 @@ body {
 
 #products-container .card {
     flex: 1 1 24%;
-    max-width: 25%;
+    max-width: 15%;
     border-radius: 10px solid #DBF0E1;
     padding: 0;
-    margin: 0.5%;
     cursor: pointer;
+    margin: 1rem;
 }
 
 #products-container .card:hover{
     outline: 5px solid #FFC05F;
-    zoom: 105%;
+    zoom: 100%;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
+    border: #fff;
 }
 
 #products-container img {
@@ -249,28 +302,35 @@ body {
 
 .card .card-title {
     color: #212121;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
-    margin-left: 1rem;
 }
 
 .card-distance {
-    font-size: 14px;
+    font-size: 1rem;
     color: #757575;
 }
 
-.card-value {
-    font-size: 18px;
-    color: #757575;
+.reveal {
+    position: relative;
+    margin-top: 80px;
+    opacity: 0;
+    transition: all 1.5s ease;
+}
+
+.reveal.active {
+    margin-top: 0;
+    opacity: 1;
 }
 
 footer {
     text-align: center;
     background-color: #FFC05F;
     color: black;
-    position:absolute;
     width: 100%;
     padding: 10px;
+    display: block;
+    position: absolute;
 }
 
 .footer-content{
@@ -343,10 +403,17 @@ footer {
 .card-body .btn-primary {
     background-color: #FFC05F;
     border-color: #FFC05F;
-    font-size: 1rem;
+    font-size: 0.6rem;
+    font-weight: bold;
     color: #000000;
 }
 
+.card-button{
+    display: flex;
+    gap:0.5rem;
+    align-items: center;
+    justify-content:center;
+}
 
 
 
@@ -364,7 +431,7 @@ footer {
 #image-container,
 #info-container {
     margin-top: 30px;
-    padding-top: 10rem;
+    padding-top: 15rem;
 }
 
 #image-container img {
@@ -375,8 +442,7 @@ footer {
     font-size: 2rem;
 }
 
-#info-container p {
-    font-size: 1.5rem;
+#info-container p {  
     display: flex;
 }
 
@@ -510,10 +576,26 @@ footer {
 }
 
 
-/* responsividade - tela de escolha */
+@media screen and (max-width: 1080px){
+    #products-container .card {
+        flex: 1 1 50%;
+        max-width: 25%;
+        margin-top: 10px;
+    }
+
+    .content-payment{
+        display: flex;
+        flex-direction: column !important;
+        padding-top: 8rem !important;
+        align-items: center;
+    }
+    .card-premium{
+        margin-top: 2rem !important;
+        margin-bottom: 2rem;
+    }
+}
 
 /* DISPOSIVOS MÓVEIS - CELULARES */
-
 @media screen and (max-width: 480px){
 
     #products-container .card {
@@ -569,12 +651,6 @@ footer {
         width: 90%;
     }
 
-    .content-payment{
-        display: flex;
-        flex-direction: column !important;
-        padding-top: 5rem !important;
-    }
-
     .card-dados input{
         width: 60% !important;
     }
@@ -617,8 +693,8 @@ footer {
     }
 
     #products-container .card {
-        flex: 1  100%;
-        max-width: 100%;
+        flex: 1  50%;
+        max-width: 50%;
         margin-top: 10px;
     }
 
@@ -662,14 +738,6 @@ footer {
 
     #title_user {
         margin-top: -1rem;
-    }
-
-    
-    .content-payment{
-        display: flex;
-        flex-direction: column !important;
-        padding-top: 5rem !important;
-
     }
 
     .card-dados input{
@@ -1158,7 +1226,7 @@ footer {
 .confirmation button{
     width:40%;
     color: white;
-    background-color: #d40f0f;
+    background-color: #1db844;
     border-radius: 10px;
     padding:0.5rem;
     border: none;

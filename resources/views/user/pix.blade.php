@@ -17,7 +17,7 @@
                         <div class="container-option">
                             <a href="/payment"><i class="fa-regular fa-credit-card"></i></a>
                             <p>Débito/Crédito</p>
-                            <a href="/pix"><i class="fa-brands fa-pix" style="color: #d40f0f;"></i></a>
+                            <a href="/pix"><i class="fa-brands fa-pix" style="color: #1db844;"></i></a>
                             <p>PIX</p>
                         </div>
                         <div class="pix-recebedor" >

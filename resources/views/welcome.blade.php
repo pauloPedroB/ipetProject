@@ -155,83 +155,87 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="products-container" class="col-md-12 m-5"  >
-        @if ($search)
-        <h2>Buscando por: {{ $search }}</h2>
-        @else
-        <h2>Produtos</h2>
-        @endif
-        <p class="subtitle">Mais próximos de você</p>
-        <div id="cards-container" class="row">
-            @foreach ($premiumProducts as $product)
-            <div class="card col-md-3" id="card-primary">
-                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <p class="card-path">Loja Patrocinada</p>
-                    <p class="card-date">19/03/2023</p>
-                    <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
-                    <p class="card-distance">
-                        @auth
-                        @if($User->AL_id !=3)
-                    <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
-                    @endif
-                    @endauth
-                    </p>
-                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
-                </div>
-            </div>
-            @endforeach
-
-            @if($search != null)
-                @foreach ($products as $product)
-                    @php
-                        $count = false;
-                        foreach($premiumProducts as $premiumProduct){
-                            if($premiumProduct->id == $product->id){
-                                $count = true;
-                                break;
-                            }
-                        }
-                    @endphp
-                    @if($count == false)
-                        <div class="card col-md-3" id="card-primary">
-                            <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                            <div class="card-information"> 
-                            <p class="card-path">Mais próximo de você</p>
-                                <p class="card-date">19/03/2023</p>
-                                <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
-                                <p class="card-distance">
-                                    @auth
-                                    @if($User->AL_id !=3)
-                                <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
-                                @endif
-                                
-                                @endauth
-                            </div>
-
-                            <div class="card-body">
-                                </p>
-                                <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            @endif
-            @if($search)
-                @if(count($products)+count($premiumProducts)==0)
-                    <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
+   <section class="reveal">
+        <div id="products-container" class="col-md-12"  >
+            @if ($search)
+            <h2>Buscando por: {{ $search }}</h2>
+            @else
+            <div class="container-title">
+                <h2>Produtos</h2>
                 @endif
-            @elseif(count($premiumProducts)==0)
-                <p>Não há eventos disponíveis</p>
-            @endif
+                <p class="subtitle">Mais próximos de você</p>
+            </div>
+            <div id="cards-container" class="row">
+                @foreach ($premiumProducts as $product)
+                <div class="card col-md-3" id="card-primary">
+                    <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                    <div class="card-body">
+                        <p class="card-path">Loja Patrocinada</p>
+                        <p class="card-date">19/03/2023</p>
+                        <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
+                        <p class="card-distance">
+                            @auth
+                            @if($User->AL_id !=3)
+                        <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                        @endif
+                        @endauth
+                        </p>
+                        <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
+                    </div>
+                </div>
+                @endforeach
+
+                @if($search != null)
+                    @foreach ($products as $product)
+                        @php
+                            $count = false;
+                            foreach($premiumProducts as $premiumProduct){
+                                if($premiumProduct->id == $product->id){
+                                    $count = true;
+                                    break;
+                                }
+                            }
+                        @endphp
+                        @if($count == false)
+                            <div class="card col-md-3" id="card-primary">
+                                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                                <div class="card-information"> 
+                                <p class="card-path">Mais próximo de você</p>
+                                    <p class="card-date">19/03/2023</p>
+                                    <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
+                                    <p class="card-distance">
+                                        @auth
+                                        @if($User->AL_id !=3)
+                                    <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
+                                    @endif
+                                    
+                                    @endauth
+                                </div>
+
+                                <div class="card-body">
+                                    </p>
+                                    <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                @endif
+                @if($search)
+                    @if(count($products)+count($premiumProducts)==0)
+                        <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver Todos!</a></p>
+                    @endif
+                @elseif(count($premiumProducts)==0)
+                    <p>Não há eventos disponíveis</p>
+                @endif
+            </div>
         </div>
-    </div>
+    </section>
     <footer>
         <div class="footer-content">
             <h3>IPET DEVELOPMENT &copy; 2023</h3>
             <ul class="contacts">
                 <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== "target="_blanck" ><i class="fa-brands fa-instagram" ></i></li>
                 <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
             </ul>
         </div>
@@ -251,6 +255,26 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/02020a9349.js" crossorigin="anonymous"></script>
+
+    <script>
+    function handleScroll() {
+        const reveals = Array.from(document.querySelectorAll('.reveal'));
+
+        reveals.forEach((item) => {
+            const windowHeight = window.innerHeight;
+            const revealTop = item.getBoundingClientRect().top;
+            const revealPoint = 150;
+
+            if (revealTop < windowHeight - revealPoint) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+</script>
 </body>
 
 </html>

@@ -101,7 +101,7 @@
             <h3>IPET DEVELOPMENT &copy; 2023</h3>
             <ul class="contacts">
                 <li><a href="#"><i class="fa-brands fa-whatsapp" ></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram" ></i></li>
+                <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== "target="_blanck" ><i class="fa-brands fa-instagram" ></i></li>
                 <li><a href="#"><i class="fa-brands fa-twitter" ></i></li>
             </ul>
         </div>
