@@ -21,7 +21,6 @@ class CategoryController extends Controller
         $category = new Category;
 
         $category->name = $request->Name;
-        $category->Description = 'a';
 
         $category->save();
         return redirect('/dashboard')->with('msg','Categoria adicionada com sucesso!');
@@ -38,7 +37,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($request->id);;
 
         $category->name = $request->Name;
-        $category->Description = 'a';
 
 
         $category->save();
