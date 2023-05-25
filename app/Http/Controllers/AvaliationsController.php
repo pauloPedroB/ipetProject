@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use App\Models\Usuario;
 use App\Models\Avaliation;
+use App\Models\Loja;
+
 
 
 
 class AvaliationsController extends Controller
 {
+    public function index($id){
+        
+        return view('user.avaliations');
+    }
     public function create(Request $request){
         $User = auth()->user();
         $id = $request->product;

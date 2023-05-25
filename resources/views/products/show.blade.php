@@ -13,7 +13,7 @@
             <br>
 
             @if($prod == 'false')
-                <p>Avaliação da Loja:</p>
+                <a href="/avaliação/loja/{{$id_Loja}}">Avaliação da Loja:</a>
 
                 <div class="stars">
 
