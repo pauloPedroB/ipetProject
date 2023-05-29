@@ -5,7 +5,7 @@
 
 
 {{-- container --}}
-<div id="container_change" class=" container-fluid">
+<div class=" container-fluid">
 
     <div id="row_change" class="row ">
         
