@@ -173,8 +173,8 @@
                     <div class="card-body">
                         <p class="card-path">Loja Patrocinada</p>
                         <p class="card-date">
-                            @if($product->created_at != null)
-                                {{ \Carbon\Carbon::parse($product->created_at)->format('d/m/Y') }}
+                            @if($product->criation != null)
+                                {{ \Carbon\Carbon::parse($product->criation)->format('d/m/Y') }}
                             @else
                                 28/05/2023
                             @endif</p>
