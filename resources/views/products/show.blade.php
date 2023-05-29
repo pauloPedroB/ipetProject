@@ -82,12 +82,13 @@
                         <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
                         <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
                         <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
-            </div>
-                        <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
+                     <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
                         <div id="mapa" style="width:400px;height:250px;"></div>
                         @break
                     @endif
                 @endforeach
+            </div>
+                       
 
            
 
