@@ -176,7 +176,7 @@
                             @if($product->criation != null)
                                 {{ \Carbon\Carbon::parse($product->criation)->format('d/m/Y') }}
                             @else
-                                28/05/2023
+                                10/05/2023
                             @endif</p>
                         <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                         <p class="card-distance">
