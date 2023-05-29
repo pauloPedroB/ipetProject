@@ -200,8 +200,8 @@
                         @if($count == false)
                             <div class="card col-md-3" id="card-primary">
                                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                                <div class="card-information"> 
-                                <p class="card-path">Mais próximo de você</p>
+                                <div class="card-body">
+                                    <p class="card-path">Loja Patrocinada</p>
                                     <p class="card-date">19/03/2023</p>
                                     <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                                     <p class="card-distance">
@@ -209,11 +209,7 @@
                                         @if($User->AL_id !=3)
                                     <p>Distância: {{floatval(number_format($product->distancia,1))}} KM</p>
                                     @endif
-                                    
                                     @endauth
-                                </div>
-
-                                <div class="card-body">
                                     </p>
                                     <a href="/produto/{{ $product->id }}" class="btn btn-primary">Saiba Mais...</a>
                                 </div>
