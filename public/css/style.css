@@ -503,9 +503,6 @@ footer {
 .card{
     width: 15vw;
     height: max-content;
-    background-color: red;
-    border-radius: 6rem;
-
     cursor: pointer;
     transition: border 0.4s linear;
     transition: color 0.4s linear;
