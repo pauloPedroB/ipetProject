@@ -18,7 +18,7 @@
 
         <div class="d-flex flex-row mt-1 flex-wrap justify-content-around">
             {{-- card-market --}}
-            <div class="col-auto flex-column text-center ">
+            <div  class="col-auto flex-column text-center ">
                 <a class="btn" href="/Registrar/Loja" >
                     <div class="card">
                         <span id="icon_store" class="material-symbols-outlined">store</span>
