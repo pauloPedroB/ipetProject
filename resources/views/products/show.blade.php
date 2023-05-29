@@ -42,6 +42,7 @@
                 @else
                     <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
                 @endif
+             @endif
             </div>
         </div>
             <h1>{{$product->Name}}</h1>
