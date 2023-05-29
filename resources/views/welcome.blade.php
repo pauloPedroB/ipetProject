@@ -157,11 +157,12 @@
     </div>
    <section class="reveal">
         <div id="products-container" class="col-md-12"  >
-            @if ($search)
-            <h2>Buscando por: {{ $search }}</h2>
-            @else
+
             <div class="container-title">
-                <h2>Produtos</h2>
+                @if ($search)
+                    <h2>Buscando por: {{ $search }}</h2>
+                @else
+                    <h2>Produtos</h2>
                 @endif
                 <p class="subtitle">Mais próximos de você</p>
             </div>
