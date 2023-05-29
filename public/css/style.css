@@ -503,7 +503,7 @@ footer {
 .card{
     width: 15vw;
     height: max-content;
-    background-color: #dbf0e1;
+    background-color: red;
     border-radius: 6rem;
 
     cursor: pointer;

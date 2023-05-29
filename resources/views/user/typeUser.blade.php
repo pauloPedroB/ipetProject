@@ -22,7 +22,7 @@
                 <a class="btn" href="/Registrar/Loja" >
                     <div class="card">
                         <span id="icon_store" class="material-symbols-outlined">store</span>
-                        <h2 id="title_store" class="fs-2 fw-bold flex-column pb-4">Loja</h2>
+                        <h2 id="title_store" class="fs-3 fw-bold flex-column pb-4">Loja</h2>
                     </div>
                 </a>
             </div>
@@ -32,7 +32,7 @@
                 <a class="btn" href="/Registrar/Usuario">
                     <div class="card">
                         <span id="icon_user" class="material-symbols-outlined">person</span>
-                        <h2 id="title_user" class="fs-3 fw-bold  flex-column pb-3" style="">Cliente</h2>
+                        <h2 id="title_user" class="fs-3 fw-bold  flex-column pb-4" style="">Cliente</h2>
                     </div>
                 </a>
             </div>
