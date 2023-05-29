@@ -109,8 +109,8 @@
                     <h3>Avalie sua experiência:</h3>
                     <div class="stars" >
                         <a href="javascript:void(0)" onclick="Avaliar(1)"><img class="stars-img" src="/img/star0.png" id="s1" ></a>
-                        <a href="javascript:void(0)" onclick="Avaliar(3)"><img class="stars-img" src="/img/star0.png" id="s3" ></a>
-                        <a href="javascript:void(0)" onclick="Avaliar(2)"><img class="stars-img" src="/img/star0.png" id="s2" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(2)"><img class="stars-img" src="/img/star0.png" id="s3" ></a>
+                        <a href="javascript:void(0)" onclick="Avaliar(3)"><img class="stars-img" src="/img/star0.png" id="s2" ></a>
                         <a href="javascript:void(0)" onclick="Avaliar(4)"><img class="stars-img" src="/img/star0.png" id="s4" ></a>
                         <a href="javascript:void(0)" onclick="Avaliar(5)"><img class="stars-img" src="/img/star0.png" id="s5" ></a>
                     </div>
