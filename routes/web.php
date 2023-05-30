@@ -42,14 +42,14 @@ Route::put('/produtos/update/{id}', [ProductsController::class, 'update'])->midd
 
 Route::get('/Tipo/Usuario', [UserController::class, 'typeUser'])->middleware('auth');
 
-Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth', 'CheckNotType');
-Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth', 'CheckNotType');
+Route::get('/Registrar/Loja', [LojaController::class, 'index'])->middleware('auth');
+Route::post('/Cadastrar/Loja', [LojaController::class, 'create'])->middleware('auth');
 Route::get('/Editar/Loja/{id}', [LojaController::class, 'edit'])->middleware('auth', 'CheckType');
 Route::put('/Update/Loja/{id}', [LojaController::class, 'update'])->middleware('auth', 'CheckType');
 
 
-Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth', 'CheckNotType');
-Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth', 'CheckNotType');
+Route::get('/Registrar/Usuario', [UsuarioController::class, 'index'])->middleware('auth');
+Route::post('/Cadastrar/Usuario', [UsuarioController::class, 'create'])->middleware('auth');
 
 Route::get('/usuario/Tipo_de_Acesso', [ProductsController::class, 'acessLevel'])->middleware('CheckNotType');
 
