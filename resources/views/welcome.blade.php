@@ -213,7 +213,12 @@
                                 <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
                                 <div class="card-body">
                                     <p class="card-path">Mais próximo à você</p>
-                                    <p class="card-date">19/03/2023</p>
+                                    <p class="card-date">
+                                    @if($product->criation != null)
+                                        {{ \Carbon\Carbon::parse($product->criation)->format('d/m/Y') }}
+                                    @else
+                                        10/05/2023
+                                    @endif</p>
                                     <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
                                     <p class="card-distance">
                                         @auth
