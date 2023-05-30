@@ -584,6 +584,7 @@ footer {
 @media screen and (max-width: 480px){
 
     #products-container .card {
+        
         flex: 1 100%;
         max-width: 100%;
         margin-top: 10px;
