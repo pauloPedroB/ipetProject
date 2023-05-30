@@ -276,7 +276,7 @@ body {
     zoom: 100%;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
-    border: #fff;
+    
 }
 
 #products-container img {
@@ -508,33 +508,24 @@ footer {
 /* card loja */
 
 #card_store {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
     width: 20rem;
+    height: max-content;
     background-color: #dbf0e1;
-    border: solid 2px #ffffff;
-    border-radius: 2rem;
     cursor: pointer;
-    transition: color 0.2s linear;
+    border: solid 4px #ffffff;
+    transition-duration: 0.2s;
+}
+
+#card_store:hover {
+    border: solid 2px  #ee5253;
+    color: #ee5253;
 }
 
 #card_store span { 
-    font-size: 10rem;
-}
-
-#card_store h2 {
-    font-size: 3rem;    
-    margin-top: 2rem;
-    padding-bottom: 10rem;
-    font-weight: bold;
+    font-size: 9vw;
 }
 
 
-#card_store:hover {
-    border: 2px solid #ee5253;
-    color: #ee5253;
-}
 
 
 

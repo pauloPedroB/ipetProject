@@ -7,20 +7,20 @@
 {{-- container --}}
 <div id="container-change" class=" container-fluid">
 
-    <div id="row_change" class="row">
+    <div id="row_change" class="row" style="margin:0">
         
         {{-- tittle --}}
-        <div id="title_change">
+        <div class="p-5" style="color: #f29200">
             <h1>Cadastre-se como:</h1>     
         </div>
 
-        <div id="container-cards-change">
+        <div class="d-flex flex-row mt-1 flex-wrap justify-content-around">
             {{-- card-market --}}
-            <div id="card_store" class="col-auto ">
+            <div class="col-auto card-market flex-column text-center m-5 ">
                 <a class="btn" href="/Registrar/Loja" >
-                    <div class="cards">
-                        <span class="material-symbols-outlined">store</span>
-                        <h2 id="title_store" class="fs-3 fw-bold flex-column pb-4">Loja</h2>
+                    <div class="rounded-5 p-2" id="card_store">
+                        <span class="material-symbols-outlined mt-2">store</span>
+                        <h2 class="fs-2 fw-bold flex-column pb-3">Loja</h2>
                     </div>
                 </a>
             </div>
