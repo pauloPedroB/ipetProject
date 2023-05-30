@@ -592,38 +592,6 @@ footer {
     #carouselIpet {
         margin-top: 4rem;
     }
-    #title_change {
-        width: 100%;
-        text-align: center;
-    }
-
-    #card_store {
-        width: 100%;
-        border-radius: 3rem;
-    }
-
-    #icon_store {
-        text-align: center;
-        font-size: 10rem;
-    }
-
-    #title_store {
-        margin-top: -1rem;
-    }
-
-    #card_user {
-        width: 100%;
-        border-radius: 3rem;
-    }
-
-    #icon_user {
-        text-align: center;
-        font-size: 10rem;
-    }
-
-    #title_user {
-        margin-top: -1rem;
-    }
 
     .dashboard-content {
         padding-top: 5rem !important;
@@ -675,38 +643,7 @@ footer {
     #carouselIpet {
         margin-top: 4rem;
     }
-    #title_change {
-        text-align: center;
-    }
-
-    #card_store {
-        width: 100%;
-        border-radius: 3rem;
-    }
-
-    #icon_store {
-        text-align: center;
-        font-size: 14rem;
-    }
-
-    #title_store {
-        margin-top: -1rem;
-    }
-
-    #card_user {
-        width: 100%;
-        border-radius: 3rem;
-    }
-
-    #icon_user {
-        text-align: center;
-        font-size: 14rem;
-    }
-
-    #title_user {
-        margin-top: -1rem;
-    }
-
+   
     .card-dados input{
         width: 60% !important;
     }
