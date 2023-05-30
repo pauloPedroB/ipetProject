@@ -26,11 +26,11 @@
             </div>
 
             {{-- card-user --}}
-            <div class=" col-auto flex-column  text-center">
+            <div class="col-auto card-market flex-column text-center m-5">
                 <a class="btn" href="/Registrar/Usuario">
-                    <div class="cards">
-                        <span id="icon_user" class="material-symbols-outlined">person</span>
-                        <h2 id="title_user" class="fs-3 fw-bold  flex-column pb-4" style="">Cliente</h2>
+                    <div class="rounded-5 p-2" id="card_store">
+                        <span  class=" mt-2 material-symbols-outlined">person</span>
+                        <h2 class="fs-2 fw-bold flex-column pb-2" >Cliente</h2>
                     </div>
                 </a>
             </div>
