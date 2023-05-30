@@ -508,24 +508,35 @@ footer {
 /* card loja */
 
 #card_store {
-    width: 15vw;
-    height: max-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 20rem;
     background-color: #dbf0e1;
-    border-radius: 5rem;
-
+    border: solid 2px #ffffff;
+    border-radius: 2rem;
     cursor: pointer;
-    transition: border 0.4s linear;
-    transition: color 0.4s linear;
+    transition: color 0.2s linear;
 }
 
-#icon_store {
+#card_store span { 
     font-size: 10rem;
 }
 
-#title_store {
+#card_store h2 {
+    font-size: 3rem;    
     margin-top: 2rem;
     padding-bottom: 10rem;
+    font-weight: bold;
 }
+
+
+#card_store:hover {
+    border: 2px solid #ee5253;
+    color: #ee5253;
+}
+
+
 
 /* card cliente */
 

@@ -14,13 +14,12 @@
             <h1>Cadastre-se como:</h1>     
         </div>
 
-
         <div id="container-cards-change">
             {{-- card-market --}}
-            <div id="card_store" class="col-auto flex-column text-center ">
+            <div id="card_store" class="col-auto ">
                 <a class="btn" href="/Registrar/Loja" >
                     <div class="cards">
-                        <span id="icon_store" class="material-symbols-outlined">store</span>
+                        <span class="material-symbols-outlined">store</span>
                         <h2 id="title_store" class="fs-3 fw-bold flex-column pb-4">Loja</h2>
                     </div>
                 </a>
