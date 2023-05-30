@@ -34,8 +34,14 @@
                         <form class="d-flex flex-row" action="" method="get">
                             <div class="me-5">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="search" name="search" 
-                                placeholder= "Buscar Produto..." value="{{$search}}">
+                                @if($search)
+                                    <input type="text" id="search" name="search" 
+                                    placeholder= "Buscar Produto..." value="{{$search}}">
+                                @else
+                                    <input type="text" id="search" name="search" 
+                                    placeholder= "Buscar Produto...">
+                                @endif
+                                
                             </div>
                             <div class="ms-5">
                                 <select name="Category" id="Category">
