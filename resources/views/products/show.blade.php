@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title','{{$product->Name}}')
 @section('content')
-<div class="col-md-10 offset-md-1" id='show-main'>
-    <div class="row">
-        <div id="image-container-saiba-mais" class="col-md-6">
+<div class="" id='show-main'>
+    <div class="row"  id="products-information">
+        <div id="image-container" class="col-md-6">
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
         <div id="info-container" class="col-md-6">
