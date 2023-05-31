@@ -2,7 +2,7 @@
 @section('title','Cadastrar Endereço')
 @section('content')
 
-    <div id="event-create-container" class="col-md-6 offset-md-3">
+    <div id="event-create-container" class="col-md-6 offset-md-3 pt-5 pb-5">
         <div id="header_form" class="d-flex flex-column flex-md-row align-items-center">
             <i class=" col fa-solid fa-city  d-flex justify-content-center align-items-center" id="icon_register"></i>
             <h1 class="fs-2 m-3">Cadastro - Pessoa Jurídica</h1>

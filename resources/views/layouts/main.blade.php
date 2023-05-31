@@ -83,7 +83,7 @@
                                     <form action="/logout" method="POST">
                                         @csrf
                                         <input id="btnClose" type="submit"
-                                            onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose"
+                                            onclick="product.preventDefault(); this.closest('form').submit();" class="btnClose nav-link"
                                             value="Sair">
                                     </form>
                                 </li>
@@ -102,11 +102,8 @@
                 </div>
             </div>
         </nav>
-        @if (session('msg'))
-            <p class="msg">{{ session('msg') }}</p>
-        @endif
     </header>
-    <main>
+    <main id="main">
         <div class="container-fluid">
             <div class="row">
                 @if (session('msg'))
