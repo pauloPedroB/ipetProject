@@ -406,6 +406,7 @@ footer {
 
 #image-container,
 #info-container {
+    width: 20rem;
     margin-top: 30px;
     padding-top: 15rem;
 }
@@ -578,6 +579,7 @@ footer {
     }
 
     #products-container .card {
+        
         flex: 1 100%;
         max-width: 100%;
         margin-top: 10px;
@@ -1121,4 +1123,20 @@ footer {
 .pix-codigo p {
     font-size: 1rem;
     font-weight: bold;
+}
+
+
+/* tela "ver mais" */
+
+#show-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#products-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
