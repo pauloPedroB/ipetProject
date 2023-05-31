@@ -289,15 +289,18 @@ body {
     font-size: 12px;
     color: #000000;
 }
-
+.card-title-loja{
+    text-align: center;
+}
 .card .card-title {
     color: #212121;
     font-size: 1rem;
     font-weight: bold;
+    
 }
 
-.card-distance {
-    font-size: 1rem;
+.card-distance p{
+    font-size: 5rem;
     color: #757575;
 }
 
@@ -319,7 +322,6 @@ footer {
     color: black;
     width: 100%;
     padding: 10px;
-    display: block;
     position: absolute;
 }
 
@@ -413,6 +415,11 @@ footer {
     padding: 10px;
 }
 
+#image-container-saiba-mais{
+    padding-top: 15rem;
+    max-width: 100%;
+    margin: 0;
+}
 #image-container,
 #info-container {
     margin-top: 30px;
@@ -424,7 +431,7 @@ footer {
 }
 
 #info-container h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #info-container p {  
@@ -578,6 +585,14 @@ footer {
         margin-top: 2rem !important;
         margin-bottom: 2rem;
     }
+
+    #image-container-saiba-mais{
+        padding-top: 5rem;
+    }
+
+    .data-user-product{
+        width: 90%;
+    }
 }
 
 /* DISPOSIVOS MÓVEIS - CELULARES */
@@ -624,12 +639,9 @@ footer {
         margin: 0.8rem;
     }
 
-    #container-premium {
-        padding-top: 1.5rem;
-    }
 }
 
-@media screen and (min-width: 481px) and (max-width: 750px) {
+@media screen and (max-width: 750px) {
     .container-header {
         align-items: baseline !important;
     }
@@ -662,6 +674,23 @@ footer {
 
     #container-premium {
         padding-top: 1rem;
+    }
+
+    
+    #container-premium {
+        padding-top: 1.5rem;
+    }
+
+    #info-container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 5rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .data-user-product{
+        width: 90%;
     }
 }
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-10 offset-md-1" id='show-main'>
     <div class="row">
-        <div id="image-container" class="col-md-6">
+        <div id="image-container-saiba-mais" class="col-md-6">
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
         <div id="info-container" class="col-md-6">
@@ -17,39 +17,35 @@
 
                 <div class="stars">
 
-                @if($sum>=0.4)
-                    <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
-                @else
-                    <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @if($sum>=0.4)
+                        <a href="javascript:void(0)"><img  class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a chref="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=1.4)
+                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=2.4)
+                        <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=3.4)
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
+                    @if($sum>=4.4)
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
+                    @else
+                        <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
+                    @endif
                 @endif
-                @if($sum>=1.4)
-                    <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=2.4)
-                    <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=3.4)
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-                @if($sum>=4.4)
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
-                @else
-                    <a  href="javascript:void(0)"><img class="stars-img" src="/img/star0.png"></a>
-                @endif
-             @endif
             </div>
-        </div>
-            <h1>{{$product->Name}}</h1>
-            
-            <p class="product-Category">{{$product->name}}</p>
-            <br>
-
+        
+      
             @if($prod == 'false')
 
             @else
@@ -83,17 +79,13 @@
                         <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
                         <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
                         <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
-                          </div>
-                     <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
+                        </div>
+                            <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar Loja</button>
                         <div id="mapa" style="width:400px;height:250px;"></div>
                         @break
-                    @endif
-                @endforeach
-          
-                       
-
-           
-
+                        @endif
+                    @endforeach
+            </div>
         </div>
         <div class="col-md-12" id="description-container">
             <h3>Descrição: </h3>

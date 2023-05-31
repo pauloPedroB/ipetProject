@@ -132,7 +132,7 @@
                 @endphp 
                         <div class="card col-sm-3">
                             <img class="img-fluid" src="/img/products/{{$product->Image}}" alt="{{$product->name}}">
-                            <h5 class="card-title">{{$product->Name}}</h5>
+                            <h5 class="card-title-loja">{{$product->Name}}</h5>
                             <div class="card-body">
                                 <div class="card-button">
                                     @if($count == true)
