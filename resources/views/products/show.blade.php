@@ -2,7 +2,7 @@
 @section('title','{{$product->Name}}')
 @section('content')
 <div class="" id='show-main'>
-    <div class="row">
+    <div class="row" id="products-information">
         <div id="image-container" class="col-md-6">
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
