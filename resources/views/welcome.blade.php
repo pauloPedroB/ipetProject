@@ -23,7 +23,7 @@
     <header>
 
         {{-- inicio --}}
-        <nav class="navbar navbar-expand-lg container">
+        <nav class="navbar navbar-expand-lg m-1 w-100">
             <div class="container-fluid" id="container-img-search-link">
                 <div id="container-img">
 

@@ -90,8 +90,8 @@ header {
 #search-container {
     display: inline-block;
     flex-wrap: nowrap;
-    width: 100%;
-    justify-content: space-between;
+    width: 60vw;
+    justify-content: space-around;
     background-color: #fff;
     margin: 0 20px;
     padding: 1vh;
@@ -579,7 +579,6 @@ footer {
     }
 
     #products-container .card {
-        
         flex: 1 100%;
         max-width: 100%;
         margin-top: 10px;
@@ -622,6 +621,12 @@ footer {
 }
 
 @media screen and (min-width: 481px) and (max-width: 750px) {
+    header {
+        height: min-content;
+    }
+    #main {
+        margin-top: 22vh;
+    }
     .container-header {
         align-items: baseline !important;
     }
@@ -1125,16 +1130,15 @@ footer {
     font-weight: bold;
 }
 
-
 /* tela "ver mais" */
 
-#show-main{
+#show-main {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-#products-information{
+#products-information {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
