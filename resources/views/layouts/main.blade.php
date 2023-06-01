@@ -86,7 +86,7 @@
                                             @csrf
                                             <input id="btnClose" type="submit"
                                                 onclick="product.preventDefault(); this.closest('form').submit();"
-                                                class="btnClose nav-link" value="Sair">
+                                                class="btnClose nav-link" value="S air">
                                         </form>
                                     </li>
                                 @endauth
@@ -106,6 +106,9 @@
         </nav>
         @if (session('msg'))
             <p class="msg">{{ session('msg') }}</p>
+        @endif
+        @if (session('msg-exclusion'))
+            <p class="msg" style="background-color:red">{{ session('msg-exclusion') }}</p>
         @endif
     </header>
     <main id="main">
