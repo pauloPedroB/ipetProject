@@ -105,7 +105,7 @@
             <p class="msg">{{ session('msg') }}</p>
         @endif
         @if (session('msg-exclusion'))
-            <p class="msg" style="background-color:red">{{ session('msg-exclusion') }}</p>
+            <p class="msg" style="background-color:red; color:black">{{ session('msg-exclusion') }}</p>
         @endif
         {{-- fim --}}
 
