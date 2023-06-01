@@ -86,7 +86,7 @@
                                             @csrf
                                             <input id="btnClose" type="submit"
                                                 onclick="product.preventDefault(); this.closest('form').submit();"
-                                                class="btnClose nav-link" value="Sair">
+                                                class="btnClose nav-link" value="S air">
                                         </form>
                                     </li>
                                 @endauth
