@@ -86,7 +86,7 @@ header {
 #search-container {
     display: inline-block;
     flex-wrap: nowrap;
-    width: 40vw;
+    width: 30vw;
     justify-content: space-around;
     background-color: #fff;
     margin: 0 20px;
@@ -95,6 +95,7 @@ header {
 }
 #search-container input {
     flex-wrap: nowrap;
+    width: 15vw;
     border: none;
 }
 
@@ -225,7 +226,6 @@ body {
     height: 350px;
     width: 250px;
 }
-
 
 #products-container h2 {
     margin-bottom: 10px;
