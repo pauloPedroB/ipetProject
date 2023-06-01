@@ -22,7 +22,7 @@
                         class="col dashboard-endereco-container container-fluid d-flex flex-column align-items-center m-3
                      p-2">
                         <div class="d-flex flex-column flex-md-row align-items-baseline">
-                            <div class="d-flex flex-column m-4">
+                            <div class="d-flex flex-column" id="dados-dashboard">
                                 <h1>Meus Dados</h1>
                                 @if ($user->AL_id == 2)
                                     <p> <span class="text-endereco">CNPJ: </span>{{ $Loja->CNPJ }}</p>
@@ -39,7 +39,7 @@
                                     <p> <span class="text-endereco">Celular: </span>{{ $Loja->Celular }}</p>
                                 @endif
                             </div>
-                            <div class="d-flex flex-column m-4">
+                            <div class="d-flex flex-column" id="dados-dashboard">
                                 <h1>Endereço</h1>
                                 <p> <span class="text-endereco">CEP: </span>{{ $Endereco->CEP }}</p>
                                 <p> <span class="text-endereco">Rua: </span> {{ $Endereco->Logradouro }}</p>
