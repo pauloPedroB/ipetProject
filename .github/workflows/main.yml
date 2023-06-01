@@ -22,7 +22,7 @@ jobs:
 
       - name: SSH conect machine
         run: |
-          ssh admin@${{secrets.SSH_HOST}} 'bash' <<EOF
+          ssh admin@${{secrets.SSH_HOST}} 'bash' <<EOF 
           #!/bin/bash
           sudo su 
           echo "Iniciando Pull ..." >> /home/admin/logPull.txt
