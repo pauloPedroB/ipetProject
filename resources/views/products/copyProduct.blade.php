@@ -108,69 +108,72 @@
 
     </header>
 
+    <main>
+        <div id="products-container" class="col-md-12">
+            @if ($search)
+                <h2>Buscando por: {{ $search }}</h2>
+            @else
+                <div class="container-title-loja">
+                    <h2>Produtos</h2>
+            @endif
+        </div>
+        <div id="cards-container" class="row">
 
-    <div id="products-container" class="col-md-12">
-        @if ($search)
-            <h2>Buscando por: {{ $search }}</h2>
-        @else
-            <div class="container-title-loja">
-                <h2>Produtos</h2>
-        @endif
-    </div>
-    <div id="cards-container" class="row">
-
-        @foreach ($products as $product)
-            @php
-                $count = false;
-                $id = 0;
-                foreach ($myproducts as $myproduct) {
-                    if ($myproduct->Product_id == $product->id) {
-                        $count = true;
-                        $id = $myproduct->id;
-                        break;
+            @foreach ($products as $product)
+                @php
+                    $count = false;
+                    $id = 0;
+                    foreach ($myproducts as $myproduct) {
+                        if ($myproduct->Product_id == $product->id) {
+                            $count = true;
+                            $id = $myproduct->id;
+                            break;
+                        }
                     }
-                }
-            @endphp
-            <div class="card col-sm-3">
-                <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
-                <h5 class="card-title-loja">{{ $product->Name }}</h5>
-                <div class="card-body">
-                    <div class="card-button">
-                        @if ($count == true)
-                            <form action="/produtos/{{ $id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input type="text" name="ond" style="display: none" value="true">
-                                <button type="submit" class="btn btn-primary"
-                                    style="background-color: chartreuse; border-color: chartreuse">Remover
-                                    produto</button>
-                            </form>
-                        @else
-                            <a href="/produto/copiar/{{ $product->id }}" class="btn btn-primary"
-                                id='adc{{ $product->id }}'>Adicionar à sua loja</a>
-                        @endif
-                        <a href="/produto/{{ $product->id }}/true" class="btn btn-primary">Visualizar Produto</a>
+                @endphp
+                <div class="card col-sm-3">
+                    <img class="img-fluid" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+                    <h5 class="card-title-loja">{{ $product->Name }}</h5>
+                    <div class="card-body">
+                        <div class="card-button">
+                            @if ($count == true)
+                                <form action="/produtos/{{ $id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" name="ond" style="display: none" value="true">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: chartreuse; border-color: chartreuse">Remover
+                                        produto</button>
+                                </form>
+                            @else
+                                <a href="/produto/copiar/{{ $product->id }}" class="btn btn-primary"
+                                    id='adc{{ $product->id }}'>Adicionar à sua loja</a>
+                            @endif
+                            <a href="/produto/{{ $product->id }}/true" class="btn btn-primary">Visualizar
+                                Produto</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-        @if (count($products) == 0)
-            <p>Não foi possível encontrar nenhum produto com {{ $search }}! <a href="/">Ver Todos!</a></p>
-        @elseif(count($products) == 0)
-            <p>Não há eventos disponíveis</p>
-        @endif
-    </div>
-    </div>
-    <footer>
-        <div class="footer-content">
-            <h3>IPET DEVELOPMENT &copy; 2023</h3>
-            <ul class="contacts">
-                <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-                <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== "target="_blanck"><i
-                            class="fa-brands fa-instagram"></i></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></li>
-            </ul>
+            @endforeach
+            @if (count($products) == 0)
+                <p>Não foi possível encontrar nenhum produto com {{ $search }}! <a href="/">Ver Todos!</a>
+                </p>
+            @elseif(count($products) == 0)
+                <p>Não há eventos disponíveis</p>
+            @endif
         </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <h3>IPET DEVELOPMENT &copy; 2023</h3>
+                <ul class="contacts">
+                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== "target="_blanck"><i
+                                class="fa-brands fa-instagram"></i></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></li>
+                </ul>
+            </div>
+    </main>
     </footer>
 
     <script src="/js/app.js"></script>

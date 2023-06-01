@@ -47,7 +47,7 @@
 }
 
 #container-premium {
-    padding-top: 10rem;
+    /* padding-top: 10rem; */
 }
 
 /* Header */
@@ -407,44 +407,6 @@ footer {
 }
 
 
-#image-container,
-#info-container {
-    width: 40rem;
-}
-
-#image-container img {
-    border-radius: 10px;
-}
-
-#info-container h1 {
-    font-size: 1.5rem;
-}
-
-#info-container p {
-    display: flex;
-}
-
-#info-container h3,
-#description-container h3,
-#Specifications-container h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffc05f;
-}
-
-#description-container {
-    margin-bottom: 1rem;
-}
-
-#info-container i {
-    font-size: 20px;
-    color: #00c2cb;
-    margin-right: 5px;
-}
-
-#info-container a {
-    color: #00c2cb;
-}
 
 .product-Description {
     margin-bottom: 0;
@@ -473,7 +435,7 @@ footer {
 /* sessão de escolhas loja / usuario */
 
 #row_change {
-    padding-top: 15rem !important;
+    /* padding-top: 15rem !important; */
     padding-bottom: 6.5rem !important;
 }
 
@@ -554,16 +516,12 @@ footer {
     .content-payment {
         display: flex;
         flex-direction: column !important;
-        padding-top: 8rem !important;
+        /* padding-top: 8rem !important; */
         align-items: center;
     }
     .card-premium {
         margin-top: 2rem !important;
         margin-bottom: 2rem;
-    }
-
-    #image-container-saiba-mais{
-        padding-top: 5rem;
     }
 
     .data-user-product{
@@ -710,6 +668,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding-top: 15rem;
 }
 
 
@@ -1015,7 +974,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 12rem;
+    
 }
 .icon-card {
     color: #ffc05f;
@@ -1155,15 +1114,59 @@ footer {
 #show-main {
     display: flex;
     flex-direction: column;
-    width: 100%;
+
 }
 
 #products-information {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    gap: 10rem;
     align-items: center;
 
 }
 
+#products-information h1{
+    text-align: center ;
+    font-size: 2rem;
+}
+
+
+#image-container,
+#info-container {
+    width: 40rem;
+}
+
+#image-container img {
+
+    border-radius: 10px;
+}
+
+#info-container h1 {
+    font-size: 1.5rem;
+}
+
+#info-container p {
+    display: flex;
+}
+
+#info-container h3,
+#description-container h3,
+#Specifications-container h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffc05f;
+}
+
+#description-container {
+    margin-bottom: 1rem;
+}
+
+#info-container i {
+    font-size: 20px;
+    color: #00c2cb;
+    margin-right: 5px;
+}
+
+#info-container a {
+    color: #00c2cb;
+}
