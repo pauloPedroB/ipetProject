@@ -78,7 +78,7 @@ header {
     flex-wrap: nowrap;
     margin: 0%;
     padding: 0%;
-
+    justify-content: space-around;
     width: 100%;
 }
 

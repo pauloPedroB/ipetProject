@@ -82,12 +82,12 @@
                                 <li class="nav-item">
                                     <a href="/dashboard" class="nav-link">Meus Dados</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item ">
                                     <form action="/logout" method="POST">
                                         @csrf
                                         <input id="btnClose" type="submit"
                                             onclick="product.preventDefault(); this.closest('form').submit();"
-                                            class="btnClose" value="Sair">
+                                            class="btnClose nav-link" value="Sair">
                                     </form>
                                 </li>
                                 @endauth
