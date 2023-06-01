@@ -1,45 +1,44 @@
 @extends('layouts.main')
 @section('title', 'Adicionar Produto')
 @section('content')
-    <div id="event-create-container" class="col-md-6 offset-md-3">
-        @if ($User->Endereco_id != null || $User->AL_id == 3)
-            <h1>Adicionar produtos</h1>
-            <form action="/produto" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group">
-                    <label for="title">Categoria: </label>
-                    <select name="category" id="category" required>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="title">Imagem do Produto: </label>
-                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file"
-                        accept="image/png, image/jpeg" required>
-                    <div id="imageforProduct">
-                        <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width: 100px;">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="title">Nome</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto"
-                        required>
-                </div>
-                <h3>Adicionar descrição</h3>
-                <input type="checkbox" id="Idade"><label for="">Idade</label>
-                <input type="checkbox" id="Pet"><label for="">Pet</label>
-                <input type="checkbox" id="Porte"><label for="">Porte</label>
-                <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
+<div id="event-create-container" class="col-md-6 offset-md-3">
+    @if ($User->Endereco_id != null || $User->AL_id == 3)
+    <h1>Adicionar produtos</h1>
+    <form action="/produto" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="title">Categoria: </label>
+            <select name="category" id="category" required>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title">Imagem do Produto: </label>
+            <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file"
+                accept="image/png, image/jpeg" required>
+            <div id="imageforProduct">
+                <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width: 100px;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">Nome</label>
+            <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
+        </div>
+        <h3>Adicionar descrição</h3>
+        <input type="checkbox" id="Idade"><label for="">Idade</label>
+        <input type="checkbox" id="Pet"><label for="">Pet</label>
+        <input type="checkbox" id="Porte"><label for="">Porte</label>
+        <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
 
 
-                <div id="dynamic-inputs">
-                    <!-- Aqui serão adicionados os novos inputs e labels -->
-                </div>
+        <div id="dynamic-inputs">
+            <!-- Aqui serão adicionados os novos inputs e labels -->
+        </div>
 
-                <script>
-                    function mostrarImagem() {
+        <script>
+            function mostrarImagem() {
                         const input = document.getElementById('image');
                         const preview = document.getElementById('imagem-preview');
                         if (input.files && input.files[0]) {
@@ -170,11 +169,11 @@
                             newComboBox.remove();
                         }
                     });
-                </script>
-                <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
-            </form>
-        @else
-            <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
-        @endif
-    </div>
+        </script>
+        <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
+    </form>
+    @else
+    <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
+    @endif
+</div>
 @endsection

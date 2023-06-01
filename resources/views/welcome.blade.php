@@ -187,7 +187,7 @@
                                 @else
                                 10/05/2023
                                 @endif</p>
-                            <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
+                            <h5 class="card-title" id="card-title">{{ mb_substr($product->Name,0,15).'...'}}</h5>
                             <p class="card-distance">
                                 @auth
                                 @if($User->AL_id !=3)
@@ -222,7 +222,7 @@
                                 @else
                                 10/05/2023
                                 @endif</p>
-                            <h5 class="card-title" id="card-title">{{ $product->Name }}</h5>
+                            <h5 class="card-title" id="card-title">{{ mb_substr($product->Name,0,15).'...' }}</h5>
                             <p class="card-distance">
                                 @auth
                                 @if($User->AL_id !=3)
