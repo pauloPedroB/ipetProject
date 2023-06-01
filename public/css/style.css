@@ -47,7 +47,7 @@
 }
 
 #container-premium {
-    padding-top: 10rem;
+    /* padding-top: 10rem; */
 }
 
 /* Header */
@@ -473,7 +473,7 @@ footer {
 /* sessão de escolhas loja / usuario */
 
 #row_change {
-    padding-top: 15rem !important;
+    /* padding-top: 15rem !important; */
     padding-bottom: 6.5rem !important;
 }
 
@@ -554,16 +554,12 @@ footer {
     .content-payment {
         display: flex;
         flex-direction: column !important;
-        padding-top: 8rem !important;
+        /* padding-top: 8rem !important; */
         align-items: center;
     }
     .card-premium {
         margin-top: 2rem !important;
         margin-bottom: 2rem;
-    }
-
-    #image-container-saiba-mais{
-        padding-top: 5rem;
     }
 
     .data-user-product{
@@ -712,7 +708,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-top: 15rem;
+ 
 }
 
 .btn-dasboard {
@@ -1017,7 +1013,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 12rem;
+    
 }
 .icon-card {
     color: #ffc05f;
