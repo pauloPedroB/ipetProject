@@ -21,23 +21,30 @@
 
         {{-- inicio --}}
         <nav class="navbar navbar-expand-lg container">
-            <div class="container container-header">
+            <div class="container-fluid" id="container-img-search-link">
                 <div id="container-img">
+
                     <a href="" class="navbar-brand">
-                        <img class="logo-icon" src="/img/LogoIpet.png" alt="" id="nav-logo">
+                        <img class="img-fluid" src="/img/LogoIpet.png" alt="" id="nav-logo">
                     </a>
                 </div>
-                <div class="form-control ">
+                <div id="search-container" class="container-fluid">
                     <form class="d-flex flex-row" action="/produto/disponiveis" method="get">
-                        <div class="me-5">
+                        <div class="container-fluid w-52">
                             <i class="fa-solid fa-magnifying-glass"></i>
+                            @if($search)
+                            <input type="text" id="search" name="search" placeholder="Buscar Produto..."
+                                value="{{$search}}">
+                            @else
                             <input type="text" id="search" name="search" placeholder="Buscar Produto...">
+                            @endif
+
                         </div>
-                        <div class="ms-5">
-                            <select name="Category" id="Category">
+                        <div class="d-flex Category-container">
+                            <select name="Category" id="Category" class="Category-container">
                                 <option value="all">Todos</option>
-                                @foreach ($categories as $category)
-                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->name}}">{{$category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
