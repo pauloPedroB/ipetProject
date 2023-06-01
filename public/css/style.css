@@ -116,8 +116,9 @@ header {
 
 #offcanvasNavbar a,
 #btnClose {
+    background-color: transparent;
+    border: none;
     padding: 0;
-    font-size: 18px;
     color: black;
     margin: 5px 10px;
     text-decoration: none;
@@ -401,18 +402,6 @@ footer {
 
 .product-Description {
     margin-bottom: 0;
-}
-
-.btnClose {
-    background: none;
-    border: none;
-    font-size: 14px;
-    color: grey;
-    padding: 7px;
-}
-
-.btnClose:hover {
-    color: #00c2cb;
 }
 
 .img-preview {
