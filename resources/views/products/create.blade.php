@@ -1,29 +1,31 @@
 @extends('layouts.main')
-@section('title','Adicionar Produto')
+@section('title', 'Adicionar Produto')
 @section('content')
     <div id="event-create-container" class="col-md-6 offset-md-3">
-        @if($User->Endereco_id != null || $User->AL_id ==3)
+        @if ($User->Endereco_id != null || $User->AL_id == 3)
             <h1>Adicionar produtos</h1>
             <form action="/produto" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="title">Imagem do Produto: </label>
-                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
+                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file"
+                        accept="image/png, image/jpeg" required>
                     <div id="imageforProduct">
                         <img id="imagem-preview" src="#" alt="Imagem selecionada" style="width: 100px;">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="title">Nome</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" required>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto"
+                        required>
                 </div>
                 <h3>Adicionar descrição</h3>
                 <input type="checkbox" id="Idade"><label for="">Idade</label>
@@ -35,13 +37,13 @@
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
                 </div>
-               
+
                 <script>
-                    function mostrarImagem(){
+                    function mostrarImagem() {
                         const input = document.getElementById('image');
                         const preview = document.getElementById('imagem-preview');
                         if (input.files && input.files[0]) {
-                            
+
                             const url = URL.createObjectURL(input.files[0]);
 
                             preview.src = url;
@@ -51,7 +53,7 @@
                             };
                         }
                     }
-                   
+
 
                     var Idade = document.getElementById('Idade');
                     var Pet = document.getElementById('Pet');
@@ -81,7 +83,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('idadeCombo');
                             newComboBox.remove();
@@ -109,7 +111,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('petCombo');
                             newComboBox.remove();
@@ -141,7 +143,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('porteCombo');
                             newComboBox.remove();
@@ -162,13 +164,12 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('Apresentacaoinput');
                             newComboBox.remove();
                         }
                     });
-
                 </script>
                 <input type="submit" class="btn btn-primary" value="Adicionar Produtos">
             </form>

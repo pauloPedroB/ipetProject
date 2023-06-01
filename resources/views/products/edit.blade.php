@@ -1,31 +1,35 @@
 @extends('layouts.main')
-@section('title','Editando: ')
+@section('title', 'Editando: ')
 @section('content')
     <div id="event-create-container" class="">
-        @if($User->Endereco_id != null || $User->AL_id ==3)
-            <h1>Editando: {{$product->Name}}</h1>
-            <form id="form-products" action="/produtos/update/{{$product->id}}" method="POST" enctype="multipart/form-data">
+        @if ($User->Endereco_id != null || $User->AL_id == 3)
+            <h1>Editando: {{ $product->Name }}</h1>
+            <form id="form-products" action="/produtos/update/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="title">Categoria: </label>
                     <select name="category" id="category" required>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}" @if ($product->category_id == $category->id) selected @endif>{{$category->name}}</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" @if ($product->category_id == $category->id) selected @endif>
+                                {{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group" id="form-group-image">
                     <label for="title">Imagem do Produto: </label>
-                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file" accept="image/png, image/jpeg" required>
-                     <div id="imageforProduct">
-                        <img id="imagem-preview" src="/img/products/{{$product->Image}}" alt="Imagem selecionada" style="width: 100px;">
+                    <input onchange="mostrarImagem()" type="file" id="image" name="image" class="from-control-file"
+                        accept="image/png, image/jpeg" required>
+                    <div id="imageforProduct">
+                        <img id="imagem-preview" src="/img/products/{{ $product->Image }}" alt="Imagem selecionada"
+                            style="width: 100px;">
                     </div>
-                   
+
                 </div>
                 <div class="form-group">
                     <label for="title">Nome:</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto" value="{{$product->Name}}" required>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Nome do Produto"
+                        value="{{ $product->Name }}" required>
                 </div>
                 <h3>Adicionar descrição</h3>
                 <div class="form-group d-flex justify-content-star">
@@ -34,11 +38,11 @@
                     <input type="checkbox" id="Porte"><label for="">Porte</label>
                     <input type="checkbox" id="Apresentacao"><label for="">Apresentação</label>
                 </div>
-                
+
 
                 <div id="dynamic-inputs">
                     <!-- Aqui serão adicionados os novos inputs e labels -->
-                    @foreach($description as $des)
+                    @foreach ($description as $des)
                         @if (strpos($des, 'Idade: ') !== false)
                             <select name="idadeCombo" id="idadeCombo" class="form-control" required>
                                 <option value="Filhote" @if (str_replace('Idade: ', '', $des) === 'Filhote') selected @endif>Filhote</option>
@@ -49,7 +53,8 @@
                             </script>
                         @endif
                         @if (strpos($des, 'Pet: ') !== false)
-                            <select name="petCombo" id="petCombo" class="form-control" value="{{str_replace('Pet: ','',$des)}}" required>
+                            <select name="petCombo" id="petCombo" class="form-control"
+                                value="{{ str_replace('Pet: ', '', $des) }}" required>
                                 <option value="Cachorro" @if (str_replace('Pet: ', '', $des) === 'Cachorro') selected @endif>Cachorro</option>
                                 <option value="Gato" @if (str_replace('Pet: ', '', $des) === 'Gato') selected @endif>Gato</option>
                                 <script>
@@ -58,7 +63,8 @@
                             </select>
                         @endif
                         @if (strpos($des, 'Porte: ') !== false)
-                            <select name="porteCombo" id="porteCombo" class="form-control" value="{{str_replace('Porte: ','',$des)}}" required>
+                            <select name="porteCombo" id="porteCombo" class="form-control"
+                                value="{{ str_replace('Porte: ', '', $des) }}" required>
                                 <option value="Pequeno" @if (str_replace('Porte: ', '', $des) === 'Pequeno') selected @endif>Pequeno</option>
                                 <option value="Medio" @if (str_replace('Porte: ', '', $des) === 'Medio') selected @endif>Medio</option>
                                 <option value="Grande" @if (str_replace('Porte: ', '', $des) === 'Grande') selected @endif>Grande</option>
@@ -67,9 +73,11 @@
                                 </script>
                             </select>
                         @endif
-                        
+
                         @if (strpos($des, 'Apresentação: ') !== false)
-                            <input name="Apresentacaoinput" id="Apresentacaoinput" class="form-control" type="text" placeholder="Ex: Disponível em embalagens de 3kg e 15kg" value="{{str_replace('Apresentação: ','',end($description))}}" required>
+                            <input name="Apresentacaoinput" id="Apresentacaoinput" class="form-control" type="text"
+                                placeholder="Ex: Disponível em embalagens de 3kg e 15kg"
+                                value="{{ str_replace('Apresentação: ', '', end($description)) }}" required>
                             <script>
                                 Apresentacao.checked = true;
                             </script>
@@ -77,11 +85,11 @@
                     @endforeach
                 </div>
                 <script>
-                    function mostrarImagem(){
+                    function mostrarImagem() {
                         const input = document.getElementById('image');
                         const preview = document.getElementById('imagem-preview');
                         if (input.files && input.files[0]) {
-                            
+
                             const url = URL.createObjectURL(input.files[0]);
 
                             preview.src = url;
@@ -119,7 +127,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('idadeCombo');
                             newComboBox.remove();
@@ -147,7 +155,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('petCombo');
                             newComboBox.remove();
@@ -179,7 +187,7 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('porteCombo');
                             newComboBox.remove();
@@ -200,17 +208,16 @@
 
                             var container = document.getElementById("dynamic-inputs");
                             container.appendChild(newComboBox);
-                            
+
                         } else {
                             var newComboBox = document.getElementById('Apresentacaoinput');
                             newComboBox.remove();
                         }
                     });
-
                 </script>
                 <input type="submit" class="btn btn-primary" value="Editar Produtos">
-        @else
-            <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
+            @else
+                <h2>CADASTRE UM ENDEREÇO ANTES DE CADASTRAR UM PRODUTO</h2>
         @endif
     </div>
 @endsection
