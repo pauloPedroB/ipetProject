@@ -47,28 +47,7 @@
 
 
             @if($prod == 'false')
-
-            @else
-            @if($user->AL_id == 2)
-            @if($my == false)
-            <form action="/produto/copiar/{{$product->id}}">
-                <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar
-                    a minha loja</button>
-            </form>
-            @else
-            <form action="/produtos/{{$myId}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button id="maps" type="submit" style="background-color: red; border-color: red">Remover
-                    produto</button>
-            </form>
-            @endif
-            @endif
-            @endif
-
-
-            <br>
-            <div class="data-user-product">
+                 <div class="data-user-product">
                 <h1>Dados da Loja</h1>
                 <p> <span class="text-endereco">Telefone:</span>{{$product->Telefone}}</p>
                 <p> <span class="text-endereco">Celular:</span>{{$product->Celular}}</p>
@@ -89,6 +68,27 @@
             @endif
             @endforeach
         </div>
+            @else
+            @if($user->AL_id == 2)
+            @if($my == false)
+            <form action="/produto/copiar/{{$product->id}}">
+                <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar
+                    a minha loja</button>
+            </form>
+            @else
+            <form action="/produtos/{{$myId}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button id="maps" type="submit" style="background-color: red; border-color: red">Remover
+                    produto</button>
+            </form>
+            @endif
+            @endif
+            @endif
+
+
+            <br>
+           
     </div>
     <div class="col-md-12" id="description-container">
         <h3>Descrição: </h3>
