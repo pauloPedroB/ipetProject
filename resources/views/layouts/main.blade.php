@@ -107,6 +107,9 @@
         @if (session('msg'))
             <p class="msg">{{ session('msg') }}</p>
         @endif
+        @if (session('msg-exclusion'))
+            <p class="msg" style="background-color:red">{{ session('msg-exlusion') }}</p>
+        @endif
     </header>
     <main id="main">
         <div class="container-fluid">
