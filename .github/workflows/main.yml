@@ -32,6 +32,6 @@ jobs:
           chown -R www-data:www-data /var/www/ipetProject
           php artisan optimize
           echo "Finalizado ..." >> /home/admin/logPull.txt
-          cat /home/admin/logPull.txt | tail 
+          cat /home/admin/logPull.txt | tail
           EOF
 
