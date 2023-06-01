@@ -3,12 +3,12 @@
 @section('content')
 <div class="" id='show-main'>
     <div class="row"  id="products-information">
+        <h1>{{$product->Name}}</h1>
         <div id="image-container" class="col-md-6">
             <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
         </div>
         <div id="info-container" class="col-md-6">
 
-            <h1>{{$product->Name}}</h1>
             <p class="product-Category">{{$product->name}}</p>
             <br>
 
