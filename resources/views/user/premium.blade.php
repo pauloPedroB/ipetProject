@@ -4,7 +4,7 @@
 
 
     {{-- container --}}
-    <div class=" container-fluid" style="background-color: #ffff">
+    <div id="main" class=" container-fluid" style="background-color: #ffff">
 
 
         <div id="container-premium" class="row " style="margin: 0">

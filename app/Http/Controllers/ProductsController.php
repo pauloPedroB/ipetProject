@@ -353,7 +353,7 @@ class ProductsController extends Controller
         }
         if($request->ond)
         {
-            return redirect('/produto/disponiveis')->with('msg','Produto adicionado com sucesso!');
+            return redirect('/produto/disponiveis')->with('msg','Produto excluído com sucesso!');
         }
         return redirect('/dashboard')->with('msg','Produto excluído com sucesso!');
     }
