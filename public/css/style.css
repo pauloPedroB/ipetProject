@@ -572,6 +572,11 @@ footer {
         font-size: 13px;
         margin: 0.8rem;
     }
+    #info-container h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f29200;
+    }
     #mapa {
         width: 80vw;
         height: 100vw;
@@ -622,16 +627,40 @@ footer {
         padding-top: 1.5rem;
     }
 
-    #info-container {
+    .data-user-product {
+        width: 90%;
+    }
+    #show-main {
         display: flex;
         flex-direction: column;
-        padding-top: 5rem;
-        text-align: center;
+    }
+
+    #products-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
     }
 
-    .data-user-product {
-        width: 90%;
+    #products-information h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    #card-primary,
+    #info-container {
+        width: 45vw;
+        height: auto;
+        font-size: small;
+    }
+    #info-container h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f29200;
+    }
+    #mapa {
+        width: 45vw;
+        height: 45vw;
     }
 }
 
@@ -1111,24 +1140,6 @@ footer {
     flex-direction: column;
 }
 
-#products-information {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#products-information h1 {
-    text-align: center;
-    font-size: 2rem;
-}
-
-#image-container,
-#info-container {
-    width: 40rem;
-    margin-left: 10vw;
-}
-
 #image-container img {
     border-radius: 10px;
 }
@@ -1139,14 +1150,6 @@ footer {
 
 #info-container p {
     display: flex;
-}
-
-#info-container h3,
-#description-container h3,
-#Specifications-container h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffc05f;
 }
 
 #description-container {
