@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Produto')
+@section('title','{{$product->Celular}}')
 @section('content')
 <div class="" id='show-main'>
     <div class="row" id="products-information">
