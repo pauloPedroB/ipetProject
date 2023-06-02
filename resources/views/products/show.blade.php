@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Produto')
 @section('content')
-<div class="container-fluid justify-content-between" style="width: max-content;margin: auto;" id='show-main'>
+<div class="container-fluid justify-content-between" id='show-main'>
     <div class="row p-2" id="products-information">
 
 
@@ -39,7 +39,7 @@
 
 
 
-        <div id="info-container" class="col-md-6 align-itens-start" style="font-size: 24px">
+        <div id="info-container" class="col-md-6 align-itens-start">
             <h3>{{$product->Nome}} -
                 @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)

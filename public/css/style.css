@@ -187,7 +187,6 @@ body {
     width: 1rem;
 }
 
-
 #data-user-productShow {
     font-size: small;
 }
@@ -296,6 +295,7 @@ body {
 }
 #show-main {
     justify-content: space-between;
+    width: max-content;
 }
 #mapa {
     width: 35vw;
@@ -524,169 +524,6 @@ footer {
     border: 4px solid #ee5253;
     color: #ee5253;
 }
-
-@media screen and (max-width: 1080px) {
-    #products-container .card {
-        flex: 1 1 50%;
-        max-width: 25%;
-        margin-top: 10px;
-    }
-
-    .content-payment {
-        display: flex;
-        flex-direction: column !important;
-        /* padding-top: 8rem !important; */
-        align-items: center;
-    }
-    .card-premium {
-        margin-top: 2rem !important;
-        margin-bottom: 2rem;
-    }
-
-    .data-user-product {
-        width: 90%;
-    }
-}
-
-/* DISPOSIVOS MÓVEIS - CELULARES */
-@media screen and (max-width: 480px) {
-    #nav-logo {
-        min-width: 10vh;
-        min-height: 10vh;
-    }
-    #search-container {
-        max-width: 40%;
-    }
-    #search-container input {
-        width: 50%;
-    }
-    .Category-container {
-        display: none;
-    }
-
-    #products-container .card {
-        flex: 1 100%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-
-    .card-dados input {
-        width: 60% !important;
-    }
-
-    .confirmation {
-        margin-bottom: 1rem !important;
-    }
-
-    .card-premium {
-        margin-top: 1rem !important;
-    }
-
-    .payment-dados {
-        margin: 1rem;
-    }
-
-    .confirmation button {
-        width: 70% !important;
-    }
-
-    .confirmation-pix button {
-        width: 100% !important;
-        font-size: 13px;
-        margin: 0.8rem;
-    }
-    #info-container h3 {
-        font-size: 20px;
-        font-weight: bold;
-        color: #f29200;
-    }
-    #mapa {
-        width: 80vw;
-        height: 100vw;
-    }
-    /* #dados-dashboard{
-        margin: 1rem;
-    } */
-}
-
-@media screen and (min-width: 481px) and (max-width: 750px) {
-    header {
-        height: min-content;
-    }
-    #main {
-        margin-top: 22vh;
-    }
-    .container-header {
-        align-items: baseline !important;
-    }
-
-    #products-container .card {
-        flex: 1 50%;
-        max-width: 50%;
-        margin-top: 10px;
-    }
-
-    .card-dados input {
-        width: 60% !important;
-    }
-
-    .confirmation {
-        margin-bottom: 1rem !important;
-    }
-
-    .card-premium {
-        margin-top: 1rem !important;
-    }
-
-    .payment-dados {
-        margin: 1rem;
-    }
-
-    #container-premium {
-        padding-top: 1rem;
-    }
-
-    #container-premium {
-        padding-top: 1.5rem;
-    }
-
-    .data-user-product {
-        width: 90%;
-    }
-    #show-main {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #products-information {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #products-information h1 {
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    #card-primary,
-    #info-container {
-        width: 45vw;
-        height: auto;
-        font-size: small;
-    }
-    #info-container h3 {
-        font-size: 20px;
-        font-weight: bold;
-        color: #f29200;
-    }
-    #mapa {
-        width: 45vw;
-        height: 45vw;
-    }
-}
-
 /* dashboard - tela do usuario da loja */
 
 #data-user-container {
@@ -1187,4 +1024,180 @@ footer {
 
 #info-container a {
     color: #00c2cb;
+}
+
+@media screen and (max-width: 1080px) {
+    #products-container .card {
+        flex: 1 1 50%;
+        max-width: 25%;
+        margin-top: 10px;
+    }
+
+    .content-payment {
+        display: flex;
+        flex-direction: column !important;
+        /* padding-top: 8rem !important; */
+        align-items: center;
+    }
+    .card-premium {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem;
+    }
+
+    .data-user-product {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 750px) {
+    header {
+        height: min-content;
+    }
+    #main {
+        margin-top: 22vh;
+    }
+    .container-header {
+        align-items: baseline !important;
+    }
+
+    #products-container .card {
+        flex: 1 50%;
+        max-width: 50%;
+        margin-top: 10px;
+    }
+
+    .card-dados input {
+        width: 60% !important;
+    }
+
+    .confirmation {
+        margin-bottom: 1rem !important;
+    }
+
+    .card-premium {
+        margin-top: 1rem !important;
+    }
+
+    .payment-dados {
+        margin: 1rem;
+    }
+
+    #container-premium {
+        padding-top: 1rem;
+    }
+
+    #container-premium {
+        padding-top: 1.5rem;
+    }
+
+    .data-user-product {
+        width: 90%;
+    }
+    #show-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #products-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #products-information h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    #card-primary,
+    #info-container {
+        width: 45vw;
+        height: auto;
+        font-size: small;
+    }
+    #info-container h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f29200;
+    }
+    #mapa {
+        width: 45vw;
+        height: 45vw;
+    }
+}
+
+/* DISPOSIVOS MÓVEIS - CELULARES */
+@media screen and (max-width: 480px) {
+    #nav-logo {
+        min-width: 10vh;
+        min-height: 10vh;
+    }
+    #search-container {
+        max-width: 40%;
+    }
+    #search-container input {
+        width: 50%;
+    }
+    .Category-container {
+        display: none;
+    }
+
+    #products-container .card {
+        flex: 1 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .card-dados input {
+        width: 60% !important;
+    }
+
+    .confirmation {
+        margin-bottom: 1rem !important;
+    }
+
+    .card-premium {
+        margin-top: 1rem !important;
+    }
+
+    .payment-dados {
+        margin: 1rem;
+    }
+
+    .confirmation button {
+        width: 70% !important;
+    }
+
+    .confirmation-pix button {
+        width: 100% !important;
+        font-size: 13px;
+        margin: 0.8rem;
+    }
+    #show-main {
+        width: 100vw;
+    }
+    #show-main,
+    #products-information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #info-container,
+    #card-primary {
+        width: 90vw;
+    }
+    #info-container h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f29200;
+    }
+    #mapa {
+        width: 80vw;
+        height: 100vw;
+    }
+
+    /* #dados-dashboard{
+        margin: 1rem;
+    } */
 }
