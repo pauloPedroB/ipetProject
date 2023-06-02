@@ -98,6 +98,7 @@
                     @php
                          $des = explode('; ',$des);
                     @endphp
+                    <br>
                     @foreach ($des as $d)
                         <p class="product-Description">{{$d}}</p>
                     @endforeach
