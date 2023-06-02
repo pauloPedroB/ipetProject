@@ -620,7 +620,6 @@ footer {
         padding-top: 5rem;
         text-align: center;
         align-items: center;
-        
     }
 
     .data-user-product {
@@ -1119,6 +1118,7 @@ footer {
 #image-container,
 #info-container {
     width: 40rem;
+    margin-left: 10vw;
 }
 
 #image-container img {

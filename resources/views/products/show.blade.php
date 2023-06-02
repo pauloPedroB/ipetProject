@@ -1,36 +1,44 @@
 @extends('layouts.main')
 @section('title','Produto')
 @section('content')
-<div class="container-fluid" style="width: max-content;margin: auto" id='show-main'>
+<div class="container-fluid justify-content-between" style="width: max-content;margin: auto;" id='show-main'>
     <div class="row" id="products-information">
 
-        <div id="image-container" class="col-md-6 m-0 p-0">
-            <h5 class="fw-bold">{{$product->Name}}</h5>
-            <img src="/img/products/{{$product->Image}}" class="img-fluid w-50" alt="{{$product->Name}}">
 
-            <div class="col-md-12 m-5" id="description-container">
-                <h3>Descrição: </h3>
-                @foreach($desciption as $des)
-                @if($des!=null && $des!='<!i!i>')
-                    @if (strpos($des, 'Apresentação: ') !== false)
-                    @php
-                    $des = explode('; ',$des);
-                    @endphp
-                    <br>
-                    @foreach ($des as $d)
-                    <p class="product-Description">{{$d}}</p>
-                    @endforeach
-                    @else
-                    <p class="product-Description">{{$des}}</p>
+        <div class="card col-md-3 p-3 pt-0 mb-4" id="card-primary">
 
-                    @endif
-                    @endif
-                    @endforeach
+            <img class="img-fluid m-0 p-0" src="/img/products/{{ $product->Image }}" alt="{{ $product->name }}">
+            <h5 class="card-title" id="card-title">{{$product->Name}}</h5>
+            <hr>
+            <div class="card-body p-0 m-0">
+
+                <div class="card-body m-0 p-0" id="description-container">
+                    <h3>Descrição: </h3>
+                    @foreach($desciption as $des)
+                    @if($des!=null && $des!='<!i!i>')
+                        @if (strpos($des, 'Apresentação: ') !== false)
+                        @php
+                        $des = explode('; ',$des);
+                        @endphp
+                        <br>
+                        @foreach ($des as $d)
+                        <p class="product-Description">{{$d}}</p>
+                        @endforeach
+                        @else
+                        <p class="product-Description">{{$des}}</p>
+
+                        @endif
+                        @endif
+                        @endforeach
+                </div>
+
             </div>
-
-
-
         </div>
+
+
+
+
+
         <div id="info-container" class="col-md-6 align-itens-start" style="font-size: 24px">
             <h3>{{$product->Nome}} -
                 @foreach($Enderecos as $Endereco)
@@ -77,7 +85,7 @@
 
             <div id="data-user-productShow" class="my-2 p-0">
 
-
+                
 
                 @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
@@ -93,7 +101,9 @@
                 @break
                 @endif
                 @endforeach
+                
             </div>
+
         </div>
         @else
         @if($user->AL_id == 2)
