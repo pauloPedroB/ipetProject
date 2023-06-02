@@ -99,7 +99,7 @@
                          $des = explode('; ',$des);
                     @endphp
                     @foreach ($des as $d)
-                        <p>{{$d}}</p>
+                        <p class="product-Description">{{$d}}</p>
                     @endforeach
                 @else
                     <p class="product-Description">{{$des}}</p>
