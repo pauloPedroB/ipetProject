@@ -68,33 +68,33 @@
                             <hr>
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 @auth
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" id="nav-link">Bem
-                                            Vindo,
-                                            {{ stristr(Auth::user()->email, '@', true) }}.</a>
-                                    </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="nav-link">Bem
+                                        Vindo,
+                                        {{ stristr(Auth::user()->email, '@', true) }}.</a>
+                                </li>
                                 @endauth
                                 <li>
                                     <a href="/" class="nav-link">Produtos</a>
                                 </li>
                                 @auth
-                                    <li class="nav-item">
-                                        <a href="/dashboard" class="nav-link">Meus Dados</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <form action="/logout" method="POST">
-                                            @csrf
-                                            <input id="btnClose" type="submit"
-                                                onclick="product.preventDefault(); this.closest('form').submit();"
-                                                class="btnClose nav-link" value="Sair">
-                                        </form>
-                                    </li>
+                                <li class="nav-item">
+                                    <a href="/dashboard" class="nav-link">Meus Dados</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <input id="btnClose" type="submit"
+                                            onclick="product.preventDefault(); this.closest('form').submit();"
+                                            class="btnClose nav-link" value="Sair">
+                                    </form>
+                                </li>
                                 @endauth
                                 @guest
 
-                                    <li class="nav-item">
-                                        <a href="/login" class="nav-link">Entrar</a>
-                                    </li>
+                                <li class="nav-item">
+                                    <a href="/login" class="nav-link">Entrar</a>
+                                </li>
 
                                 @endguest
                             </ul>
@@ -105,10 +105,10 @@
             </div>
         </nav>
         @if (session('msg'))
-            <p class="msg">{{ session('msg') }}</p>
+        <p class="msg">{{ session('msg') }}</p>
         @endif
         @if (session('msg-exclusion'))
-            <p class="msg" style="background-color:red; color:black">{{ session('msg-exclusion') }}</p>
+        <p class="msg" style="background-color:red; color:black">{{ session('msg-exclusion') }}</p>
         @endif
     </header>
     <main id="main">
@@ -123,7 +123,7 @@
             <h3>IPET DEVELOPMENT &copy; 2023</h3>
             <ul class="contacts">
                 <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-                <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== "target="_blanck"><i
+                <li><a href="https://instagram.com/_ipet2023?igshid=OGQ5ZDc2ODk2ZA== " target="_blanck"><i
                             class="fa-brands fa-instagram"></i></li>
                 <li><a href="https://twitter.com/Ipet2023" target="_blanck"><i class="fa-brands fa-twitter"></i></li>
             </ul>

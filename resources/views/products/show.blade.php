@@ -2,7 +2,7 @@
 @section('title','Produto')
 @section('content')
 <div class="container-fluid justify-content-between" style="width: max-content;margin: auto;" id='show-main'>
-    <div class="row" id="products-information">
+    <div class="row p-2" id="products-information">
 
 
         <div class="card col-md-3 p-3 pt-0 mb-4" id="card-primary">
@@ -85,7 +85,7 @@
 
             <div id="data-user-productShow" class="my-2 p-0">
 
-                
+
 
                 @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
@@ -101,7 +101,7 @@
                 @break
                 @endif
                 @endforeach
-                
+
             </div>
 
         </div>
