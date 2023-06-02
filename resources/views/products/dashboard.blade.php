@@ -108,6 +108,11 @@
             {{-- produtos --}}
             <h1 class="text-uppercase">Produtos</h1>
             @if ($products != null)
+                @if ($user->AL_id != 3)
+                    <a class="add-categories btn btn-outline-success" href="/produto/disponiveis">Adicionar Produto</a>
+                @else
+                    <a class="add-categories btn btn-outline-success" href="/produto/adicionar">Adicionar Produto</a>
+                @endif
                 <table class="table">
                     <thead>
                         <tr>
@@ -142,11 +147,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                @if ($user->AL_id != 3)
-                    <a class="add-categories btn btn-outline-success" href="/produto/disponiveis">Adicionar Produto</a>
-                @else
-                    <a class="add-categories btn btn-outline-success" href="/produto/adicionar">Adicionar Produto</a>
-                @endif
+                
             @else
                 @if ($user->AL_id != 3)
                     <p>Você ainda não tem produtos cadastrados, <a class=" btn btn-outline-success"
