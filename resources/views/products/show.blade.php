@@ -93,8 +93,13 @@
                 <p>{{$Endereco->Bairro}} - {{$Endereco->Cidade}}</p>
                 <p>Tel: {{$product->Telefone}} - Cel: {{$product->Celular}}</p>
                 <p>CEP: {{$Endereco->CEP}}</p>
+                <script>
+                    window.onload = function() {
+                    initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}}, 12);
+                }
+                </script>
 
-                <button class="btn btn-success my-2"
+                <button id="btn-map" class="btn btn-success my-4"
                     onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar
                     Loja</button>
                 <div id="mapa"></div>

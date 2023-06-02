@@ -184,8 +184,9 @@ body {
 }
 
 .stars-img {
-    width: 2rem;
+    width: 1rem;
 }
+
 
 #data-user-productShow {
     font-size: small;
@@ -284,6 +285,22 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+#card-primary,
+#info-container {
+    width: 30vw;
+    height: auto;
+    font-size: normal;
+}
+#info-container {
+    margin-left: 5vw;
+}
+#show-main {
+    justify-content: space-between;
+}
+#mapa {
+    width: 35vw;
+    height: 25vw;
+}
 
 .card .card-date {
     font-size: 12px;
@@ -376,11 +393,17 @@ footer {
     height: 2rem;
 }
 
-/*Products*/
-#mapa {
-    width: 30vw;
-    height: 20vw;
+#info-container h3 {
+    font-size: larger;
+    font-weight: bold;
+    color: #f29200;
 }
+.stars {
+    size: 12px;
+}
+
+/*Products*/
+
 #maps {
     background-color: #dbf0e1;
     padding: 10px 20px 10px 20px;
