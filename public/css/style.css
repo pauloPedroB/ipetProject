@@ -378,7 +378,10 @@ footer {
 }
 
 /*Products*/
-
+#mapa {
+    width: 30vw;
+    height: 20vw;
+}
 #maps {
     background-color: #dbf0e1;
     padding: 10px 20px 10px 20px;
@@ -569,6 +572,10 @@ footer {
         width: 100% !important;
         font-size: 13px;
         margin: 0.8rem;
+    }
+    #mapa {
+        width: 80vw;
+        height: 100vw;
     }
     /* #dados-dashboard{
         margin: 1rem;

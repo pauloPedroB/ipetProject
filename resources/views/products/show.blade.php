@@ -97,7 +97,7 @@
                 <button class="btn btn-success my-2"
                     onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar
                     Loja</button>
-                <div id="mapa" style="width:30vw ;height:20vw;"></div>
+                <div id="mapa"></div>
                 @break
                 @endif
                 @endforeach
@@ -123,8 +123,6 @@
         @endif
         @endif
 
-
-        <br>
 
     </div>
 
