@@ -248,7 +248,7 @@ class ProductsController extends Controller
                         }
                     }
                 }
-            
+                
 
                 return view('products.show',['product'=> $product,'Enderecos'=>$Enderecos,'desciption'=>$description,'user'=>$user,'prod'=>$prod,'my'=>$my,'myId'=>$myId]);
 

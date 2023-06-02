@@ -93,10 +93,20 @@
     <div class="col-md-12" id="description-container">
         <h3>Descrição: </h3>
         @foreach($desciption as $des)
-        @if($des!=null && $des!='<!i!i>')
-            <p class="product-Description">{{$des}}</p>
+            @if($des!=null && $des!='<!i!i>')
+                @if (strpos($des, 'Apresentação: ') !== false)
+                    @php
+                         $des = explode('; ',$des);
+                    @endphp
+                    @foreach ($des as $d)
+                        <p>{{$d}}</p>
+                    @endforeach
+                @else
+                    <p class="product-Description">{{$des}}</p>
+
+                @endif
             @endif
-            @endforeach
+        @endforeach
     </div>
     @auth
     @if($user->AL_id==1)
