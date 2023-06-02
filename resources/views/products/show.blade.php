@@ -1,22 +1,49 @@
 @extends('layouts.main')
 @section('title','Produto')
 @section('content')
-<div class="" id='show-main'>
+<div class="container-fluid" style="width: max-content;margin: auto" id='show-main'>
     <div class="row" id="products-information">
-        <h1>{{$product->Name}}</h1>
-        <div id="image-container" class="col-md-6">
-            <img src="/img/products/{{$product->Image}}" class="img-fluid" alt="{{$product->Name}}">
-        </div>
-        <div id="info-container" class="col-md-6">
 
-            <p class="product-Category">{{$product->name}}</p>
-            <br>
+        <div id="image-container" class="col-md-6 m-0 p-0">
+            <h5 class="fw-bold">{{$product->Name}}</h5>
+            <img src="/img/products/{{$product->Image}}" class="img-fluid w-50" alt="{{$product->Name}}">
+
+            <div class="col-md-12 m-5" id="description-container">
+                <h3>Descrição: </h3>
+                @foreach($desciption as $des)
+                @if($des!=null && $des!='<!i!i>')
+                    @if (strpos($des, 'Apresentação: ') !== false)
+                    @php
+                    $des = explode('; ',$des);
+                    @endphp
+                    <br>
+                    @foreach ($des as $d)
+                    <p class="product-Description">{{$d}}</p>
+                    @endforeach
+                    @else
+                    <p class="product-Description">{{$des}}</p>
+
+                    @endif
+                    @endif
+                    @endforeach
+            </div>
+
+
+
+        </div>
+        <div id="info-container" class="col-md-6 align-itens-start" style="font-size: 24px">
+            <h3>{{$product->Nome}} -
+                @foreach($Enderecos as $Endereco)
+                @if($Endereco->id==$product->Endereco_id)
+                {{$Endereco->Bairro}}
+                @endif
+                @endforeach
+            </h3>
+
 
             @if($prod == 'false')
-            <p>Avaliação da Loja:</p>
 
-            <div class="stars">
-
+            <div class="stars align-center d-flex flex-row mb-2">
                 @if($sum>=0.4)
                 <a href="javascript:void(0)"><img class="stars-img" src="/img/star1.png"></a>
                 @else
@@ -47,68 +74,50 @@
 
 
             @if($prod == 'false')
-                 <div class="data-user-product">
-                <h1>Dados da Loja</h1>
-                <p> <span class="text-endereco">Telefone:</span>{{$product->Telefone}}</p>
-                <p> <span class="text-endereco">Celular:</span>{{$product->Celular}}</p>
+
+            <div id="data-user-productShow" class="my-2 p-0">
+
 
 
                 @foreach($Enderecos as $Endereco)
                 @if($Endereco->id==$product->Endereco_id)
-                <p> <span class="text-endereco">CEP: </span>{{$Endereco->CEP}}</p>
-                <p> <span class="text-endereco">Rua: </span> {{$Endereco->Logradouro}}</p>
-                <p> <span class="text-endereco">Número: </span> {{$Endereco->Numero}}</p>
-                <p> <span class="text-endereco">Bairro: </span> {{$Endereco->Bairro}}</p>
-                <p> <span class="text-endereco">Cidade: </span> {{$Endereco->Cidade}}</p>
-            </div>
-            <button id="maps" onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar
-                Loja</button>
-            <div id="mapa" style="width:400px;height:250px;"></div>
-            @break
-            @endif
-            @endforeach
-        </div>
-            @else
-            @if($user->AL_id == 2)
-            @if($my == false)
-            <form action="/produto/copiar/{{$product->id}}">
-                <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar
-                    a minha loja</button>
-            </form>
-            @else
-            <form action="/produtos/{{$myId}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button id="maps" type="submit" style="background-color: red; border-color: red">Remover
-                    produto</button>
-            </form>
-            @endif
-            @endif
-            @endif
+                <p>{{$Endereco->Logradouro}}, {{$Endereco->Numero}}</p>
+                <p>{{$Endereco->Bairro}} - {{$Endereco->Cidade}}</p>
+                <p>Tel: {{$product->Telefone}} - Cel: {{$product->Celular}}</p>
+                <p>CEP: {{$Endereco->CEP}}</p>
 
-
-            <br>
-           
-    </div>
-    <div class="col-md-12" id="description-container">
-        <h3>Descrição: </h3>
-        @foreach($desciption as $des)
-            @if($des!=null && $des!='<!i!i>')
-                @if (strpos($des, 'Apresentação: ') !== false)
-                    @php
-                         $des = explode('; ',$des);
-                    @endphp
-                    <br>
-                    @foreach ($des as $d)
-                        <p class="product-Description">{{$d}}</p>
-                    @endforeach
-                @else
-                    <p class="product-Description">{{$des}}</p>
-
+                <button class="btn btn-success my-2"
+                    onclick="initMap({{$Endereco->Latitude}}, {{$Endereco->Longitude}});">Localizar
+                    Loja</button>
+                <div id="mapa" style="width:30vw ;height:20vw;"></div>
+                @break
                 @endif
-            @endif
-        @endforeach
+                @endforeach
+            </div>
+        </div>
+        @else
+        @if($user->AL_id == 2)
+        @if($my == false)
+        <form action="/produto/copiar/{{$product->id}}">
+            <button id="maps" type="submit" style="background-color: chartreuse; border-color: chartreuse">Adicionar
+                a minha loja</button>
+        </form>
+        @else
+        <form action="/produtos/{{$myId}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button id="maps" type="submit" style="background-color: red; border-color: red">Remover
+                produto</button>
+        </form>
+        @endif
+        @endif
+        @endif
+
+
+        <br>
+
     </div>
+
     @auth
     @if($user->AL_id==1)
     <div class="col-md-12" id="Avaliation-container">

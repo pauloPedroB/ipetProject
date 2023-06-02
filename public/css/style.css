@@ -187,6 +187,18 @@ body {
     width: 2rem;
 }
 
+#data-user-productShow {
+    font-size: small;
+}
+#data-user-productShow p {
+    padding: 0;
+    margin: 0;
+    color: gray;
+}
+#data-user-productShow span {
+    color: gray;
+}
+
 .data-user-product {
     display: flex;
     flex-direction: column;
@@ -608,6 +620,7 @@ footer {
         padding-top: 5rem;
         text-align: center;
         align-items: center;
+        
     }
 
     .data-user-product {
