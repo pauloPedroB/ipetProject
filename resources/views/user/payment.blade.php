@@ -13,7 +13,7 @@
                             <p>Total:R$ 00,00</p>
                         </div>
                     <div class="payment-dados">
-                        <form action="">
+                        <form action="/premium">
                             <div class="card-dados" >
                                 <h1 class="title-payment">Escolha a forma de pagamento:</h1>
                                 <div class="container-option">
