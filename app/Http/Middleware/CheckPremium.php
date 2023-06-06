@@ -21,7 +21,7 @@ class CheckPremium
 
         $registro = Loja::where([
             [
-                'user_id','=',$User->id
+                'user_id','=',$user->id
             ]
         ])->first();
 
