@@ -25,7 +25,7 @@ class CheckPremium
             ]
         ])->first();
 
-        if($registro->Premium != 1){
+        if($registro->Premium == 1){
             return redirect('/dashboard')->with('Já existe um pacote adicionado à sua loja');
         }
         return $next($request);
