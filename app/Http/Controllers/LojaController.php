@@ -110,7 +110,7 @@ class LojaController extends Controller
         $User=User::findOrFail($user->id);
         $User->AL_id = 2;
         $User->save();
-        return redirect('/dashboard')->with('msg','Sua Loja foi cadastrada com sucesso!!');
+        return redirect('/pacote')->with('msg','Sua Loja foi cadastrada com sucesso!!');
     }
 
     /**
