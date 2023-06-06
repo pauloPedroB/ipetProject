@@ -24,7 +24,7 @@ class AuthController extends Controller
             if($user->AL_id ==2){
                 $registro = Loja::where([
                     [
-                        'user_id','=',$User->id
+                        'user_id','=',$user->id
                     ]
                 ])->first();
                 if($registro->Premium ==0){
