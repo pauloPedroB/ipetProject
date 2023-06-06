@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Jetstream;
 use App\Models\User;
+use App\Models\Loja;
 
 class AuthController extends Controller
 {
@@ -17,6 +18,20 @@ class AuthController extends Controller
         $password = $request->password;
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // As credenciais são válidas, redirecione o usuário para a página de destino.
+
+            $user = auth()->user();
+
+            if($user->AL_id ==2){
+                $registro = Loja::where([
+                    [
+                        'user_id','=',$User->id
+                    ]
+                ])->first();
+                if($registro->Premium ==0){
+                    return redirect('/pacote');
+                }
+            }
+
             return redirect()->intended('dashboard');
         } else {
             // As credenciais são inválidas, redirecione o usuário de volta para a página de login com uma mensagem de erro.
