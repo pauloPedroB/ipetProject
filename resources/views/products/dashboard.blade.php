@@ -53,7 +53,7 @@
                             <a href="/Editar/Loja/{{ $Loja->id }}"><button class="btn btn-primary m-2"
                                     type="button">Edite os seus dados</button></a>
                             <a href="/Editar/Loja/{{ $Loja->id }}"><button class="btn btn-primary m-2"
-                                type="button" style="background-color: red; border-color: red">Excluir minha conta</button></a>
+                                type="button" style="background-color: brown; border-color: red">Excluir minha conta</button></a>
 
                             @if ($user->AL_id == 2 && $Loja->Premium != 1)
                                 <a href="/pacote"><button class="btn btn-success m-2" type="button">Torne-se
