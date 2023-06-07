@@ -52,6 +52,8 @@
                         <div class="d-flex flex-column flex-md-row align-items-center">
                             <a href="/Editar/Loja/{{ $Loja->id }}"><button class="btn btn-primary m-2"
                                     type="button">Edite os seus dados</button></a>
+                            <a href="/Editar/Loja/{{ $Loja->id }}"><button class="btn btn-primary m-2"
+                                type="button" style="background-color: brown">Excluir minha conta</button></a>
 
                             @if ($user->AL_id == 2 && $Loja->Premium != 1)
                                 <a href="/pacote"><button class="btn btn-success m-2" type="button">Torne-se
