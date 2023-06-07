@@ -19,5 +19,14 @@ class UserController extends Controller
             }
         }
         return view('user.typeUser');
-    }   
+    }
+    public function destroy(){
+        $user = auth()->user();
+        if($user){
+            $user = User::findOrFail($user->id);
+            $user->delete();
+        }
+       
+        return redirect('/');
+    }
 }

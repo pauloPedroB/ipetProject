@@ -70,5 +70,6 @@ Route::get('/pix',[LojaController::class, 'pix'])->middleware('auth', 'CheckType
 
 Route::post('/entrando',[AuthController::class, 'index']);
 Route::post('/registrando',[AuthController::class, 'register']);
+Route::post('/deletando',[UserController::class, 'destroy']);
 
 Route::get('/avaliação/loja/{id}', [AvaliationsController::class, 'index']);
