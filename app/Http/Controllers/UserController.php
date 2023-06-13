@@ -24,7 +24,13 @@ class UserController extends Controller
         $user = auth()->user();
         if($user){
             $user = User::findOrFail($user->id);
+            $loja = Loja::where('user_id','=',$user->id)->first();
+            if($loja == null){
+                $loja = Usuario::where('user_id','=',$user->id)->first();    
+            }
+            $loja->delete();
             $user->delete();
+
         }
        
         return redirect('/');
