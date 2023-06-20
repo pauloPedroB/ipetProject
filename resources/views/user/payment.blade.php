@@ -9,8 +9,10 @@
                         <div class="card-premium">
                             <img class="img-premium" src="/img/premium.png" alt="" >
                             <h2>Premium</h2>
-                            <p>Seus produtos terão prioridade na divulgação!</p>
-                            <p>Total:R$ 00,00</p>
+                            <p style="font-size: 24px">Seus produtos terão prioridade na divulgação!</p>
+                            <p>Assinatura Mensal: R$ 49,99</p>
+                            <p>Fidelidade de 1 ano.</p>
+                            <p>Total = R$ 499,00 com 16,5% de desconto</p>
                         </div>
                     <div class="payment-dados">
                         <form action="/premium">
