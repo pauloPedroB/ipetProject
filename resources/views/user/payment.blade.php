@@ -25,17 +25,17 @@
                             <a href="/pix"><i class="fa-brands fa-pix"></i></a>
                             <p>PIX</p>
                         </div>
-                        <label for="number">Valor</label>
-                        <select name="card_number" style="color: #1db844; font-weight: bold">
+                        <label for="premium_value">Valor</label>
+                        <select name="premium_value" id="premium_value" style="color: #1db844; font-weight: bold">
                             <option value="49.99">Mensal = R$ 49,99</option>
                             <option value="499.00" selected>Anual = R$ 499,00 - 16,5% desc.</option>
                         </select>
 
-                        <label for="number">Nº do Cartão</label>
-                        <input type="text" name="card_number" pattern="[0-9]{13,16}" placeholder="XXXX XXXX XXXX XXXX"
-                            required>
+                        <label for="card_number">Nº do Cartão</label>
+                        <input type="text" name="card_number" id="card_number" pattern="[0-9]{13,16}"
+                            placeholder="XXXX XXXX XXXX XXXX" required>
                         <label for="name">Nome do Titular</label>
-                        <input type="text" name="name" placeholder="Maria Clara Santos" required>
+                        <input type="text" name="name" id="name" placeholder="Maria Clara Santos" required>
                     </div>
                     <div class="form-card">
                         <div class="card-dados-validity">
