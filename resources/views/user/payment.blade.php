@@ -26,7 +26,7 @@
                             <p>PIX</p>
                         </div>
                         <label for="number">Valor</label>
-                        <select name="card_number">
+                        <select name="card_number" style="color: #1db844; font-weight: bold">
                             <option value="49.99">Mensal = R$ 49,99</option>
                             <option value="499.00" selected>Anual = R$ 499,00 - 16,5% desc.</option>
                         </select>
