@@ -932,13 +932,13 @@ footer {
     gap: 1rem;
 }
 
-.card-dados input {
+.card-dados input select{
     width: 50%;
     border: none;
     border-bottom: 4px solid #dbf0e1;
 }
 
-.card-dados input:focus {
+.card-dados input:focus select:focus{
     outline: none;
 }
 
