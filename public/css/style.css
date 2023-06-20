@@ -932,13 +932,15 @@ footer {
     gap: 1rem;
 }
 
-.card-dados input select{
+.card-dados input,
+.card-dados select {
     width: 50%;
     border: none;
     border-bottom: 4px solid #dbf0e1;
 }
 
-.card-dados input:focus select:focus{
+.card-dados input:focus,
+.card-dados select:focus {
     outline: none;
 }
 
@@ -1124,8 +1126,6 @@ footer {
     .container-header {
         align-items: baseline !important;
     }
-
-
 
     #products-container .card {
         flex: 1 50%;
