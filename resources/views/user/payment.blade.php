@@ -27,7 +27,7 @@
                         <label for="number">Valor</label>
                         <select name="card_number">
                             <option value="49.99">Mensal = R$ 49,99</option>
-                            <option value="499.00">Anual = R$ 499,00 com 16,5% de desconto</option>
+                            <option value="499.00">Anual = R$ 499,00 - 16,5% desc.</option>
                         </select>
 
                         <label for="number">Nº do Cartão</label>
