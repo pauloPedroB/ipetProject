@@ -25,9 +25,9 @@
                             <p>PIX</p>
                         </div>
                         <label for="number">Valor</label>
-                        <select name="premiun-value">
+                        <select name="card_number">
                             <option value="49.99">Mensal = R$ 49,99</option>
-                            <option value="499.00">Anual(-16,5%) = R$ 499,00</option>
+                            <option value="499.00">Anual = R$ 499,00 com 16,5% de desconto</option>
                         </select>
 
                         <label for="number">Nº do Cartão</label>
