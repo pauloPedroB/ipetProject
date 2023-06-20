@@ -40,11 +40,11 @@
                     <div class="form-card">
                         <div class="card-dados-validity">
                             <label for="validity">Validade</label>
-                            <input type="month" placeholder="00/00" required>
+                            <input type="month" name="validity" id="validity" placeholder="00/00" required>
                         </div>
                         <div class="card-dados-cvv">
                             <label for="cvv">CVV</label>
-                            <input type="number" name="cvv" maxlength="3" placeholder="XXX" required>
+                            <input type="number" name="cvv" id="cvv" maxlength="3" placeholder="XXX" required>
                         </div>
                     </div>
                     <div class="confirmation">
