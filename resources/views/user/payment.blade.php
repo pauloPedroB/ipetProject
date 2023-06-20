@@ -26,8 +26,8 @@
                         </div>
                         <label for="number">Valor</label>
                         <select name="premiun-value">
-                            <option value="Mensal = R$ 49,99"></option>
-                            <option value="Anual(-16,5%) = R$ 499,00"></option>
+                            <option value="49.99">Mensal = R$ 49,99</option>
+                            <option value="499.00">Anual(-16,5%) = R$ 499,00</option>
                         </select>
 
                         <label for="number">Nº do Cartão</label>
