@@ -11,8 +11,9 @@
                 <h2>Premium</h2>
                 <p>Seus produtos terão prioridade na divulgação!</p>
                 <p style="font-size: 24px; color: #1db844; font-weight: bold">Assinatura Mensal: R$ 49,99</p>
-                <p>Fidelidade de 1 ano.</p>
-                <p>Total = R$ 499,00 com 16,5% de desconto</p>
+                <hr>
+
+                <p>Anual = R$ 499,00 - 16,5% de desconto</p>
             </div>
             <div class="payment-dados">
                 <form action="/premium">
@@ -27,7 +28,7 @@
                         <label for="number">Valor</label>
                         <select name="card_number">
                             <option value="49.99">Mensal = R$ 49,99</option>
-                            <option value="499.00">Anual = R$ 499,00 - 16,5% desc.</option>
+                            <option value="499.00" selected>Anual = R$ 499,00 - 16,5% desc.</option>
                         </select>
 
                         <label for="number">Nº do Cartão</label>
