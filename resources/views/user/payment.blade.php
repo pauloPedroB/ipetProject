@@ -7,9 +7,11 @@
     <div id="payment">
 
         <section class="content-payment">
-            <p style="font-size: 2rem; color: #1db844; font-weight: bold">Assinatura Mensal: R$ 49,99</p>
 
             <div class="card-premium">
+                <p style="font-size: 2rem;margin-bottom: 2rem; color: #1db844; font-weight: bold">Mensais de R$ 49,99
+                </p>
+
                 <img class="img-premium" src="/img/premium.png" alt="">
                 <h2>Premium</h2>
                 <p>Seus produtos terão prioridade na divulgação!</p>
