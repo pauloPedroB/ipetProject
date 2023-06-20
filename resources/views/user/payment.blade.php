@@ -15,11 +15,9 @@
                 <img class="img-premium" src="/img/premium.png" alt="">
                 <h2>Premium</h2>
                 <p>Seus produtos terão prioridade na divulgação!</p>
-
-                <hr>
-
                 <p>Anual = R$ 499,00 - 16,5% de desconto</p>
             </div>
+            <hr>
             <div class="payment-dados">
                 <form action="/premium">
                     <div class="card-dados">
