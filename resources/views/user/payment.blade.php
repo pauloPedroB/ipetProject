@@ -5,9 +5,10 @@
 {{-- container --}}
 <div class=" container" style="background-color: #ffff">
     <div id="payment">
-        <p style="font-size: 2.5rem; color: #1db844; font-weight: bold">Assinatura Mensal: R$ 49,99</p>
 
         <section class="content-payment">
+            <p style="font-size: 2rem; color: #1db844; font-weight: bold">Assinatura Mensal: R$ 49,99</p>
+
             <div class="card-premium">
                 <img class="img-premium" src="/img/premium.png" alt="">
                 <h2>Premium</h2>
